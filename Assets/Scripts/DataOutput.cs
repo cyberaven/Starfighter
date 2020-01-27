@@ -20,8 +20,8 @@ public class DataOutput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        roundSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<playerScript>().Speed, 2); // скорость полета
-        rotSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<playerScript>().Rotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
+        roundSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<playerScript>().shipSpeed, 2); // скорость полета
+        rotSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<playerScript>().shipRotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
         pointsText.text = "Speed: " + roundSpeed.ToString() + "\n" + "Rotation: " + rotSpeed.ToString(); // вывод в UI
     }
 }
