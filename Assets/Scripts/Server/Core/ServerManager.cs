@@ -9,13 +9,13 @@ namespace Server.Core
 {
     public class ServerManager
     {
-        public static List<UdpSocket> sockets;
+        public static List<ClientListener> connectedClients;
 
         private static ServerManager _instance;
 
         private ServerManager()
         {
-            sockets = new List<UdpSocket>();
+            connectedClients = new List<ClientListener>();
         }
 
         public static ServerManager GetInstance()
@@ -33,10 +33,10 @@ namespace Server.Core
             switch (res.PackageType)
             {
                 case PackageType.ConnectPackage:
-                    //init new user
                     //check for LoginPassword (decline if incorrect)
                     //check for already connection (decline if yes)
                     //create new async ClientListener for it
+                    //init new user
                     break;
                 case PackageType.DisconnectPackage:
                 case PackageType.AcceptPackage:
@@ -46,13 +46,6 @@ namespace Server.Core
                     // отдать куда-то на обработку?
                     break;
             }
-        }
-
-        private UdpSocket CreateNewListener(IPEndPoint endpoint)
-        {
-            var socket = new UdpSocket(endpoint);
-            sockets.Add(socket);
-            return socket;
         }
 
         public void BroadcastSending(IPackage pack)

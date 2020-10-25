@@ -3,6 +3,7 @@ using UnityEngine;
 using Server.Utils.Enums;
 using Server.Interfaces;
 using Server.PackageData;
+using System.Net;
 
 namespace Server.Packages
 {
@@ -11,6 +12,20 @@ namespace Server.Packages
     {
         public PackageType PackageType => PackageType.ConnectPackage;
 
-        public object Data => Data as ConnectData;
+        public object Data
+        {
+            get => Data as ConnectData; 
+            private set => Data = value;
+        }
+
+        public IPEndPoint IpEndPoint { get; set; }
+
+
+        public ConnectPackage(ConnectData data)
+        {
+            Data = data;
+        }
+
+
     }
 }

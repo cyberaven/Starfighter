@@ -1,6 +1,7 @@
 ﻿using Server.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -35,24 +36,30 @@ namespace Server.Core
             _endPoint = null;
         }
 
+        
         public async Task SendPackageAsync(IPackage pack)
         {
             var serializer = new BinaryFormatter();
-            _udpClient.Client.Bind(_endPoint);
-            var stream = new NetworkStream(_udpClient.Client);
+            var stream = new MemoryStream();
             serializer.Serialize(stream, pack);
+            var data = stream.GetBuffer();
             stream.Close();
+
+            var sendedBytesCount =  await _udpClient.SendAsync(data, data.Length, _endPoint);
+            //maybe some check for all bytes sended
         }
 
         public async Task<IPackage> RecievePackageAsync()
         {
             var serializer = new BinaryFormatter();
-            var stream = new NetworkStream(_udpClient.Client);
-            //Any async inside of deser? Does deser include awaiting?
-            // возможно кстати нет, потому что может оно просто берет уже имеющийся буфер, который пуст до момента получения данных
-            // тогда надо отдельно ждать и получать. Тогда Будет возможность получить и записать IPEndpoint
-            var pack = (IPackage)serializer.Deserialize(stream); //отсюда надо вытащить IPEndPoint
+            var result = await _udpClient.ReceiveAsync();
+            var stream = new MemoryStream(result.Buffer);
+
+            var pack = (IPackage)serializer.Deserialize(stream);
+            pack.IpEndPoint = result.RemoteEndPoint;
+
             stream.Close();
+
             return pack;
         }
 

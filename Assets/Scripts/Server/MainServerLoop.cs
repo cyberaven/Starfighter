@@ -16,7 +16,7 @@ namespace Server
         {
             servManager = ServerManager.GetInstance();
             //Config init
-            //Вероятно намудрил чего-то не того. Надо разобраться.
+            //TODO: Вероятно намудрил чего-то не того.
             var thread = new Thread(
                 new ThreadStart(async () => { await servManager.WaitForConnectionAsync(new UdpSocket()); } ));
             thread.Start();

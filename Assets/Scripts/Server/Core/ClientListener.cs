@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Net;
+using Server.Interfaces;
 
 namespace Server.Core {
 
@@ -8,7 +8,7 @@ namespace Server.Core {
     {
         private UdpSocket _udpSocket;
 
-        public ClientListener(IPEndPoint endpoint)
+        public ClientListener(IPEndPoint endpoint, IPackage pack)
         {
             _udpSocket = new UdpSocket(endpoint);
         }
