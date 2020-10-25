@@ -7,10 +7,10 @@ using Server.PackageData;
 namespace Server.Packages
 {
     [Serializable]
-    public class EventPackage : IPackage
+    public class ConnectPackage : IPackage
     {
-        public PackageType PackageType => PackageType.EventPackage;
+        public PackageType PackageType => PackageType.ConnectPackage;
 
-        public object Data => Data as EventData;
+        public object Data => Data as ConnectData;
     }
 }

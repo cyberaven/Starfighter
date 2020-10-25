@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 
 
-namespace Server.Packages
+namespace Server.PackageData
 {
     [Serializable]
     public class EventData
