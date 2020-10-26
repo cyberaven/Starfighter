@@ -10,7 +10,7 @@
     public enum UnitState
     {
         InFlight,
-        IsMoored,
+        IsDocked,
         IsDead,
     }
 

@@ -63,5 +63,10 @@ namespace Server.Core
             return pack;
         }
 
+        public IPEndPoint GetEndPoint()
+        {
+            return _endPoint;
+        }
+
     }
 }

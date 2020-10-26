@@ -2,34 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using Server.Interfaces;
+using Server.Packages;
+using Server.PackageData;
+using UnityEngine.Events;
+using Core;
 
 namespace Server.Core
 {
-
-    public class EventBus : ScriptableObject //?
+    public class EventBus : Singleton<EventBus>
     {
-        private List<IPackageHandler> _packageHandlers;
-
-        private static EventBus _instance;
-
-        private EventBus()
-        {
-            _packageHandlers = new List<IPackageHandler>();
-        }
-
-        public static EventBus GetInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = new EventBus();
-            }
-            return _instance;
-        }
-
-
-        void Update()
-        {
-
-        }
+        public StatePackageEvent updateWorldState = new StatePackageEvent();
+        public PackageEvent newPackageRecieved = new PackageEvent();
+        public PackageEvent sendBroadcast = new PackageEvent();
     }
 }
