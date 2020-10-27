@@ -24,6 +24,7 @@ namespace Server.Core
             EventBus.Instance.sendBroadcast.AddListener(BroadcastSendingAsync);
         }
 
+        //used only for first connection. Can be reduce
         public async Task WaitForConnectionAsync(UdpSocket waiter)
         {
             var res =  await waiter.RecievePackageAsync();
