@@ -11,8 +11,7 @@ using Server.Interfaces;
 
 namespace Server
 {
-    [CreateAssetMenu(fileName = "Server", menuName = "Server", order = 0)]
-    public class MainServerLoop : ScriptableObject
+    public class MainServerLoop : MonoBehaviour
     {
         [SerializeField]
         private ServerManager servManager;
