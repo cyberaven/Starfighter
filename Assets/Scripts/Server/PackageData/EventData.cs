@@ -9,5 +9,7 @@ namespace Server.PackageData
     public class EventData
     {
         //TODO: Event data
+        Guid EventId;
+
     }
 }

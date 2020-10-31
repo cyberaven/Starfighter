@@ -28,6 +28,10 @@ namespace Server
             eventBus = EventBus.Instance;
             //Config init
 
+            //Events binding
+            EventBus.Instance.sendDecline.AddListener(ServerResponse.SendDecline);
+            EventBus.Instance.sendAccept.AddListener(ServerResponse.SendAccept);
+
             //TODO: Вероятно намудрил чего-то не того.
             servManager.connectedClients.Add(new ClientListener(null, null));
 
@@ -46,6 +50,12 @@ namespace Server
         StatePackage GetWorldStatePackage()
         {
             return null;
+        }
+
+        private void OnDestroy()
+        {
+            servManager.Dispose();
+            eventBus.Dispose();
         }
     }
 

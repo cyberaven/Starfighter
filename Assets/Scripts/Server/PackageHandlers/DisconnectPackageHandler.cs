@@ -8,21 +8,23 @@ using System.Threading.Tasks;
 namespace Server.PackageHandlers
 {
 
-    public class ConnectPackageHandler : IPackageHandler
+    public class DisconnectPackageHandler : IPackageHandler
     {
         //TODO: Как подписать на событие? Сделать статическим и подписать не тут? Сделать динамическим и реализовать конструктор?
 
         public async Task Handle(IPackage pack)
         {
-            //check for LoginPassword (decline if incorrect)
-            //check for already connection (decline if yes)
             if(ServerManager.Instance.connectedClients.First(client => client.GetEndPoint() == pack.IpEndPoint))
             {
+                ServerManager.Instance.connectedClients.RemoveAll(client => client.GetEndPoint() == pack.IpEndPoint);
+                EventBus.Instance.sendAccept.Invoke(pack);
+                //delete all GO attached to this IPEndpoint
+            }
+            else
+            {
+                //There is no such client to Disconnect;
                 EventBus.Instance.sendDecline.Invoke(pack);
             }
-            //create new async ClientListener for it
-
-            //init new user
         }
     }
 }

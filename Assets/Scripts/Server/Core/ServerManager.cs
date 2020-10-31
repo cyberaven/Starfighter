@@ -6,6 +6,7 @@ using Server.Utils.Enums;
 using System.Threading.Tasks;
 using System.Linq;
 using Core;
+using System;
 
 /// <summary>
 /// ServerManager занимается управлением ClientListener'ов.
@@ -14,7 +15,7 @@ using Core;
 /// </summary>
 namespace Server.Core
 {
-    public class ServerManager : Singleton<ServerManager>
+    public class ServerManager : Singleton<ServerManager>, IDisposable
     {
         public List<ClientListener> connectedClients;
 
@@ -28,22 +29,7 @@ namespace Server.Core
         public async Task WaitForConnectionAsync(UdpSocket waiter)
         {
             var res =  await waiter.RecievePackageAsync();
-            switch (res.PackageType)
-            {
-                case PackageType.ConnectPackage:
-                    //check for LoginPassword (decline if incorrect)
-                    //check for already connection (decline if yes)
-                    //create new async ClientListener for it
-                    //init new user
-                    break;
-                case PackageType.DisconnectPackage:
-                case PackageType.AcceptPackage:
-                case PackageType.DeclinePackage:
-                case PackageType.EventPackage:
-                case PackageType.StatePackage:
-                    // отдать куда-то на обработку?
-                    break;
-            }
+            EventBus.Instance.newPackageRecieved.Invoke(res);
         }
 
         public async void BroadcastSendingAsync(IPackage pack)
@@ -56,6 +42,11 @@ namespace Server.Core
                 tasks.Append(Task.Run(()=> udp.SendPackageAsync(pack)));
             }
             await Task.WhenAll(tasks);
+        }
+
+        public void Dispose()
+        {
+            connectedClients.ForEach(client => client.Dispose());
         }
     }
 }

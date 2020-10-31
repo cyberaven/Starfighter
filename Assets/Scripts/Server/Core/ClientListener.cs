@@ -3,6 +3,7 @@ using System.Net;
 using Server.Interfaces;
 using Server.Packages;
 using System.Threading.Tasks;
+using System;
 
 namespace Server.Core
 {
@@ -11,7 +12,7 @@ namespace Server.Core
     /// Подписан на событие updateWorldState - отправляет состояние мира своему клиенту
     /// При получении пакета от клиента - передает его на обработку вызовом события newPackageRecieved
     /// </summary>
-    public class ClientListener : ScriptableObject
+    public class ClientListener : ScriptableObject, IDisposable
     {
         [SerializeField]
         private UdpSocket _udpSocket;
@@ -19,11 +20,12 @@ namespace Server.Core
         [SerializeField]
         private Task _listening;
 
+
         public ClientListener(IPEndPoint endpoint, IPackage pack)
         {
             _udpSocket = new UdpSocket(endpoint);
             _listening = new Task(() => ListenClient());
-
+            _listening.Start();
             EventBus.Instance.updateWorldState.AddListener(SendWorldState);
         }
 
@@ -45,13 +47,18 @@ namespace Server.Core
 
         void FixedUpdate()
         {
-            Debug.Log("ClientListener fixedUpdate");
+            Debug.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
             if (_listening == null) return;
 
             if(_listening.IsCompleted)
             {
                 _listening.Start();
             }
+        }
+
+        public void Dispose()
+        {
+            EventBus.Instance.updateWorldState.RemoveListener(SendWorldState);
         }
     }
 }

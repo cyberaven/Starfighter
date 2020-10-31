@@ -18,11 +18,11 @@ using UnityEngine;
 
 namespace Server.Core
 {
-
     public class UdpSocket
     {
         private UdpClient _udpClient;
         private IPEndPoint _endPoint;
+
 
         public UdpSocket(IPEndPoint endpoint)
         {
@@ -35,9 +35,8 @@ namespace Server.Core
             _udpClient = new UdpClient();
             _endPoint = null;
         }
-
         
-        public async Task SendPackageAsync(IPackage pack)
+        public async Task<bool> SendPackageAsync(IPackage pack)
         {
             var serializer = new BinaryFormatter();
             var stream = new MemoryStream();
@@ -46,7 +45,9 @@ namespace Server.Core
             stream.Close();
 
             var sendedBytesCount =  await _udpClient.SendAsync(data, data.Length, _endPoint);
+
             //maybe some check for all bytes sended
+            return true; 
         }
 
         public async Task<IPackage> RecievePackageAsync()
@@ -67,6 +68,5 @@ namespace Server.Core
         {
             return _endPoint;
         }
-
     }
 }
