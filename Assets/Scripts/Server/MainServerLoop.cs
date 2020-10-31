@@ -11,18 +11,18 @@ using Server.Interfaces;
 
 namespace Server
 {
-
+    [CreateAssetMenu(fileName = "Server", menuName = "Server", order = 0)]
     public class MainServerLoop : ScriptableObject
     {
-        public ServerManager servManager;
-        public EventBus eventBus;
-
-        public static List<IPackageHandler> _packageHandlers = new List<IPackageHandler>(); //вероятно не нужен
+        [SerializeField]
+        private ServerManager servManager;
+        [SerializeField]
+        private EventBus eventBus;
 
         public static List<IPackage> _packagesToHandle = new List<IPackage>();
 
-        // Use this for initialization
-        void Start()
+
+        private void Awake()
         {
             servManager = ServerManager.Instance;
             eventBus = EventBus.Instance;
@@ -31,14 +31,17 @@ namespace Server
             //Events binding
             EventBus.Instance.sendDecline.AddListener(ServerResponse.SendDecline);
             EventBus.Instance.sendAccept.AddListener(ServerResponse.SendAccept);
+        }
 
+        // Use this for initialization
+        void Start()
+        {
             //TODO: Вероятно намудрил чего-то не того.
             servManager.connectedClients.Add(new ClientListener(null, null));
 
             var thread = new Thread(
                 new ThreadStart(async () => { await servManager.WaitForConnectionAsync(new UdpSocket()); } ));
             thread.Start();
-            
         }
 
         void FixedUpdate()
