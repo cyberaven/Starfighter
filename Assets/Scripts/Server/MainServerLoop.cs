@@ -36,7 +36,7 @@ namespace Server
         void Start()
         {
             //TODO: Вероятно намудрил чего-то не того.
-            servManager.connectedClients.Add(new ClientListener(null, null));
+            //servManager.connectedClients.Add(new ClientListener(null, null));
 
             var thread = new Thread(
                 new ThreadStart(async () => { await servManager.WaitForConnectionAsync(new UdpSocket()); } ));
@@ -45,7 +45,7 @@ namespace Server
 
         void FixedUpdate()
         {
-            //SendBroadcast WorldState
+            //Send WorldState to every client
             eventBus.updateWorldState.Invoke(GetWorldStatePackage());
         }
 

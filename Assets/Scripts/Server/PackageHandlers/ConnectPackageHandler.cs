@@ -21,8 +21,9 @@ namespace Server.PackageHandlers
                 EventBus.Instance.sendDecline.Invoke(pack);
             }
             //create new async ClientListener for it
-
+            ServerManager.Instance.connectedClients.Add(new ClientListener(pack.IpEndPoint, pack));
             //init new user
+            //send World State to him
         }
     }
 }
