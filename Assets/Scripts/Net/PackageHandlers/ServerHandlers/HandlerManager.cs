@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Threading.Tasks;
+using Core;
 using Net.Core;
 using Net.Interfaces;
 using Net.PackageHandlers;
@@ -8,14 +9,14 @@ using Net.Utils;
 
 namespace Net.PackageHandlers
 {
-    public class HandlerManager : ScriptableObject
+    public class HandlerManager: Singleton<HandlerManager>
     {
         public static IPackageHandler ConnectHandler;
         public static IPackageHandler DisconnectHandler;
         public static IPackageHandler EventHandler;
         public static IPackageHandler StateHandler;
 
-        public void Awake()
+        public HandlerManager()
         {
             ConnectHandler = new ConnectPackageHandler();
             DisconnectHandler = new DisconnectPackageHandler();
@@ -25,7 +26,7 @@ namespace Net.PackageHandlers
             EventBus.Instance.newPackageRecieved.AddListener(HandlePackage);
         }
 
-        public static async void HandlePackage(IPackage pack)
+        public async void HandlePackage(IPackage pack)
         {
             switch (pack.PackageType)
             {

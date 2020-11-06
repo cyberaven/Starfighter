@@ -47,7 +47,7 @@ namespace Net.Core
             return true; 
         }
 
-        public async Task<IPackage> RecievePackageAsync()
+        public async Task<IPackage> ReceivePackageAsync()
         {
             var serializer = new BinaryFormatter();
             var result = await _udpClient.ReceiveAsync();

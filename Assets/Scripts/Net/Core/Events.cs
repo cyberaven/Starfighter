@@ -9,7 +9,9 @@ namespace Net.Core
     public class ConnectPackageEvent : UnityEvent<ConnectPackage> { }
     public class EventPackageEvent : UnityEvent<EventPackage> { }
     public class StatePackageEvent : UnityEvent<StatePackage> { }
-
+    public class AcceptPackageEvent : UnityEvent<AcceptPackage> { }
+    public class DeclinePackageEvent : UnityEvent<DeclinePackage> { }
+    
     public class StateDataEvent : UnityEvent<StateData> { }
     public class EventDataEvent : UnityEvent<EventData> { }
     public class ConnectDataEvent : UnityEvent<ConnectData> { }

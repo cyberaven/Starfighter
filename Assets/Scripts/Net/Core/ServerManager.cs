@@ -25,7 +25,7 @@ namespace Net.Core
         //used only for first connection. Can be reduce
         public async Task WaitForConnectionAsync(UdpSocket waiter)
         {
-            var res =  await waiter.RecievePackageAsync();
+            var res =  await waiter.ReceivePackageAsync();
             EventBus.Instance.newPackageRecieved.Invoke(res);
         }
 

@@ -8,8 +8,8 @@ namespace UnitBehavior
         public DangerZoneConfig config;
         public Sprite sprite;
 
-        private RectTransform transform;
-        private SpriteRenderer renderer;
+        private RectTransform _transform;
+        private SpriteRenderer _renderer;
 
         void Start()
         {
@@ -32,24 +32,24 @@ namespace UnitBehavior
 
         void Awake()
         {
-            renderer = GetComponent<SpriteRenderer>();
-            transform = GetComponent<RectTransform>();
+            _renderer = GetComponent<SpriteRenderer>();
+            _transform = GetComponent<RectTransform>();
 
-            renderer.color = config.Color;
-            renderer.sprite = Instantiate(sprite);
+            _renderer.color = config.Color;
+            _renderer.sprite = Instantiate(sprite);
 
-            transform.position = config.Center;
-            transform.localScale = Vector3.one * config.Radius;
-            transform.rotation = Quaternion.AngleAxis(90, Vector3.right);
+            _transform.position = config.Center;
+            _transform.localScale = Vector3.one * config.Radius;
+            _transform.rotation = Quaternion.AngleAxis(90, Vector3.right);
 
         }
 
         // Лучше через события конечно менять (только при изменении значения проверять), но я пока не смог. Нужны триггеры какие-то.
         void Update()
         {
-            renderer.color = config.Color;
-            transform.position = config.Center;
-            transform.localScale = Vector3.one * config.Radius;
+            _renderer.color = config.Color;
+            _transform.position = config.Center;
+            _transform.localScale = Vector3.one * config.Radius;
         }
     }
 }

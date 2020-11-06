@@ -2,25 +2,31 @@
 using System.Threading;
 using Net.Core;
 using Net.Interfaces;
+using Net.PackageHandlers;
 using Net.Packages;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Net
 {
     public class MainServerLoop : MonoBehaviour
     {
         [SerializeField]
-        private ServerManager servManager;
+        private ServerManager _servManager;
         [SerializeField]
         private EventBus eventBus;
+        [SerializeField]
+        private HandlerManager _handlerManager;
+
 
         public static List<IPackage> _packagesToHandle = new List<IPackage>();
 
 
         private void Awake()
         {
-            servManager = ServerManager.Instance;
+            _servManager = ServerManager.Instance;
             eventBus = EventBus.Instance;
+            _handlerManager = HandlerManager.Instance;
             //Config init
             
             //Events binding
@@ -29,23 +35,22 @@ namespace Net
         }
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             //TODO: Вероятно намудрил чего-то не того.
             //servManager.connectedClients.Add(new ClientListener(null, null));
 
-            var thread = new Thread(
-                new ThreadStart(async () => { await servManager.WaitForConnectionAsync(new UdpSocket()); } ));
+            var thread = new Thread(async () => { await _servManager.WaitForConnectionAsync(new UdpSocket()); });
             thread.Start();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             //Send WorldState to every client
             eventBus.updateWorldState.Invoke(GetWorldStatePackage());
         }
 
-        StatePackage GetWorldStatePackage()
+        private StatePackage GetWorldStatePackage()
         {
             Debug.Log("TO DO: MainServerLoop.GetWorldStatePackage");
             return null;
@@ -53,7 +58,7 @@ namespace Net
 
         private void OnDestroy()
         {
-            servManager.Dispose();
+            _servManager.Dispose();
             eventBus.Dispose();
         }
     }

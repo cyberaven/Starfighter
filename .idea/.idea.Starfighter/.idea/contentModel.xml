@@ -96,6 +96,7 @@
           <e p="laserScript.cs" t="Include" />
           <e p="movement.txt" t="Include" />
           <e p="Net" t="Include">
+            <e p="ClientBehavior.cs" t="Include" />
             <e p="Core" t="Include">
               <e p="ClientListener.cs" t="Include" />
               <e p="EventBus.cs" t="Include" />
@@ -115,11 +116,13 @@
               <e p="StateData.cs" t="Include" />
             </e>
             <e p="PackageHandlers" t="Include">
-              <e p="ConnectPackageHandler.cs" t="Include" />
-              <e p="DisconnectPackageHandler.cs" t="Include" />
-              <e p="EventPackageHandler.cs" t="Include" />
-              <e p="HandlerManager.cs" t="Include" />
-              <e p="StatePackageHandler.cs" t="Include" />
+              <e p="ServerHandlers" t="Include">
+                <e p="ConnectPackageHandler.cs" t="Include" />
+                <e p="DisconnectPackageHandler.cs" t="Include" />
+                <e p="EventPackageHandler.cs" t="Include" />
+                <e p="HandlerManager.cs" t="Include" />
+                <e p="StatePackageHandler.cs" t="Include" />
+              </e>
             </e>
             <e p="Packages" t="Include">
               <e p="AcceptPackage.cs" t="Include" />

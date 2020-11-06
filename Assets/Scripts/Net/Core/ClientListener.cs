@@ -41,7 +41,7 @@ namespace Net.Core
 
         private async void ListenClient()
         {
-            var package = await _udpSocket.RecievePackageAsync();
+            var package = await _udpSocket.ReceivePackageAsync();
             EventBus.Instance.newPackageRecieved.Invoke(package);
         }
 
