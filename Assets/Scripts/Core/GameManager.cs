@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Core;
-using Enums;
-using Config;
+using ScriptableObjects;
 
 namespace Core
 {

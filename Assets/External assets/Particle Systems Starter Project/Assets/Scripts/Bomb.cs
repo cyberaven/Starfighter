@@ -29,28 +29,29 @@
  */
 
 using UnityEngine;
-using System.Collections;
-using System;
 
-public class Bomb : MonoBehaviour
+namespace External_assets.Particle_Systems_Starter_Project.Assets.Scripts
 {
-    public GameObject explosionParticlesPrefab;
-
-    // Use this for initialization
-    void Start ()
+    public class Bomb : MonoBehaviour
     {
+        public GameObject explosionParticlesPrefab;
 
-    }
-        
-    public void OnCollisionEnter (Collision collision)
-    {
-        if (explosionParticlesPrefab)
+        // Use this for initialization
+        void Start ()
         {
-            GameObject explosion = (GameObject)Instantiate (explosionParticlesPrefab, transform.position, explosionParticlesPrefab.transform.rotation);
-            Destroy (explosion, explosion.GetComponent<ParticleSystem> ().main.startLifetimeMultiplier);
+
+        }
+        
+        public void OnCollisionEnter (Collision collision)
+        {
+            if (explosionParticlesPrefab)
+            {
+                GameObject explosion = (GameObject)Instantiate (explosionParticlesPrefab, transform.position, explosionParticlesPrefab.transform.rotation);
+                Destroy (explosion, explosion.GetComponent<ParticleSystem> ().main.startLifetimeMultiplier);
+            }
+
+            Destroy (gameObject);
         }
 
-        Destroy (gameObject);
     }
-
 }

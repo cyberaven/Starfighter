@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Server/PackageData/ConnectData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Server/MainServerLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Server/PackageHandlers/ConnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Server/PackageHandlers/DisconnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/UdpSocket.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/ConnectData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/StateData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ConnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/DisconnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/EventPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/HandlerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/StatePackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/AcceptPackage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/ConnectPackage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/DeclinePackage.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jsov79gTBeS4NOmAPhjreF7M8L" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="" />
+      <created>1604602388365</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604602388365</updated>
+      <workItem from="1604602395673" duration="5013000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

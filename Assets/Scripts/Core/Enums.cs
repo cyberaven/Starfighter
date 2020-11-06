@@ -1,4 +1,4 @@
-﻿namespace Enums
+﻿namespace Core
 {
 
     public enum UserType

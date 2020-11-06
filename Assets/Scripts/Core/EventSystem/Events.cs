@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 
-namespace Core
+namespace Core.EventSystem
 {
     public class StringEvent : UnityEvent<string>
     {
