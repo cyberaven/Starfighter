@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Core;
 using Net.Interfaces;
+using UnityEngine;
 
 /// <summary>
 /// ServerManager занимается управлением ClientListener'ов.
@@ -12,30 +14,39 @@ using Net.Interfaces;
 /// </summary>
 namespace Net.Core
 {
-    public class ServerManager : Singleton<ServerManager>, IDisposable
+    public class ServerManager : IDisposable
     {
-        public List<ClientListener> connectedClients;
+        private static ServerManager _instance = new ServerManager();
+        
+        public List<ClientListener> ConnectedClients;
 
         private ServerManager()
         {
-            connectedClients = new List<ClientListener>();
-            EventBus.Instance.sendBroadcast.AddListener(BroadcastSendingAsync);
+            ConnectedClients = new List<ClientListener>();
+            EventBus.getInstance().sendBroadcast.AddListener(BroadcastSendingAsync);
         }
 
+        public static ServerManager getInstance()
+        {
+            return _instance;
+        }
+        
         //used only for first connection. Can be reduce
         public async Task WaitForConnectionAsync(UdpSocket waiter)
         {
+            Debug.Log($"waiting connection from anyone: {waiter.GetAddress()}:{Constants.ServerReceivingPort}");
             var res =  await waiter.ReceivePackageAsync();
-            EventBus.Instance.newPackageRecieved.Invoke(res);
+            Debug.Log($"received package");
+            EventBus.getInstance().newPackageRecieved.Invoke(res);
         }
 
         public async void BroadcastSendingAsync(IPackage pack)
         {
-            var endPoints = connectedClients.Select(client => client.GetEndPoint()).ToList();
-            var tasks = new Task[endPoints.Count];
-            foreach (var endPoint in endPoints)
+            var ipAddresses = ConnectedClients.Select(client => client.GetIpAddress()).ToList();
+            var tasks = new Task[ipAddresses.Count];
+            foreach (var ipAddress in ipAddresses)
             {
-                var udp = new UdpSocket(endPoint);
+                var udp = new UdpSocket(new IPEndPoint(ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort);
                 tasks.Append(Task.Run(()=> udp.SendPackageAsync(pack)));
             }
             await Task.WhenAll(tasks);
@@ -43,7 +54,7 @@ namespace Net.Core
 
         public void Dispose()
         {
-            connectedClients.ForEach(client => client.Dispose());
+            ConnectedClients.ForEach(client => client.Dispose());
         }
     }
 }

@@ -3,21 +3,26 @@ using System.Net;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Utils;
+using UnityEngine;
 
 namespace Net.Packages
 {
     [Serializable]
     public class ConnectPackage : IPackage
     {
+        [SerializeField]
+        private object data;
+        
+        [SerializeField]
         public PackageType PackageType => PackageType.ConnectPackage;
 
         public object Data
         {
-            get => Data as ConnectData; 
-            private set => Data = value;
+            get => data as ConnectData; 
+            private set => data = value;
         }
 
-        public IPEndPoint IpEndPoint { get; set; }
+        public IPAddress ipAddress { get; set; }
 
 
         public ConnectPackage(ConnectData data)

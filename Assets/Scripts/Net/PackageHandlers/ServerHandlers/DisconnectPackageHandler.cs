@@ -10,16 +10,16 @@ namespace Net.PackageHandlers
     {
         public async Task Handle(IPackage pack)
         {
-            if(ServerManager.Instance.connectedClients.First(client => Equals(client.GetEndPoint(), pack.IpEndPoint)))
+            if(ServerManager.getInstance().ConnectedClients.First(client => Equals(client.GetIpAddress(), pack.ipAddress)))
             {
-                ServerManager.Instance.connectedClients.RemoveAll(client => Equals(client.GetEndPoint(), pack.IpEndPoint));
-                EventBus.Instance.sendAccept.Invoke(pack);
+                ServerManager.getInstance().ConnectedClients.RemoveAll(client => Equals(client.GetIpAddress(), pack.ipAddress));
+                EventBus.getInstance().sendAccept.Invoke(pack);
                 //TODO:delete all GO attached to this IPEndpoint
             }
             else
             {
                 //There is no such client to Disconnect;
-                EventBus.Instance.sendDecline.Invoke(pack);
+                EventBus.getInstance().sendDecline.Invoke(pack);
             }
         }
     }

@@ -17,17 +17,17 @@ namespace Net
         public AccountType accType;
         public string login;
         public string password;
-        public IPEndPoint serverEndPoint;
-        
+        public IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Loopback, Constants.ClientSendingPort);
+
         private UdpSocket _udpSocket;
         private Task _listening;
         private HandlerManager _handlerManager; //TODO: client handler manager should be here
         
         private void Awake()
         {
-            _udpSocket = new UdpSocket(serverEndPoint);
+            _udpSocket = new UdpSocket(serverEndPoint, Constants.ClientReceivingPort);
             _listening = new Task(ListenServer);
-            _handlerManager = HandlerManager.Instance;
+            _handlerManager = HandlerManager.getInstance();
         }
 
         private void Start()
@@ -39,8 +39,11 @@ namespace Net
             
             var thread = new Thread(async () =>
             {
+                
                 await _udpSocket.SendPackageAsync(new ConnectPackage(connectData));
+                Debug.unityLogger.Log($"connection package sent");
                 var result = await _udpSocket.ReceivePackageAsync();
+                Debug.unityLogger.Log($"response package received: {result.PackageType}");
                 if (result.PackageType == PackageType.AcceptPackage)
                 {
                     _listening.Start();
@@ -51,7 +54,7 @@ namespace Net
                 }
                 //TODO: Reaction to others packs?
             });
-            
+            Debug.unityLogger.Log("thread start");
             thread.Start();
         }
 
@@ -62,7 +65,7 @@ namespace Net
 
         private void FixedUpdate()
         {
-            Debug.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
+            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Task status - {_listening.Status}");
             if (_listening == null) return;
 
             if(_listening.IsCompleted)
@@ -74,7 +77,7 @@ namespace Net
         private async void ListenServer()
         {
             var package = await _udpSocket.ReceivePackageAsync();
-            EventBus.Instance.newPackageRecieved.Invoke(package);
+            EventBus.getInstance().newPackageRecieved.Invoke(package);
         }
         
     }

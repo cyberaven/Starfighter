@@ -5,7 +5,7 @@ namespace Net.Interfaces
 {
     public interface IPackage
     {
-        IPEndPoint IpEndPoint { get; set; }
+        IPAddress ipAddress { get; set; } //откуда пришел пакет\ обратный адрес
         PackageType PackageType { get; }
         object Data { get; }
     }

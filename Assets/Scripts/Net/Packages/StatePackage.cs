@@ -3,21 +3,26 @@ using System.Net;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Utils;
+using UnityEngine;
 
 namespace Net.Packages
 {
     [Serializable]
     public class StatePackage : IPackage
     {
+        [SerializeField]
+        private object data;
+        
+        [SerializeField]
         public PackageType PackageType => PackageType.EventPackage;
 
         public object Data
         {
-            get => Data as StateData;
-            private set => Data = value;
+            get => data as StateData;
+            private set => data = value;
         }
 
-        public IPEndPoint IpEndPoint { get; set; }
+        public IPAddress ipAddress { get; set; }
 
 
         public StatePackage(StateData data)

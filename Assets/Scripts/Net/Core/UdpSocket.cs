@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using UnityEngine;
 
 /// <summary>
 /// Recieve server port - 5000
@@ -17,53 +18,82 @@ namespace Net.Core
 {
     public class UdpSocket
     {
-        private UdpClient _udpClient;
-        private IPEndPoint _endPoint;
+        private readonly IPEndPoint _endPoint;
+        private readonly int _receivingPort;
 
-
-        public UdpSocket(IPEndPoint endpoint)
+        public UdpSocket(IPEndPoint endpoint, int receivingPort)
         {
-            _udpClient = new UdpClient();
             _endPoint = endpoint;
+            _receivingPort = receivingPort;
         }
 
         public UdpSocket()
         {
-            _udpClient = new UdpClient();
             _endPoint = null;
         }
         
         public async Task<bool> SendPackageAsync(IPackage pack)
         {
-            var serializer = new BinaryFormatter();
-            var stream = new MemoryStream();
-            serializer.Serialize(stream, pack);
-            var data = stream.GetBuffer();
-            stream.Close();
-
-            var sendedBytesCount =  await _udpClient.SendAsync(data, data.Length, _endPoint);
-
-            //maybe some check for all bytes sended
-            return true; 
+            try
+            {
+                using (var udpClient = new UdpClient(_endPoint))
+                {
+                    udpClient.Connect(_endPoint);
+                    var serializer = new BinaryFormatter();
+                    var stream = new MemoryStream();
+                    serializer.Serialize(stream, pack);
+                    var data = stream.GetBuffer();
+                    stream.Close();
+                    Debug.unityLogger.Log("Before sending package");
+                    var sendedBytesCount = await udpClient.SendAsync(data, data.Length);
+                    Debug.unityLogger.Log(
+                        $"{_endPoint.Address.MapToIPv4()}:{_endPoint.Port} sent package. Sent {sendedBytesCount} of {data.Length}");
+                    //maybe some check for all bytes sended
+                    return true;
+                }
+            }
+            catch (SocketException ex)
+            {
+                Debug.unityLogger.LogException(ex);
+                return false;
+            }
         }
 
         public async Task<IPackage> ReceivePackageAsync()
         {
-            var serializer = new BinaryFormatter();
-            var result = await _udpClient.ReceiveAsync();
-            var stream = new MemoryStream(result.Buffer);
+            try
+            {
+                using (var udpClient = new UdpClient(_receivingPort))
+                {
+                    udpClient.Connect(IPAddress.Loopback, _receivingPort);
+                    var serializer = new BinaryFormatter();
+                    Debug.unityLogger.Log($" waiting package from {_receivingPort}");
+                    var result = await udpClient.ReceiveAsync();
+                    var stream = new MemoryStream(result.Buffer);
 
-            var pack = (IPackage)serializer.Deserialize(stream);
-            pack.IpEndPoint = result.RemoteEndPoint;
+                    var pack = (IPackage) serializer.Deserialize(stream);
+                    pack.ipAddress = result.RemoteEndPoint.Address;
 
-            stream.Close();
+                    stream.Close();
 
-            return pack;
+                    return pack;
+                }
+            }
+            catch (SocketException ex)
+            {
+                Debug.unityLogger.LogException(ex);
+                return null;
+            }
         }
 
-        public IPEndPoint GetEndPoint()
+        public IPAddress GetAddress()
         {
-            return _endPoint;
+            return _endPoint.Address;
+        }
+
+        public int GetListeningPort()
+        {
+            return _receivingPort;
         }
     }
 }

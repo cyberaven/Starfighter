@@ -21,19 +21,24 @@ namespace Net.Core
         private Task _listening;
 
 
-        public ClientListener(IPEndPoint endpoint, IPackage pack)
+        public ClientListener(IPEndPoint endpoint, int listeningPort, IPackage pack)
         {
-            _udpSocket = new UdpSocket(endpoint);
+            _udpSocket = new UdpSocket(endpoint, listeningPort);
             _listening = new Task(() => ListenClient());
             _listening.Start();
-            EventBus.Instance.updateWorldState.AddListener(SendWorldState);
+            EventBus.getInstance().updateWorldState.AddListener(SendWorldState);
         }
 
-        public IPEndPoint GetEndPoint()
+        public IPAddress GetIpAddress()
         {
-            return _udpSocket.GetEndPoint();
+            return _udpSocket.GetAddress();
         }
 
+        public int GetListeningPort()
+        {
+            return _udpSocket.GetListeningPort();
+        }
+        
         private async void SendWorldState(StatePackage worldState)
         {
             await _udpSocket.SendPackageAsync(worldState);
@@ -42,7 +47,7 @@ namespace Net.Core
         private async void ListenClient()
         {
             var package = await _udpSocket.ReceivePackageAsync();
-            EventBus.Instance.newPackageRecieved.Invoke(package);
+            EventBus.getInstance().newPackageRecieved.Invoke(package);
         }
 
         void FixedUpdate()
@@ -58,7 +63,7 @@ namespace Net.Core
 
         public void Dispose()
         {
-            EventBus.Instance.updateWorldState.RemoveListener(SendWorldState);
+            EventBus.getInstance().updateWorldState.RemoveListener(SendWorldState);
         }
     }
 }

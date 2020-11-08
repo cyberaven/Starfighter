@@ -12,7 +12,7 @@ namespace Net.Packages
 
         public object Data => null;
 
-        public IPEndPoint IpEndPoint { get; set; }
+        public IPAddress ipAddress { get; set; }
 
 
         public AcceptPackage()

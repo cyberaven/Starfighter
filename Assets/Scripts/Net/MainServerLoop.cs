@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using Net.Core;
 using Net.Interfaces;
@@ -20,18 +21,17 @@ namespace Net
 
 
         public static List<IPackage> _packagesToHandle = new List<IPackage>();
-
-
+        
         private void Awake()
         {
-            _servManager = ServerManager.Instance;
-            eventBus = EventBus.Instance;
-            _handlerManager = HandlerManager.Instance;
+            eventBus = EventBus.getInstance();
+            _servManager = ServerManager.getInstance();
+            _handlerManager = HandlerManager.getInstance();
             //Config init
             
             //Events binding
-            EventBus.Instance.sendDecline.AddListener(ServerResponse.SendDecline);
-            EventBus.Instance.sendAccept.AddListener(ServerResponse.SendAccept);
+            EventBus.getInstance().sendDecline.AddListener(ServerResponse.SendDecline);
+            EventBus.getInstance().sendAccept.AddListener(ServerResponse.SendAccept);
         }
 
         // Use this for initialization
@@ -40,7 +40,11 @@ namespace Net
             //TODO: Вероятно намудрил чего-то не того.
             //servManager.connectedClients.Add(new ClientListener(null, null));
 
-            var thread = new Thread(async () => { await _servManager.WaitForConnectionAsync(new UdpSocket()); });
+            var thread = new Thread(async () =>
+            {
+                await _servManager.WaitForConnectionAsync(
+                    new UdpSocket(new IPEndPoint(IPAddress.Loopback, Constants.ServerSendingPort), Constants.ServerReceivingPort));
+            });
             thread.Start();
         }
 
@@ -52,6 +56,7 @@ namespace Net
 
         private StatePackage GetWorldStatePackage()
         {
+            //TODO: Get World state package
             Debug.Log("TO DO: MainServerLoop.GetWorldStatePackage");
             return null;
         }

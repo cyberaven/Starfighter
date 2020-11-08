@@ -88,7 +88,6 @@
               <e p="GameEventListener.cs" t="Include" />
             </e>
             <e p="GameManager.cs" t="Include" />
-            <e p="Singleton.cs" t="Include" />
           </e>
           <e p="DataOutput.cs" t="Include" />
           <e p="DestroyBoundary.cs" t="Include" />
@@ -99,6 +98,7 @@
             <e p="ClientBehavior.cs" t="Include" />
             <e p="Core" t="Include">
               <e p="ClientListener.cs" t="Include" />
+              <e p="Constants.cs" t="Include" />
               <e p="EventBus.cs" t="Include" />
               <e p="Events.cs" t="Include" />
               <e p="ServerManager.cs" t="Include" />
@@ -131,6 +131,7 @@
               <e p="EventPackage.cs" t="Include" />
               <e p="StatePackage.cs" t="Include" />
             </e>
+            <e p="TestingConnection.cs" t="Include" />
             <e p="Utils" t="Include">
               <e p="AccountTypes.cs" t="Include" />
               <e p="PackageTypes.cs" t="Include" />

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 using System.Threading.Tasks;
 using Core;
@@ -9,23 +10,30 @@ using Net.Utils;
 
 namespace Net.PackageHandlers
 {
-    public class HandlerManager: Singleton<HandlerManager>
+    public class HandlerManager: IDisposable
     {
+        private static HandlerManager Instance = new HandlerManager();
+        
         public static IPackageHandler ConnectHandler;
         public static IPackageHandler DisconnectHandler;
         public static IPackageHandler EventHandler;
         public static IPackageHandler StateHandler;
 
-        public HandlerManager()
+        private HandlerManager()
         {
             ConnectHandler = new ConnectPackageHandler();
             DisconnectHandler = new DisconnectPackageHandler();
             EventHandler = new EventPackageHandler();
             StateHandler = new StatePackageHandler();
 
-            EventBus.Instance.newPackageRecieved.AddListener(HandlePackage);
+            EventBus.getInstance().newPackageRecieved.AddListener(HandlePackage);
         }
 
+        public static HandlerManager getInstance()
+        {
+            return Instance;
+        }
+        
         public async void HandlePackage(IPackage pack)
         {
             switch (pack.PackageType)
@@ -47,6 +55,11 @@ namespace Net.PackageHandlers
                     //TODO: Предполагается, что этих пакетов не будет прилетать на сервер.
                     break;
             }
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }
