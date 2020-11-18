@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading;
 using Net.Core;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.PackageHandlers;
 using Net.Packages;
 using UnityEngine;
@@ -37,9 +38,6 @@ namespace Net
         // Use this for initialization
         private void Start()
         {
-            //TODO: Вероятно намудрил чего-то не того.
-            //servManager.connectedClients.Add(new ClientListener(null, null));
-
             var thread = new Thread(async () =>
             {
                 await _servManager.WaitForConnectionAsync(
@@ -50,6 +48,8 @@ namespace Net
 
         private void FixedUpdate()
         {
+            ServerManager.getInstance().ConnectedClients.ForEach(client=>client.Update());
+            Debug.unityLogger.Log($"Clients count: {ServerManager.getInstance().ConnectedClients.Count}");
             //Send WorldState to every client
             eventBus.updateWorldState.Invoke(GetWorldStatePackage());
         }
@@ -58,7 +58,7 @@ namespace Net
         {
             //TODO: Get World state package
             Debug.Log("TO DO: MainServerLoop.GetWorldStatePackage");
-            return null;
+            return new StatePackage(new StateData());
         }
 
         private void OnDestroy()

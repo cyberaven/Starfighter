@@ -12,7 +12,7 @@ namespace Net.Core
     /// Подписан на событие updateWorldState - отправляет состояние мира своему клиенту
     /// При получении пакета от клиента - передает его на обработку вызовом события newPackageRecieved
     /// </summary>
-    public class ClientListener : ScriptableObject, IDisposable
+    public class ClientListener: IDisposable
     {
         [SerializeField]
         private UdpSocket _udpSocket;
@@ -50,12 +50,13 @@ namespace Net.Core
             EventBus.getInstance().newPackageRecieved.Invoke(package);
         }
 
-        void FixedUpdate()
+        public void Update()
         {
             Debug.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
             if (_listening == null) return;
 
-            if(_listening.IsCompleted)
+            if(_listening.Status != TaskStatus.RanToCompletion &&
+               _listening.Status != TaskStatus.Running)
             {
                 _listening.Start();
             }

@@ -68,7 +68,8 @@ namespace Net
             Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Task status - {_listening.Status}");
             if (_listening == null) return;
 
-            if(_listening.IsCompleted)
+            if(_listening.Status != TaskStatus.RanToCompletion &&
+               _listening.Status != TaskStatus.Running)
             {
                 _listening.Start();
             }

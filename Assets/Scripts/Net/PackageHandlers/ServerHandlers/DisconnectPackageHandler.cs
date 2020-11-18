@@ -10,7 +10,7 @@ namespace Net.PackageHandlers
     {
         public async Task Handle(IPackage pack)
         {
-            if(ServerManager.getInstance().ConnectedClients.First(client => Equals(client.GetIpAddress(), pack.ipAddress)))
+            if(ServerManager.getInstance().ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
             {
                 ServerManager.getInstance().ConnectedClients.RemoveAll(client => Equals(client.GetIpAddress(), pack.ipAddress));
                 EventBus.getInstance().sendAccept.Invoke(pack);

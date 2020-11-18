@@ -36,6 +36,7 @@ namespace Net.PackageHandlers
         
         public async void HandlePackage(IPackage pack)
         {
+            Debug.unityLogger.Log($"Gonna handle some packs! {pack.PackageType}");
             switch (pack.PackageType)
             {
                 case PackageType.ConnectPackage:

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -36,16 +37,15 @@ namespace Net.Core
         {
             try
             {
-                using (var udpClient = new UdpClient(_endPoint))
+                using (var udpClient = new UdpClient())
                 {
-                    udpClient.Connect(_endPoint);
                     var serializer = new BinaryFormatter();
                     var stream = new MemoryStream();
                     serializer.Serialize(stream, pack);
                     var data = stream.GetBuffer();
                     stream.Close();
                     Debug.unityLogger.Log("Before sending package");
-                    var sendedBytesCount = await udpClient.SendAsync(data, data.Length);
+                    var sendedBytesCount = await udpClient.SendAsync(data, data.Length, _endPoint.Address.ToString(), _endPoint.Port);
                     Debug.unityLogger.Log(
                         $"{_endPoint.Address.MapToIPv4()}:{_endPoint.Port} sent package. Sent {sendedBytesCount} of {data.Length}");
                     //maybe some check for all bytes sended
@@ -53,6 +53,11 @@ namespace Net.Core
                 }
             }
             catch (SocketException ex)
+            {
+                Debug.unityLogger.LogException(ex);
+                return false;
+            }
+            catch (Exception ex)
             {
                 Debug.unityLogger.LogException(ex);
                 return false;
@@ -65,7 +70,6 @@ namespace Net.Core
             {
                 using (var udpClient = new UdpClient(_receivingPort))
                 {
-                    udpClient.Connect(IPAddress.Loopback, _receivingPort);
                     var serializer = new BinaryFormatter();
                     Debug.unityLogger.Log($" waiting package from {_receivingPort}");
                     var result = await udpClient.ReceiveAsync();
@@ -80,6 +84,11 @@ namespace Net.Core
                 }
             }
             catch (SocketException ex)
+            {
+                Debug.unityLogger.LogException(ex);
+                return null;
+            }
+            catch (Exception ex)
             {
                 Debug.unityLogger.LogException(ex);
                 return null;
