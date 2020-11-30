@@ -60,7 +60,7 @@ namespace Net
 
         private void Update()
         {
-            
+            Dispatcher.Instance.InvokePending();
         }
 
         private void FixedUpdate()
@@ -77,7 +77,7 @@ namespace Net
                 _listening = Task.Run(ListenServer);
             }
             
-            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            // _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         
         private async Task<StatePackage> GetWorldStatePackage()
