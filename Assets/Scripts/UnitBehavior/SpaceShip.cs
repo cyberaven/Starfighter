@@ -1,5 +1,4 @@
-﻿using Enums;
-using UnityEngine;
+﻿using Core;
 
 
 namespace UnitBehavior { 

@@ -1,9 +1,7 @@
-using UnityEngine;
 using System;
-using Core;
-using UnityEngine.Events;
+using UnityEngine;
 
-namespace Config
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "DangerZoneConfig", menuName = "Configs/DangerZoneConfig", order = 0)]
     [Serializable]

@@ -28,33 +28,36 @@
  * THE SOFTWARE.
  */
 
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-public class BombEmitter : MonoBehaviour
+namespace External_assets.Particle_Systems_Starter_Project.Assets.Scripts
 {
-    public GameObject bombPrefab;
-
-    // Use this for initialization
-    void Start ()
+    public class BombEmitter : MonoBehaviour
     {
-        StartCoroutine (DropBombs ());
-    }
+        public GameObject bombPrefab;
 
-    IEnumerator DropBombs ()
-    {
-        while (Application.isPlaying)
+        // Use this for initialization
+        void Start ()
         {
-            CreateBomb ();
-            yield return new WaitForSeconds (2);
+            StartCoroutine (DropBombs ());
         }
-    }
 
-    void CreateBomb ()
-    {
-        if (bombPrefab != null)
+        IEnumerator DropBombs ()
         {
-            Instantiate (bombPrefab, transform.position, bombPrefab.transform.rotation);
+            while (Application.isPlaying)
+            {
+                CreateBomb ();
+                yield return new WaitForSeconds (2);
+            }
+        }
+
+        void CreateBomb ()
+        {
+            if (bombPrefab != null)
+            {
+                Instantiate (bombPrefab, transform.position, bombPrefab.transform.rotation);
+            }
         }
     }
 }
