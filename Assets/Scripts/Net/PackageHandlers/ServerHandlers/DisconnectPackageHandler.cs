@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Net.Core;
 using Net.Interfaces;
 
-namespace Net.PackageHandlers
+namespace Net.PackageHandlers.ServerHandlers
 {
 
     public class DisconnectPackageHandler : IPackageHandler

@@ -4,42 +4,42 @@ using Net.Interfaces;
 using Net.Utils;
 using UnityEngine;
 
-namespace Net.PackageHandlers.ServerHandlers
+namespace Net.PackageHandlers.ClientHandlers
 {
-    public class HandlerManager: IDisposable
+    public class ClientHandlerManager: IDisposable
     {
-        private static HandlerManager Instance = new HandlerManager();
+        private static ClientHandlerManager Instance = new ClientHandlerManager();
         
-        public static IPackageHandler ConnectHandler;
-        public static IPackageHandler DisconnectHandler;
+        public static IPackageHandler AcceptHandler;
+        public static IPackageHandler DeclineHandler;
         public static IPackageHandler EventHandler;
         public static IPackageHandler StateHandler;
 
-        private HandlerManager()
+        private ClientHandlerManager()
         {
-            ConnectHandler = new ConnectPackageHandler();
-            DisconnectHandler = new DisconnectPackageHandler();
+            AcceptHandler = new AcceptPackageHandler();
+            DeclineHandler = new DeclinePackageHandler();
             EventHandler = new EventPackageHandler();
             StateHandler = new StatePackageHandler();
 
             EventBus.getInstance().newPackageRecieved.AddListener(HandlePackage);
         }
 
-        public static HandlerManager getInstance()
+        public static ClientHandlerManager getInstance()
         {
             return Instance;
         }
         
         public async void HandlePackage(IPackage pack)
         {
-            Debug.unityLogger.Log($"Server Gonna handle some packs! {pack.PackageType}");
+            Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.PackageType}");
             switch (pack.PackageType)
             {
-                case PackageType.ConnectPackage:
-                    await ConnectHandler.Handle(pack);
+                case PackageType.AcceptPackage:
+                    await AcceptHandler.Handle(pack);
                     break;
-                case PackageType.DisconnectPackage:
-                    await DisconnectHandler.Handle(pack);
+                case PackageType.DeclinePackage:
+                    await DeclineHandler.Handle(pack);
                     break;
                 case PackageType.EventPackage:
                     await EventHandler.Handle(pack);
@@ -47,9 +47,9 @@ namespace Net.PackageHandlers.ServerHandlers
                 case PackageType.StatePackage:
                     await StateHandler.Handle(pack);
                     break;
-                case PackageType.AcceptPackage:
-                case PackageType.DeclinePackage:
-                    //Предполагается, что этих пакетов не будет прилетать на сервер.
+                case PackageType.ConnectPackage:
+                case PackageType.DisconnectPackage:
+                    //Предполагается, что этих пакетов не будет прилетать на клиент.
                     break;
             }
         }

@@ -52,7 +52,7 @@ namespace Net.Core
 
         public void Update()
         {
-            Debug.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
+            Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
             if (_listening == null) return;
 
             if(_listening.Status != TaskStatus.RanToCompletion &&

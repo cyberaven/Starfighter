@@ -14,7 +14,7 @@ namespace Net.Packages
         private object data;
         
         [SerializeField]
-        public PackageType PackageType => PackageType.EventPackage;
+        public PackageType PackageType => PackageType.StatePackage;
 
         public object Data
         {

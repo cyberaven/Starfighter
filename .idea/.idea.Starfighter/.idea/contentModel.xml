@@ -116,6 +116,13 @@
               <e p="StateData.cs" t="Include" />
             </e>
             <e p="PackageHandlers" t="Include">
+              <e p="ClientHandlers" t="Include">
+                <e p="AcceptPackageHandler.cs" t="Include" />
+                <e p="ClientHandlerManager.cs" t="Include" />
+                <e p="DeclinePackageHandler.cs" t="Include" />
+                <e p="EventPackageHandler.cs" t="Include" />
+                <e p="StatePackageHandler.cs" t="Include" />
+              </e>
               <e p="ServerHandlers" t="Include">
                 <e p="ConnectPackageHandler.cs" t="Include" />
                 <e p="DisconnectPackageHandler.cs" t="Include" />
@@ -131,10 +138,10 @@
               <e p="EventPackage.cs" t="Include" />
               <e p="StatePackage.cs" t="Include" />
             </e>
-            <e p="TestingConnection.cs" t="Include" />
             <e p="Utils" t="Include">
               <e p="AccountTypes.cs" t="Include" />
               <e p="PackageTypes.cs" t="Include" />
+              <e p="SerializationSurrogates.cs" t="Include" />
             </e>
           </e>
           <e p="playerScript.cs" t="Include" />

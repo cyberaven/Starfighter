@@ -6,7 +6,7 @@ using Net.Core;
 using Net.Interfaces;
 using UnityEngine;
 
-namespace Net.PackageHandlers
+namespace Net.PackageHandlers.ServerHandlers
 {
 
     public class ConnectPackageHandler : IPackageHandler
@@ -31,7 +31,6 @@ namespace Net.PackageHandlers
                 ServerManager.getInstance().ConnectedClients.Add(new ClientListener(
                     new IPEndPoint(pack.ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort, pack));
                 //TODO:init new user
-                //TODO:send World State to him. Should I?
                 EventBus.getInstance().sendAccept.Invoke(pack);
             }
             catch (Exception ex)

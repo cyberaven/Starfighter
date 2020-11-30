@@ -2,9 +2,13 @@
 {
     public class Constants
     {
-        public static int ServerReceivingPort = 5001;
-        public static int ClientReceivingPort = 5000;
-        public static int ServerSendingPort = 5000;
-        public static int ClientSendingPort = 5001;
+        public const int ServerReceivingPort = 5001;
+        public const int ClientReceivingPort = 5000;
+        public const int ServerSendingPort = 5000;
+        public const int ClientSendingPort = 5001;
+
+        public const string PathToPrefabs = "Prefabs/";
+
+        public const string DynamicTag = "Dynamic";
     }
 }

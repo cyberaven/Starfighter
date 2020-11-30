@@ -1,14 +1,13 @@
-﻿using System;
+﻿using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Net.Core;
 using Net.PackageData;
-using Net.PackageHandlers;
+using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Net
 {
@@ -21,38 +20,39 @@ namespace Net
 
         private UdpSocket _udpSocket;
         private Task _listening;
-        private HandlerManager _handlerManager; //TODO: client handler manager should be here
+        private ClientHandlerManager _handlerManager; //client handler manager should be here
+        private EventBus _eventBus;
         
         private void Awake()
         {
             _udpSocket = new UdpSocket(serverEndPoint, Constants.ClientReceivingPort);
-            _listening = new Task(ListenServer);
-            _handlerManager = HandlerManager.getInstance();
+            
+            _handlerManager = ClientHandlerManager.getInstance();
+            _eventBus = EventBus.getInstance();
         }
 
         private void Start()
         {
             var connectData = new ConnectData()
             {
-                Login = login, Password = password, AccountType = accType
+                login = login, password = password, accountType = accType
             };
             
             var thread = new Thread(async () =>
             {
-                
+                _eventBus.updateWorldState.AddListener(SendWorldState);
                 await _udpSocket.SendPackageAsync(new ConnectPackage(connectData));
                 Debug.unityLogger.Log($"connection package sent");
                 var result = await _udpSocket.ReceivePackageAsync();
                 Debug.unityLogger.Log($"response package received: {result.PackageType}");
                 if (result.PackageType == PackageType.AcceptPackage)
                 {
-                    _listening.Start();
+                    _listening = Task.Run(ListenServer);
                 }
                 else if (result.PackageType == PackageType.DeclinePackage)
                 {
                     //TODO: Return to login screen
                 }
-                //TODO: Reaction to others packs?
             });
             Debug.unityLogger.Log("thread start");
             thread.Start();
@@ -65,21 +65,48 @@ namespace Net
 
         private void FixedUpdate()
         {
-            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Task status - {_listening.Status}");
+            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Task status - {_listening?.Status}");
             if (_listening == null) return;
 
-            if(_listening.Status != TaskStatus.RanToCompletion &&
-               _listening.Status != TaskStatus.Running)
+            if(_listening != null 
+               && (_listening.Status == TaskStatus.RanToCompletion
+                   || _listening.Status == TaskStatus.Canceled
+                   || _listening.Status == TaskStatus.Faulted)
+               )
             {
-                _listening.Start();
+                _listening = Task.Run(ListenServer);
             }
+            
+            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+        }
+        
+        private async Task<StatePackage> GetWorldStatePackage()
+        {
+            //TODO: Get World state package
+            Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
+            var gameObjects = GameObject.FindGameObjectsWithTag("Dynamic");
+            var worldData = new StateData()
+            {
+                worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
+            };
+            return new StatePackage(worldData);
         }
         
         private async void ListenServer()
         {
             var package = await _udpSocket.ReceivePackageAsync();
-            EventBus.getInstance().newPackageRecieved.Invoke(package);
+            _eventBus.newPackageRecieved.Invoke(package);
         }
         
+        private async void SendWorldState(StatePackage worldState)
+        {
+            await _udpSocket.SendPackageAsync(worldState);
+        }
+        
+        private void OnDestroy()
+        {
+            _handlerManager.Dispose();
+            _eventBus.Dispose();
+        }
     }
 }

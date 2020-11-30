@@ -6,7 +6,6 @@ namespace Net.PackageData
     public class EventData
     {
         //TODO: Event data
-        Guid EventId;
-
+        public Guid eventId;
     }
 }

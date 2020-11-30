@@ -2,9 +2,11 @@
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using Net.Utils;
 using UnityEngine;
 
 /// <summary>
@@ -39,7 +41,16 @@ namespace Net.Core
             {
                 using (var udpClient = new UdpClient())
                 {
-                    var serializer = new BinaryFormatter();
+                    var selector = new SurrogateSelector();
+                    selector.AddSurrogate(
+                        typeof(Vector3),
+                        new StreamingContext(StreamingContextStates.All), 
+                        new Vector3SerializationSurrogate());
+                    selector.AddSurrogate(
+                        typeof(Quaternion),
+                        new StreamingContext(StreamingContextStates.All), 
+                        new QuaternionSerializationSurrogate());
+                    var serializer = new BinaryFormatter {SurrogateSelector = selector};
                     var stream = new MemoryStream();
                     serializer.Serialize(stream, pack);
                     var data = stream.GetBuffer();
@@ -54,7 +65,8 @@ namespace Net.Core
             }
             catch (SocketException ex)
             {
-                Debug.unityLogger.LogException(ex);
+                Debug.unityLogger.LogWarning("Sending", ex);
+                // Debug.unityLogger.LogException(ex);
                 return false;
             }
             catch (Exception ex)
@@ -70,7 +82,16 @@ namespace Net.Core
             {
                 using (var udpClient = new UdpClient(_receivingPort))
                 {
-                    var serializer = new BinaryFormatter();
+                    var selector = new SurrogateSelector();
+                    selector.AddSurrogate(
+                        typeof(Vector3),
+                        new StreamingContext(StreamingContextStates.All), 
+                        new Vector3SerializationSurrogate());
+                    selector.AddSurrogate(
+                        typeof(Quaternion),
+                        new StreamingContext(StreamingContextStates.All), 
+                        new QuaternionSerializationSurrogate());
+                    var serializer = new BinaryFormatter {SurrogateSelector = selector};
                     Debug.unityLogger.Log($" waiting package from {_receivingPort}");
                     var result = await udpClient.ReceiveAsync();
                     var stream = new MemoryStream(result.Buffer);
@@ -85,7 +106,8 @@ namespace Net.Core
             }
             catch (SocketException ex)
             {
-                Debug.unityLogger.LogException(ex);
+                Debug.unityLogger.LogWarning("Receiving", ex);
+                // Debug.unityLogger.LogException(ex);
                 return null;
             }
             catch (Exception ex)

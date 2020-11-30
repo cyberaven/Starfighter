@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Net.Interfaces;
 
-namespace Net.PackageHandlers.ServerHandlers
+namespace Net.PackageHandlers.ClientHandlers
 {
     public class EventPackageHandler : IPackageHandler
     {
