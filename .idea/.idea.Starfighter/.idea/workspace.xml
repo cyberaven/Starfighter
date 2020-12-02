@@ -63,16 +63,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/A278EBD4-4AB0-472B-B8E6-38263E06CD61/72/5c0cfde2/0200030B.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D9FC116-8096-494E-B57C-E240D3E836DC/86/301a1063/IMoveHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/52/b7d0c412/Resources.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Server/PackageData/ConnectData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Server/MainServerLoop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Server/PackageHandlers/ConnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Server/PackageHandlers/DisconnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ConnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/DisconnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/EventPackageHandler.cs" />
@@ -94,7 +90,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/DeclinePackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/EventPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/EventPackageHandler.cs" />
@@ -116,6 +111,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/IMovementAdaptor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/EnginesState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/playerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/movement.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/Events.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/IMovementAdapter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/ShipMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/playerScript.cs" />
       </list>
     </option>
   </component>
@@ -169,7 +173,8 @@
       <workItem from="1604602395673" duration="5013000" />
       <workItem from="1604865000983" duration="10943000" />
       <workItem from="1605714327001" duration="44353000" />
-      <workItem from="1606765563658" duration="4230000" />
+      <workItem from="1606765563658" duration="8739000" />
+      <workItem from="1606898826121" duration="3502000" />
     </task>
     <servers />
   </component>
@@ -206,10 +211,10 @@
     </state>
     <state x="201" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1604871429533" />
     <state x="2381" y="165" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604695140133" />
-    <state x="-1505" y="150" width="672" height="453" key="search.everywhere.popup" timestamp="1606755138068">
+    <state x="-1505" y="150" width="672" height="453" key="search.everywhere.popup" timestamp="1606899302582">
       <screen x="-1920" y="0" width="1280" height="693" />
     </state>
-    <state x="-1505" y="150" width="672" height="453" key="search.everywhere.popup/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1606755138068" />
+    <state x="-1505" y="150" width="672" height="453" key="search.everywhere.popup/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1606899302582" />
     <state x="415" y="147" width="672" height="444" key="search.everywhere.popup/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1604875759420" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604695144319" />
   </component>

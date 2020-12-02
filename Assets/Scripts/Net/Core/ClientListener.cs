@@ -14,18 +14,15 @@ namespace Net.Core
     /// </summary>
     public class ClientListener: IDisposable
     {
-        [SerializeField]
         private UdpSocket _udpSocket;
-
-        [SerializeField]
+        
         private Task _listening;
 
 
         public ClientListener(IPEndPoint endpoint, int listeningPort, IPackage pack)
         {
             _udpSocket = new UdpSocket(endpoint, listeningPort);
-            _listening = new Task(() => ListenClient());
-            _listening.Start();
+            _listening = Task.Run(ListenClient);
             EventBus.getInstance().updateWorldState.AddListener(SendWorldState);
         }
 
@@ -39,6 +36,21 @@ namespace Net.Core
             return _udpSocket.GetListeningPort();
         }
         
+        public void Update()
+        {
+            Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening?.Status}");
+            if (_listening == null) return;
+
+            if(_listening != null 
+               && (_listening.Status == TaskStatus.RanToCompletion
+                   || _listening.Status == TaskStatus.Canceled
+                   || _listening.Status == TaskStatus.Faulted)
+            )
+            {
+                _listening = Task.Run(ListenClient);
+            }
+        }
+        
         private async void SendWorldState(StatePackage worldState)
         {
             await _udpSocket.SendPackageAsync(worldState);
@@ -48,18 +60,6 @@ namespace Net.Core
         {
             var package = await _udpSocket.ReceivePackageAsync();
             EventBus.getInstance().newPackageRecieved.Invoke(package);
-        }
-
-        public void Update()
-        {
-            Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
-            if (_listening == null) return;
-
-            if(_listening.Status != TaskStatus.RanToCompletion &&
-               _listening.Status != TaskStatus.Running)
-            {
-                _listening.Start();
-            }
         }
 
         public void Dispose()
