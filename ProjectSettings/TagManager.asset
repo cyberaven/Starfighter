@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - NaviUI
+  - Dynamic
   layers:
   - Default
   - TransparentFX

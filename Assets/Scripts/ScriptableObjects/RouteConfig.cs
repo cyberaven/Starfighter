@@ -1,8 +1,8 @@
-using UnityEngine;
 using System;
-using Enums;
+using Core;
+using UnityEngine;
 
-namespace Config
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "RouteConfig", menuName = "Configs/RouteConfig", order = 0)]
     [Serializable]
