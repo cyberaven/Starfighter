@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class playerScript : MonoBehaviour
 {  
@@ -11,8 +13,7 @@ public class playerScript : MonoBehaviour
     public GameObject thursts, TopLeftManeur, TopRightManeur, BotLeftManeur, BotRightManeur;
     public float shipAngle;
     public Vector3 ThurstForceVector, ManeurForceVector;
-    movementAdapter shipsBrain;
-
+        // Start is called before the first frame update
     void Start()
     {
         // всякое говно при создании объекта
@@ -33,7 +34,6 @@ public class playerScript : MonoBehaviour
         TLM = TopLeftManeur.GetComponent<Rigidbody>();
         BRM = BotRightManeur.GetComponent<Rigidbody>();
         BLM = BotLeftManeur.GetComponent<Rigidbody>();
-        shipsBrain = new playerControl();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -51,27 +51,39 @@ public class playerScript : MonoBehaviour
         ThurstForce.force = ((ThurstForceVector/ThurstForceVector.magnitude)*ThurstSpeed)+((ManeurForceVector/ManeurForceVector.magnitude)*ManeurSpeed);
         ThurstForce.torque = new Vector3(0,shipAngle,0);
         engine.rotation = Quaternion.Euler(ship.transform.eulerAngles); //крутит выхлоп с кораблем
-        var engines = shipsBrain.getMovement();
+        
         // зажигаем и тушим партиклы движков
-        if(engines.Thrust == true)
+        if(Input.GetKey(KeyCode.Space))
         {
             Destroy(Instantiate(thursts,ship.transform.position,engine.rotation), 0.2f);
         }
-        if(engines.topRight == true)
+        if(Input.GetKey(KeyCode.E))
         {
             Destroy(Instantiate(TopRightManeur,ship.transform.position,engine.rotation), 0.2f);
         }
-        if(engines.topLeft == true)
+        if(Input.GetKey(KeyCode.Q))
         {
             Destroy(Instantiate(TopLeftManeur,ship.transform.position,engine.rotation), 0.2f);
         }
-        if(engines.botLeft == true)
+        if(Input.GetKey(KeyCode.W))
+        {
+            Destroy(Instantiate(TopLeftManeur,ship.transform.position,engine.rotation), 0.2f);
+            Destroy(Instantiate(TopRightManeur,ship.transform.position,engine.rotation), 0.2f);
+        }
+        if(Input.GetKey(KeyCode.S))
         {
             Destroy(Instantiate(BotLeftManeur,ship.transform.position,engine.rotation), 0.2f);
+            Destroy(Instantiate(BotRightManeur,ship.transform.position,engine.rotation), 0.2f);
         }
-        if(engines.botRight == true)
+        if(Input.GetKey(KeyCode.A))
+        {
+            Destroy(Instantiate(BotLeftManeur,ship.transform.position,engine.rotation), 0.2f);
+            Destroy(Instantiate(TopLeftManeur,ship.transform.position,engine.rotation), 0.2f);
+        }
+        if(Input.GetKey(KeyCode.D))
         {
             Destroy(Instantiate(BotRightManeur,ship.transform.position,engine.rotation), 0.2f);
+            Destroy(Instantiate(TopRightManeur,ship.transform.position,engine.rotation), 0.2f);
         }
     }
 }

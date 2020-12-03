@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-namespace Core.EventSystem
+namespace Core
 {
     [CreateAssetMenu]
     public class DangerZoneEdit : GameEvent

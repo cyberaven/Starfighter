@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Core.EventSystem
+namespace Core
 {
     [CreateAssetMenu]
     public class GameEvent : ScriptableObject

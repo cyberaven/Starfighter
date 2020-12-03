@@ -1,4 +1,9 @@
-﻿namespace UnitBehavior
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace UnitBehavior
 {
     public class Asteroid : SpaceUnit
     {

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
-
-namespace ScriptableObjects
+using System;
+namespace Config
 {
     [CreateAssetMenu(fileName = "SpaceUnitConfig", menuName = "Configs/SpaceUnitConfig", order = 0)]
     [Serializable]

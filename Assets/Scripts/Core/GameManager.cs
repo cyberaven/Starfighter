@@ -1,21 +1,25 @@
-﻿using UnityEngine;
-using ScriptableObjects;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using Core;
+using Enums;
+using Config;
 
 namespace Core
 {
-    public class GameManager
+    public class GameManager : Singleton<GameManager>
     {
-        private static GameManager Instance = new GameManager();
-        
         [SerializeField]
         private UserType userType;
 
         [SerializeField]
         public KeyConfig keyBinding;
 
-        public static GameManager getInstance()
+        protected override void Awake()
         {
-            return Instance;
+            base.Awake();
         }
         
         void Start()

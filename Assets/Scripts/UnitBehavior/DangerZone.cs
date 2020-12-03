@@ -1,55 +1,54 @@
-﻿using ScriptableObjects;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Config;
 using UnityEngine;
 
-namespace UnitBehavior
+public class DangerZone : MonoBehaviour
 {
-    public class DangerZone : MonoBehaviour
+    public DangerZoneConfig config;
+    public Sprite sprite;
+
+    private RectTransform transform;
+    private SpriteRenderer renderer;
+
+    void Start()
     {
-        public DangerZoneConfig config;
-        public Sprite sprite;
+        //config.ValueChange.AddListener(OnValueChange);
+    }
 
-        private RectTransform _transform;
-        private SpriteRenderer _renderer;
+    //private void OnValueChange(string field)
+    //{
+    //    switch (field)
+    //    {
+    //        case "Center":
+    //            transform.position = config.Center; break;
+    //        case "Radius":
+    //            transform.localScale = Vector3.one * config.Radius; break;
+    //        case "Color":
+    //            renderer.color = config.Color; break;
+    //        default: break;
+    //    }
+    //}
 
-        void Start()
-        {
-            //config.ValueChange.AddListener(OnValueChange);
-        }
+    void Awake()
+    {
+        renderer = GetComponent<SpriteRenderer>();
+        transform = GetComponent<RectTransform>();
 
-        //private void OnValueChange(string field)
-        //{
-        //    switch (field)
-        //    {
-        //        case "Center":
-        //            transform.position = config.Center; break;
-        //        case "Radius":
-        //            transform.localScale = Vector3.one * config.Radius; break;
-        //        case "Color":
-        //            renderer.color = config.Color; break;
-        //        default: break;
-        //    }
-        //}
+        renderer.color = config.Color;
+        renderer.sprite = Instantiate(sprite);
 
-        void Awake()
-        {
-            _renderer = GetComponent<SpriteRenderer>();
-            _transform = GetComponent<RectTransform>();
+        transform.position = config.Center;
+        transform.localScale = Vector3.one * config.Radius;
+        transform.rotation = Quaternion.AngleAxis(90, Vector3.right);
 
-            _renderer.color = config.Color;
-            _renderer.sprite = Instantiate(sprite);
+    }
 
-            _transform.position = config.Center;
-            _transform.localScale = Vector3.one * config.Radius;
-            _transform.rotation = Quaternion.AngleAxis(90, Vector3.right);
-
-        }
-
-        // Лучше через события конечно менять (только при изменении значения проверять), но я пока не смог. Нужны триггеры какие-то.
-        void Update()
-        {
-            _renderer.color = config.Color;
-            _transform.position = config.Center;
-            _transform.localScale = Vector3.one * config.Radius;
-        }
+    // Лучше через события конечно менять (только при изменении значения проверять), но я пока не смог. Нужны триггеры какие-то.
+    void Update()
+    {
+        renderer.color = config.Color;
+        transform.position = config.Center;
+        transform.localScale = Vector3.one * config.Radius;
     }
 }

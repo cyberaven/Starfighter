@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
-namespace Core.EventSystem
+namespace Core
 {
 
     public class GameEventListener : MonoBehaviour
