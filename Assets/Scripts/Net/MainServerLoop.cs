@@ -66,14 +66,7 @@ namespace Net
         
         private void FixedUpdate()
         {
-            try
-            {
-                Dispatcher.Instance.InvokePending();
-            }
-            catch (Exception ex)
-            {
-                Debug.unityLogger.LogException(ex);
-            }
+            Dispatcher.Instance.InvokePending();
         }
 
         private async Task<StatePackage> GetWorldStatePackage()

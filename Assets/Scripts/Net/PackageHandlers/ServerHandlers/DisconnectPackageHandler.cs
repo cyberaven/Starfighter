@@ -21,6 +21,11 @@ namespace Net.PackageHandlers.ServerHandlers
                 //There is no such client to Disconnect;
                 EventBus.GetInstance().sendDecline.Invoke(pack);
             }
+
+            if (ServerManager.GetInstance().ConnectedClients.Count == 0)
+            {
+                
+            }
         }
     }
 }

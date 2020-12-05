@@ -21,18 +21,15 @@ namespace Net.PackageHandlers.ClientHandlers
                 var dispatcherFlagDone = false;
                 Dispatcher.Instance.Invoke(() =>
                 {
-                    Debug.unityLogger.Log($"StateClientHandle:{statePack?.data.worldState.Length}");
                     foreach (var worldObject in statePack.data.worldState)
                     {
-                        GameObject gameObject = null;
-                        Debug.unityLogger.Log($"StateClientHandle:{worldObject.name}");
-
-                        gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                        var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                            .Union(GameObject.FindGameObjectsWithTag(Constants.PlayerTag))
                             .FirstOrDefault(go => go.name == worldObject.name);
-
-                        Debug.unityLogger.Log($"StateClientHandle:{gameObject?.name}");
+                        
                         if (gameObject != null)
                         {
+                            if(gameObject.CompareTag(Constants.PlayerTag)) continue;
                             gameObject.transform.position = worldObject.position;
                             gameObject.transform.rotation = worldObject.rotation;
                             // Vector3.Lerp(gameObject.transform.position, worldObject.position, Time.deltaTime);
@@ -41,9 +38,8 @@ namespace Net.PackageHandlers.ClientHandlers
                         else
                         {
                             var prefabName = worldObject.name.Split('_')[0];
-                            Object goToInstantiate = null;
                             Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + prefabName}");
-                            goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
+                            var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
                             var instance =
                                 Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
                                     GameObject;

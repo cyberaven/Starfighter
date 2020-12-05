@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Net.Core;
 using Net.Interfaces;
@@ -6,6 +7,7 @@ using Net.PackageData;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Net.PackageHandlers.ServerHandlers
 {
@@ -14,33 +16,42 @@ namespace Net.PackageHandlers.ServerHandlers
         public async Task Handle(AbstractPackage pack)
         {
             var statePack = pack as StatePackage;
-            var dispatcherFlagDone = false;
-            Dispatcher.Instance.Invoke(() =>
+            try
             {
-                foreach (var worldObject in statePack.data.worldState)
+                var dispatcherFlagDone = false;
+                Dispatcher.Instance.Invoke(() =>
                 {
-                    var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
-                        .FirstOrDefault(go => go.name == worldObject.name);
-                    if (gameObject != null)
+                    foreach (var worldObject in statePack.data.worldState)
                     {
-                        Vector3.Lerp(gameObject.transform.position, worldObject.position, Time.deltaTime);
-                        Quaternion.RotateTowards(gameObject.transform.rotation, worldObject.rotation, Time.deltaTime);
+                        var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                            .FirstOrDefault(go => go.name == worldObject.name);
+                        
+                        if (gameObject != null)
+                        {
+                            gameObject.transform.position = worldObject.position;
+                            gameObject.transform.rotation = worldObject.rotation;
+                        }
+                        else
+                        {
+                            var prefabName = worldObject.name.Split('_')[0];
+                            var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
+                            var instance =
+                                Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
+                                    GameObject;
+                            instance.name = worldObject.name;
+                            instance.tag = Constants.DynamicTag;
+                        }
                     }
-                    else
-                    {
-                        var prefabName = worldObject.name.Split('_')[0];
-                        var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
-                        var instance =
-                            Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
-                                GameObject;
-                        instance.name = worldObject.name;
-                        instance.tag = Constants.DynamicTag;
-                    }
-                }
-                dispatcherFlagDone = true;
+                    dispatcherFlagDone = true;
+                });
                 while(!dispatcherFlagDone){}
                 dispatcherFlagDone = false;
-            });
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+                return;
+            }
         }
     }
 }

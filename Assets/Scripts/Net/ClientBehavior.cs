@@ -89,7 +89,7 @@ namespace Net
         private async Task<StatePackage> GetWorldStatePackage()
         {
             Debug.unityLogger.Log("ClientBehavior.GetWorldStatePackage");
-            var gameObjects = GameObject.FindGameObjectsWithTag("Player");
+            var gameObjects = GameObject.FindGameObjectsWithTag(Constants.PlayerTag);
             var worldData = new StateData()
             {
                 worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()

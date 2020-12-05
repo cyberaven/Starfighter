@@ -10,5 +10,6 @@
         public const string PathToPrefabs = "Prefabs/";
 
         public const string DynamicTag = "Dynamic";
+        public const string PlayerTag = "Player";
     }
 }
