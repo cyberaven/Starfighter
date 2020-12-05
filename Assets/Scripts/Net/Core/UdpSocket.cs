@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using Net.Packages;
 using Net.Utils;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ namespace Net.Core
             _endPoint = null;
         }
         
-        public async Task<bool> SendPackageAsync(IPackage pack)
+        public async Task<bool> SendPackageAsync(AbstractPackage pack)
         {
             try
             {
@@ -58,7 +59,7 @@ namespace Net.Core
                     Debug.unityLogger.Log("Before sending package");
                     var sendedBytesCount = await udpClient.SendAsync(data, data.Length, _endPoint.Address.ToString(), _endPoint.Port);
                     Debug.unityLogger.Log(
-                        $"{_endPoint.Address.MapToIPv4()}:{_endPoint.Port} sent package. Sent {sendedBytesCount} of {data.Length}");
+                        $"{_endPoint.Address.MapToIPv4()}:{_endPoint.Port} package sent. Sent {sendedBytesCount} of {data.Length}");
                     //maybe some check for all bytes sended
                     return true;
                 }
@@ -76,7 +77,7 @@ namespace Net.Core
             }
         }
 
-        public async Task<IPackage> ReceivePackageAsync()
+        public async Task<AbstractPackage> ReceivePackageAsync()
         {
             try
             {
@@ -96,7 +97,7 @@ namespace Net.Core
                     var result = await udpClient.ReceiveAsync();
                     var stream = new MemoryStream(result.Buffer);
 
-                    var pack = (IPackage) serializer.Deserialize(stream);
+                    var pack = (AbstractPackage) serializer.Deserialize(stream);
                     pack.ipAddress = result.RemoteEndPoint.Address;
 
                     stream.Close();

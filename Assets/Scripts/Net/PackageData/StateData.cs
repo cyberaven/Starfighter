@@ -8,9 +8,8 @@ namespace Net.PackageData
     [Serializable]
     public class StateData
     {
-        //TODO: World state data;
         [SerializeField]
-        public WorldObject[] worldState; //стоит ли так делать? Или какую-то структуру по-легче? Это очень много инфы.
+        public WorldObject[] worldState; //стоит ли так делать? Или какую-то структуру полегче? Это очень много инфы.
     }
 
     [Serializable]

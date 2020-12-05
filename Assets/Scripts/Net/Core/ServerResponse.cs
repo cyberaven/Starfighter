@@ -6,13 +6,13 @@ namespace Net.Core
 {
     public class ServerResponse
     {
-        public static async void SendDecline(IPackage pack)
+        public static async void SendDecline(AbstractPackage pack)
         {
             var socket = new UdpSocket(new IPEndPoint(pack.ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort);
             var result = await socket.SendPackageAsync(new DeclinePackage());
         }
 
-        public static async void SendAccept(IPackage pack)
+        public static async void SendAccept(AbstractPackage pack)
         {
             var socket = new UdpSocket(new IPEndPoint(pack.ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort);
             var result = await socket.SendPackageAsync(new AcceptPackage());

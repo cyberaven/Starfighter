@@ -12,7 +12,7 @@ namespace Net.Core
         public PackageEvent sendDecline = new PackageEvent();
         public PackageEvent sendAccept = new PackageEvent();
 
-        public static EventBus getInstance()
+        public static EventBus GetInstance()
         {
             return Instance;
         }

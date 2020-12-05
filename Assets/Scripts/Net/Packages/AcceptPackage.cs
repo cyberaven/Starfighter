@@ -2,20 +2,15 @@
 using System.Net;
 using Net.Interfaces;
 using Net.Utils;
+using UnityEngine;
 
 namespace Net.Packages
 {
     [Serializable]
-    public class AcceptPackage : IPackage
+    public class AcceptPackage : AbstractPackage
     {
-        public PackageType PackageType => PackageType.AcceptPackage;
-
-        public object Data => null;
-
-        public IPAddress ipAddress { get; set; }
-
-
-        public AcceptPackage()
+        public new object data = null;
+        public AcceptPackage() : base(null, PackageType.AcceptPackage)
         { }
     }
 }

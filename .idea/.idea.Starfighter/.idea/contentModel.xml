@@ -106,12 +106,12 @@
               <e p="UdpSocket.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
-              <e p="IPackage.cs" t="Include" />
               <e p="IPackageHandler.cs" t="Include" />
             </e>
             <e p="MainServerLoop.cs" t="Include" />
             <e p="PackageData" t="Include">
               <e p="ConnectData.cs" t="Include" />
+              <e p="DisconnectData.cs" t="Include" />
               <e p="EventData.cs" t="Include" />
               <e p="StateData.cs" t="Include" />
             </e>
@@ -132,9 +132,11 @@
               </e>
             </e>
             <e p="Packages" t="Include">
+              <e p="AbstractPackage.cs" t="Include" />
               <e p="AcceptPackage.cs" t="Include" />
               <e p="ConnectPackage.cs" t="Include" />
               <e p="DeclinePackage.cs" t="Include" />
+              <e p="DisconnectPackage.cs" t="Include" />
               <e p="EventPackage.cs" t="Include" />
               <e p="StatePackage.cs" t="Include" />
             </e>

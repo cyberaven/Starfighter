@@ -8,27 +8,16 @@ using UnityEngine;
 namespace Net.Packages
 {
     [Serializable]
-    public class ConnectPackage : IPackage
+    public class ConnectPackage : AbstractPackage
     {
-        [SerializeField]
-        private object data;
+        public new ConnectData data
+        {
+            get => base.data as ConnectData; 
+            private set => base.data = value;
+        }
         
-        [SerializeField]
-        public PackageType PackageType => PackageType.ConnectPackage;
-
-        public object Data
-        {
-            get => data as ConnectData; 
-            private set => data = value;
-        }
-
-        public IPAddress ipAddress { get; set; }
-
-
-        public ConnectPackage(ConnectData data)
-        {
-            Data = data;
-        }
+        public ConnectPackage(ConnectData data): base(data, PackageType.ConnectPackage)
+        {  }
 
 
     }

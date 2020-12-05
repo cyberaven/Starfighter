@@ -19,11 +19,11 @@ namespace Net.Core
         private Task _listening;
 
 
-        public ClientListener(IPEndPoint endpoint, int listeningPort, IPackage pack)
+        public ClientListener(IPEndPoint endpoint, int listeningPort)
         {
             _udpSocket = new UdpSocket(endpoint, listeningPort);
             _listening = Task.Run(ListenClient);
-            EventBus.getInstance().updateWorldState.AddListener(SendWorldState);
+            EventBus.GetInstance().updateWorldState.AddListener(SendWorldState);
         }
 
         public IPAddress GetIpAddress()
@@ -59,12 +59,12 @@ namespace Net.Core
         private async void ListenClient()
         {
             var package = await _udpSocket.ReceivePackageAsync();
-            EventBus.getInstance().newPackageRecieved.Invoke(package);
+            EventBus.GetInstance().newPackageRecieved.Invoke(package);
         }
 
         public void Dispose()
         {
-            EventBus.getInstance().updateWorldState.RemoveListener(SendWorldState);
+            EventBus.GetInstance().updateWorldState.RemoveListener(SendWorldState);
         }
     }
 }

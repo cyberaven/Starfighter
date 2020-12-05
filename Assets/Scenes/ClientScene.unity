@@ -235,6 +235,7 @@ MonoBehaviour:
   accType: 0
   login: login
   password: password
+  ipAddress: 127.0.0.1
 --- !u!4 &787796845
 Transform:
   m_ObjectHideFlags: 0
@@ -340,3 +341,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 32.474003, y: -83.549, z: -46.632004}
+--- !u!1001 &9086724874269582110
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.17859477
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.06445739
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5636289
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8039102
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -21.088001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -6.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407430, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 71.189
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086724873691407434, guid: 8a663415911d58b49817cc361f65fa4e,
+        type: 3}
+      propertyPath: m_Name
+      value: Sphere
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a663415911d58b49817cc361f65fa4e, type: 3}

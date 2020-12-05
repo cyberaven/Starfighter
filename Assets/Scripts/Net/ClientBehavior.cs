@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace Net
         public AccountType accType;
         public string login;
         public string password;
-        public IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Loopback, Constants.ClientSendingPort);
+        public string ipAddress;
+        public IPEndPoint serverEndPoint;
 
         private UdpSocket _udpSocket;
         private Task _listening;
@@ -25,10 +27,11 @@ namespace Net
         
         private void Awake()
         {
+            serverEndPoint = new IPEndPoint(IPAddress.Parse(ipAddress), Constants.ClientSendingPort);
             _udpSocket = new UdpSocket(serverEndPoint, Constants.ClientReceivingPort);
             
-            _handlerManager = ClientHandlerManager.getInstance();
-            _eventBus = EventBus.getInstance();
+            _handlerManager = ClientHandlerManager.GetInstance();
+            _eventBus = EventBus.GetInstance();
         }
 
         private void Start()
@@ -38,34 +41,32 @@ namespace Net
                 login = login, password = password, accountType = accType
             };
             
-            var thread = new Thread(async () =>
+            Task.Run(async () =>
             {
+                var x = new ConnectPackage(new ConnectData());
                 _eventBus.updateWorldState.AddListener(SendWorldState);
                 await _udpSocket.SendPackageAsync(new ConnectPackage(connectData));
                 Debug.unityLogger.Log($"connection package sent");
                 var result = await _udpSocket.ReceivePackageAsync();
-                Debug.unityLogger.Log($"response package received: {result.PackageType}");
-                if (result.PackageType == PackageType.AcceptPackage)
+                Debug.unityLogger.Log($"response package received: {result.packageType}");
+                if (result.packageType == PackageType.AcceptPackage)
                 {
+                    Debug.unityLogger.Log("Server accept our connection");
                     _listening = Task.Run(ListenServer);
                 }
-                else if (result.PackageType == PackageType.DeclinePackage)
+                else if (result.packageType == PackageType.DeclinePackage)
                 {
+                    Debug.unityLogger.Log("Server decline our connection");
                     //TODO: Return to login screen
                 }
             });
-            Debug.unityLogger.Log("thread start");
-            thread.Start();
         }
+
+       
 
         private void Update()
         {
-            Dispatcher.Instance.InvokePending();
-        }
-
-        private void FixedUpdate()
-        {
-            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Task status - {_listening?.Status}");
+            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Listening task status - {_listening?.Status}");
             if (_listening == null) return;
 
             if(_listening != null 
@@ -77,14 +78,18 @@ namespace Net
                 _listening = Task.Run(ListenServer);
             }
             
-            // _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         
+        private void FixedUpdate()
+        {
+            Dispatcher.Instance.InvokePending();
+        }
+         
         private async Task<StatePackage> GetWorldStatePackage()
         {
-            //TODO: Get World state package
-            Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
-            var gameObjects = GameObject.FindGameObjectsWithTag("Dynamic");
+            Debug.unityLogger.Log("ClientBehavior.GetWorldStatePackage");
+            var gameObjects = GameObject.FindGameObjectsWithTag("Player");
             var worldData = new StateData()
             {
                 worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
@@ -107,6 +112,16 @@ namespace Net
         {
             _handlerManager.Dispose();
             _eventBus.Dispose();
+        }
+
+        private void OnApplicationQuit()
+        {
+            _udpSocket.SendPackageAsync(new DisconnectPackage(new DisconnectData()
+            {
+                accountType = accType,
+                login = login,
+                password = password,
+            }));
         }
     }
 }

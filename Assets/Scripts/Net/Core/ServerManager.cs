@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using Net.Packages;
 using UnityEngine;
 
 /// <summary>
@@ -22,24 +23,15 @@ namespace Net.Core
         private ServerManager()
         {
             ConnectedClients = new List<ClientListener>();
-            EventBus.getInstance().sendBroadcast.AddListener(BroadcastSendingAsync);
+            EventBus.GetInstance().sendBroadcast.AddListener(BroadcastSendingAsync);
         }
 
-        public static ServerManager getInstance()
+        public static ServerManager GetInstance()
         {
             return _instance;
         }
-        
-        //used only for first connection. Can be reduce
-        public async Task WaitForConnectionAsync(UdpSocket waiter)
-        {
-            Debug.Log($"waiting connection from anyone: {waiter.GetAddress()}:{Constants.ServerReceivingPort}");
-            var res =  await waiter.ReceivePackageAsync();
-            Debug.Log($"received package");
-            EventBus.getInstance().newPackageRecieved.Invoke(res);
-        }
 
-        public async void BroadcastSendingAsync(IPackage pack)
+        public async void BroadcastSendingAsync(AbstractPackage pack)
         {
             var ipAddresses = ConnectedClients.Select(client => client.GetIpAddress()).ToList();
             var tasks = new Task[ipAddresses.Count];

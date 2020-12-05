@@ -13,15 +13,16 @@ namespace Net.PackageHandlers.ClientHandlers
 {
     public class StatePackageHandler : IPackageHandler
     {
-        public async Task Handle(IPackage pack)
+        public async Task Handle(AbstractPackage pack)
         {
+            var statePack = pack as StatePackage;
             try
             {
                 var dispatcherFlagDone = false;
                 Dispatcher.Instance.Invoke(() =>
                 {
-                    Debug.unityLogger.Log($"StateClientHandle:{(pack.Data as StateData).worldState.Length}");
-                    foreach (var worldObject in (pack.Data as StateData).worldState)
+                    Debug.unityLogger.Log($"StateClientHandle:{statePack?.data.worldState.Length}");
+                    foreach (var worldObject in statePack.data.worldState)
                     {
                         GameObject gameObject = null;
                         Debug.unityLogger.Log($"StateClientHandle:{worldObject.name}");

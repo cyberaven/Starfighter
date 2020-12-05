@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -8,6 +9,7 @@ using Net.Interfaces;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
+using Net.Utils;
 using UnityEngine;
 
 namespace Net
@@ -21,43 +23,61 @@ namespace Net
         [SerializeField]
         private HandlerManager _handlerManager;
 
-
-        public static List<IPackage> _packagesToHandle = new List<IPackage>();
-        
         private void Awake()
         {
-            _eventBus = EventBus.getInstance();
-            _servManager = ServerManager.getInstance();
-            _handlerManager = HandlerManager.getInstance();
+            _eventBus = EventBus.GetInstance();
+            _servManager = ServerManager.GetInstance();
+            _handlerManager = HandlerManager.GetInstance();
             //Config init
             
             //Events binding
-            EventBus.getInstance().sendDecline.AddListener(ServerResponse.SendDecline);
-            EventBus.getInstance().sendAccept.AddListener(ServerResponse.SendAccept);
+            _eventBus.sendDecline.AddListener(ServerResponse.SendDecline);
+            _eventBus.sendAccept.AddListener(ServerResponse.SendAccept);
         }
 
         // Use this for initialization
         private void Start()
         {
-            var thread = new Thread(async () =>
+            Task.Run( async () =>
             {
-                await _servManager.WaitForConnectionAsync(
-                    new UdpSocket(new IPEndPoint(IPAddress.Loopback, Constants.ServerSendingPort), Constants.ServerReceivingPort));
+                var waiter = new UdpSocket(new IPEndPoint(IPAddress.Any, Constants.ServerSendingPort),
+                    Constants.ServerReceivingPort);
+                Debug.Log($"waiting connection from anyone: {waiter.GetAddress()}:{Constants.ServerReceivingPort}");
+                var res =  await waiter.ReceivePackageAsync();
+                Debug.Log($"received package: {res.packageType}");
+                EventBus.GetInstance().newPackageRecieved.Invoke(res);
             });
-            thread.Start();
         }
 
+        private void Update()
+        {
+            try
+            {
+                _servManager.ConnectedClients.ForEach(client => client.Update());
+                Debug.unityLogger.Log($"Clients count: {_servManager.ConnectedClients.Count}");
+                //Send WorldState to every client
+                _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
+        }
+        
         private void FixedUpdate()
         {
-            ServerManager.getInstance().ConnectedClients.ForEach(client=>client.Update());
-            Debug.unityLogger.Log($"Clients count: {ServerManager.getInstance().ConnectedClients.Count}");
-            //Send WorldState to every client
-            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            try
+            {
+                Dispatcher.Instance.InvokePending();
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
         }
 
         private async Task<StatePackage> GetWorldStatePackage()
         {
-            //TODO: Get World state package
             Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
             var gameObjects = GameObject.FindGameObjectsWithTag(Constants.DynamicTag);
             var worldData = new StateData()

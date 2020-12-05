@@ -8,25 +8,15 @@ using UnityEngine;
 namespace Net.Packages
 {
     [Serializable]
-    public class EventPackage : IPackage
+    public class EventPackage : AbstractPackage
     {
-        [SerializeField]
-        private object data;
-        
-        [SerializeField]
-        public PackageType PackageType => PackageType.EventPackage;
-
-        public object Data
+        public new EventData data
         {
-            get => data as EventData;
-            private set => data = value;
+            get => base.data as EventData;
+            private set => base.data = value;
         }
 
-        public IPAddress ipAddress { get; set; }
-
-        public EventPackage(EventData data)
-        {
-            Data = data;
-        }
+        public EventPackage(EventData data) : base(data, PackageType.EventPackage)
+        { }
     }
 }

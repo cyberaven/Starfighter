@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Net.Core
 {
-    public class PackageEvent : UnityEvent<IPackage> { }
+    public class PackageEvent : UnityEvent<AbstractPackage> { }
     public class ConnectPackageEvent : UnityEvent<ConnectPackage> { }
     public class EventPackageEvent : UnityEvent<EventPackage> { }
     public class StatePackageEvent : UnityEvent<StatePackage> { }
