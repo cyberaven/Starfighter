@@ -19,15 +19,15 @@ namespace Net.PackageHandlers.ServerHandlers
                 Debug.unityLogger.Log("Connection handle start");
                 //TODO:check for LoginPassword (decline if incorrect)
                 //TODO:check for already connection (decline if yes)
-                if (ServerManager.GetInstance().ConnectedClients
-                    .Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
-                {
-                    Debug.Log("Connection declined");
-                    EventBus.GetInstance().sendDecline.Invoke(pack);
-                    return;
-                }
+                // if (ServerManager.GetInstance().ConnectedClients
+                //     .Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
+                // {
+                //     Debug.Log("Connection declined");
+                //     EventBus.GetInstance().sendDecline.Invoke(pack);
+                //     return;
+                // }
                 
-                Debug.Log("Connection accepted");
+                Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
                 ServerManager.GetInstance().ConnectedClients.Add(new ClientListener(
                     new IPEndPoint(pack.ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort));
                 //TODO:init new user

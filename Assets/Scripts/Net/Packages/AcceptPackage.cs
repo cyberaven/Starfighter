@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.Utils;
 using UnityEngine;
 
@@ -9,8 +10,12 @@ namespace Net.Packages
     [Serializable]
     public class AcceptPackage : AbstractPackage
     {
-        public new object data = null;
-        public AcceptPackage() : base(null, PackageType.AcceptPackage)
+        public new AcceptData data
+        {
+            get => base.data as AcceptData; 
+            private set => base.data = value;
+        }
+        public AcceptPackage(AcceptData data) : base(data, PackageType.AcceptPackage)
         { }
     }
 }

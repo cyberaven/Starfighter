@@ -21,14 +21,15 @@ namespace Net.Core
 
         public ClientListener(IPEndPoint endpoint, int listeningPort)
         {
-            _udpSocket = new UdpSocket(endpoint, listeningPort);
-            _listening = Task.Run(ListenClient);
+            _udpSocket = new UdpSocket(endpoint.Address, endpoint.Port,
+                endpoint.Address, listeningPort);
+            StartListenClient();
             EventBus.GetInstance().updateWorldState.AddListener(SendWorldState);
         }
 
         public IPAddress GetIpAddress()
         {
-            return _udpSocket.GetAddress();
+            return _udpSocket.GetSendingAddress();
         }
 
         public int GetListeningPort()
@@ -38,17 +39,17 @@ namespace Net.Core
         
         public void Update()
         {
-            Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening?.Status}");
-            if (_listening == null) return;
-
-            if(_listening != null 
-               && (_listening.Status == TaskStatus.RanToCompletion
-                   || _listening.Status == TaskStatus.Canceled
-                   || _listening.Status == TaskStatus.Faulted)
-            )
-            {
-                _listening = Task.Run(ListenClient);
-            }
+            // Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening?.Status}");
+            // if (_listening == null) return;
+            //
+            // if(_listening != null 
+            //    && (_listening.Status == TaskStatus.RanToCompletion
+            //        || _listening.Status == TaskStatus.Canceled
+            //        || _listening.Status == TaskStatus.Faulted)
+            // )
+            // {
+            //     _listening = Task.Run(ListenClient);
+            // }
         }
         
         private async void SendWorldState(StatePackage worldState)
@@ -56,14 +57,14 @@ namespace Net.Core
             await _udpSocket.SendPackageAsync(worldState);
         }
 
-        private async void ListenClient()
+        private void StartListenClient()
         {
-            var package = await _udpSocket.ReceivePackageAsync();
-            EventBus.GetInstance().newPackageRecieved.Invoke(package);
+            _udpSocket.BeginReceivingPackagesAsync();
         }
 
         public void Dispose()
         {
+            _udpSocket.SendPackageAsync(new DisconnectPackage(null));
             EventBus.GetInstance().updateWorldState.RemoveListener(SendWorldState);
         }
     }

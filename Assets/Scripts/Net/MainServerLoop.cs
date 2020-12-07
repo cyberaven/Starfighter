@@ -40,12 +40,11 @@ namespace Net
         {
             Task.Run( async () =>
             {
-                var waiter = new UdpSocket(new IPEndPoint(IPAddress.Any, Constants.ServerSendingPort),
-                    Constants.ServerReceivingPort);
-                Debug.Log($"waiting connection from anyone: {waiter.GetAddress()}:{Constants.ServerReceivingPort}");
-                var res =  await waiter.ReceivePackageAsync();
-                Debug.Log($"received package: {res.packageType}");
-                EventBus.GetInstance().newPackageRecieved.Invoke(res);
+                var waiter = new UdpSocket( IPAddress.Broadcast, Constants.ServerSendingPort,
+                    IPAddress.Any, Constants.ServerReceivingPort);
+                Debug.Log($"waiting connection from anyone: {waiter.GetReceivingAddress()}:{Constants.ServerReceivingPort}");
+                var result = await waiter.ReceiveOnePackage();
+                _eventBus.newPackageRecieved.Invoke(result);
             });
         }
 

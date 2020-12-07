@@ -22,20 +22,21 @@ namespace Net.Core
 {
     public class UdpSocket
     {
-        private readonly IPEndPoint _endPoint;
+        private readonly IPAddress _sendingAddress;
+        private readonly int _sendingPort;
+        private readonly IPAddress _receivingAddress;
         private readonly int _receivingPort;
+        private static UdpClient _receivingClient;
 
-        public UdpSocket(IPEndPoint endpoint, int receivingPort)
+        public UdpSocket(IPAddress sendingAddress, int sendingPort, IPAddress receivingAddress, int receivingPort)
         {
-            _endPoint = endpoint;
+            _sendingPort = sendingPort;
+            _sendingAddress = sendingAddress;
+            _receivingAddress = receivingAddress;
             _receivingPort = receivingPort;
+            _receivingClient = new UdpClient(receivingPort);
         }
 
-        public UdpSocket()
-        {
-            _endPoint = null;
-        }
-        
         public async Task<bool> SendPackageAsync(AbstractPackage pack)
         {
             try
@@ -57,9 +58,9 @@ namespace Net.Core
                     var data = stream.GetBuffer();
                     stream.Close();
                     Debug.unityLogger.Log("Before sending package");
-                    var sendedBytesCount = await udpClient.SendAsync(data, data.Length, _endPoint.Address.ToString(), _endPoint.Port);
+                    var sendedBytesCount = udpClient.Send(data, data.Length, _sendingAddress.ToString(), _sendingPort);
                     Debug.unityLogger.Log(
-                        $"{_endPoint.Address.MapToIPv4()}:{_endPoint.Port} package sent. Sent {sendedBytesCount} of {data.Length}");
+                        $"{_sendingAddress.MapToIPv4()}:{_sendingPort} package sent. Sent {sendedBytesCount} of {data.Length}");
                     //maybe some check for all bytes sended
                     return true;
                 }
@@ -77,52 +78,87 @@ namespace Net.Core
             }
         }
 
-        public async Task<AbstractPackage> ReceivePackageAsync()
+        public async Task<AbstractPackage> ReceiveOnePackage()
+        {
+            var selector = new SurrogateSelector();
+            selector.AddSurrogate(
+                typeof(Vector3),
+                new StreamingContext(StreamingContextStates.All), 
+                new Vector3SerializationSurrogate());
+            selector.AddSurrogate(
+                typeof(Quaternion),
+                new StreamingContext(StreamingContextStates.All), 
+                new QuaternionSerializationSurrogate());
+            var serializer = new BinaryFormatter {SurrogateSelector = selector};
+            Debug.unityLogger.Log($" waiting package from {_receivingAddress}:{_receivingPort}");
+            var remoteEndPoint = new IPEndPoint(_receivingAddress, _receivingPort);
+            var result = _receivingClient.Receive(ref remoteEndPoint);
+            var stream = new MemoryStream(result);
+
+            var pack = (AbstractPackage) serializer.Deserialize(stream);
+            pack.ipAddress = remoteEndPoint.Address;
+
+            stream.Close();
+            return pack;
+        }
+        
+        public void BeginReceivingPackagesAsync()
         {
             try
             {
-                using (var udpClient = new UdpClient(_receivingPort))
-                {
-                    var selector = new SurrogateSelector();
-                    selector.AddSurrogate(
-                        typeof(Vector3),
-                        new StreamingContext(StreamingContextStates.All), 
-                        new Vector3SerializationSurrogate());
-                    selector.AddSurrogate(
-                        typeof(Quaternion),
-                        new StreamingContext(StreamingContextStates.All), 
-                        new QuaternionSerializationSurrogate());
-                    var serializer = new BinaryFormatter {SurrogateSelector = selector};
-                    Debug.unityLogger.Log($" waiting package from {_receivingPort}");
-                    var result = await udpClient.ReceiveAsync();
-                    var stream = new MemoryStream(result.Buffer);
-
-                    var pack = (AbstractPackage) serializer.Deserialize(stream);
-                    pack.ipAddress = result.RemoteEndPoint.Address;
-
-                    stream.Close();
-
-                    return pack;
-                }
+                var asyncResult = _receivingClient.BeginReceive(EndReceivePack, new object());
             }
             catch (SocketException ex)
             {
                 Debug.unityLogger.LogWarning("Receiving", ex);
                 // Debug.unityLogger.LogException(ex);
-                return null;
+                return;
             }
             catch (Exception ex)
             {
                 Debug.unityLogger.LogException(ex);
-                return null;
+                return;
             }
         }
 
-        public IPAddress GetAddress()
+        private void EndReceivePack(IAsyncResult asyncResult)
         {
-            return _endPoint.Address;
+            var selector = new SurrogateSelector();
+            selector.AddSurrogate(
+                typeof(Vector3),
+                new StreamingContext(StreamingContextStates.All), 
+                new Vector3SerializationSurrogate());
+            selector.AddSurrogate(
+                typeof(Quaternion),
+                new StreamingContext(StreamingContextStates.All), 
+                new QuaternionSerializationSurrogate());
+            var serializer = new BinaryFormatter {SurrogateSelector = selector};
+            Debug.unityLogger.Log($" waiting package from {_receivingAddress}:{_receivingPort}");
+            var remoteEndPoint = new IPEndPoint(_receivingAddress, _receivingPort);
+            var result = _receivingClient.EndReceive(asyncResult, ref remoteEndPoint);
+            var stream = new MemoryStream(result);
+
+            var pack = (AbstractPackage) serializer.Deserialize(stream);
+            pack.ipAddress = remoteEndPoint.Address;
+
+            stream.Close();
+            
+            //New pack received event invoke
+            EventBus.GetInstance().newPackageRecieved.Invoke(pack);
+
+            BeginReceivingPackagesAsync();
+        }
+        
+        public IPAddress GetSendingAddress()
+        {
+            return _sendingAddress;
         }
 
+        public IPAddress GetReceivingAddress()
+        {
+            return _receivingAddress;
+        }
+        
         public int GetListeningPort()
         {
             return _receivingPort;

@@ -110,7 +110,9 @@
             </e>
             <e p="MainServerLoop.cs" t="Include" />
             <e p="PackageData" t="Include">
+              <e p="AcceptData.cs" t="Include" />
               <e p="ConnectData.cs" t="Include" />
+              <e p="DeclineData.cs" t="Include" />
               <e p="DisconnectData.cs" t="Include" />
               <e p="EventData.cs" t="Include" />
               <e p="StateData.cs" t="Include" />

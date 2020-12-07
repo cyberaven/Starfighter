@@ -37,7 +37,8 @@ namespace Net.Core
             var tasks = new Task[ipAddresses.Count];
             foreach (var ipAddress in ipAddresses)
             {
-                var udp = new UdpSocket(new IPEndPoint(ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort);
+                var udp = new UdpSocket(ipAddress, Constants.ServerSendingPort,
+                    ipAddress, Constants.ServerReceivingPort);
                 tasks.Append(Task.Run(()=> udp.SendPackageAsync(pack)));
             }
             await Task.WhenAll(tasks);

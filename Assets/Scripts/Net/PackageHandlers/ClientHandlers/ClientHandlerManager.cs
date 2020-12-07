@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Net.Core;
 using Net.Interfaces;
 using Net.Packages;
@@ -9,15 +10,19 @@ namespace Net.PackageHandlers.ClientHandlers
 {
     public class ClientHandlerManager: IDisposable
     {
-        private static ClientHandlerManager Instance = new ClientHandlerManager();
+        private static ClientHandlerManager _instance = new ClientHandlerManager();
         
         public static IPackageHandler AcceptHandler;
         public static IPackageHandler DeclineHandler;
         public static IPackageHandler EventHandler;
         public static IPackageHandler StateHandler;
 
+
+        private static List<AbstractPackage> _eventsToHandle;
         private ClientHandlerManager()
         {
+            _eventsToHandle = new List<AbstractPackage>();
+            
             AcceptHandler = new AcceptPackageHandler();
             DeclineHandler = new DeclinePackageHandler();
             EventHandler = new EventPackageHandler();
@@ -28,7 +33,7 @@ namespace Net.PackageHandlers.ClientHandlers
 
         public static ClientHandlerManager GetInstance()
         {
-            return Instance;
+            return _instance;
         }
         
         public async void HandlePackage(AbstractPackage pack)

@@ -18,17 +18,17 @@ namespace Net
         public string login;
         public string password;
         public string ipAddress;
-        public IPEndPoint serverEndPoint;
+
 
         private UdpSocket _udpSocket;
-        private Task _listening;
         private ClientHandlerManager _handlerManager; //client handler manager should be here
         private EventBus _eventBus;
         
         private void Awake()
         {
-            serverEndPoint = new IPEndPoint(IPAddress.Parse(ipAddress), Constants.ClientSendingPort);
-            _udpSocket = new UdpSocket(serverEndPoint, Constants.ClientReceivingPort);
+            var serverAddress = IPAddress.Parse(ipAddress);
+            _udpSocket = new UdpSocket(serverAddress,Constants.ClientSendingPort,
+                serverAddress,Constants.ClientReceivingPort);
             
             _handlerManager = ClientHandlerManager.GetInstance();
             _eventBus = EventBus.GetInstance();
@@ -36,6 +36,13 @@ namespace Net
 
         private void Start()
         {
+            var sphere = Resources.Load<GameObject>("Prefabs/Sphere");
+            sphere.name += "_" + Guid.NewGuid();
+            sphere.transform.position = Vector3.zero;
+            sphere.tag = Constants.PlayerTag;
+            Instantiate(sphere);
+            
+            
             var connectData = new ConnectData()
             {
                 login = login, password = password, accountType = accType
@@ -47,12 +54,12 @@ namespace Net
                 _eventBus.updateWorldState.AddListener(SendWorldState);
                 await _udpSocket.SendPackageAsync(new ConnectPackage(connectData));
                 Debug.unityLogger.Log($"connection package sent");
-                var result = await _udpSocket.ReceivePackageAsync();
+                var result = await _udpSocket.ReceiveOnePackage();
                 Debug.unityLogger.Log($"response package received: {result.packageType}");
                 if (result.packageType == PackageType.AcceptPackage)
                 {
                     Debug.unityLogger.Log("Server accept our connection");
-                    _listening = Task.Run(ListenServer);
+                    StartListenServer();
                 }
                 else if (result.packageType == PackageType.DeclinePackage)
                 {
@@ -66,17 +73,15 @@ namespace Net
 
         private void Update()
         {
-            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Listening task status - {_listening?.Status}");
-            if (_listening == null) return;
 
-            if(_listening != null 
-               && (_listening.Status == TaskStatus.RanToCompletion
-                   || _listening.Status == TaskStatus.Canceled
-                   || _listening.Status == TaskStatus.Faulted)
-               )
-            {
-                _listening = Task.Run(ListenServer);
-            }
+            // if(_listening != null 
+            //    && (_listening.Status == TaskStatus.RanToCompletion
+            //        || _listening.Status == TaskStatus.Canceled
+            //        || _listening.Status == TaskStatus.Faulted)
+            //    )
+            // {
+            //     _listening = Task.Run(StartListenServer);
+            // }
             
             _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
@@ -97,10 +102,9 @@ namespace Net
             return new StatePackage(worldData);
         }
         
-        private async void ListenServer()
+        private void StartListenServer()
         {
-            var package = await _udpSocket.ReceivePackageAsync();
-            _eventBus.newPackageRecieved.Invoke(package);
+            _udpSocket.BeginReceivingPackagesAsync();
         }
         
         private async void SendWorldState(StatePackage worldState)
