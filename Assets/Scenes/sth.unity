@@ -519,6 +519,16 @@ PrefabInstance:
       propertyPath: angle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3846936535332270647, guid: 2c5c42cd0d101d24abdce67bbace7a97,
+        type: 3}
+      propertyPath: shipRB
+      value: 
+      objectReference: {fileID: 1613216797}
+    - target: {fileID: 3846936535332270647, guid: 2c5c42cd0d101d24abdce67bbace7a97,
+        type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 1613216796}
     - target: {fileID: 7192187783599456002, guid: 2c5c42cd0d101d24abdce67bbace7a97,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1363,6 +1373,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 775976139184366433, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 775976139184366433, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 775976139184366434, guid: bd288119467fdbb4abb6c054c1cbc44f,
         type: 3}
       propertyPath: ThurstsEmition
@@ -1504,6 +1524,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2754800643161410802, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828448606146120207, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828448606146120207, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828448607314727668, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828448607546443531, guid: bd288119467fdbb4abb6c054c1cbc44f,
         type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1682,6 +1722,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5591502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190216948466272731, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190216948922552412, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190216948922552412, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190216948935453899, guid: bd288119467fdbb4abb6c054c1cbc44f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5412356297868044916, guid: bd288119467fdbb4abb6c054c1cbc44f,
         type: 3}
@@ -2097,7 +2157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 193, y: -24.498}
+  m_AnchoredPosition: {x: 193, y: -24.5}
   m_SizeDelta: {x: 256.3015, y: 40.08055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350008738
@@ -2156,6 +2216,12 @@ CanvasRenderer:
 --- !u!1 &1613216796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 775368876189846081, guid: bd288119467fdbb4abb6c054c1cbc44f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1129726433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1613216797 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 775976139184366433, guid: bd288119467fdbb4abb6c054c1cbc44f,
     type: 3}
   m_PrefabInstance: {fileID: 1129726433}
   m_PrefabAsset: {fileID: 0}
