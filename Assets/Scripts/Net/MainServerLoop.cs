@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using Net.Core;
@@ -16,44 +17,45 @@ namespace Net
 {
     public class MainServerLoop : MonoBehaviour
     {
-        [SerializeField]
-        private ServerManager _servManager;
-        [SerializeField]
-        private EventBus _eventBus;
-        [SerializeField]
-        private HandlerManager _handlerManager;
 
+        // private ServerManager _servManager;
+
+        private EventBus _eventBus;
+        private HandlerManager _handlerManager;
+        private UdpSocket _udpSocket;
+
+        private List<IPAddress> _connectedClients;
+        
         private void Awake()
         {
+            _connectedClients = new List<IPAddress>();
             _eventBus = EventBus.GetInstance();
-            _servManager = ServerManager.GetInstance();
+            // _servManager = ServerManager.GetInstance();
             _handlerManager = HandlerManager.GetInstance();
             //Config init
             
             //Events binding
             _eventBus.sendDecline.AddListener(ServerResponse.SendDecline);
             _eventBus.sendAccept.AddListener(ServerResponse.SendAccept);
+            _eventBus.addClient.AddListener(AddNewClient);
+            _eventBus.updateWorldState.AddListener(SendWorldState);
         }
 
         // Use this for initialization
         private void Start()
         {
-            Task.Run( async () =>
-            {
-                var waiter = new UdpSocket( IPAddress.Broadcast, Constants.ServerSendingPort,
+            _udpSocket = new UdpSocket( IPAddress.Parse(Constants.MulticastAddress), Constants.ServerSendingPort,
                     IPAddress.Any, Constants.ServerReceivingPort);
-                Debug.Log($"waiting connection from anyone: {waiter.GetReceivingAddress()}:{Constants.ServerReceivingPort}");
-                var result = await waiter.ReceiveOnePackage();
-                _eventBus.newPackageRecieved.Invoke(result);
-            });
+            Debug.Log($"waiting connection from anyone: {_udpSocket.GetReceivingAddress()}:{Constants.ServerReceivingPort}");
+            _udpSocket.BeginReceivingPackagesAsync();
         }
 
         private void Update()
         {
             try
             {
-                _servManager.ConnectedClients.ForEach(client => client.Update());
-                Debug.unityLogger.Log($"Clients count: {_servManager.ConnectedClients.Count}");
+                // _servManager.ConnectedClients.ForEach(client => client.Update());
+                // Debug.unityLogger.Log($"Clients count: {_servManager.ConnectedClients.Count}");
                 //Send WorldState to every client
                 _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
             }
@@ -79,9 +81,20 @@ namespace Net
             return new StatePackage(worldData);
         }
 
+        private void AddNewClient(IPAddress address)
+        {
+            _udpSocket.AddClient(address);
+            _connectedClients.Add(address);
+        }
+
+        private async void SendWorldState(StatePackage pack)
+        {
+            await _udpSocket.SendPackageAsync(pack);
+        }
+        
         private void OnDestroy()
         {
-            _servManager.Dispose();
+            // _servManager.Dispose();
             _eventBus.Dispose();
         }
     }

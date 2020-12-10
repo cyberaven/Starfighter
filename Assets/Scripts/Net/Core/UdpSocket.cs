@@ -37,6 +37,11 @@ namespace Net.Core
             _receivingClient = new UdpClient(receivingPort);
         }
 
+        public void AddClient(IPAddress address)
+        {
+            _receivingClient.JoinMulticastGroup(address);
+        }
+        
         public async Task<bool> SendPackageAsync(AbstractPackage pack)
         {
             try
@@ -133,9 +138,12 @@ namespace Net.Core
                 new StreamingContext(StreamingContextStates.All), 
                 new QuaternionSerializationSurrogate());
             var serializer = new BinaryFormatter {SurrogateSelector = selector};
-            Debug.unityLogger.Log($" waiting package from {_receivingAddress}:{_receivingPort}");
+            Debug.unityLogger.Log($"waiting package from {_receivingAddress}:{_receivingPort}");
             var remoteEndPoint = new IPEndPoint(_receivingAddress, _receivingPort);
             var result = _receivingClient.EndReceive(asyncResult, ref remoteEndPoint);
+            
+            Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
+            
             var stream = new MemoryStream(result);
 
             var pack = (AbstractPackage) serializer.Deserialize(stream);
@@ -148,7 +156,7 @@ namespace Net.Core
 
             BeginReceivingPackagesAsync();
         }
-        
+
         public IPAddress GetSendingAddress()
         {
             return _sendingAddress;

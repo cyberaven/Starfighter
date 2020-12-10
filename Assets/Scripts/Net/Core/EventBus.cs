@@ -11,7 +11,7 @@ namespace Net.Core
         public PackageEvent sendBroadcast = new PackageEvent();
         public PackageEvent sendDecline = new PackageEvent();
         public PackageEvent sendAccept = new PackageEvent();
-
+        public IpAddressEvent addClient = new IpAddressEvent();
         public static EventBus GetInstance()
         {
             return Instance;

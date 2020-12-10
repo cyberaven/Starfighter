@@ -92,35 +92,35 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/DisconnectData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/DeclinePackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/EventPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/StatePackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/EventPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/DisconnectPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/ConnectPackage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/AcceptPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/DeclinePackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/DeclineData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/AcceptData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/AcceptPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/UdpSocket.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/AbstractPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/UdpSocket.cs" />
       </list>
     </option>
   </component>

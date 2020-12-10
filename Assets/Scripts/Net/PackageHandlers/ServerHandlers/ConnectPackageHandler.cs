@@ -28,10 +28,9 @@ namespace Net.PackageHandlers.ServerHandlers
                 // }
                 
                 Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
-                ServerManager.GetInstance().ConnectedClients.Add(new ClientListener(
-                    new IPEndPoint(pack.ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort));
-                //TODO:init new user
+                EventBus.GetInstance().addClient.Invoke(pack.ipAddress);
                 EventBus.GetInstance().sendAccept.Invoke(pack);
+                //TODO:init new user
             }
             catch (Exception ex)
             {

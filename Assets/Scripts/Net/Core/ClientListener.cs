@@ -18,7 +18,6 @@ namespace Net.Core
         
         private Task _listening;
 
-
         public ClientListener(IPEndPoint endpoint, int listeningPort)
         {
             _udpSocket = new UdpSocket(endpoint.Address, endpoint.Port,

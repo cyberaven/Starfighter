@@ -19,7 +19,7 @@ namespace Net
         public string password;
         public string ipAddress;
 
-
+        private bool _connected;
         private UdpSocket _udpSocket;
         private ClientHandlerManager _handlerManager; //client handler manager should be here
         private EventBus _eventBus;
@@ -27,11 +27,13 @@ namespace Net
         private void Awake()
         {
             var serverAddress = IPAddress.Parse(ipAddress);
+            
             _udpSocket = new UdpSocket(serverAddress,Constants.ClientSendingPort,
                 serverAddress,Constants.ClientReceivingPort);
-            
             _handlerManager = ClientHandlerManager.GetInstance();
             _eventBus = EventBus.GetInstance();
+
+            _connected = false;
         }
 
         private void Start()
@@ -60,6 +62,7 @@ namespace Net
                 {
                     Debug.unityLogger.Log("Server accept our connection");
                     StartListenServer();
+                    _connected = true;
                 }
                 else if (result.packageType == PackageType.DeclinePackage)
                 {
@@ -82,8 +85,7 @@ namespace Net
             // {
             //     _listening = Task.Run(StartListenServer);
             // }
-            
-            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            if(_connected) _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         
         private void FixedUpdate()
