@@ -19,8 +19,7 @@ namespace Net.Core
 
         [SerializeField]
         private Task _listening;
-
-
+        
         public ClientListener(IPEndPoint endpoint, int listeningPort, IPackage pack)
         {
             _udpSocket = new UdpSocket(endpoint, listeningPort);
