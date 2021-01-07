@@ -14,14 +14,13 @@ namespace Net.Core
     /// </summary>
     public class ClientListener: IDisposable
     {
-        private UdpSocket _udpSocket;
+        private StarfighterUdpClient _udpSocket;
         
         private Task _listening;
 
         public ClientListener(IPEndPoint endpoint, int listeningPort)
         {
-            _udpSocket = new UdpSocket(endpoint.Address, endpoint.Port,
-                endpoint.Address, listeningPort);
+            _udpSocket = new StarfighterUdpClient(endpoint.Address, endpoint.Port, listeningPort);
             StartListenClient();
             EventBus.GetInstance().updateWorldState.AddListener(SendWorldState);
         }
@@ -58,7 +57,7 @@ namespace Net.Core
 
         private void StartListenClient()
         {
-            _udpSocket.BeginReceivingPackagesAsync();
+            _udpSocket.BeginReceivingPackage();
         }
 
         public void Dispose()

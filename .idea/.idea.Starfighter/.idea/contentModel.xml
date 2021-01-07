@@ -103,7 +103,7 @@
               <e p="Events.cs" t="Include" />
               <e p="ServerManager.cs" t="Include" />
               <e p="ServerResponse.cs" t="Include" />
-              <e p="UdpSocket.cs" t="Include" />
+              <e p="StarfighterUdpClient.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
               <e p="IPackageHandler.cs" t="Include" />

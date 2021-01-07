@@ -8,7 +8,6 @@ namespace Net.Core
         
         public StatePackageEvent updateWorldState = new StatePackageEvent();
         public PackageEvent newPackageRecieved = new PackageEvent();
-        public PackageEvent sendBroadcast = new PackageEvent();
         public PackageEvent sendDecline = new PackageEvent();
         public PackageEvent sendAccept = new PackageEvent();
         public IpAddressEvent addClient = new IpAddressEvent();
@@ -22,7 +21,6 @@ namespace Net.Core
         {
             updateWorldState.RemoveAllListeners();
             newPackageRecieved.RemoveAllListeners();
-            sendBroadcast.RemoveAllListeners();
             sendDecline.RemoveAllListeners();
             sendAccept.RemoveAllListeners();
         }

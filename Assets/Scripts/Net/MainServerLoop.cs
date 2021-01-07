@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
-using System.Threading;
 using System.Threading.Tasks;
 using Net.Core;
-using Net.Interfaces;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
@@ -22,7 +19,7 @@ namespace Net
 
         private EventBus _eventBus;
         private HandlerManager _handlerManager;
-        private UdpSocket _udpSocket;
+        private StarfighterUdpClient _idleUdpClient;
 
         private List<IPAddress> _connectedClients;
         
@@ -44,10 +41,10 @@ namespace Net
         // Use this for initialization
         private void Start()
         {
-            _udpSocket = new UdpSocket( IPAddress.Parse(Constants.MulticastAddress), Constants.ServerSendingPort,
-                    IPAddress.Any, Constants.ServerReceivingPort);
-            Debug.Log($"waiting connection from anyone: {_udpSocket.GetReceivingAddress()}:{Constants.ServerReceivingPort}");
-            _udpSocket.BeginReceivingPackagesAsync();
+            _idleUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
+                Constants.ServerSendingPort, Constants.ServerReceivingPort);
+            Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");
+            _idleUdpClient.BeginReceivingPackage();
         }
 
         private void Update()
@@ -83,13 +80,12 @@ namespace Net
 
         private void AddNewClient(IPAddress address)
         {
-            _udpSocket.AddClient(address);
             _connectedClients.Add(address);
         }
 
         private async void SendWorldState(StatePackage pack)
         {
-            await _udpSocket.SendPackageAsync(pack);
+            await _idleUdpClient.SendPackageAsync(pack);
         }
         
         private void OnDestroy()
