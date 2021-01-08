@@ -28,8 +28,15 @@ namespace Net.PackageHandlers.ServerHandlers
                 // }
                 
                 Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
-                EventBus.GetInstance().addClient.Invoke(pack.ipAddress);
-                EventBus.GetInstance().sendAccept.Invoke(pack);
+
+                var connectPack = (ConnectPackage)pack;
+                
+                connectPack.data.multicastGroupIp = Constants.MulticastAddress;
+                connectPack.data.portToSend = ServerManager.GetInstance().GetNewPort();
+                connectPack.data.portToReceive = ServerManager.GetInstance().GetNewPort();
+                
+                EventBus.GetInstance().addClient.Invoke(connectPack);
+                ServerResponse.SendConnectionResponse(connectPack);
                 //TODO:init new user
             }
             catch (Exception ex)

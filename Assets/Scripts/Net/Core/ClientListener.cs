@@ -15,14 +15,11 @@ namespace Net.Core
     public class ClientListener: IDisposable
     {
         private StarfighterUdpClient _udpSocket;
-        
-        private Task _listening;
 
-        public ClientListener(IPEndPoint endpoint, int listeningPort)
+        public ClientListener(IPAddress address, int sendingPort,  int listeningPort)
         {
-            _udpSocket = new StarfighterUdpClient(endpoint.Address, endpoint.Port, listeningPort);
+            _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             StartListenClient();
-            EventBus.GetInstance().updateWorldState.AddListener(SendWorldState);
         }
 
         public IPAddress GetIpAddress()
@@ -37,22 +34,7 @@ namespace Net.Core
         
         public void Update()
         {
-            // Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening?.Status}");
-            // if (_listening == null) return;
-            //
-            // if(_listening != null 
-            //    && (_listening.Status == TaskStatus.RanToCompletion
-            //        || _listening.Status == TaskStatus.Canceled
-            //        || _listening.Status == TaskStatus.Faulted)
-            // )
-            // {
-            //     _listening = Task.Run(ListenClient);
-            // }
-        }
-        
-        private async void SendWorldState(StatePackage worldState)
-        {
-            await _udpSocket.SendPackageAsync(worldState);
+
         }
 
         private void StartListenClient()
@@ -63,7 +45,6 @@ namespace Net.Core
         public void Dispose()
         {
             _udpSocket.SendPackageAsync(new DisconnectPackage(null));
-            EventBus.GetInstance().updateWorldState.RemoveListener(SendWorldState);
         }
     }
 }

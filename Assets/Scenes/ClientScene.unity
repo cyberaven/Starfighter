@@ -235,8 +235,7 @@ MonoBehaviour:
   accType: 0
   login: login
   password: password
-  ipAddress: 192.168.0.134
-  sphere: {fileID: 9086724873691407434, guid: 8a663415911d58b49817cc361f65fa4e, type: 3}
+  serverAddress: 127.0.0.1
 --- !u!4 &787796845
 Transform:
   m_ObjectHideFlags: 0

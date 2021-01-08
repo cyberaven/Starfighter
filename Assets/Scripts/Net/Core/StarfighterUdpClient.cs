@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Net.Core
 {
-    public sealed class StarfighterUdpClient
+    public sealed class StarfighterUdpClient: IDisposable
     {
         private readonly IPAddress _sendingAddress;
         private readonly int _sendingPort;
@@ -150,6 +150,11 @@ namespace Net.Core
         public int GetListeningPort()
         {
             return ((IPEndPoint)_receivingClient.Client.LocalEndPoint).Port;
+        }
+
+        public void Dispose()
+        {
+            _receivingClient?.Dispose();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.Packages;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace Net.Core
     public class ServerManager : IDisposable
     {
         private static ServerManager _instance = new ServerManager();
+        private int _lastGivenPort = 50000;
         
         public List<ClientListener> ConnectedClients;
 
@@ -30,9 +32,21 @@ namespace Net.Core
             return _instance;
         }
 
+        public void AddClient(ConnectPackage info)
+        {
+            ConnectedClients.Add(new ClientListener(
+                info.ipAddress, info.data.portToReceive, info.data.portToSend));
+        }
+        
+        public int GetNewPort()
+        {
+            return ++_lastGivenPort;
+        }
+        
         public void Dispose()
         {
             ConnectedClients.ForEach(client => client.Dispose());
         }
+        
     }
 }

@@ -15,19 +15,15 @@ namespace Net
     public class MainServerLoop : MonoBehaviour
     {
 
-        // private ServerManager _servManager;
-
+        private ServerManager _servManager;
         private EventBus _eventBus;
         private HandlerManager _handlerManager;
-        private StarfighterUdpClient _idleUdpClient;
-
-        private List<IPAddress> _connectedClients;
+        private StarfighterUdpClient _multicastUdpClient;
         
         private void Awake()
         {
-            _connectedClients = new List<IPAddress>();
             _eventBus = EventBus.GetInstance();
-            // _servManager = ServerManager.GetInstance();
+            _servManager = ServerManager.GetInstance();
             _handlerManager = HandlerManager.GetInstance();
             //Config init
             
@@ -41,10 +37,10 @@ namespace Net
         // Use this for initialization
         private void Start()
         {
-            _idleUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
+            _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
                 Constants.ServerSendingPort, Constants.ServerReceivingPort);
             Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");
-            _idleUdpClient.BeginReceivingPackage();
+            _multicastUdpClient.BeginReceivingPackage();
         }
 
         private void Update()
@@ -78,19 +74,19 @@ namespace Net
             return new StatePackage(worldData);
         }
 
-        private void AddNewClient(IPAddress address)
+        private void AddNewClient(ConnectPackage info)
         {
-            _connectedClients.Add(address);
+            _servManager.AddClient(info);
         }
 
         private async void SendWorldState(StatePackage pack)
         {
-            await _idleUdpClient.SendPackageAsync(pack);
+            await _multicastUdpClient.SendPackageAsync(pack);
         }
         
         private void OnDestroy()
         {
-            // _servManager.Dispose();
+            _servManager.Dispose();
             _eventBus.Dispose();
         }
     }

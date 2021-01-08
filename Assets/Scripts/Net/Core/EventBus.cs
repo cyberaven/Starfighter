@@ -10,7 +10,7 @@ namespace Net.Core
         public PackageEvent newPackageRecieved = new PackageEvent();
         public PackageEvent sendDecline = new PackageEvent();
         public PackageEvent sendAccept = new PackageEvent();
-        public IpAddressEvent addClient = new IpAddressEvent();
+        public ConnectPackageEvent addClient = new ConnectPackageEvent();
         public static EventBus GetInstance()
         {
             return Instance;

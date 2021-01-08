@@ -103,6 +103,7 @@ namespace Net
             await _udpClient.SendPackageAsync(new ConnectPackage(connectData));
             Debug.unityLogger.Log($"connection package sent");
             var result = await _udpClient.ReceiveOnePackageAsync();
+            _udpClient.Dispose();
             Debug.unityLogger.Log($"response package received: {result.packageType}");
             switch (result.packageType)
             {
@@ -110,19 +111,26 @@ namespace Net
                 {
                     //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
                     Debug.unityLogger.Log("Server accept our connection");
-                    
-                    _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
-                        (result as ConnectPackage).data.portToSend, 
-                        (result as ConnectPackage).data.portToReceive);
-                    
-                    var multicastAddress = IPAddress.Parse((result as ConnectPackage).data.multicastGroupIp);
-                    _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
-                        Constants.ServerReceivingPort, Constants.ServerSendingPort);
-                    _multicastUdpClient.JoinMulticastGroup(multicastAddress);
-                    
-                    _eventBus.updateWorldState.AddListener(SendWorldState);
-                    
-                    StartListenServer();
+                    try
+                    {
+                        _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
+                            (result as ConnectPackage).data.portToSend,
+                            (result as ConnectPackage).data.portToReceive);
+
+                        var multicastAddress = IPAddress.Parse((result as ConnectPackage).data.multicastGroupIp);
+                        _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
+                            Constants.ServerReceivingPort, Constants.ServerSendingPort);
+                        _multicastUdpClient.JoinMulticastGroup(multicastAddress);
+
+                        _eventBus.updateWorldState.AddListener(SendWorldState);
+
+                        StartListenServer();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.unityLogger.LogError("Connect to Server error:", ex.Message);
+                    }
+
                     break;
                 }
                 case PackageType.DeclinePackage:
