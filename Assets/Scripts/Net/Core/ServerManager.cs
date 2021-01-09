@@ -18,7 +18,7 @@ namespace Net.Core
     public class ServerManager : IDisposable
     {
         private static ServerManager _instance = new ServerManager();
-        private int _lastGivenPort = 50000;
+        private int _lastGivenPort = 8000;
         
         public List<ClientListener> ConnectedClients;
 

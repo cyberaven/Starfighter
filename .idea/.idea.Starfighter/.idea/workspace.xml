@@ -109,20 +109,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/AcceptPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/AbstractPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/UdpSocket.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/ConnectData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/PackageTypes.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
       </list>
     </option>
   </component>
@@ -183,7 +183,7 @@
       <workItem from="1606765563658" duration="8739000" />
       <workItem from="1606898826121" duration="3502000" />
       <workItem from="1607179936073" duration="23721000" />
-      <workItem from="1609853819495" duration="13573000" />
+      <workItem from="1609853819495" duration="22868000" />
     </task>
     <servers />
   </component>
@@ -209,13 +209,14 @@
       <screen x="-1920" y="0" width="1280" height="693" />
     </state>
     <state x="-1824" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1606765667134" />
-    <state x="728" y="122" key="RiderGenerateDialog" timestamp="1607169973441">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="485" y="70" key="RiderGenerateDialog" timestamp="1610139087475">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="-1435" y="81" key="RiderGenerateDialog/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1606761500612" />
     <state x="728" y="122" key="RiderGenerateDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1607169973441" />
     <state x="485" y="79" key="RiderGenerateDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1604872785638" />
     <state x="2647" y="244" key="RiderGenerateDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1604694414263" />
+    <state x="485" y="70" key="RiderGenerateDialog/0.0.1280.680@0.0.1280.680" timestamp="1610139087475" />
     <state x="201" y="0" key="SettingsEditor" timestamp="1604871429533">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

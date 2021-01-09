@@ -28,8 +28,6 @@ namespace Net
             //Config init
             
             //Events binding
-            _eventBus.sendDecline.AddListener(ServerResponse.SendDecline);
-            _eventBus.sendAccept.AddListener(ServerResponse.SendAccept);
             _eventBus.addClient.AddListener(AddNewClient);
             _eventBus.updateWorldState.AddListener(SendWorldState);
         }

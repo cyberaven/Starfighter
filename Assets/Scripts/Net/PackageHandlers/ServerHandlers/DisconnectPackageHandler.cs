@@ -13,14 +13,15 @@ namespace Net.PackageHandlers.ServerHandlers
         {
             if(ServerManager.GetInstance().ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
             {
-                ServerManager.GetInstance().ConnectedClients.RemoveAll(client => Equals(client.GetIpAddress(), pack.ipAddress));
-                EventBus.GetInstance().sendAccept.Invoke(pack);
+                var clientToSend = ServerManager.GetInstance().ConnectedClients
+                    .FirstOrDefault(client => Equals(client.GetIpAddress(), pack.ipAddress));
+                clientToSend?.SendAccept((pack as EventPackage).id);
+                ServerManager.GetInstance().ConnectedClients.Remove(clientToSend);
                 //TODO:delete all GO attached to this IPEndpoint
             }
             else
             {
                 //There is no such client to Disconnect;
-                EventBus.GetInstance().sendDecline.Invoke(pack);
             }
         }
     }

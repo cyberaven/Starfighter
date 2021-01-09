@@ -8,8 +8,6 @@ namespace Net.Core
         
         public StatePackageEvent updateWorldState = new StatePackageEvent();
         public PackageEvent newPackageRecieved = new PackageEvent();
-        public PackageEvent sendDecline = new PackageEvent();
-        public PackageEvent sendAccept = new PackageEvent();
         public ConnectPackageEvent addClient = new ConnectPackageEvent();
         public static EventBus GetInstance()
         {
@@ -21,8 +19,6 @@ namespace Net.Core
         {
             updateWorldState.RemoveAllListeners();
             newPackageRecieved.RemoveAllListeners();
-            sendDecline.RemoveAllListeners();
-            sendAccept.RemoveAllListeners();
         }
     }
 }
