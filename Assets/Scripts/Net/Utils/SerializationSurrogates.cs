@@ -11,7 +11,6 @@ namespace Net.Utils
             info.AddValue("x", v3.x);
             info.AddValue("y", v3.y);
             info.AddValue("z", v3.z);
-            // Debug.Log(v3);
         }
 
         public object SetObjectData(object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
@@ -21,7 +20,7 @@ namespace Net.Utils
             v3.y = (float)info.GetValue("y", typeof(float));
             v3.z = (float)info.GetValue("z", typeof(float));
             obj = v3;
-            return obj;   // Formatters ignore this return value //Seems to have been fixed!
+            return obj;
         }
     }
     
@@ -34,7 +33,6 @@ namespace Net.Utils
             info.AddValue("x", v3.x);
             info.AddValue("y", v3.y);
             info.AddValue("z", v3.z);
-            // Debug.Log(v3);
         }
 
         public object SetObjectData(object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
@@ -45,7 +43,7 @@ namespace Net.Utils
             v3.y = (float)info.GetValue("y", typeof(float));
             v3.z = (float)info.GetValue("z", typeof(float));
             obj = v3;
-            return obj;   // Formatters ignore this return value //Seems to have been fixed!
+            return obj;
         }
     }
 }

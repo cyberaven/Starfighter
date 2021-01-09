@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Net;
+using Client;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace Net.Core
 {
@@ -9,6 +13,7 @@ namespace Net.Core
         public StatePackageEvent updateWorldState = new StatePackageEvent();
         public PackageEvent newPackageRecieved = new PackageEvent();
         public ConnectPackageEvent addClient = new ConnectPackageEvent();
+        public PlayerMovementEvent serverMovePlayer = new PlayerMovementEvent();
         public static EventBus GetInstance()
         {
             return Instance;

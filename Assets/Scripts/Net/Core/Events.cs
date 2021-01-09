@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Client;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Packages;
@@ -18,5 +19,7 @@ namespace Net.Core
     public class ConnectDataEvent : UnityEvent<ConnectData> { }
     
     public class IpAddressEvent : UnityEvent<IPAddress> { }
+    
+    public class PlayerMovementEvent: UnityEvent<IPAddress, EngineState> { }
 
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Client;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Packages;
@@ -20,11 +21,12 @@ namespace Net.Core
         private static ServerManager _instance = new ServerManager();
         private int _lastGivenPort = 8000;
         
-        public List<ClientListener> ConnectedClients;
+        public List<Client> ConnectedClients;
 
         private ServerManager()
         {
-            ConnectedClients = new List<ClientListener>();
+            ConnectedClients = new List<Client>();
+            EventBus.GetInstance().serverMovePlayer.AddListener(MoveEvent);
         }
 
         public static ServerManager GetInstance()
@@ -34,13 +36,20 @@ namespace Net.Core
 
         public void AddClient(ConnectPackage info)
         {
-            ConnectedClients.Add(new ClientListener(
+            ConnectedClients.Add(new Client(
                 info.ipAddress, info.data.portToReceive, info.data.portToSend));
         }
         
         public int GetNewPort()
         {
             return ++_lastGivenPort;
+        }
+
+        public void MoveEvent(IPAddress address, EngineState state)
+        {
+            var client = ConnectedClients.First(x => Equals(x.GetIpAddress(), address));
+            //TODO: turn on\off engines for define client's GO
+            // client.SetEngines(state);
         }
         
         public void Dispose()

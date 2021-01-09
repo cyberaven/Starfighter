@@ -1,83 +1,102 @@
 ﻿using UnityEngine;
-using Control;
-public class playerScript : MonoBehaviour
-{  
-    GameObject Front, Back, Left, Right, Player;
-    Rigidbody ship, engine;
-    ParticleSystem TLM, TRM, BLM, BRM, TE;
-    ConstantForce ThurstForce;
-    public float ManeurSpeed, ThurstSpeed;
-    public float shipSpeed, shipRotation;
-    private float Time, preRotation, postRotation; 
-    public GameObject ThurstsEmition, TopLeftEmition, TopRightEmition, BotLeftEmition, BotRightEmition;
-    public float shipAngle;
-    public Vector3 ThurstForceVector, ManeurForceVector;
-    private MovementAdapter shipsBrain;
+using UnityEngine.Serialization;
 
-    void Start()
+namespace Client
+{
+    public class PlayerScript : MonoBehaviour
     {
-        // всякое говно при создании объекта
-        Front = GameObject.Find("Front");
-        Back  = GameObject.Find("Back");
-        Left  = GameObject.Find("Left");
-        Right = GameObject.Find("Right");
-        Player = GameObject.Find("Player");
-        ship = GetComponent<Rigidbody>();
-        ThurstForce = GetComponent<ConstantForce>();
-        shipSpeed = 0;
-        shipRotation = 0;
-        preRotation = ship.transform.rotation.y;
-        ManeurSpeed = 0f;
-        ThurstSpeed = 0f;
-        shipAngle = 0f;
-        TRM = TopRightEmition.GetComponent<ParticleSystem>();
-        TLM = TopLeftEmition.GetComponent<ParticleSystem>();
-        BRM = BotRightEmition.GetComponent<ParticleSystem>();
-        BLM = BotLeftEmition.GetComponent<ParticleSystem>();
-        TE = ThurstsEmition.GetComponent<ParticleSystem>();
-        shipsBrain = new PlayerControl();
-    }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        shipSpeed = ship.velocity.magnitude;
-        shipRotation = ship.angularVelocity.magnitude;
-        // всякое управляющее говно
-        ThurstSpeed = Input.GetAxis("Jump")*2.5f+Input.GetAxis("Vertical");
-        ManeurSpeed = Input.GetAxis("Horizontal");
-        shipAngle = Input.GetAxis("Rotation");
-        
-        // всякая хуйня которая считает тягу
-        ThurstForceVector = Front.transform.position-Back.transform.position; //вектор фронтальной тяги
-        ManeurForceVector = Right.transform.position-Left.transform.position; //вектор боковой тяги
-        ThurstForce.force = ((ThurstForceVector/ThurstForceVector.magnitude)*ThurstSpeed)+((ManeurForceVector/ManeurForceVector.magnitude)*ManeurSpeed);
-        ThurstForce.torque = new Vector3(0,shipAngle,0);
-        var engines = shipsBrain.getMovement();
-        // зажигаем и тушим партиклы движков
-        TE.Stop();
-        TLM.Stop();
-        TRM.Stop();
-        BRM.Stop();
-        BLM.Stop();
-        if(engines.Thrust == true)
+        private GameObject _front, _back, _left, _right;
+        private Rigidbody _ship, _engine;
+        private ParticleSystem _tlm, _trm, _blm, _brm, _te;
+        private ConstantForce _thrustForce;
+        public float shipSpeed, shipRotation;
+        [SerializeField]
+        private Vector3 thrustForceVector;
+        [SerializeField]
+        private Vector3 maneurForceVector;
+        private IMovementAdapter _shipsBrain;
+
+        private void Start()
         {
-            TE.Play(true);
+            // всякое говно при создании объекта
+            _front = GameObject.Find("Front");
+            _back = GameObject.Find("Back");
+            _left = GameObject.Find("Left");
+            _right = GameObject.Find("Right");
+            _ship = GetComponent<Rigidbody>();
+            _thrustForce = GetComponent<ConstantForce>();
+            shipSpeed = 0;
+            shipRotation = 0;
+            
+            _trm = GameObject.Find("TopRightEmition").GetComponent<ParticleSystem>();
+            _tlm = GameObject.Find("TopLeftEmition").GetComponent<ParticleSystem>();
+            _brm = GameObject.Find("BotRightEmition").GetComponent<ParticleSystem>();
+            _blm = GameObject.Find("BotLeftEmition").GetComponent<ParticleSystem>();
+            _te = GameObject.Find("ThurstsEmition").GetComponent<ParticleSystem>();
+            _shipsBrain = new PlayerControl();
         }
-        if(engines.topRight == true)
+
+        // Update is called once per frame
+        private void FixedUpdate()
         {
-            TRM.Play(true);
+            //for UI displaying
+            shipSpeed = _ship.velocity.magnitude;
+            shipRotation = _ship.angularVelocity.magnitude;
+            
+            UpdateMovement();
+            AnimateMovement();
         }
-        if(engines.topLeft == true)
+
+
+
+        private void UpdateMovement()
         {
-            TLM.Play(true);
+            // рассчет тяги
+            thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
+            maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
+            _thrustForce.force = ((thrustForceVector / thrustForceVector.magnitude) * _shipsBrain.GetThrustSpeed()) +
+                                ((maneurForceVector / maneurForceVector.magnitude) * _shipsBrain.GetManeurSpeed());
+            _thrustForce.torque = new Vector3(0, _shipsBrain.GetShipAngle(), 0);
         }
-        if(engines.botLeft == true)
+ 
+        private void AnimateMovement()
         {
-            BLM.Play(true);
-        }
-        if(engines.botRight == true)
-        {
-            BRM.Play(true);
+            #region Reset movement animation
+            
+            _te.Stop();
+            _tlm.Stop();
+            _trm.Stop();
+            _brm.Stop();
+            _blm.Stop();
+            
+            #endregion
+            
+            var engines = _shipsBrain.getMovement();
+            Debug.unityLogger.Log($"engines state: {engines.ToString()}");
+            if (engines.Thrust)
+            {
+                _te.Play(true);
+            }
+
+            if (engines.TopRight)
+            {
+                _trm.Play(true);
+            }
+
+            if (engines.TopLeft)
+            {
+                _tlm.Play(true);
+            }
+
+            if (engines.BotLeft)
+            {
+                _blm.Play(true);
+            }
+
+            if (engines.BotRight)
+            {
+                _brm.Play(true);
+            }
         }
     }
 }

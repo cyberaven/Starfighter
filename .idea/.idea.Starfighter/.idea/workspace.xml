@@ -50,16 +50,19 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/d7/58cde5bf/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/59/2a6ea684/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/29/cfcee517/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55FB83BC-594C-4912-8AAA-795223FB816E/2c/d0ab6afd/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/76/3df5a9e6/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/f2/ef7219e8/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/05/8161c370/IPAddress.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/ba/2af3d41e/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/5b/e0ca064a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/99/783b50d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c9/f430f47d/UnityEvent`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD1B6EA4-F54D-4146-A29C-2A12CD6EC436/b7/331b8eeb/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
@@ -72,26 +75,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/TestClient.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/TestingConnection.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/HandlerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/DisconnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ConnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SerializationSurrogates.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/IMovementAdaptor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/EnginesState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/playerScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/movement.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/Events.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Temp/IMovementAdapter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Temp/ShipMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/playerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/StateData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/DisconnectData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/DeclinePackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/EventPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" />
@@ -99,8 +88,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/EventPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/DisconnectPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/ConnectPackage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/AcceptPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/DeclinePackage.cs" />
@@ -109,20 +96,36 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/AcceptPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Packages/AbstractPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/UdpSocket.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/ConnectData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/PackageTypes.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/playerControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/movementAdapter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/playerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SerializationSurrogates.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/NetworkControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/MovementAdapter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
       </list>
     </option>
   </component>

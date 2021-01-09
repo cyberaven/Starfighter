@@ -1,19 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace Control
+﻿namespace Client
 {
-    public abstract class MovementAdapter
+    public interface IMovementAdapter
     {
-        public abstract EngineState getMovement();
+        EngineState getMovement();
+        float GetThrustSpeed();
+        float GetManeurSpeed();
+        float GetShipAngle();
     }
 
     public struct EngineState
     {
-        public bool topLeft;
-        public bool topRight;
-        public bool botLeft;
-        public bool botRight;
-        public bool Thrust;   
+        public bool TopLeft;
+        public bool TopRight;
+        public bool BotLeft;
+        public bool BotRight;
+        public bool Thrust;
+
+        public override string ToString()
+        {
+            return $"thrust: {Thrust}, topLeft: {TopLeft}, topRight: {TopRight}, botLeft:{BotLeft}, botRight:{BotRight}";
+        }
     }
 }

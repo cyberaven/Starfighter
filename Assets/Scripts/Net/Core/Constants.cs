@@ -8,8 +8,10 @@
         public const int ServerSendingPort = 5000;
 
         public const string PathToPrefabs = "Prefabs/";
-
+        
+        //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";
-        public const string PlayerTag = "Player";
+        //объекты. передаваемые в пакетах State от клиента, объекты контролируемые клиентом (должны ли быть такие вообще?)
+        public const string PlayerTag = "Player"; 
     }
 }

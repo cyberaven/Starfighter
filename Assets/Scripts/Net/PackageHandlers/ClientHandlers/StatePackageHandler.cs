@@ -32,8 +32,6 @@ namespace Net.PackageHandlers.ClientHandlers
                             if(gameObject.CompareTag(Constants.PlayerTag)) continue;
                             gameObject.transform.position = worldObject.position;
                             gameObject.transform.rotation = worldObject.rotation;
-                            // Vector3.Lerp(gameObject.transform.position, worldObject.position, Time.deltaTime);
-                            // Quaternion.RotateTowards(gameObject.transform.rotation, worldObject.rotation, Time.deltaTime);
                         }
                         else
                         {

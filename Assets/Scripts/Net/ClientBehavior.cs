@@ -19,8 +19,7 @@ namespace Net
         public string login;
         public string password;
         public string serverAddress;
-
-        private bool _connected;
+        
         //Прием accept\decline пакетов, отправка данных и команд. Личный канал с сервером.
         private StarfighterUdpClient _udpClient;
         //Прием State пакетов от сервера. Общий канал
@@ -36,8 +35,6 @@ namespace Net
                 Constants.ServerSendingPort);
             _handlerManager = ClientHandlerManager.GetInstance();
             _eventBus = EventBus.GetInstance();
-
-            _connected = false;
         }
 
         private void Start()

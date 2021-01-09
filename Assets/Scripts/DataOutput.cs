@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Client;
 
 public class DataOutput : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class DataOutput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        roundSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<playerScript>().shipSpeed, 2); // скорость полета
-        rotSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<playerScript>().shipRotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
+        roundSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<PlayerScript>().shipSpeed, 2); // скорость полета
+        rotSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<PlayerScript>().shipRotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
         pointsText.text = "Скорость: " + roundSpeed.ToString() + "\n" + "Вращение: " + rotSpeed.ToString();// вывод в UI
     }
 }

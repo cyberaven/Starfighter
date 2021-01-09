@@ -38,6 +38,8 @@ namespace Net.PackageHandlers.ServerHandlers
                 EventBus.GetInstance().addClient.Invoke(connectPack);
                 ServerResponse.SendConnectionResponse(connectPack);
                 //TODO:init new user
+                //TODO: instantiate user's Go, if necessary
+                //TODO: bind it with client's object
             }
             catch (Exception ex)
             {

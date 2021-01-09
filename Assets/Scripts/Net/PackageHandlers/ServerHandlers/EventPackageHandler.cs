@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Client;
+using Net.Core;
 using Net.Interfaces;
 using Net.Packages;
+using Net.Utils;
 
 namespace Net.PackageHandlers.ServerHandlers
 {
@@ -8,7 +12,23 @@ namespace Net.PackageHandlers.ServerHandlers
     {
         public async Task Handle(AbstractPackage pack)
         {
-            throw new System.NotImplementedException();
+            //TODO: EventHandling
+            var eventPack = pack as EventPackage;
+            switch (eventPack.data.eventType)
+            {
+                case EventType.MoveEvent:
+                    var movement = (EngineState)eventPack.data.data;
+                    EventBus.GetInstance().serverMovePlayer.Invoke(pack.ipAddress, movement);
+                    break;
+                case EventType.DockEvent:
+                    break;
+                case EventType.FireEvent:
+                    break;
+                case EventType.OtherEvent:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

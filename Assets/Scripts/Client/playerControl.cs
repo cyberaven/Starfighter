@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace Control
+﻿using UnityEngine;
+
+namespace Client
 {   
-    public class PlayerControl: MovementAdapter
+    public class PlayerControl: IMovementAdapter
     {
-         override public EngineState getMovement()
+         public EngineState getMovement()
          {
             var state = new EngineState();
             if(Input.GetAxis("Jump") != 0)
@@ -14,38 +13,48 @@ namespace Control
             }
             if(Input.GetAxis("Rotation") < 0)
             {
-                state.topRight = true;
+                state.TopRight = true;
             }
             if(Input.GetAxis("Rotation") > 0)
             {
-                state.topLeft = true;
+                state.TopLeft = true;
             }
             if(Input.GetAxis("Vertical") < 0)
             {
-                state.topLeft = true;
-                state.topRight = true;
+                state.TopLeft = true;
+                state.TopRight = true;
             }
             if(Input.GetAxis("Vertical") > 0)
             {
-                state.botLeft = true;
-                state.botRight = true;
+                state.BotLeft = true;
+                state.BotRight = true;
             }
             if(Input.GetAxis("Horizontal") > 0)
             {
-                state.topLeft = true;
-                state.botLeft = true;
+                state.TopLeft = true;
+                state.BotLeft = true;
             }
             if(Input.GetAxis("Horizontal") < 0)
             {
-                state.topRight = true;
-                state.botRight = true;
+                state.TopRight = true;
+                state.BotRight = true;
             }
             return state;
         }
-    }
 
-    //class AIControl: movementAdapter
-    //{
-        //написать что то надо
-    //}
+         public float GetThrustSpeed()
+         {
+             return Input.GetAxis("Jump") * 2.5f + Input.GetAxis("Vertical");
+         }
+         
+         public float GetManeurSpeed()
+         {
+             return Input.GetAxis("Horizontal");
+         }
+
+         public float GetShipAngle()
+         {
+             return Input.GetAxis("Rotation");
+         }
+    }
 }

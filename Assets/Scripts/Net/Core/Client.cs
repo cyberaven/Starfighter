@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+using Client;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Packages;
@@ -13,11 +14,12 @@ namespace Net.Core
     /// Подписан на событие updateWorldState - отправляет состояние мира своему клиенту
     /// При получении пакета от клиента - передает его на обработку вызовом события newPackageRecieved
     /// </summary>
-    public class ClientListener: IDisposable
+    public class Client: IDisposable
     {
         private StarfighterUdpClient _udpSocket;
-
-        public ClientListener(IPAddress address, int sendingPort,  int listeningPort)
+        private PlayerScript playerScript;
+        
+        public Client(IPAddress address, int sendingPort,  int listeningPort)
         {
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             StartListenClient();
