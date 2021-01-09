@@ -1,63 +1,68 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using Net.Core;
-using Net.Interfaces;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
+using Net.Utils;
 using UnityEngine;
 
 namespace Net
 {
     public class MainServerLoop : MonoBehaviour
     {
-        [SerializeField]
+
         private ServerManager _servManager;
-        [SerializeField]
         private EventBus _eventBus;
-        [SerializeField]
         private HandlerManager _handlerManager;
-
-
-        public static List<IPackage> _packagesToHandle = new List<IPackage>();
+        private StarfighterUdpClient _multicastUdpClient;
         
         private void Awake()
         {
-            _eventBus = EventBus.getInstance();
-            _servManager = ServerManager.getInstance();
-            _handlerManager = HandlerManager.getInstance();
+            _eventBus = EventBus.GetInstance();
+            _servManager = ServerManager.GetInstance();
+            _handlerManager = HandlerManager.GetInstance();
             //Config init
             
             //Events binding
-            EventBus.getInstance().sendDecline.AddListener(ServerResponse.SendDecline);
-            EventBus.getInstance().sendAccept.AddListener(ServerResponse.SendAccept);
+            _eventBus.addClient.AddListener(AddNewClient);
+            _eventBus.updateWorldState.AddListener(SendWorldState);
         }
 
         // Use this for initialization
         private void Start()
         {
-            var thread = new Thread(async () =>
-            {
-                await _servManager.WaitForConnectionAsync(
-                    new UdpSocket(new IPEndPoint(IPAddress.Loopback, Constants.ServerSendingPort), Constants.ServerReceivingPort));
-            });
-            thread.Start();
+            _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
+                Constants.ServerSendingPort, Constants.ServerReceivingPort);
+            Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");
+            _multicastUdpClient.BeginReceivingPackage();
         }
 
+        private void Update()
+        {
+            try
+            {
+                // _servManager.ConnectedClients.ForEach(client => client.Update());
+                // Debug.unityLogger.Log($"Clients count: {_servManager.ConnectedClients.Count}");
+                //Send WorldState to every client
+                _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
+        }
+        
         private void FixedUpdate()
         {
-            ServerManager.getInstance().ConnectedClients.ForEach(client=>client.Update());
-            Debug.unityLogger.Log($"Clients count: {ServerManager.getInstance().ConnectedClients.Count}");
-            //Send WorldState to every client
-            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            Dispatcher.Instance.InvokePending();
         }
 
         private async Task<StatePackage> GetWorldStatePackage()
         {
-            //TODO: Get World state package
             Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
             var gameObjects = GameObject.FindGameObjectsWithTag(Constants.DynamicTag);
             var worldData = new StateData()
@@ -67,6 +72,16 @@ namespace Net
             return new StatePackage(worldData);
         }
 
+        private void AddNewClient(ConnectPackage info)
+        {
+            _servManager.AddClient(info);
+        }
+
+        private async void SendWorldState(StatePackage pack)
+        {
+            await _multicastUdpClient.SendPackageAsync(pack);
+        }
+        
         private void OnDestroy()
         {
             _servManager.Dispose();

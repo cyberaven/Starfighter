@@ -1,6 +1,7 @@
 ﻿using System;
 using Net.Core;
 using Net.Interfaces;
+using Net.Packages;
 using Net.Utils;
 using UnityEngine;
 
@@ -22,18 +23,18 @@ namespace Net.PackageHandlers.ServerHandlers
             EventHandler = new EventPackageHandler();
             StateHandler = new StatePackageHandler();
 
-            EventBus.getInstance().newPackageRecieved.AddListener(HandlePackage);
+            EventBus.GetInstance().newPackageRecieved.AddListener(HandlePackage);
         }
 
-        public static HandlerManager getInstance()
+        public static HandlerManager GetInstance()
         {
             return Instance;
         }
         
-        public async void HandlePackage(IPackage pack)
+        public async void HandlePackage(AbstractPackage pack)
         {
-            Debug.unityLogger.Log($"Server Gonna handle some packs! {pack.PackageType}");
-            switch (pack.PackageType)
+            Debug.unityLogger.Log($"Server Gonna handle some packs! {pack.packageType}");
+            switch (pack.packageType)
             {
                 case PackageType.ConnectPackage:
                     await ConnectHandler.Handle(pack);

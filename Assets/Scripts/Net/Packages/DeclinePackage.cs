@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Net;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.Utils;
+using UnityEngine;
 
 namespace Net.Packages
 {
     [Serializable]
-    public class DeclinePackage : IPackage
+    public class DeclinePackage : AbstractPackage
     {
-        public PackageType PackageType => PackageType.DeclinePackage;
-
-        public object Data => null;
-
-        public IPAddress ipAddress { get; set; }
-
-
-        public DeclinePackage()
+        public new DeclineData data
+        {
+            get => base.data as DeclineData; 
+            private set => base.data = value;
+        }
+        public DeclinePackage(DeclineData data): base(data, PackageType.DeclinePackage)
         { }
     }
 }

@@ -8,26 +8,15 @@ using UnityEngine;
 namespace Net.Packages
 {
     [Serializable]
-    public class StatePackage : IPackage
+    public class StatePackage : AbstractPackage
     {
-        [SerializeField]
-        private object data;
+        public new StateData data
+        {
+            get => base.data as StateData;
+            private set => base.data = value;
+        }
         
-        [SerializeField]
-        public PackageType PackageType => PackageType.StatePackage;
-
-        public object Data
-        {
-            get => data as StateData;
-            private set => data = value;
-        }
-
-        public IPAddress ipAddress { get; set; }
-
-
-        public StatePackage(StateData data)
-        {
-            Data = data;
-        }
+        public StatePackage(StateData data): base(data, PackageType.StatePackage)
+        { }
     }
 }

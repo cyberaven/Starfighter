@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.Packages;
 using UnityEngine;
 
@@ -14,23 +15,17 @@ namespace Net.Core
     /// </summary>
     public class ClientListener: IDisposable
     {
-        [SerializeField]
-        private UdpSocket _udpSocket;
+        private StarfighterUdpClient _udpSocket;
 
-        [SerializeField]
-        private Task _listening;
-        
-        public ClientListener(IPEndPoint endpoint, int listeningPort, IPackage pack)
+        public ClientListener(IPAddress address, int sendingPort,  int listeningPort)
         {
-            _udpSocket = new UdpSocket(endpoint, listeningPort);
-            _listening = new Task(() => ListenClient());
-            _listening.Start();
-            EventBus.getInstance().updateWorldState.AddListener(SendWorldState);
+            _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
+            StartListenClient();
         }
 
         public IPAddress GetIpAddress()
         {
-            return _udpSocket.GetAddress();
+            return _udpSocket.GetSendingAddress();
         }
 
         public int GetListeningPort()
@@ -38,32 +33,32 @@ namespace Net.Core
             return _udpSocket.GetListeningPort();
         }
         
-        private async void SendWorldState(StatePackage worldState)
-        {
-            await _udpSocket.SendPackageAsync(worldState);
-        }
-
-        private async void ListenClient()
-        {
-            var package = await _udpSocket.ReceivePackageAsync();
-            EventBus.getInstance().newPackageRecieved.Invoke(package);
-        }
-
         public void Update()
         {
-            Debug.unityLogger.Log($"ClientListener fixedUpdate. Task status - {_listening.Status}");
-            if (_listening == null) return;
 
-            if(_listening.Status != TaskStatus.RanToCompletion &&
-               _listening.Status != TaskStatus.Running)
-            {
-                _listening.Start();
-            }
         }
 
+        private void StartListenClient()
+        {
+            _udpSocket.BeginReceivingPackage();
+        }
+
+        public async void SendDecline(Guid id)
+        {
+            Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
+            
+            var result = await _udpSocket.SendPackageAsync(new DeclinePackage(new DeclineData(){eventId = id}));
+        }
+
+        public async void SendAccept(Guid id)
+        {
+            Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
+            var result = await _udpSocket.SendPackageAsync(new AcceptPackage(new AcceptData(){eventId = id}));
+        }
+        
         public void Dispose()
         {
-            EventBus.getInstance().updateWorldState.RemoveListener(SendWorldState);
+            _udpSocket.SendPackageAsync(new DisconnectPackage(null));
         }
     }
 }

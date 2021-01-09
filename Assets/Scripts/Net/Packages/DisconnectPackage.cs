@@ -8,14 +8,17 @@ using UnityEngine;
 namespace Net.Packages
 {
     [Serializable]
-    public class AcceptPackage : AbstractPackage
+    public class DisconnectPackage : AbstractPackage
     {
-        public new AcceptData data
+        public new DisconnectData data
         {
-            get => base.data as AcceptData; 
+            get => base.data as DisconnectData; 
             private set => base.data = value;
         }
-        public AcceptPackage(AcceptData data) : base(data, PackageType.AcceptPackage)
+
+        public DisconnectPackage(DisconnectData data): base(data, PackageType.DisconnectPackage)
         { }
+
+
     }
 }

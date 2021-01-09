@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Net.Interfaces;
+using Net.PackageData;
+using Net.Packages;
 using UnityEngine;
 
 /// <summary>
@@ -16,44 +18,35 @@ namespace Net.Core
     public class ServerManager : IDisposable
     {
         private static ServerManager _instance = new ServerManager();
+        private int _lastGivenPort = 8000;
         
         public List<ClientListener> ConnectedClients;
 
         private ServerManager()
         {
             ConnectedClients = new List<ClientListener>();
-            EventBus.getInstance().sendBroadcast.AddListener(BroadcastSendingAsync);
         }
 
-        public static ServerManager getInstance()
+        public static ServerManager GetInstance()
         {
             return _instance;
         }
+
+        public void AddClient(ConnectPackage info)
+        {
+            ConnectedClients.Add(new ClientListener(
+                info.ipAddress, info.data.portToReceive, info.data.portToSend));
+        }
         
-        //used only for first connection. Can be reduce
-        public async Task WaitForConnectionAsync(UdpSocket waiter)
+        public int GetNewPort()
         {
-            Debug.Log($"waiting connection from anyone: {waiter.GetAddress()}:{Constants.ServerReceivingPort}");
-            var res =  await waiter.ReceivePackageAsync();
-            Debug.Log($"received package");
-            EventBus.getInstance().newPackageRecieved.Invoke(res);
+            return ++_lastGivenPort;
         }
-
-        public async void BroadcastSendingAsync(IPackage pack)
-        {
-            var ipAddresses = ConnectedClients.Select(client => client.GetIpAddress()).ToList();
-            var tasks = new Task[ipAddresses.Count];
-            foreach (var ipAddress in ipAddresses)
-            {
-                var udp = new UdpSocket(new IPEndPoint(ipAddress, Constants.ServerSendingPort), Constants.ServerReceivingPort);
-                tasks.Append(Task.Run(()=> udp.SendPackageAsync(pack)));
-            }
-            await Task.WhenAll(tasks);
-        }
-
+        
         public void Dispose()
         {
             ConnectedClients.ForEach(client => client.Dispose());
         }
+        
     }
 }

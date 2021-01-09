@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Net
 {
@@ -16,75 +18,63 @@ namespace Net
         public AccountType accType;
         public string login;
         public string password;
-        public IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Loopback, Constants.ClientSendingPort);
+        public string serverAddress;
 
-        private UdpSocket _udpSocket;
-        private Task _listening;
+        private bool _connected;
+        //Прием accept\decline пакетов, отправка данных и команд. Личный канал с сервером.
+        private StarfighterUdpClient _udpClient;
+        //Прием State пакетов от сервера. Общий канал
+        private StarfighterUdpClient _multicastUdpClient;
         private ClientHandlerManager _handlerManager; //client handler manager should be here
         private EventBus _eventBus;
         
         private void Awake()
         {
-            _udpSocket = new UdpSocket(serverEndPoint, Constants.ClientReceivingPort);
-            
-            _handlerManager = ClientHandlerManager.getInstance();
-            _eventBus = EventBus.getInstance();
+            //It's Client, so exchange ports
+            _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
+                Constants.ServerReceivingPort,
+                Constants.ServerSendingPort);
+            _handlerManager = ClientHandlerManager.GetInstance();
+            _eventBus = EventBus.GetInstance();
+
+            _connected = false;
         }
 
         private void Start()
         {
-            var connectData = new ConnectData()
-            {
-                login = login, password = password, accountType = accType
-            };
+            var sphere = Resources.Load<GameObject>(Constants.PathToPrefabs + "Sphere");
+            sphere.name += "_" + Guid.NewGuid();
+            sphere.transform.position = Vector3.zero;
+            sphere.tag = Constants.PlayerTag;
+            Instantiate(sphere);
             
-            var thread = new Thread(async () =>
-            {
-                _eventBus.updateWorldState.AddListener(SendWorldState);
-                await _udpSocket.SendPackageAsync(new ConnectPackage(connectData));
-                Debug.unityLogger.Log($"connection package sent");
-                var result = await _udpSocket.ReceivePackageAsync();
-                Debug.unityLogger.Log($"response package received: {result.PackageType}");
-                if (result.PackageType == PackageType.AcceptPackage)
-                {
-                    _listening = Task.Run(ListenServer);
-                }
-                else if (result.PackageType == PackageType.DeclinePackage)
-                {
-                    //TODO: Return to login screen
-                }
-            });
-            Debug.unityLogger.Log("thread start");
-            thread.Start();
+            Task.Run(ConnectToServer);
         }
+
+       
 
         private void Update()
         {
-            Dispatcher.Instance.InvokePending();
+            // if(_listening != null 
+            //    && (_listening.Status == TaskStatus.RanToCompletion
+            //        || _listening.Status == TaskStatus.Canceled
+            //        || _listening.Status == TaskStatus.Faulted)
+            //    )
+            // {
+            //     _listening = Task.Run(StartListenServer);
+            // }
+            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
-
+        
         private void FixedUpdate()
         {
-            Debug.unityLogger.Log($"ClientBehavior fixedUpdate. Task status - {_listening?.Status}");
-            if (_listening == null) return;
-
-            if(_listening != null 
-               && (_listening.Status == TaskStatus.RanToCompletion
-                   || _listening.Status == TaskStatus.Canceled
-                   || _listening.Status == TaskStatus.Faulted)
-               )
-            {
-                _listening = Task.Run(ListenServer);
-            }
-            
-            // _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            Dispatcher.Instance.InvokePending();
         }
         
         private async Task<StatePackage> GetWorldStatePackage()
         {
-            //TODO: Get World state package
-            Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
-            var gameObjects = GameObject.FindGameObjectsWithTag("Dynamic");
+            Debug.unityLogger.Log("ClientBehavior.GetWorldStatePackage");
+            var gameObjects = GameObject.FindGameObjectsWithTag(Constants.PlayerTag);
             var worldData = new StateData()
             {
                 worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
@@ -92,21 +82,81 @@ namespace Net
             return new StatePackage(worldData);
         }
         
-        private async void ListenServer()
+        private void StartListenServer()
         {
-            var package = await _udpSocket.ReceivePackageAsync();
-            _eventBus.newPackageRecieved.Invoke(package);
+            _multicastUdpClient.BeginReceivingPackage();
+            _udpClient.BeginReceivingPackage();
         }
         
         private async void SendWorldState(StatePackage worldState)
         {
-            await _udpSocket.SendPackageAsync(worldState);
+            await _udpClient.SendPackageAsync(worldState);
         }
-        
+
+        private async void ConnectToServer()
+        {
+            var connectData = new ConnectData()
+            {
+                login = login, password = password, accountType = accType
+            };
+
+            await _udpClient.SendPackageAsync(new ConnectPackage(connectData));
+            Debug.unityLogger.Log($"connection package sent");
+            var result = await _udpClient.ReceiveOnePackageAsync();
+            _udpClient.Dispose();
+            Debug.unityLogger.Log($"response package received: {result.packageType}");
+            switch (result.packageType)
+            {
+                case PackageType.ConnectPackage:
+                {
+                    //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
+                    Debug.unityLogger.Log("Server accept our connection");
+                    try
+                    {
+                        _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
+                            (result as ConnectPackage).data.portToSend,
+                            (result as ConnectPackage).data.portToReceive);
+
+                        var multicastAddress = IPAddress.Parse((result as ConnectPackage).data.multicastGroupIp);
+                        _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
+                            Constants.ServerReceivingPort, Constants.ServerSendingPort);
+                        _multicastUdpClient.JoinMulticastGroup(multicastAddress);
+
+                        _eventBus.updateWorldState.AddListener(SendWorldState);
+
+                        StartListenServer();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.unityLogger.LogError("Connect to Server error:", ex.Message);
+                    }
+
+                    break;
+                }
+                case PackageType.DeclinePackage:
+                    Debug.unityLogger.Log("Server decline our connection");
+                    //TODO: Return to login screen
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"unexpected package type {result.packageType.ToString()}");
+                    break;
+            }
+        }
+
         private void OnDestroy()
         {
             _handlerManager.Dispose();
             _eventBus.Dispose();
+        }
+
+        private void OnApplicationQuit()
+        {
+            _udpClient.SendPackageAsync(new DisconnectPackage(new DisconnectData()
+            {
+                accountType = accType,
+                login = login,
+                password = password,
+            }));
         }
     }
 }
