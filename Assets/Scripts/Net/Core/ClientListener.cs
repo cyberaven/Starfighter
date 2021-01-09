@@ -55,6 +55,12 @@ namespace Net.Core
             Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendPackageAsync(new AcceptPackage(new AcceptData(){eventId = id}));
         }
+
+        public async void SendEvent(EventData data)
+        {
+            Debug.unityLogger.Log($"Gonna send event to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
+            var result = await _udpSocket.SendPackageAsync(new EventPackage(data));
+        }
         
         public void Dispose()
         {

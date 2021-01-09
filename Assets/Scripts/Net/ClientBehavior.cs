@@ -42,11 +42,11 @@ namespace Net
 
         private void Start()
         {
-            var sphere = Resources.Load<GameObject>(Constants.PathToPrefabs + "Sphere");
-            sphere.name += "_" + Guid.NewGuid();
-            sphere.transform.position = Vector3.zero;
-            sphere.tag = Constants.PlayerTag;
-            Instantiate(sphere);
+            // var sphere = Resources.Load<GameObject>(Constants.PathToPrefabs + "Sphere");
+            // sphere.name += "_" + Guid.NewGuid();
+            // sphere.transform.position = Vector3.zero;
+            // sphere.tag = Constants.PlayerTag;
+            // Instantiate(sphere);
             
             Task.Run(ConnectToServer);
         }

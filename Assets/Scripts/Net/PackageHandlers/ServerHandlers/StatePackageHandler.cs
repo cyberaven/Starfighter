@@ -34,6 +34,7 @@ namespace Net.PackageHandlers.ServerHandlers
                         else
                         {
                             var prefabName = worldObject.name.Split('_')[0];
+                            Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + prefabName}");
                             var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
                             var instance =
                                 Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
