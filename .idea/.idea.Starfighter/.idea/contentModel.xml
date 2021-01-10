@@ -85,6 +85,7 @@
             <e p="movementAdapter.cs" t="Include" />
             <e p="playerControl.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
+            <e p="RemoteNetworkControl.cs" t="Include" />
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">
@@ -122,6 +123,9 @@
               <e p="DeclineData.cs" t="Include" />
               <e p="DisconnectData.cs" t="Include" />
               <e p="EventData.cs" t="Include" />
+              <e p="EventsData" t="Include">
+                <e p="MovementEventData.cs" t="Include" />
+              </e>
               <e p="StateData.cs" t="Include" />
             </e>
             <e p="PackageHandlers" t="Include">

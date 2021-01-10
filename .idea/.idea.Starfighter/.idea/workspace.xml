@@ -75,10 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/IMovementAdapter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Temp/ShipMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/playerScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/StateData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/DisconnectData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/DeclinePackageHandler.cs" />
@@ -114,18 +110,22 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/NetworkControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData/MovementEventData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventsData/MovementEventData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/NetworkControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/MovementAdapter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/RemoteNetworkControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/LocalNetworkControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
       </list>
     </option>
   </component>

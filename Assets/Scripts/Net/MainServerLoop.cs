@@ -15,7 +15,7 @@ namespace Net
     public class MainServerLoop : MonoBehaviour
     {
 
-        private ServerManager _servManager;
+        private ClientManager _servManager;
         private EventBus _eventBus;
         private HandlerManager _handlerManager;
         private StarfighterUdpClient _multicastUdpClient;
@@ -23,7 +23,7 @@ namespace Net
         private void Awake()
         {
             _eventBus = EventBus.GetInstance();
-            _servManager = ServerManager.GetInstance();
+            _servManager = ClientManager.GetInstance();
             _handlerManager = HandlerManager.GetInstance();
             //Config init
             

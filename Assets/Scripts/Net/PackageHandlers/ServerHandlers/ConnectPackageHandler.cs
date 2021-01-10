@@ -32,8 +32,8 @@ namespace Net.PackageHandlers.ServerHandlers
                 var connectPack = (ConnectPackage)pack;
                 
                 connectPack.data.multicastGroupIp = Constants.MulticastAddress;
-                connectPack.data.portToSend = ServerManager.GetInstance().GetNewPort();
-                connectPack.data.portToReceive = ServerManager.GetInstance().GetNewPort();
+                connectPack.data.portToSend = ClientManager.GetInstance().GetNewPort();
+                connectPack.data.portToReceive = ClientManager.GetInstance().GetNewPort();
                 
                 EventBus.GetInstance().addClient.Invoke(connectPack);
                 ServerResponse.SendConnectionResponse(connectPack);

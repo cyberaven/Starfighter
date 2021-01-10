@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Client;
 using Net.Core;
 using Net.Interfaces;
+using Net.PackageData.EventsData;
 using Net.Packages;
 using Net.Utils;
 
@@ -17,7 +18,7 @@ namespace Net.PackageHandlers.ServerHandlers
             switch (eventPack.data.eventType)
             {
                 case EventType.MoveEvent:
-                    var movement = (EngineState)eventPack.data.data;
+                    var movement = (MovementEventData)eventPack.data.data;
                     EventBus.GetInstance().serverMovePlayer.Invoke(pack.ipAddress, movement);
                     break;
                 case EventType.DockEvent:

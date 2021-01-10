@@ -2,6 +2,7 @@
 using Client;
 using Net.Interfaces;
 using Net.PackageData;
+using Net.PackageData.EventsData;
 using Net.Packages;
 using UnityEngine.Events;
 
@@ -20,6 +21,6 @@ namespace Net.Core
     
     public class IpAddressEvent : UnityEvent<IPAddress> { }
     
-    public class PlayerMovementEvent: UnityEvent<IPAddress, EngineState> { }
+    public class PlayerMovementEvent: UnityEvent<IPAddress, MovementEventData> { }
 
 }

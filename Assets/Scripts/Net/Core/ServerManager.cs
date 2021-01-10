@@ -10,26 +10,25 @@ using Net.Packages;
 using UnityEngine;
 
 /// <summary>
-/// ServerManager занимается управлением ClientListener'ов.
+/// ClientManager занимается управлением Client'ов.
 /// Создает, удаляет, хранит список. 
 /// Также отвечает за инициацию бродкаст отправки.
 /// </summary>
 namespace Net.Core
 {
-    public class ServerManager : IDisposable
+    public class ClientManager : IDisposable
     {
-        private static ServerManager _instance = new ServerManager();
+        private static ClientManager _instance = new ClientManager();
         private int _lastGivenPort = 8000;
         
         public List<Client> ConnectedClients;
 
-        private ServerManager()
+        private ClientManager()
         {
             ConnectedClients = new List<Client>();
-            EventBus.GetInstance().serverMovePlayer.AddListener(MoveEvent);
         }
 
-        public static ServerManager GetInstance()
+        public static ClientManager GetInstance()
         {
             return _instance;
         }
@@ -45,13 +44,6 @@ namespace Net.Core
             return ++_lastGivenPort;
         }
 
-        public void MoveEvent(IPAddress address, EngineState state)
-        {
-            var client = ConnectedClients.First(x => Equals(x.GetIpAddress(), address));
-            //TODO: turn on\off engines for define client's GO
-            // client.SetEngines(state);
-        }
-        
         public void Dispose()
         {
             ConnectedClients.ForEach(client => client.Dispose());

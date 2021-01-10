@@ -1,10 +1,13 @@
-﻿using Net.PackageData.EventsData;
+﻿using Net.Core;
+using Net.PackageData.EventsData;
 using UnityEngine;
 
 namespace Client
 {   
-    public class PlayerControl: IMovementAdapter
+    public class RemoteNetworkControl: IMovementAdapter
     {
+        private MovementEventData _lastMoveAction;
+        
         public EngineState getMovement()
         {
         var state = new EngineState();
@@ -47,27 +50,27 @@ namespace Client
 
         public float GetThrustSpeed()
         {
-         return Input.GetAxis("Jump") * 2.5f;
+         return _lastMoveAction.thrustValue;
         }
 
         public float GetSideManeurSpeed()
         {
-         return Input.GetAxis("Horizontal");
+         return _lastMoveAction.sideManeurValue;
         }
 
         public float GetStraightManeurSpeed()
         {
-         return Input.GetAxis("Vertical");
+         return _lastMoveAction.straightManeurValue;
         }
 
         public float GetShipAngle()
         {
-         return Input.GetAxis("Rotation");
+         return _lastMoveAction.rotationValue;
         }
 
         public void UpdateMovementActionData(MovementEventData data)
         {
-            throw new System.NotImplementedException();
+            _lastMoveAction = data;
         }
     }
 }

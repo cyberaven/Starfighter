@@ -11,12 +11,12 @@ namespace Net.PackageHandlers.ServerHandlers
     {
         public async Task Handle(AbstractPackage pack)
         {
-            if(ServerManager.GetInstance().ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
+            if(ClientManager.GetInstance().ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
             {
-                var clientToSend = ServerManager.GetInstance().ConnectedClients
+                var clientToSend = ClientManager.GetInstance().ConnectedClients
                     .FirstOrDefault(client => Equals(client.GetIpAddress(), pack.ipAddress));
                 clientToSend?.SendAccept((pack as EventPackage).id);
-                ServerManager.GetInstance().ConnectedClients.Remove(clientToSend);
+                ClientManager.GetInstance().ConnectedClients.Remove(clientToSend);
                 //TODO:delete all GO attached to this IPEndpoint
             }
             else

@@ -1,11 +1,15 @@
-﻿namespace Client
+﻿using Net.PackageData.EventsData;
+
+namespace Client
 {
     public interface IMovementAdapter
     {
         EngineState getMovement();
         float GetThrustSpeed();
-        float GetManeurSpeed();
+        float GetSideManeurSpeed();
+        float GetStraightManeurSpeed();
         float GetShipAngle();
+        void UpdateMovementActionData(MovementEventData data);
     }
 
     public struct EngineState

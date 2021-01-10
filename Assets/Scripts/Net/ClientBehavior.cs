@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Client;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
@@ -19,13 +20,16 @@ namespace Net
         public string login;
         public string password;
         public string serverAddress;
-        
+
         //Прием accept\decline пакетов, отправка данных и команд. Личный канал с сервером.
         private StarfighterUdpClient _udpClient;
         //Прием State пакетов от сервера. Общий канал
         private StarfighterUdpClient _multicastUdpClient;
-        private ClientHandlerManager _handlerManager; //client handler manager should be here
+        //client handler manager should be here
+        private ClientHandlerManager _handlerManager;
         private EventBus _eventBus;
+        //TODO: заполняется после подключения к серверу - когда загружается модель корабля
+        private PlayerScript _playerScript;
         
         private void Awake()
         {
@@ -47,8 +51,7 @@ namespace Net
             
             Task.Run(ConnectToServer);
         }
-
-       
+        
 
         private void Update()
         {

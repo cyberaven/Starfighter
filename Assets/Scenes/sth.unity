@@ -985,12 +985,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773723903}
   m_CullTransparentMesh: 0
---- !u!1 &790928535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7812535964124876046, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1129726433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &886291789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,18 +1364,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd288119467fdbb4abb6c054c1cbc44f, type: 3}
---- !u!1 &1166284006 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6350384951865004569, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1129726433}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1172491500 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2182516247671193900, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1129726433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316948944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,12 +1676,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350008736}
   m_CullTransparentMesh: 1
---- !u!1 &1354499143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5190216948922552414, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1129726433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613216796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 775368876189846081, guid: bd288119467fdbb4abb6c054c1cbc44f,
@@ -1724,18 +1700,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd49e2c8c42e5045b7c072da832225e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ManeurSpeed: 0
-  ThurstSpeed: 0
   shipSpeed: 0
   shipRotation: 0
-  ThurstsEmition: {fileID: 1166284006}
-  TopLeftEmition: {fileID: 1716905779}
-  TopRightEmition: {fileID: 1354499143}
-  BotLeftEmition: {fileID: 1172491500}
-  BotRightEmition: {fileID: 790928535}
-  shipAngle: 0
-  ThurstForceVector: {x: 0, y: 0, z: 0}
-  ManeurForceVector: {x: 0, y: 0, z: 0}
+  MovementAdapter: 0
+  thrustForceVector: {x: 0, y: 0, z: 0}
+  maneurForceVector: {x: 0, y: 0, z: 0}
 --- !u!1 &1693050068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,12 +1783,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693050068}
   m_CullTransparentMesh: 0
---- !u!1 &1716905779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2828448606146120205, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1129726433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1743420224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,7 +1800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1743420226
 MeshRenderer:
   m_ObjectHideFlags: 0

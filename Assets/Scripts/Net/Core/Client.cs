@@ -4,23 +4,24 @@ using System.Threading.Tasks;
 using Client;
 using Net.Interfaces;
 using Net.PackageData;
+using Net.PackageData.EventsData;
 using Net.Packages;
 using UnityEngine;
 
 namespace Net.Core
 {
     /// <summary>
-    /// ClientListener слушает определенный адрес и порт (клиента). Принимает от него пакеты и отправляет пакеты ему.
-    /// Подписан на событие updateWorldState - отправляет состояние мира своему клиенту
-    /// При получении пакета от клиента - передает его на обработку вызовом события newPackageRecieved
+    /// Client слушает определенный адрес и порт (клиента). Принимает от него пакеты и отправляет пакеты ему.
     /// </summary>
     public class Client: IDisposable
     {
         private StarfighterUdpClient _udpSocket;
-        private PlayerScript playerScript;
+        private PlayerScript _playerScript;
         
         public Client(IPAddress address, int sendingPort,  int listeningPort)
         {
+            EventBus.GetInstance().serverMovePlayer.AddListener(UpdateMovement);
+            //TODO: _playerScript = ...
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             StartListenClient();
         }
@@ -34,17 +35,18 @@ namespace Net.Core
         {
             return _udpSocket.GetListeningPort();
         }
-        
-        public void Update()
-        {
-
-        }
 
         private void StartListenClient()
         {
             _udpSocket.BeginReceivingPackage();
         }
 
+        private void UpdateMovement(IPAddress address, MovementEventData data)
+        {
+            if (!Equals(GetIpAddress(), address)) return;
+            _playerScript.ShipsBrain.UpdateMovementActionData(data);
+        }
+        
         public async void SendDecline(Guid id)
         {
             Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
