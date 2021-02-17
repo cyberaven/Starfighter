@@ -1,5 +1,7 @@
 using System;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
@@ -8,7 +10,10 @@ namespace ScriptableObjects
     public class SpaceUnitConfig : ScriptableObject {
         public float maxAngleSpeed;
         public float maxSpeed;
-        public float maxHP;
+        public int maxHp;
+        public int currentHp;
         public bool isDockable;
+        public Transform transform;
+        public string prefabName;
     }
 }

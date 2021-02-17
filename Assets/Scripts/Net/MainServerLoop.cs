@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Net
@@ -15,24 +17,34 @@ namespace Net
     public class MainServerLoop : MonoBehaviour
     {
 
-        private ClientManager _servManager;
+        private ClientManager _clientManager;
         private EventBus _eventBus;
         private HandlerManager _handlerManager;
         private StarfighterUdpClient _multicastUdpClient;
+        public readonly List<ClientAccountObject> AccountObjects;
         
         private void Awake()
         {
             _eventBus = EventBus.GetInstance();
-            _servManager = ClientManager.GetInstance();
+            _clientManager = ClientManager.GetInstance();
             _handlerManager = HandlerManager.GetInstance();
-            //Config init
-            
-            //Events binding
+
+            ConfigInit();
+
             _eventBus.addClient.AddListener(AddNewClient);
             _eventBus.updateWorldState.AddListener(SendWorldState);
         }
 
-        // Use this for initialization
+        private void ConfigInit()
+        {
+            
+        }
+
+        private void ConfigSave()
+        {
+            
+        }
+        
         private void Start()
         {
             _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
@@ -45,9 +57,6 @@ namespace Net
         {
             try
             {
-                // _servManager.ConnectedClients.ForEach(client => client.Update());
-                // Debug.unityLogger.Log($"Clients count: {_servManager.ConnectedClients.Count}");
-                //Send WorldState to every client
                 _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
             }
             catch (Exception ex)
@@ -74,7 +83,7 @@ namespace Net
 
         private void AddNewClient(ConnectPackage info)
         {
-            _servManager.AddClient(info);
+            _clientManager.AddClient(info);
         }
 
         private async void SendWorldState(StatePackage pack)
@@ -84,8 +93,9 @@ namespace Net
         
         private void OnDestroy()
         {
-            _servManager.Dispose();
+            _clientManager.Dispose();
             _eventBus.Dispose();
+            ConfigSave();
         }
     }
 

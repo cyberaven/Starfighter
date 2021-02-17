@@ -82,10 +82,12 @@
           <e p="Client" t="Include">
             <e p="CourseView.cs" t="Include" />
             <e p="Follow.cs" t="Include" />
-            <e p="movementAdapter.cs" t="Include" />
-            <e p="playerControl.cs" t="Include" />
+            <e p="Movement" t="Include">
+              <e p="IMovementAdapter.cs" t="Include" />
+              <e p="playerControl.cs" t="Include" />
+              <e p="RemoteNetworkControl.cs" t="Include" />
+            </e>
             <e p="playerScript.cs" t="Include" />
-            <e p="RemoteNetworkControl.cs" t="Include" />
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">
@@ -103,19 +105,18 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="MenuButton.cs" t="Include" />
           <e p="Net" t="Include">
-            <e p="ClientBehavior.cs" t="Include" />
             <e p="Core" t="Include">
               <e p="Client.cs" t="Include" />
+              <e p="ClientManager.cs" t="Include" />
               <e p="Constants.cs" t="Include" />
               <e p="EventBus.cs" t="Include" />
               <e p="Events.cs" t="Include" />
-              <e p="ServerManager.cs" t="Include" />
-              <e p="ServerResponse.cs" t="Include" />
               <e p="StarfighterUdpClient.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
               <e p="IPackageHandler.cs" t="Include" />
             </e>
+            <e p="MainClientLoop.cs" t="Include" />
             <e p="MainServerLoop.cs" t="Include" />
             <e p="PackageData" t="Include">
               <e p="AcceptData.cs" t="Include" />
@@ -158,11 +159,14 @@
               <e p="Dispatcher.cs" t="Include" />
               <e p="EventTypes.cs" t="Include" />
               <e p="PackageTypes.cs" t="Include" />
+              <e p="SenderHelper.cs" t="Include" />
               <e p="SerializationSurrogates.cs" t="Include" />
+              <e p="ServerHelper.cs" t="Include" />
             </e>
           </e>
           <e p="PauseMenu.cs" t="Include" />
           <e p="ScriptableObjects" t="Include">
+            <e p="ClientAccountObject.cs" t="Include" />
             <e p="DangerZoneConfig.cs" t="Include" />
             <e p="KeyConfig.cs" t="Include" />
             <e p="RouteConfig.cs" t="Include" />

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAngleSpeed: 0
   maxSpeed: 0
-  maxHP: 10000
+  maxHp: 0
+  currentHp: 12
   isDockable: 0
+  transform: {fileID: 400000, guid: 750dd6acbb669b14c8866acddb1bf76f, type: 3}
+  prefabName: Asteroid03L

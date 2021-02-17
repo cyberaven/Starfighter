@@ -1,5 +1,7 @@
 ﻿using System;
+using Client.Movement;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Client
 {
@@ -13,7 +15,7 @@ namespace Client
     public class PlayerScript : MonoBehaviour
     {
         public float shipSpeed, shipRotation;
-        public MovementAdapter MovementAdapter;
+        public MovementAdapter movementAdapter;
         
         public IMovementAdapter ShipsBrain;
         
@@ -46,12 +48,12 @@ namespace Client
             _blm = GameObject.Find("BotLeftEmition").GetComponent<ParticleSystem>();
             _te = GameObject.Find("ThurstsEmition").GetComponent<ParticleSystem>();
 
-            switch (MovementAdapter)
+            switch (movementAdapter)
             {
-                case MovementAdapter.PlayerControl:
+                case MovementAdapter.PlayerControl: //use on clients for ship under user control
                     ShipsBrain = new PlayerControl();
                     break;
-                case MovementAdapter.RemoteNetworkControl:
+                case MovementAdapter.RemoteNetworkControl: //use on server 
                     ShipsBrain = new RemoteNetworkControl();
                     break;
                 default:
@@ -72,7 +74,7 @@ namespace Client
         
         private void UpdateMovement()
         {
-            // рассчет тяги
+            // рассчет вектора тяги
             thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
             maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
             _thrustForce.force = 

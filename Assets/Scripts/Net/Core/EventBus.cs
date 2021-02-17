@@ -14,11 +14,12 @@ namespace Net.Core
         public PackageEvent newPackageRecieved = new PackageEvent();
         public ConnectPackageEvent addClient = new ConnectPackageEvent();
         public PlayerMovementEvent serverMovePlayer = new PlayerMovementEvent();
+        
+        
         public static EventBus GetInstance()
         {
             return Instance;
         }
-        
         
         public void Dispose()
         {
