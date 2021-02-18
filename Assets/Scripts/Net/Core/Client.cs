@@ -25,9 +25,11 @@ namespace Net.Core
 
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
-            NetEventStorage.GetInstance().serverMovePlayer.AddListener(UpdateMovement);
-            _playerScript = InstantiateHelper.InstantiateShip(account);
+            NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
+            
+            _playerScript = InstantiateHelper.InstantiateShip(account.ship);
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
+            
             StartListenClient();
         }
 

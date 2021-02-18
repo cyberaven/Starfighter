@@ -4,7 +4,18 @@ namespace Client.Movement
 {   
     public class RemoteNetworkControl: IMovementAdapter
     {
-        private MovementEventData _lastMoveAction;
+        private MovementEventData _lastMovement;
+
+        public RemoteNetworkControl()
+        {
+            _lastMovement = new MovementEventData()
+            {
+                rotationValue = 0f,
+                thrustValue = 0f,
+                sideManeurValue = 0f,
+                straightManeurValue = 0f
+            };
+        }
         
         public EngineState getMovement()
         {
@@ -48,27 +59,27 @@ namespace Client.Movement
 
         public float GetThrustSpeed()
         { 
-            return _lastMoveAction.thrustValue;
+            return _lastMovement.thrustValue;
         }
 
         public float GetSideManeurSpeed()
         { 
-            return _lastMoveAction.sideManeurValue;
+            return _lastMovement.sideManeurValue;
         }
 
         public float GetStraightManeurSpeed()
         { 
-            return _lastMoveAction.straightManeurValue;
+            return _lastMovement.straightManeurValue;
         }
 
         public float GetShipAngle()
         { 
-            return _lastMoveAction.rotationValue;
+            return _lastMovement.rotationValue;
         }
 
         public void UpdateMovementActionData(MovementEventData data)
         {
-            _lastMoveAction = data;
+            _lastMovement = data;
         }
     }
 }

@@ -9,11 +9,11 @@ namespace Client.Utils
 {
     public static class InstantiateHelper
     {
-        public static PlayerScript InstantiateShip(ClientAccountObject account)
+        public static PlayerScript InstantiateShip(SpaceShipConfig ship)
         {
-            var shipPrefab = Resources.Load(Constants.PathToPrefabs + account.ship.name);
-            var shipsInstance = Object.Instantiate(shipPrefab, position: account.ship.transform.position,
-                rotation: account.ship.transform.rotation) as GameObject;
+            var shipPrefab = Resources.Load(Constants.PathToPrefabs + ship.name);
+            var shipsInstance = Object.Instantiate(shipPrefab, position: ship.transform.position,
+                rotation: ship.transform.rotation) as GameObject;
             shipsInstance.name += "_" + Guid.NewGuid();
             
             var playerScript = shipsInstance.GetComponent<PlayerScript>();

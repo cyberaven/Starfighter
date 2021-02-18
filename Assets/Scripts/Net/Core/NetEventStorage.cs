@@ -13,7 +13,7 @@ namespace Net.Core
 
         public StatePackageEvent updateWorldState = new StatePackageEvent();
         public PackageEvent newPackageRecieved = new PackageEvent();
-        public PlayerMovementEvent serverMovePlayer = new PlayerMovementEvent();
+        public PlayerMovementEvent serverMovedPlayer = new PlayerMovementEvent();
 
         public static NetEventStorage GetInstance()
         {
@@ -24,7 +24,7 @@ namespace Net.Core
         {
             updateWorldState.RemoveAllListeners();
             newPackageRecieved.RemoveAllListeners();
-            serverMovePlayer.RemoveAllListeners();
+            serverMovedPlayer.RemoveAllListeners();
         }
     }
 }

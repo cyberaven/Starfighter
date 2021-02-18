@@ -22,24 +22,21 @@ namespace Net.PackageHandlers.ServerHandlers
                 var connectPack = (ConnectPackage)pack;
                 
                 if (ClientManager.instance.CheckAuthorization(connectPack))
-                {
-                    Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
-                    
-                    ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData()));
+                {  
+                    Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
+
+                    connectPack.data.multicastGroupIp = Constants.MulticastAddress;
+                    connectPack.data.portToSend = ClientManager.instance.GetNewPort();
+                    connectPack.data.portToReceive = ClientManager.instance.GetNewPort();
+
+                    ClientManager.instance.AddClient(connectPack);
+                    ServerHelper.SendConnectionResponse(connectPack);
                     return;
                 }
                 
-                Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
-
-                connectPack.data.multicastGroupIp = Constants.MulticastAddress;
-                connectPack.data.portToSend = ClientManager.instance.GetNewPort();
-                connectPack.data.portToReceive = ClientManager.instance.GetNewPort();
+                Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
                 
-                ClientManager.instance.AddClient(connectPack);
-                ServerHelper.SendConnectionResponse(connectPack);
-                //TODO:init new user
-                //TODO: instantiate user's Go, if necessary
-                //TODO: bind it with client's object
+                ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData()));
             }
             catch (Exception ex)
             {

@@ -94,7 +94,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/LocalNetworkControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/IMovementAdapter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/RemoteNetworkControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
@@ -124,16 +123,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventStorage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Client/playerScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/RemoteNetworkControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
       </list>
     </option>
   </component>
