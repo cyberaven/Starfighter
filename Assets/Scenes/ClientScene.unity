@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -212,6 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 787796845}
+  - component: {fileID: 787796846}
   - component: {fileID: 787796844}
   m_Layer: 0
   m_Name: Client
@@ -233,9 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accType: 0
-  login: login
-  password: password
-  serverAddress: 192.168.31.192
+  login: ShipPilot
+  password: shippilot
+  serverAddress: 192.168.0.134
 --- !u!4 &787796845
 Transform:
   m_ObjectHideFlags: 0
@@ -250,6 +252,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &787796846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787796843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a56a4ca15c44cb19ae20dc6c5b0da0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1777879044
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,8 +289,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777879044}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10

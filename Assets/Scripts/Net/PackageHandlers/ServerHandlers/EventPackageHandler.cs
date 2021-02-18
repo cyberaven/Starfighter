@@ -19,7 +19,7 @@ namespace Net.PackageHandlers.ServerHandlers
             {
                 case EventType.MoveEvent:
                     var movement = (MovementEventData)eventPack.data.data;
-                    EventBus.GetInstance().serverMovePlayer.Invoke(pack.ipAddress, movement);
+                    NetEventStorage.GetInstance().serverMovePlayer.Invoke(pack.ipAddress, movement);
                     break;
                 case EventType.DockEvent:
                     break;

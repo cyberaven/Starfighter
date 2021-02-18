@@ -19,15 +19,11 @@ namespace Net.PackageHandlers.ServerHandlers
             try
             {
                 Debug.unityLogger.Log("Connection handle start");
+                var connectPack = (ConnectPackage)pack;
                 
-                //TODO:check for LoginPassword (decline if incorrect)
-                var loginData = ((ConnectPackage) pack).data;
-                
-
-                if (ClientManager.GetInstance().ConnectedClients
-                    .Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
+                if (ClientManager.instance.CheckAuthorization(connectPack))
                 {
-                    Debug.Log("Connection declined (this endpoint already connected)");
+                    Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
                     
                     ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData()));
                     return;
@@ -35,13 +31,11 @@ namespace Net.PackageHandlers.ServerHandlers
                 
                 Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
 
-                var connectPack = (ConnectPackage)pack;
-                
                 connectPack.data.multicastGroupIp = Constants.MulticastAddress;
-                connectPack.data.portToSend = ClientManager.GetInstance().GetNewPort();
-                connectPack.data.portToReceive = ClientManager.GetInstance().GetNewPort();
+                connectPack.data.portToSend = ClientManager.instance.GetNewPort();
+                connectPack.data.portToReceive = ClientManager.instance.GetNewPort();
                 
-                EventBus.GetInstance().addClient.Invoke(connectPack);
+                ClientManager.instance.AddClient(connectPack);
                 ServerHelper.SendConnectionResponse(connectPack);
                 //TODO:init new user
                 //TODO: instantiate user's Go, if necessary

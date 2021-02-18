@@ -7,31 +7,19 @@ using UnityEngine;
 
 namespace Net.PackageHandlers.ServerHandlers
 {
-    public class HandlerManager: IDisposable
+    public class HandlerManager: AbstractHandlerManager
     {
-        private static HandlerManager Instance = new HandlerManager();
-        
-        public static IPackageHandler ConnectHandler;
-        public static IPackageHandler DisconnectHandler;
-        public static IPackageHandler EventHandler;
-        public static IPackageHandler StateHandler;
-
-        private HandlerManager()
+        public HandlerManager(NetEventStorage netEventStorage)
         {
+            netEventStorage.newPackageRecieved.AddListener(HandlePackage);
+            
             ConnectHandler = new ConnectPackageHandler();
             DisconnectHandler = new DisconnectPackageHandler();
             EventHandler = new EventPackageHandler();
             StateHandler = new StatePackageHandler();
-
-            EventBus.GetInstance().newPackageRecieved.AddListener(HandlePackage);
         }
 
-        public static HandlerManager GetInstance()
-        {
-            return Instance;
-        }
-        
-        public async void HandlePackage(AbstractPackage pack)
+        public override async void HandlePackage(AbstractPackage pack)
         {
             Debug.unityLogger.Log($"Server Gonna handle some packs! {pack.packageType}");
             switch (pack.packageType)
@@ -53,11 +41,6 @@ namespace Net.PackageHandlers.ServerHandlers
                     //Предполагается, что этих пакетов не будет прилетать на сервер.
                     break;
             }
-        }
-
-        public void Dispose()
-        {
-            
         }
     }
 }

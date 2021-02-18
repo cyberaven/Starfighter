@@ -2,11 +2,14 @@
 using System.Net;
 using System.Threading.Tasks;
 using Client;
+using Client.Utils;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
+using ScriptableObjects;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Net.Core
 {
@@ -17,11 +20,13 @@ namespace Net.Core
     {
         private StarfighterUdpClient _udpSocket;
         private PlayerScript _playerScript;
-        
-        public Client(IPAddress address, int sendingPort,  int listeningPort)
+        private Guid _myGameObjectId;
+
+
+        public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
-            EventBus.GetInstance().serverMovePlayer.AddListener(UpdateMovement);
-            //TODO: _playerScript = ...
+            NetEventStorage.GetInstance().serverMovePlayer.AddListener(UpdateMovement);
+            _playerScript = InstantiateHelper.InstantiateShip(account);
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             StartListenClient();
         }

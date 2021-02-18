@@ -8,6 +8,7 @@ using Net.Core;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.PackageHandlers.ClientHandlers;
+using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
@@ -16,6 +17,7 @@ using EventType = Net.Utils.EventType;
 
 namespace Net
 {
+    [RequireComponent(typeof(ClientHandlerManager))]
     public class MainClientLoop : MonoBehaviour
     {
         public AccountType accType;
@@ -27,9 +29,6 @@ namespace Net
         private StarfighterUdpClient _udpClient;
         //Прием State пакетов от сервера. Общий канал
         private StarfighterUdpClient _multicastUdpClient;
-        //client handler manager should be here
-        private ClientHandlerManager _handlerManager;
-        private EventBus _eventBus;
         //TODO: заполняется после подключения к серверу - когда загружается модель корабля
         private PlayerScript _playerScript;
         
@@ -39,8 +38,6 @@ namespace Net
             _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
                 Constants.ServerReceivingPort,
                 Constants.ServerSendingPort);
-            _handlerManager = ClientHandlerManager.GetInstance();
-            _eventBus = EventBus.GetInstance();
         }
 
         private void Start()
@@ -50,7 +47,6 @@ namespace Net
             // sphere.transform.position = Vector3.zero;
             // sphere.tag = Constants.PlayerTag;
             // Instantiate(sphere);
-            _playerScript = GameObject.FindGameObjectWithTag(Constants.PlayerTag).GetComponent<PlayerScript>();
             Task.Run(ConnectToServer);
         }
         
@@ -69,7 +65,7 @@ namespace Net
                 var result = SenderHelper.SendEventPackage(_udpClient, movementData, EventType.MoveEvent).Result;
             }
             
-            _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+            NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         
         private void FixedUpdate()
@@ -128,15 +124,19 @@ namespace Net
                             Constants.ServerReceivingPort, Constants.ServerSendingPort);
                         _multicastUdpClient.JoinMulticastGroup(multicastAddress);
 
-                        _eventBus.updateWorldState.AddListener(SendWorldState);
+                        NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
 
                         StartListenServer();
+                        
+                        //TODO: это надо выполнять где хз где
+                        _playerScript = GameObject.FindGameObjectWithTag(Constants.PlayerTag).GetComponent<PlayerScript>();
+                        
                     }
                     catch (Exception ex)
                     {
                         Debug.unityLogger.LogError("Connect to Server error:", ex.Message);
                     }
-
+                    
                     break;
                 }
                 case PackageType.DeclinePackage:
@@ -151,8 +151,7 @@ namespace Net
 
         private void OnDestroy()
         {
-            _handlerManager.Dispose();
-            _eventBus.Dispose();
+            ClientHandlerManager.instance.Dispose();
         }
 
         private void OnApplicationQuit()

@@ -9,7 +9,7 @@ namespace Net.Utils
 {
     public static class SenderHelper
     {
-        public static async Task<bool> SendEventPackage(StarfighterUdpClient client, object data, EventType type)
+        public static async Task<bool> SendEventPackage(this StarfighterUdpClient client, object data, EventType type)
         {
             var eventData = new EventData()
             {

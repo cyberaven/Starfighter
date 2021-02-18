@@ -67,7 +67,7 @@ namespace Client
             //for UI displaying
             shipSpeed = _ship.velocity.magnitude;
             shipRotation = _ship.angularVelocity.magnitude;
-            
+
             UpdateMovement();
             AnimateMovement();
         }

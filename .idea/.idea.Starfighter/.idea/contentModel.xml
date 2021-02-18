@@ -88,9 +88,13 @@
               <e p="RemoteNetworkControl.cs" t="Include" />
             </e>
             <e p="playerScript.cs" t="Include" />
+            <e p="Utils" t="Include">
+              <e p="InstantiateHelper.cs" t="Include" />
+            </e>
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">
+            <e p="AbstractSingleton.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
             <e p="EventSystem" t="Include">
               <e p="DangerZoneEditEvent.cs" t="Include" />
@@ -109,8 +113,9 @@
               <e p="Client.cs" t="Include" />
               <e p="ClientManager.cs" t="Include" />
               <e p="Constants.cs" t="Include" />
-              <e p="EventBus.cs" t="Include" />
               <e p="Events.cs" t="Include" />
+              <e p="ManagerStorage.cs" t="Include" />
+              <e p="NetEventStorage.cs" t="Include" />
               <e p="StarfighterUdpClient.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
@@ -130,6 +135,7 @@
               <e p="StateData.cs" t="Include" />
             </e>
             <e p="PackageHandlers" t="Include">
+              <e p="AbstractHandlerManager.cs" t="Include" />
               <e p="ClientHandlers" t="Include">
                 <e p="AcceptPackageHandler.cs" t="Include" />
                 <e p="ClientHandlerManager.cs" t="Include" />

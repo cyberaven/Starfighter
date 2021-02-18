@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Net.Core;
 using Net.Interfaces;
 using Net.Packages;
@@ -8,35 +9,18 @@ using UnityEngine;
 
 namespace Net.PackageHandlers.ClientHandlers
 {
-    public class ClientHandlerManager: IDisposable
+    public class ClientHandlerManager: AbstractHandlerManager
     {
-        private static ClientHandlerManager _instance = new ClientHandlerManager();
-        
-        public static IPackageHandler AcceptHandler;
-        public static IPackageHandler DeclineHandler;
-        public static IPackageHandler EventHandler;
-        public static IPackageHandler StateHandler;
-
-
-        private static List<AbstractPackage> _eventsToHandle;
-        private ClientHandlerManager()
+        public ClientHandlerManager()
         {
-            _eventsToHandle = new List<AbstractPackage>();
-            
+            NetEventStorage.GetInstance().newPackageRecieved.AddListener(HandlePackage);
             AcceptHandler = new AcceptPackageHandler();
             DeclineHandler = new DeclinePackageHandler();
             EventHandler = new EventPackageHandler();
             StateHandler = new StatePackageHandler();
-
-            EventBus.GetInstance().newPackageRecieved.AddListener(HandlePackage);
         }
 
-        public static ClientHandlerManager GetInstance()
-        {
-            return _instance;
-        }
-        
-        public async void HandlePackage(AbstractPackage pack)
+        public override async void HandlePackage(AbstractPackage pack)
         {
             Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
             switch (pack.packageType)
@@ -60,11 +44,6 @@ namespace Net.PackageHandlers.ClientHandlers
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        public void Dispose()
-        {
-            
         }
     }
 }

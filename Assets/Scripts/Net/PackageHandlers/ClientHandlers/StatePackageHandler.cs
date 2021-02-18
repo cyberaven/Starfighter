@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Client.Utils;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Packages;
@@ -35,14 +36,7 @@ namespace Net.PackageHandlers.ClientHandlers
                         }
                         else
                         {
-                            var prefabName = worldObject.name.Split('_')[0];
-                            Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + prefabName}");
-                            var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
-                            var instance =
-                                Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
-                                    GameObject;
-                            instance.name = worldObject.name;
-                            instance.tag = Constants.DynamicTag;
+                            InstantiateHelper.InstantiateObject(worldObject);
                         }
                     }
                     dispatcherFlagDone = true;

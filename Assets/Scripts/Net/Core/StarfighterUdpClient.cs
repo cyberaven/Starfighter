@@ -137,7 +137,7 @@ namespace Net.Core
             stream.Close();
             
             //New pack received event invoke
-            EventBus.GetInstance().newPackageRecieved.Invoke(pack);
+            NetEventStorage.GetInstance().newPackageRecieved.Invoke(pack);
 
             BeginReceivingPackage();
         }

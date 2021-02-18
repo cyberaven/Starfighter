@@ -14,25 +14,16 @@ using UnityEngine;
 
 namespace Net
 {
+    [RequireComponent(typeof(ClientManager))]
+    [RequireComponent(typeof(HandlerManager))]
     public class MainServerLoop : MonoBehaviour
     {
-
-        private ClientManager _clientManager;
-        private EventBus _eventBus;
-        private HandlerManager _handlerManager;
         private StarfighterUdpClient _multicastUdpClient;
-        public readonly List<ClientAccountObject> AccountObjects;
-        
+
         private void Awake()
         {
-            _eventBus = EventBus.GetInstance();
-            _clientManager = ClientManager.GetInstance();
-            _handlerManager = HandlerManager.GetInstance();
-
             ConfigInit();
-
-            _eventBus.addClient.AddListener(AddNewClient);
-            _eventBus.updateWorldState.AddListener(SendWorldState);
+            NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
         }
 
         private void ConfigInit()
@@ -57,7 +48,7 @@ namespace Net
         {
             try
             {
-                _eventBus.updateWorldState.Invoke(GetWorldStatePackage().Result);
+                NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
             }
             catch (Exception ex)
             {
@@ -81,11 +72,6 @@ namespace Net
             return new StatePackage(worldData);
         }
 
-        private void AddNewClient(ConnectPackage info)
-        {
-            _clientManager.AddClient(info);
-        }
-
         private async void SendWorldState(StatePackage pack)
         {
             await _multicastUdpClient.SendPackageAsync(pack);
@@ -93,8 +79,8 @@ namespace Net
         
         private void OnDestroy()
         {
-            _clientManager.Dispose();
-            _eventBus.Dispose();
+            ClientManager.instance.Dispose();
+            HandlerManager.instance.Dispose();
             ConfigSave();
         }
     }
