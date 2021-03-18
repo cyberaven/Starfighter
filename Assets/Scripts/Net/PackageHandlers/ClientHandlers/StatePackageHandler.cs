@@ -41,7 +41,7 @@ namespace Net.PackageHandlers.ClientHandlers
                             var go = InstantiateHelper.InstantiateObject(worldObject);
                             var ps = go.GetComponent<PlayerScript>();
                             if (ps is null) continue;
-                            ps.ShipsBrain = new PlayerControl();
+                            ps.movementAdapter = MovementAdapter.PlayerControl;
                         }
                         
                     }
