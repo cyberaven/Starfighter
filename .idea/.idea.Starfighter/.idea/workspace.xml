@@ -34,9 +34,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/playerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ManagerStorage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ManagerStorage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,9 +99,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -165,7 +173,7 @@
       <workItem from="1615142292255" duration="1045000" />
       <workItem from="1615545037563" duration="355000" />
       <workItem from="1615795742485" duration="1235000" />
-      <workItem from="1616067431545" duration="7850000" />
+      <workItem from="1616067431545" duration="8867000" />
     </task>
     <servers />
   </component>
