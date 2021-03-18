@@ -14,6 +14,8 @@ namespace Net.Core
         public StatePackageEvent updateWorldState = new StatePackageEvent();
         public PackageEvent newPackageRecieved = new PackageEvent();
         public PlayerMovementEvent serverMovedPlayer = new PlayerMovementEvent();
+        public ClientEvent disconnectClient = new ClientEvent();
+        public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
 
         public static NetEventStorage GetInstance()
         {
@@ -25,6 +27,7 @@ namespace Net.Core
             updateWorldState.RemoveAllListeners();
             newPackageRecieved.RemoveAllListeners();
             serverMovedPlayer.RemoveAllListeners();
+            disconnectClient.RemoveAllListeners();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Client;
+using Client.Movement;
 using Client.Utils;
 using Net.Interfaces;
 using Net.PackageData;
@@ -25,20 +27,25 @@ namespace Net.PackageHandlers.ClientHandlers
                     foreach (var worldObject in statePack.data.worldState)
                     {
                         var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
-                            .Union(GameObject.FindGameObjectsWithTag(Constants.PlayerTag))
                             .FirstOrDefault(go => go.name == worldObject.name);
                         
                         if (gameObject != null)
                         {
-                            if(gameObject.CompareTag(Constants.PlayerTag)) continue;
+                            //не надо делать исключений для корабля. Сервер однозначно определяет положение ВСЕХ объектов
+                            //if(gameObject.CompareTag(Constants.PlayerTag)) continue;
                             gameObject.transform.position = worldObject.position;
                             gameObject.transform.rotation = worldObject.rotation;
                         }
                         else
                         {
-                            InstantiateHelper.InstantiateObject(worldObject);
+                            var go = InstantiateHelper.InstantiateObject(worldObject);
+                            var ps = go.GetComponent<PlayerScript>();
+                            if (ps is null) continue;
+                            ps.ShipsBrain = new PlayerControl();
                         }
+                        
                     }
+
                     dispatcherFlagDone = true;
                 });
                 while(!dispatcherFlagDone){}

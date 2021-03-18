@@ -26,8 +26,8 @@ namespace Net.Core
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
             NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
-            
-            _playerScript = InstantiateHelper.InstantiateShip(account.ship);
+
+            _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             
             StartListenClient();
@@ -75,7 +75,9 @@ namespace Net.Core
         
         public void Dispose()
         {
-            _udpSocket.SendPackageAsync(new DisconnectPackage(null));
+            _udpSocket.Dispose();
+            Object.Destroy(_playerScript.gameObject);
+            //_udpSocket.SendPackageAsync(new DisconnectPackage(null));
         }
     }
 }

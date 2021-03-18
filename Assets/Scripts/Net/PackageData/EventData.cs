@@ -7,7 +7,6 @@ namespace Net.PackageData
     [Serializable]
     public class EventData
     {
-        //TODO: Event data. Types? Cases to use?
         [SerializeField]
         public Guid eventId;
 

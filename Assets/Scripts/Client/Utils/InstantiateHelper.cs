@@ -9,12 +9,13 @@ namespace Client.Utils
 {
     public static class InstantiateHelper
     {
-        public static PlayerScript InstantiateShip(SpaceShipConfig ship)
+        public static PlayerScript InstantiateServerShip(SpaceShipConfig ship)
         {
             var shipPrefab = Resources.Load(Constants.PathToPrefabs + ship.name);
             var shipsInstance = Object.Instantiate(shipPrefab, position: ship.transform.position,
                 rotation: ship.transform.rotation) as GameObject;
             shipsInstance.name += "_" + Guid.NewGuid();
+            shipsInstance.tag = Constants.DynamicTag;
             
             var playerScript = shipsInstance.GetComponent<PlayerScript>();
             if(playerScript is null) shipsInstance.AddComponent<PlayerScript>();

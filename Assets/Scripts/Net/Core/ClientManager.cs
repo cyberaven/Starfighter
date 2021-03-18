@@ -25,6 +25,8 @@ namespace Net.Core
         private void Awake()
         {
             ConnectedClients = new List<Client>();
+            
+            NetEventStorage.GetInstance().disconnectClient.AddListener(DisconnectClient);
         }
 
         public void AddClient(ConnectPackage info)
@@ -49,6 +51,12 @@ namespace Net.Core
         public void UnregisterAccount(ClientAccountObject acc)
         {
             accountObjects.Remove(acc);
+        }
+
+        public void DisconnectClient(Client client)
+        {
+            ConnectedClients.Remove(client);
+            client.Dispose();
         }
         
         public int GetNewPort()

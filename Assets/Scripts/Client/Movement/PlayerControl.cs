@@ -1,10 +1,19 @@
-﻿using Net.PackageData.EventsData;
+﻿using System.Net.Sockets;
+using Net.Core;
+using Net.PackageData.EventsData;
+using Net.Utils;
 using UnityEngine;
+using EventType = UnityEngine.EventType;
 
 namespace Client.Movement
 {   
     public class PlayerControl: IMovementAdapter
     {
+        public PlayerControl()
+        {
+            NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
+        }
+        
         public EngineState getMovement()
         {
             var state = new EngineState();
@@ -68,6 +77,18 @@ namespace Client.Movement
         public void UpdateMovementActionData(MovementEventData data)
         {
             return;
+        }
+
+        public void SendMovement(StarfighterUdpClient udpClient)
+        {
+            var movementData = new MovementEventData()
+            {
+                rotationValue = GetShipAngle(),
+                sideManeurValue = GetSideManeurSpeed(),
+                straightManeurValue = GetStraightManeurSpeed(),
+                thrustValue = GetThrustSpeed()
+            };
+            var result = udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent).Result;
         }
     }
 }

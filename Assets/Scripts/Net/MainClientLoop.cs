@@ -12,6 +12,7 @@ using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 using EventType = Net.Utils.EventType;
 
@@ -29,8 +30,6 @@ namespace Net
         private StarfighterUdpClient _udpClient;
         //Прием State пакетов от сервера. Общий канал
         private StarfighterUdpClient _multicastUdpClient;
-        //TODO: заполняется после подключения к серверу - когда загружается модель корабля
-        private PlayerScript _playerScript;
         
         private void Awake()
         {
@@ -49,23 +48,15 @@ namespace Net
             // Instantiate(sphere);
             Task.Run(ConnectToServer);
         }
-        
 
         private void Update()
         {
             if (Input.anyKey)
             {
-                var movementData = new MovementEventData()
-                {
-                    rotationValue = _playerScript.ShipsBrain.GetShipAngle(),
-                    sideManeurValue = _playerScript.ShipsBrain.GetSideManeurSpeed(),
-                    straightManeurValue = _playerScript.ShipsBrain.GetStraightManeurSpeed(),
-                    thrustValue = _playerScript.ShipsBrain.GetThrustSpeed()
-                };
-                var result = SenderHelper.SendEventPackage(_udpClient, movementData, EventType.MoveEvent).Result;
+                NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
             }
             
-            NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
+            // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         
         private void FixedUpdate()
@@ -73,16 +64,16 @@ namespace Net
             Dispatcher.Instance.InvokePending();
         }
         
-        private async Task<StatePackage> GetWorldStatePackage()
-        {
-            Debug.unityLogger.Log("MainClientLoop.GetWorldStatePackage");
-            //var gameObjects = GameObject.FindGameObjectsWithTag(Constants.PlayerTag);
-            var worldData = new StateData()
-            {
-                //worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
-            };
-            return new StatePackage(worldData);
-        }
+        // private async Task<StatePackage> GetWorldStatePackage()
+        // {
+        //     Debug.unityLogger.Log("MainClientLoop.GetWorldStatePackage");
+        //     //var gameObjects = GameObject.FindGameObjectsWithTag(Constants.PlayerTag);
+        //     var worldData = new StateData()
+        //     {
+        //         //worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
+        //     };
+        //     return new StatePackage(worldData);
+        // }
         
         private void StartListenServer()
         {
@@ -90,10 +81,10 @@ namespace Net
             _udpClient.BeginReceivingPackage();
         }
         
-        private async void SendWorldState(StatePackage worldState)
-        {
-            await _udpClient.SendPackageAsync(worldState);
-        }
+        // private async void SendWorldState(StatePackage worldState)
+        // {
+        //     await _udpClient.SendPackageAsync(worldState);
+        // }
 
         private async void ConnectToServer()
         {
@@ -124,13 +115,9 @@ namespace Net
                             Constants.ServerReceivingPort, Constants.ServerSendingPort);
                         _multicastUdpClient.JoinMulticastGroup(multicastAddress);
 
-                        NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
+                        // NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
 
                         StartListenServer();
-                        
-                        //TODO: это надо выполнять где хз где
-                        _playerScript = GameObject.FindGameObjectWithTag(Constants.PlayerTag).GetComponent<PlayerScript>();
-                        
                     }
                     catch (Exception ex)
                     {

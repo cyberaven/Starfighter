@@ -33,7 +33,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="" />
+    <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,85 +73,42 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/d7/58cde5bf/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/59/2a6ea684/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/29/cfcee517/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55FB83BC-594C-4912-8AAA-795223FB816E/2c/d0ab6afd/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/76/3df5a9e6/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/f2/ef7219e8/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/05/8161c370/IPAddress.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/ba/2af3d41e/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/5b/e0ca064a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/99/783b50d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c9/f430f47d/UnityEvent`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/A278EBD4-4AB0-472B-B8E6-38263E06CD61/72/5c0cfde2/0200030B.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/35BAB3C7-B0DC-4999-845B-CFCCC7758D96/b1/07e3e17a/EventType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/59/2a6ea684/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD1B6EA4-F54D-4146-A29C-2A12CD6EC436/b7/331b8eeb/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/A278EBD4-4AB0-472B-B8E6-38263E06CD61/72/5c0cfde2/0200030B.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/a3/5900e0bc/SocketFlags.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/29/cfcee517/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D9FC116-8096-494E-B57C-E240D3E836DC/86/301a1063/IMoveHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/e5/b7177e9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/52/b7d0c412/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55FB83BC-594C-4912-8AAA-795223FB816E/2c/d0ab6afd/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/76/3df5a9e6/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/ff/69c95fb7/Dns.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Unity/Starfighter/Assets/Scripts/Net/Core/Client.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/f2/ef7219e8/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/05/8161c370/IPAddress.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/e5/b7177e9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/ba/2af3d41e/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/5b/e0ca064a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c9/f430f47d/UnityEvent`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientListener.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData/MovementEventData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventsData/MovementEventData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/NetworkControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/MovementAdapter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/RemoteNetworkControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/LocalNetworkControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/IMovementAdapter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/ClientBehavior.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/ships.json" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/App.config" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Config/Ships.json" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceShipConfig.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ClientAccountObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ServerResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerResponse.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/ScriptableObjectStorage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/AbstractPackageManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventBus.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterAutoFac.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterDI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Interfaces/IPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterDi.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ManagerStorage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Core/AbstractSingleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/AbstractHandlerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/EventStorage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/playerScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/RemoteNetworkControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
+    </changedPaths>
   </component>
   <component name="NamedScopeManager">
     <scope name="ServerTodoScope" pattern="file[riderModule]:Assets/Scripts/Net/*||file[riderModule]:Assets/Scripts/Net//*" />
@@ -150,7 +123,7 @@
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="TODO_SCOPE" value="ServerTodoScope" />
+    <property name="TODO_SCOPE" value="AllToDoScope" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.build.unityPlugin" />
   </component>
@@ -168,7 +141,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -177,7 +150,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -199,6 +172,12 @@
       <workItem from="1609853819495" duration="22868000" />
       <workItem from="1611771461254" duration="11785000" />
       <workItem from="1613391961253" duration="14608000" />
+      <workItem from="1613762325873" duration="1973000" />
+      <workItem from="1614975849895" duration="1176000" />
+      <workItem from="1615142292255" duration="1045000" />
+      <workItem from="1615545037563" duration="355000" />
+      <workItem from="1615795742485" duration="1235000" />
+      <workItem from="1616067431545" duration="7588000" />
     </task>
     <servers />
   </component>
@@ -218,46 +197,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="-1824" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606765667134">
-      <screen x="-1920" y="0" width="1280" height="693" />
-    </state>
-    <state x="-1824" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1606765667134" />
-    <state x="718" y="400" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1613396023211">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="718" y="400" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1613396023211" />
-    <state x="350" y="112" key="Rider.ProjectTemplateDialog.Size" timestamp="1612643101263">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="350" y="112" key="Rider.ProjectTemplateDialog.Size/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1612643101263" />
-    <state x="233" y="73" key="Rider.ProjectTemplateDialog.Size/0.0.1280.680@0.0.1280.680" timestamp="1610434716940" />
-    <state x="-1435" y="60" key="RiderGenerateDialog" timestamp="1613598877532">
-      <screen x="-1920" y="0" width="1280" height="693" />
-    </state>
-    <state x="-1435" y="60" key="RiderGenerateDialog/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1613598877532" />
-    <state x="728" y="122" key="RiderGenerateDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1607169973441" />
-    <state x="485" y="79" key="RiderGenerateDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1604872785638" />
-    <state x="485" y="70" key="RiderGenerateDialog/0.0.1280.680@0.0.1280.680" timestamp="1610139087475" />
-    <state x="201" y="0" key="SettingsEditor" timestamp="1604871429533">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="201" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1604871429533" />
-    <state x="0" y="0" width="664" height="680" key="find.popup" timestamp="1611772463335">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="0" y="0" width="664" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1611772463335" />
-    <state x="257" y="195" width="905" height="395" key="scopes" timestamp="1611773543589">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="-1663" y="199" width="905" height="395" key="scopes/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1607092678086" />
-    <state x="257" y="195" width="905" height="395" key="scopes/0.0.1280.680@0.0.1280.680" timestamp="1611773543589" />
-    <state x="623" y="225" width="1008" height="680" key="search.everywhere.popup" timestamp="1612710190936">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1505" y="150" width="672" height="453" key="search.everywhere.popup/-1920.0.1280.693/0.0.1920.1040@-1920.0.1280.693" timestamp="1607278171003" />
-    <state x="623" y="225" width="1008" height="680" key="search.everywhere.popup/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1612710190936" />
-    <state x="415" y="147" width="672" height="444" key="search.everywhere.popup/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1604875759420" />
   </component>
 </project>

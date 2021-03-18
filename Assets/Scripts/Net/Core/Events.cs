@@ -20,7 +20,8 @@ namespace Net.Core
     public class ConnectDataEvent : UnityEvent<ConnectData> { }
     
     public class IpAddressEvent : UnityEvent<IPAddress> { }
-    
+    public class ClientEvent: UnityEvent<Client> { }
     public class PlayerMovementEvent: UnityEvent<IPAddress, MovementEventData> { }
+    public class StarfighterUdpClientEvent : UnityEvent<StarfighterUdpClient> { }
 
 }

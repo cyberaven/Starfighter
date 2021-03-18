@@ -13,7 +13,6 @@ namespace Net.PackageHandlers.ServerHandlers
     {
         public async Task Handle(AbstractPackage pack)
         {
-            //TODO: EventHandling
             var eventPack = pack as EventPackage;
             switch (eventPack.data.eventType)
             {

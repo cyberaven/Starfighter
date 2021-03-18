@@ -16,8 +16,8 @@ namespace Net.PackageHandlers.ServerHandlers
                 var clientToSend = ClientManager.instance.ConnectedClients
                     .FirstOrDefault(client => Equals(client.GetIpAddress(), pack.ipAddress));
                 clientToSend?.SendAccept((pack as EventPackage).id);
+                
                 ClientManager.instance.ConnectedClients.Remove(clientToSend);
-                //TODO:delete all GO associated with this IPEndpoint
             }
             else
             {
