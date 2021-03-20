@@ -1,4 +1,6 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
+using System.Threading.Tasks;
 using Net.Core;
 using Net.PackageData.EventsData;
 using Net.Utils;
@@ -79,16 +81,23 @@ namespace Client.Movement
             return;
         }
 
-        public void SendMovement(StarfighterUdpClient udpClient)
+        public async void SendMovement(StarfighterUdpClient udpClient)
         {
-            var movementData = new MovementEventData()
+            try
             {
-                rotationValue = GetShipAngle(),
-                sideManeurValue = GetSideManeurSpeed(),
-                straightManeurValue = GetStraightManeurSpeed(),
-                thrustValue = GetThrustSpeed()
-            };
-            var result = udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent).Result;
+                var movementData = new MovementEventData()
+                {
+                    rotationValue = GetShipAngle(),
+                    sideManeurValue = GetSideManeurSpeed(),
+                    straightManeurValue = GetStraightManeurSpeed(),
+                    thrustValue = GetThrustSpeed()
+                };
+                var result = await udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent);
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
         }
     }
 }

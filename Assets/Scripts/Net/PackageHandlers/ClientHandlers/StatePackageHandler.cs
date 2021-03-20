@@ -41,7 +41,14 @@ namespace Net.PackageHandlers.ClientHandlers
                             var go = InstantiateHelper.InstantiateObject(worldObject);
                             var ps = go.GetComponent<PlayerScript>();
                             if (ps is null) continue;
-                            ps.movementAdapter = MovementAdapter.PlayerControl;
+                            if (MainClientLoop.instance.TryAttachPlayer(ps))
+                            {
+                                ps.movementAdapter = MovementAdapter.PlayerControl;
+                            }
+                            else
+                            {
+                               Object.Destroy(ps);
+                            }
                         }
                     }
                 });

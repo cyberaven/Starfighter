@@ -5,7 +5,8 @@ using Net.Core;
 using Net.Interfaces;
 using Net.PackageData.EventsData;
 using Net.Packages;
-using Net.Utils;
+using UnityEngine;
+using EventType = Net.Utils.EventType;
 
 namespace Net.PackageHandlers.ServerHandlers
 {
@@ -21,6 +22,8 @@ namespace Net.PackageHandlers.ServerHandlers
                     NetEventStorage.GetInstance().serverMovedPlayer.Invoke(pack.ipAddress, movement);
                     break;
                 case EventType.DockEvent:
+                    var data = eventPack.data.data.ToString();
+                    Debug.unityLogger.Log($"Got the event: {data}");
                     break;
                 case EventType.FireEvent:
                     break;

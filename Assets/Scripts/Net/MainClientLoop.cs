@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Client;
+using Core;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageData.EventsData;
@@ -19,7 +20,7 @@ using EventType = Net.Utils.EventType;
 namespace Net
 {
     [RequireComponent(typeof(ClientHandlerManager))]
-    public class MainClientLoop : MonoBehaviour
+    public class MainClientLoop : Singleton<MainClientLoop>
     {
         public AccountType accType;
         public string login;
@@ -30,9 +31,12 @@ namespace Net
         private StarfighterUdpClient _udpClient;
         //Прием State пакетов от сервера. Общий канал
         private StarfighterUdpClient _multicastUdpClient;
+
+        private PlayerScript _playerScript = null;
         
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             //It's Client, so exchange ports
             _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
                 Constants.ServerReceivingPort,
@@ -49,13 +53,30 @@ namespace Net
             Task.Run(ConnectToServer);
         }
 
+        public async void SendMove()
+        {
+            //А еще не понятно по какому триггеру посылать
+            NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
+        }
+
+        public bool TryAttachPlayer(PlayerScript playerScript)
+        {
+            if (_playerScript is null)
+            {
+                _playerScript = playerScript;
+                return true;
+            }
+            return false;
+        }
         private void Update()
         {
-            // if (Input.anyKey)
-            // {
-            //     NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
-            // }
-            
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
+                Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
+                Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Space))
+            { 
+                SendMove();
+            }
             // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         

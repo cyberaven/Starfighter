@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Core;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
@@ -16,12 +17,13 @@ namespace Net
 {
     [RequireComponent(typeof(ClientManager))]
     [RequireComponent(typeof(HandlerManager))]
-    public class MainServerLoop : MonoBehaviour
+    public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             ConfigInit();
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
         }

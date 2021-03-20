@@ -160,6 +160,7 @@ namespace Net.Core
 
         public void Dispose()
         {
+            _receivingClient.Close();
             _receivingClient?.Dispose();
         }
     }
