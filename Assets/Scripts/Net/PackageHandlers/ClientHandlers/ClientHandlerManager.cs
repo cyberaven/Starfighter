@@ -11,6 +11,7 @@ namespace Net.PackageHandlers.ClientHandlers
 {
     public class ClientHandlerManager: AbstractHandlerManager
     {
+        private Guid _lastStateAction;
         public ClientHandlerManager()
         {
             NetEventStorage.GetInstance().newPackageRecieved.AddListener(HandlePackage);
@@ -22,31 +23,28 @@ namespace Net.PackageHandlers.ClientHandlers
 
         public override async void HandlePackage(AbstractPackage pack)
         {
-            Dispatcher.Instance.Invoke(async () =>
+            Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
+            switch (pack.packageType)
             {
-                Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
-                switch (pack.packageType)
-                {
-                    case PackageType.AcceptPackage:
-                        await AcceptHandler.Handle(pack);
-                        break;
-                    case PackageType.DeclinePackage:
-                        await DeclineHandler.Handle(pack);
-                        break;
-                    case PackageType.EventPackage:
-                        await EventHandler.Handle(pack);
-                        break;
-                    case PackageType.StatePackage:
-                        await StateHandler.Handle(pack);
-                        break;
-                    case PackageType.ConnectPackage:
-                    case PackageType.DisconnectPackage:
-                        //Предполагается, что этих пакетов не будет прилетать на клиент.
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            });
+                case PackageType.AcceptPackage:
+                    await AcceptHandler.Handle(pack);
+                    break;
+                case PackageType.DeclinePackage:
+                    await DeclineHandler.Handle(pack);
+                    break;
+                case PackageType.EventPackage:
+                    await EventHandler.Handle(pack);
+                    break;
+                case PackageType.StatePackage:
+                    await StateHandler.Handle(pack);
+                    break;
+                case PackageType.ConnectPackage:
+                case PackageType.DisconnectPackage:
+                    //Предполагается, что этих пакетов не будет прилетать на клиент.
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Net.Core;
 using Net.Interfaces;
 using Net.Packages;
+using Net.Utils;
+using UnityEngine;
 
 namespace Net.PackageHandlers.ServerHandlers
 {
@@ -11,18 +13,8 @@ namespace Net.PackageHandlers.ServerHandlers
     {
         public async Task Handle(AbstractPackage pack)
         {
-            if(ClientManager.instance.ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
-            {
-                var clientToSend = ClientManager.instance.ConnectedClients
-                    .FirstOrDefault(client => Equals(client.GetIpAddress(), pack.ipAddress));
-                clientToSend?.SendAccept((pack as EventPackage).id);
-                
-                ClientManager.instance.ConnectedClients.Remove(clientToSend);
-            }
-            else
-            {
-                //There is no such client to Disconnect;
-            }
+            Debug.unityLogger.Log("Server : Disconnection!");
+            NetEventStorage.GetInstance().disconnectClient.Invoke(pack as DisconnectPackage);
         }
     }
 }

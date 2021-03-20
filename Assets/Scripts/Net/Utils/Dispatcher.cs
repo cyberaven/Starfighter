@@ -6,19 +6,29 @@ namespace Net.Utils
 
     public interface IDispatcher
     {
-        void Invoke(Action fn);
+        Guid Invoke(Action fn);
     }
 
     public class Dispatcher : IDispatcher
     {
-        public List<Action> pending = new List<Action>();
+        public Dictionary<Guid, Action> pending = new Dictionary<Guid, Action>();
         private static Dispatcher _instance;
 
-        public void Invoke(Action fn)
+        public bool IsInPending(Guid guid)
         {
             lock (pending)
             {
-                pending.Add(fn);
+                return pending.ContainsKey(guid);
+            }
+        }
+        
+        public Guid Invoke(Action fn)
+        {
+            lock (pending)
+            {
+                var guid = Guid.NewGuid();
+                pending.Add(guid, fn);
+                return guid;
             }
         }
 
@@ -28,7 +38,7 @@ namespace Net.Utils
             {
                 foreach (var action in pending)
                 {
-                    action();
+                    action.Value();
                 }
 
                 pending.Clear();

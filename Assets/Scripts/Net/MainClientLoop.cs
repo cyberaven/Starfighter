@@ -51,10 +51,10 @@ namespace Net
 
         private void Update()
         {
-            if (Input.anyKey)
-            {
-                NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
-            }
+            // if (Input.anyKey)
+            // {
+            //     NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
+            // }
             
             // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
@@ -141,14 +141,17 @@ namespace Net
             ClientHandlerManager.instance.Dispose();
         }
 
-        private void OnApplicationQuit()
+        private async void OnApplicationQuit()
         {
-            _udpClient.SendPackageAsync(new DisconnectPackage(new DisconnectData()
+            await _udpClient.SendPackageAsync(new DisconnectPackage(new DisconnectData()
             {
                 accountType = accType,
                 login = login,
                 password = password,
             }));
+            
+            ClientHandlerManager.instance.Dispose();
+            _udpClient.Dispose();
         }
     }
 }

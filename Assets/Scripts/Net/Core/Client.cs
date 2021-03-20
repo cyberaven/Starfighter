@@ -76,7 +76,8 @@ namespace Net.Core
         public void Dispose()
         {
             _udpSocket.Dispose();
-            Object.Destroy(_playerScript.gameObject);
+            //не надо удалять корабль. Вообще, они будут инстанцироваться в начале. А потом просто находиться.
+            // Object.Destroy(_playerScript.gameObject);
             //_udpSocket.SendPackageAsync(new DisconnectPackage(null));
         }
     }

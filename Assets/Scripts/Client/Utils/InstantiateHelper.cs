@@ -36,6 +36,7 @@ namespace Client.Utils
                     GameObject;
             instance.name = worldObject.name;
             instance.tag = Constants.DynamicTag;
+            instance.SetActive(true);
             return instance;
         }
     }

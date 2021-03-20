@@ -4,6 +4,7 @@ using System.Linq;
 using Core;
 using Net.PackageData;
 using Net.Packages;
+using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -27,6 +28,7 @@ namespace Net.Core
             ConnectedClients = new List<Client>();
             
             NetEventStorage.GetInstance().disconnectClient.AddListener(DisconnectClient);
+            NetEventStorage.GetInstance().connectClient.AddListener(ConnectClient);
         }
 
         public void AddClient(ConnectPackage info)
@@ -53,10 +55,50 @@ namespace Net.Core
             accountObjects.Remove(acc);
         }
 
-        public void DisconnectClient(Client client)
+        public void ConnectClient(ConnectPackage pack)
         {
-            ConnectedClients.Remove(client);
-            client.Dispose();
+            Debug.unityLogger.Log("Connection handle start");
+
+            Debug.unityLogger.Log($"Acc {pack.data.accountType}:  {pack.data.login}:{pack.data.password}");
+                
+            if (CheckAuthorization(pack))
+            {  
+                Debug.Log($"Connection accepted: {pack.ipAddress.MapToIPv4()}");
+
+                pack.data.multicastGroupIp = Constants.MulticastAddress;
+                pack.data.portToSend = GetNewPort();
+                pack.data.portToReceive = GetNewPort();
+                
+                Dispatcher.Instance.Invoke(() => AddClient(pack));
+                
+                ServerHelper.SendConnectionResponse(pack);
+                return;
+            }
+                
+            Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
+                
+            ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData())
+            {
+                ipAddress = pack.ipAddress,
+            });
+        }
+
+        public void DisconnectClient(DisconnectPackage pack)
+        {
+            if (ConnectedClients.Any(cl => Equals(cl.GetIpAddress(), pack.ipAddress)))
+            {
+                var client = ConnectedClients
+                    .FirstOrDefault(cl => Equals(cl.GetIpAddress(), pack.ipAddress));
+                    
+                Debug.unityLogger.Log($"Disconnection: {client?.GetIpAddress()}:{client?.GetListeningPort()}");
+                ConnectedClients.Remove(client);
+                client?.Dispose();
+            }
+            else
+            {
+                //There is no such client to Disconnect;
+                Debug.unityLogger.Log("Server : There is no such client to Disconnect!");
+            }
         }
         
         public int GetNewPort()

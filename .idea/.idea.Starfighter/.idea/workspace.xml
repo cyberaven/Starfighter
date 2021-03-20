@@ -34,211 +34,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/AbstractSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/AbstractSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Editor/SlimUIWindow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Editor/SlimUIWindow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts/DOSIS-EXTRALIGHT.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts/DOSIS-EXTRALIGHT.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts/DOSIS-MEDIUM.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts/DOSIS-MEDIUM.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/READ ME.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/READ ME.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/Btn_Main.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/Btn_Main.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/Btn_TaskBar.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/Btn_TaskBar.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/MenuButton.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/MenuButton.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/TaskBar_Arrow.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/TaskBar_Arrow.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/TaskBar_Arrow_RotDown.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/TaskBar_Arrow_RotDown.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/TaskBar_Arrow_RotUp.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons/TaskBar_Arrow_RotUp.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/BottomBar.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/BottomBar.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/BottomBarIn.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/BottomBarIn.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/BottomBarOut.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/BottomBarOut.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/PanelPopUp.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/PanelPopUp.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/PopUp.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/PopUp.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/TempBackground.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/TempBackground.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/TempBackground.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels/TempBackground.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio/Click.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio/Click.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio/UI_Click.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio/UI_Click.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio/UI_Hover.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio/UI_Hover.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Blue Cave.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Blue Cave.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Arrow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/BarFade.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/BarFade.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Block.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Block.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner Back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner Back.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner Blank.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner Blank.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner Move.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner Move.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner X.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Corner X.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/DownIndicator.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/DownIndicator.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/InputFieldPanel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/InputFieldPanel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/InputFieldPanelFilled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/InputFieldPanelFilled.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Large Square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Large Square.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LargePanel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LargePanel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LargePanelOutline.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LargePanelOutline.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LargePanelOutlineSquare.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LargePanelOutlineSquare.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LineTrail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/LineTrail.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Long Line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Long Line.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/ScrollBarHandle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/ScrollBarHandle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Short Line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Short Line.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Simple Outline Square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Simple Outline Square.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Slider.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Slider.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/SliderHandle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/SliderHandle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/SlimWidePanel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/SlimWidePanel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Small Square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Small Square.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/SmallWidePanel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/SmallWidePanel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/TallPanel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/TallPanel.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Tech Cursor Alternate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Tech Cursor Alternate.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Tech Cursor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/Tech Cursor.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/ToolTip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/ToolTip.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/ToolTipExtend.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/ToolTipExtend.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/UpIndicator.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/UpIndicator.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/VerticalScrollbar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/VerticalScrollbar.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/X.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics/X.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs/Panel_Template.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs/Panel_Template.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs/SUI_Tech_Center_Advanced.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs/SUI_Tech_Center_Advanced.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs/SUI_Tech_Center_Simple.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs/SUI_Tech_Center_Simple.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes/SecondScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes/SecondScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes/Tech Demo Scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes/Tech Demo Scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts/ToolTip.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts/ToolTip.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts/UIElementDragger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts/UIElementDragger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts/UIManagerTech.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts/UIManagerTech.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/Blur.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/Blur.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_Heavy.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_Heavy.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_Light.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_Light.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_MenuBar.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_MenuBar.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_RoundPanel.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders/BlurUI_RoundPanel.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/LineBreaking Following Characters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_SDF.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Sprite.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMP_Sprite.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMPro.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMPro.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMPro_Surface.cginc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,12 +84,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/d7/58cde5bf/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/99/783b50d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/A278EBD4-4AB0-472B-B8E6-38263E06CD61/72/5c0cfde2/0200030B.il" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/35BAB3C7-B0DC-4999-845B-CFCCC7758D96/b1/07e3e17a/EventType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/59/2a6ea684/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD1B6EA4-F54D-4146-A29C-2A12CD6EC436/b7/331b8eeb/Task.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/a3/5900e0bc/SocketFlags.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/29/cfcee517/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D9FC116-8096-494E-B57C-E240D3E836DC/86/301a1063/IMoveHandler.cs" root0="SKIP_HIGHLIGHTING" />
@@ -294,31 +102,39 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/5b/e0ca064a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c9/f430f47d/UnityEvent`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/99/783b50d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/35BAB3C7-B0DC-4999-845B-CFCCC7758D96/b1/07e3e17a/EventType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD1B6EA4-F54D-4146-A29C-2A12CD6EC436/b7/331b8eeb/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/c9/9101106d/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/EventData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/AbstractSingleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/HandlerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Events.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/DisconnectPackageHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/ConnectPackageHandler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
