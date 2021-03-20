@@ -22,28 +22,31 @@ namespace Net.PackageHandlers.ClientHandlers
 
         public override async void HandlePackage(AbstractPackage pack)
         {
-            Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
-            switch (pack.packageType)
+            Dispatcher.Instance.Invoke(async () =>
             {
-                case PackageType.AcceptPackage:
-                    await AcceptHandler.Handle(pack);
-                    break;
-                case PackageType.DeclinePackage:
-                    await DeclineHandler.Handle(pack);
-                    break;
-                case PackageType.EventPackage:
-                    await EventHandler.Handle(pack);
-                    break;
-                case PackageType.StatePackage:
-                    await StateHandler.Handle(pack);
-                    break;
-                case PackageType.ConnectPackage:
-                case PackageType.DisconnectPackage:
-                    //Предполагается, что этих пакетов не будет прилетать на клиент.
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
+                switch (pack.packageType)
+                {
+                    case PackageType.AcceptPackage:
+                        await AcceptHandler.Handle(pack);
+                        break;
+                    case PackageType.DeclinePackage:
+                        await DeclineHandler.Handle(pack);
+                        break;
+                    case PackageType.EventPackage:
+                        await EventHandler.Handle(pack);
+                        break;
+                    case PackageType.StatePackage:
+                        await StateHandler.Handle(pack);
+                        break;
+                    case PackageType.ConnectPackage:
+                    case PackageType.DisconnectPackage:
+                        //Предполагается, что этих пакетов не будет прилетать на клиент.
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            });
         }
     }
 }

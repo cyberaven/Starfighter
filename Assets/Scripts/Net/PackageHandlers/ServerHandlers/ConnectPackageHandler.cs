@@ -11,7 +11,6 @@ using UnityEngine;
 
 namespace Net.PackageHandlers.ServerHandlers
 {
-
     public class ConnectPackageHandler : IPackageHandler
     {
         public async Task Handle(AbstractPackage pack)
@@ -20,6 +19,8 @@ namespace Net.PackageHandlers.ServerHandlers
             {
                 Debug.unityLogger.Log("Connection handle start");
                 var connectPack = (ConnectPackage)pack;
+                
+                Debug.unityLogger.Log($"Acc {connectPack.data.accountType}:  {connectPack.data.login}:{connectPack.data.password}");
                 
                 if (ClientManager.instance.CheckAuthorization(connectPack))
                 {  
@@ -36,12 +37,14 @@ namespace Net.PackageHandlers.ServerHandlers
                 
                 Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
                 
-                ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData()));
+                ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData())
+                {
+                    ipAddress = connectPack.ipAddress,
+                });
             }
             catch (Exception ex)
             {
-                Debug.unityLogger.Log(ex);
-                return;
+                Debug.unityLogger.LogError("Server connect pack handler",ex);
             }
         }
     }

@@ -97,7 +97,7 @@ namespace Net
             Debug.unityLogger.Log($"connection package sent");
             var result = await _udpClient.ReceiveOnePackageAsync();
             _udpClient.Dispose();
-            Debug.unityLogger.Log($"response package received: {result.packageType}");
+            Debug.unityLogger.Log($"connection response package received: {result.packageType}");
             switch (result.packageType)
             {
                 case PackageType.ConnectPackage:

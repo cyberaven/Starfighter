@@ -19,28 +19,21 @@ namespace Net.PackageHandlers.ServerHandlers
             var statePack = pack as StatePackage;
             try
             {
-                var dispatcherFlagDone = false;
-                Dispatcher.Instance.Invoke(() =>
+                foreach (var worldObject in statePack.data.worldState)
                 {
-                    foreach (var worldObject in statePack.data.worldState)
+                    var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                        .FirstOrDefault(go => go.name == worldObject.name);
+                    
+                    if (gameObject != null)
                     {
-                        var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
-                            .FirstOrDefault(go => go.name == worldObject.name);
-                        
-                        if (gameObject != null)
-                        {
-                            gameObject.transform.position = worldObject.position;
-                            gameObject.transform.rotation = worldObject.rotation;
-                        }
-                        else
-                        {
-                            InstantiateHelper.InstantiateObject(worldObject);
-                        }
+                        gameObject.transform.position = worldObject.position;
+                        gameObject.transform.rotation = worldObject.rotation;
                     }
-                    dispatcherFlagDone = true;
-                });
-                while(!dispatcherFlagDone){}
-                dispatcherFlagDone = false;
+                    else
+                    {
+                        InstantiateHelper.InstantiateObject(worldObject);
+                    }
+                }
             }
             catch (Exception ex)
             {

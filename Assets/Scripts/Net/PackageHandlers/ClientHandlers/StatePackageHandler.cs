@@ -21,35 +21,27 @@ namespace Net.PackageHandlers.ClientHandlers
             var statePack = pack as StatePackage;
             try
             {
-                var dispatcherFlagDone = false;
-                Dispatcher.Instance.Invoke(() =>
+                foreach (var worldObject in statePack.data.worldState)
                 {
-                    foreach (var worldObject in statePack.data.worldState)
+                    var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                        .FirstOrDefault(go => go.name == worldObject.name);
+                        
+                    if (gameObject != null)
                     {
-                        var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
-                            .FirstOrDefault(go => go.name == worldObject.name);
-                        
-                        if (gameObject != null)
-                        {
-                            //не надо делать исключений для корабля. Сервер однозначно определяет положение ВСЕХ объектов
-                            //if(gameObject.CompareTag(Constants.PlayerTag)) continue;
-                            gameObject.transform.position = worldObject.position;
-                            gameObject.transform.rotation = worldObject.rotation;
-                        }
-                        else
-                        {
-                            var go = InstantiateHelper.InstantiateObject(worldObject);
-                            var ps = go.GetComponent<PlayerScript>();
-                            if (ps is null) continue;
-                            ps.movementAdapter = MovementAdapter.PlayerControl;
-                        }
-                        
+                        //не надо делать исключений для корабля. Сервер однозначно определяет положение ВСЕХ объектов
+                        //if(gameObject.CompareTag(Constants.PlayerTag)) continue;
+                        gameObject.transform.position = worldObject.position;
+                        gameObject.transform.rotation = worldObject.rotation;
                     }
-
-                    dispatcherFlagDone = true;
-                });
-                while(!dispatcherFlagDone){}
-                dispatcherFlagDone = false;
+                    else
+                    {
+                        var go = InstantiateHelper.InstantiateObject(worldObject);
+                        var ps = go.GetComponent<PlayerScript>();
+                        if (ps is null) continue;
+                        ps.movementAdapter = MovementAdapter.PlayerControl;
+                    }
+                        
+                }
             }
             catch (Exception ex)
             {

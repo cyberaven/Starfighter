@@ -63,11 +63,11 @@ namespace Net
 
         private async Task<StatePackage> GetWorldStatePackage()
         {
-            Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
+            // Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
             var gameObjects = GameObject.FindGameObjectsWithTag(Constants.DynamicTag);
             var worldData = new StateData()
             {
-                worldState = gameObjects.Select(go => new WorldObject(go.name,go.transform)).ToArray()
+                worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
             };
             return new StatePackage(worldData);
         }
@@ -82,6 +82,13 @@ namespace Net
             ClientManager.instance.Dispose();
             HandlerManager.instance.Dispose();
             ConfigSave();
+        }
+
+        private void OnApplicationQuit()
+        {
+            ClientManager.instance.Dispose();
+            HandlerManager.instance.Dispose();
+            _multicastUdpClient.Dispose();
         }
     }
 

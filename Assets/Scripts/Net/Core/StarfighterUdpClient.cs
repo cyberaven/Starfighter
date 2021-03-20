@@ -49,10 +49,9 @@ namespace Net.Core
                     serializer.Serialize(stream, pack);
                     var data = stream.GetBuffer();
                     stream.Close();
-                    Debug.unityLogger.Log("Before sending package");
+                    // Debug.unityLogger.Log("Before sending package");
                     var sentBytesCount = await udpClient.SendAsync(data, data.Length, _sendingAddress.ToString(), _sendingPort);
-                    Debug.unityLogger.Log(
-                        $"{_sendingAddress.MapToIPv4()}:{_sendingPort} package sent. Sent {sentBytesCount} of {data.Length}");
+                    // Debug.unityLogger.Log($"{_sendingAddress.MapToIPv4()}:{_sendingPort} package sent. Sent {sentBytesCount} of {data.Length}");
                     //maybe some check for all bytes sent
                     return true;
                 }
@@ -113,33 +112,40 @@ namespace Net.Core
 
         private void EndReceivePackage(IAsyncResult asyncResult)
         {
-            var selector = new SurrogateSelector();
-            selector.AddSurrogate(
-                typeof(Vector3),
-                new StreamingContext(StreamingContextStates.All), 
-                new Vector3SerializationSurrogate());
-            selector.AddSurrogate(
-                typeof(Quaternion),
-                new StreamingContext(StreamingContextStates.All), 
-                new QuaternionSerializationSurrogate());
-            var serializer = new BinaryFormatter {SurrogateSelector = selector};
-            Debug.unityLogger.Log($"waiting package from port {((IPEndPoint)_receivingClient.Client.LocalEndPoint).Port}");
-            IPEndPoint remoteEndPoint = null;
-            var result = _receivingClient.EndReceive(asyncResult, ref remoteEndPoint);
-            
-            Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
-            
-            var stream = new MemoryStream(result);
+            try
+            {
+                var selector = new SurrogateSelector();
+                selector.AddSurrogate(
+                    typeof(Vector3),
+                    new StreamingContext(StreamingContextStates.All),
+                    new Vector3SerializationSurrogate());
+                selector.AddSurrogate(
+                    typeof(Quaternion),
+                    new StreamingContext(StreamingContextStates.All),
+                    new QuaternionSerializationSurrogate());
+                var serializer = new BinaryFormatter {SurrogateSelector = selector};
+                Debug.unityLogger.Log(
+                    $"waiting package from port {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
+                IPEndPoint remoteEndPoint = null;
+                var result = _receivingClient.EndReceive(asyncResult, ref remoteEndPoint);
 
-            var pack = (AbstractPackage) serializer.Deserialize(stream);
-            pack.ipAddress = remoteEndPoint.Address;
+                Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
 
-            stream.Close();
-            
-            //New pack received event invoke
-            NetEventStorage.GetInstance().newPackageRecieved.Invoke(pack);
+                var stream = new MemoryStream(result);
 
-            BeginReceivingPackage();
+                var pack = (AbstractPackage) serializer.Deserialize(stream);
+                pack.ipAddress = remoteEndPoint.Address;
+
+                stream.Close();
+
+                NetEventStorage.GetInstance().newPackageRecieved.Invoke(pack);
+
+                BeginReceivingPackage();
+            }
+            catch(Exception ex)
+            {
+                Debug.unityLogger.LogError("shit on receiving", ex);
+            }
         }
 
         public IPAddress GetSendingAddress()
