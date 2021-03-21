@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -10,8 +10,8 @@ using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
-using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Net
 {
@@ -20,7 +20,8 @@ namespace Net
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
-
+        
+        
         private new void Awake()
         {
             base.Awake();
@@ -50,7 +51,7 @@ namespace Net
         {
             try
             {
-                NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
+                GetWorldStatePackage();
             }
             catch (Exception ex)
             {
@@ -63,17 +64,32 @@ namespace Net
             Dispatcher.Instance.InvokePending();
         }
 
-        private async Task<StatePackage> GetWorldStatePackage()
+        private void GetWorldStatePackage()
         {
             // Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
-            var gameObjects = GameObject.FindGameObjectsWithTag(Constants.DynamicTag);
-            var worldData = new StateData()
-            {
-                worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
-            };
-            return new StatePackage(worldData);
-        }
 
+            var collection = CollectWorldObjects();
+            var worldStateCoroutine = StartCoroutine(collection);
+        }
+        
+        private IEnumerator CollectWorldObjects()
+        {
+            var worldObjects = new List<WorldObject>();
+            var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+            foreach (var go in allGameObjects)
+            {
+                worldObjects.Add(new WorldObject(go.name, go.transform));
+                yield return null;
+            }
+
+            var statePackage = new StatePackage(new StateData()
+            {
+                worldState = worldObjects.ToArray()
+            });
+            
+            NetEventStorage.GetInstance().updateWorldState.Invoke(statePackage);
+        }
+        
         private async void SendWorldState(StatePackage pack)
         {
             await _multicastUdpClient.SendPackageAsync(pack);

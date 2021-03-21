@@ -71,10 +71,16 @@ namespace Net
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
-                Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Space) ||
-                Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
-                Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Space))
+                Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) ||
+                Input.GetKeyDown(KeyCode.Space))
             { 
+                SendMove();
+            }
+
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
+                Input.GetKeyUp(KeyCode.D) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) ||
+                Input.GetKeyUp(KeyCode.Space))
+            {
                 SendMove();
             }
             // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
