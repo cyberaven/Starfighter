@@ -76,7 +76,7 @@ namespace Net
         {
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-            foreach (var go in allGameObjects)
+            foreach (var go in allGameObjects.Where(obj => obj.CompareTag(Constants.DynamicTag)))
             {
                 worldObjects.Add(new WorldObject(go.name, go.transform));
                 yield return null;
