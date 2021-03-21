@@ -1,4 +1,4 @@
-﻿namespace Net.Core
+﻿namespace Core
 {
     public class Constants
     {

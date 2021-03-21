@@ -15,6 +15,7 @@ using Net.Utils;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
+using Utils;
 using EventType = Net.Utils.EventType;
 
 namespace Net
@@ -22,7 +23,7 @@ namespace Net
     [RequireComponent(typeof(ClientHandlerManager))]
     public class MainClientLoop : Singleton<MainClientLoop>
     {
-        public AccountType accType;
+        public UserType accType;
         public string login;
         public string password;
         public string serverAddress;
@@ -45,17 +46,13 @@ namespace Net
 
         private void Start()
         {
-            // var sphere = Resources.Load<GameObject>(Constants.PathToPrefabs + "Sphere");
-            // sphere.name += "_" + Guid.NewGuid();
-            // sphere.transform.position = Vector3.zero;
-            // sphere.tag = Constants.PlayerTag;
-            // Instantiate(sphere);
             Task.Run(ConnectToServer);
         }
-
+        
+        //А еще не понятно по какому триггеру посылать
         public async void SendMove()
         {
-            //А еще не понятно по какому триггеру посылать
+            
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
         }
 
@@ -64,6 +61,7 @@ namespace Net
             if (_playerScript is null)
             {
                 _playerScript = playerScript;
+                //TODO: NetEventStorage.playerInit.Invoke();
                 return true;
             }
             return false;
@@ -91,28 +89,12 @@ namespace Net
             Dispatcher.Instance.InvokePending();
         }
         
-        // private async Task<StatePackage> GetWorldStatePackage()
-        // {
-        //     Debug.unityLogger.Log("MainClientLoop.GetWorldStatePackage");
-        //     //var gameObjects = GameObject.FindGameObjectsWithTag(Constants.PlayerTag);
-        //     var worldData = new StateData()
-        //     {
-        //         //worldState = gameObjects.Select(go => new WorldObject(go.name, go.transform)).ToArray()
-        //     };
-        //     return new StatePackage(worldData);
-        // }
-        
         private void StartListenServer()
         {
             _multicastUdpClient.BeginReceivingPackage();
             _udpClient.BeginReceivingPackage();
         }
         
-        // private async void SendWorldState(StatePackage worldState)
-        // {
-        //     await _udpClient.SendPackageAsync(worldState);
-        // }
-
         private async void ConnectToServer()
         {
             var connectData = new ConnectData()
@@ -141,9 +123,7 @@ namespace Net
                         _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
                             Constants.ServerReceivingPort, Constants.ServerSendingPort);
                         _multicastUdpClient.JoinMulticastGroup(multicastAddress);
-
-                        // NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
-
+                        
                         StartListenServer();
                     }
                     catch (Exception ex)

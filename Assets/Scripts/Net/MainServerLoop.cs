@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using Core;
 using Net.Core;
 using Net.PackageData;
@@ -12,6 +11,7 @@ using Net.Packages;
 using Net.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace Net
 {
@@ -66,8 +66,6 @@ namespace Net
 
         private void GetWorldStatePackage()
         {
-            // Debug.unityLogger.Log("MainServerLoop.GetWorldStatePackage");
-
             var collection = CollectWorldObjects();
             var worldStateCoroutine = StartCoroutine(collection);
         }
@@ -75,8 +73,9 @@ namespace Net
         private IEnumerator CollectWorldObjects()
         {
             var worldObjects = new List<WorldObject>();
-            var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-            foreach (var go in allGameObjects.Where(obj => obj.CompareTag(Constants.DynamicTag)))
+            var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
+                .Where(obj => obj.CompareTag(Constants.DynamicTag));
+            foreach (var go in allGameObjects)
             {
                 worldObjects.Add(new WorldObject(go.name, go.transform));
                 yield return null;
@@ -104,6 +103,7 @@ namespace Net
 
         private void OnApplicationQuit()
         {
+            ConfigSave();
             ClientManager.instance.Dispose();
             HandlerManager.instance.Dispose();
             _multicastUdpClient.Dispose();

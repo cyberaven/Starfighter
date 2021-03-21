@@ -2,13 +2,14 @@
 using System.Linq;
 using Client;
 using Client.Movement;
-using Client.Utils;
+using Core;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Packages;
 using Net.Core;
 using Net.Utils;
 using UnityEngine;
+using Utils;
 using Object = UnityEngine.Object;
 using Task = System.Threading.Tasks.Task;
 
@@ -47,7 +48,7 @@ namespace Net.PackageHandlers.ClientHandlers
                             }
                             else
                             {
-                               Object.Destroy(ps);
+                                ps.movementAdapter = MovementAdapter.BlankControl;
                             }
                         }
                     }

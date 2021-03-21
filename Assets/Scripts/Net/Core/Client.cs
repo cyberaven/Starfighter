@@ -2,13 +2,15 @@
 using System.Net;
 using System.Threading.Tasks;
 using Client;
-using Client.Utils;
+using Core;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
+using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
+using Utils;
 using Object = UnityEngine.Object;
 
 namespace Net.Core
@@ -21,13 +23,18 @@ namespace Net.Core
         private StarfighterUdpClient _udpSocket;
         private PlayerScript _playerScript;
         private Guid _myGameObjectId;
-
+        private UserType _accountType;
 
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
             NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
 
+            _accountType = account.type;
+            //TODO: remove this after making whole server init. Add acc.Type accounting 
             _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
+            
+            _myGameObjectId = Guid.Parse(_playerScript.gameObject.name.Split('_')[1]);
+            
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             
             StartListenClient();

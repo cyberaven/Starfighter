@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 using Net.Utils;
 
 namespace Net.PackageData
@@ -8,6 +9,6 @@ namespace Net.PackageData
     {
         public string login;
         public string password;
-        public AccountType accountType;
+        public UserType accountType;
     }
 }

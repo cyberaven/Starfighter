@@ -83,18 +83,17 @@
             <e p="CourseView.cs" t="Include" />
             <e p="Follow.cs" t="Include" />
             <e p="Movement" t="Include">
+              <e p="BlankControl.cs" t="Include" />
               <e p="IMovementAdapter.cs" t="Include" />
               <e p="playerControl.cs" t="Include" />
               <e p="RemoteNetworkControl.cs" t="Include" />
             </e>
             <e p="playerScript.cs" t="Include" />
-            <e p="Utils" t="Include">
-              <e p="InstantiateHelper.cs" t="Include" />
-            </e>
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">
             <e p="AbstractSingleton.cs" t="Include" />
+            <e p="Constants.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
             <e p="EventSystem" t="Include">
               <e p="DangerZoneEditEvent.cs" t="Include" />
@@ -112,7 +111,6 @@
             <e p="Core" t="Include">
               <e p="Client.cs" t="Include" />
               <e p="ClientManager.cs" t="Include" />
-              <e p="Constants.cs" t="Include" />
               <e p="Events.cs" t="Include" />
               <e p="NetEventStorage.cs" t="Include" />
               <e p="StarfighterUdpClient.cs" t="Include" />
@@ -160,8 +158,6 @@
               <e p="StatePackage.cs" t="Include" />
             </e>
             <e p="Utils" t="Include">
-              <e p="AccountTypes.cs" t="Include" />
-              <e p="Dispatcher.cs" t="Include" />
               <e p="EventTypes.cs" t="Include" />
               <e p="PackageTypes.cs" t="Include" />
               <e p="SenderHelper.cs" t="Include" />
@@ -184,6 +180,10 @@
             <e p="SpaceBase.cs" t="Include" />
             <e p="SpaceShip.cs" t="Include" />
             <e p="SpaceUnit.cs" t="Include" />
+          </e>
+          <e p="Utils" t="Include">
+            <e p="Dispatcher.cs" t="Include" />
+            <e p="InstantiateHelper.cs" t="Include" />
           </e>
         </e>
         <e p="Sounds" t="Include">

@@ -1,5 +1,5 @@
 ﻿using System;
-using Net.Utils;
+using Core;
 
 namespace Net.PackageData
 {
@@ -8,7 +8,7 @@ namespace Net.PackageData
     {
         public string login;
         public string password;
-        public AccountType accountType;
+        public UserType accountType;
         public string multicastGroupIp = "";
         public int portToSend = 0;
         public int portToReceive = 0;

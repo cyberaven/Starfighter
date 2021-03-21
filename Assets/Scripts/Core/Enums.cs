@@ -2,7 +2,8 @@
 {
 
     public enum UserType
-    {
+    {   
+        Admin,
         Pilot,
         Navigator,
     }

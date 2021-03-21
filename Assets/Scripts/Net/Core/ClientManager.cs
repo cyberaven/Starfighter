@@ -8,6 +8,7 @@ using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utils;
 
 /// <summary>
 /// ClientManager занимается управлением Client'ов.
@@ -41,8 +42,8 @@ namespace Net.Core
 
         public bool CheckAuthorization(ConnectPackage pack)
         {
-            return (!ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)))
-                   && accountObjects.Any(acc => acc.login == pack.data.login && acc.password == pack.data.password);
+            return !ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)) &&
+                   accountObjects.Any(acc => acc.login == pack.data.login && acc.password == pack.data.password);
         }
 
         public void RegisterAccount(ClientAccountObject acc)
@@ -55,7 +56,7 @@ namespace Net.Core
             accountObjects.Remove(acc);
         }
 
-        public void ConnectClient(ConnectPackage pack)
+        private void ConnectClient(ConnectPackage pack)
         {
             Debug.unityLogger.Log("Connection handle start");
 
@@ -83,7 +84,7 @@ namespace Net.Core
             });
         }
 
-        public void DisconnectClient(DisconnectPackage pack)
+        private void DisconnectClient(DisconnectPackage pack)
         {
             if (ConnectedClients.Any(cl => Equals(cl.GetIpAddress(), pack.ipAddress)))
             {
