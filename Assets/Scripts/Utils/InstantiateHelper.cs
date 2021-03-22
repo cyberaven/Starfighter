@@ -1,7 +1,6 @@
 ﻿using System;
 using Client;
 using Core;
-using Net.Core;
 using Net.PackageData;
 using ScriptableObjects;
 using UnityEngine;

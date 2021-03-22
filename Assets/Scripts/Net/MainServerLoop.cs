@@ -8,7 +8,6 @@ using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
-using Net.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -98,7 +97,6 @@ namespace Net
         {
             ClientManager.instance.Dispose();
             HandlerManager.instance.Dispose();
-            ConfigSave();
         }
 
         private void OnApplicationQuit()

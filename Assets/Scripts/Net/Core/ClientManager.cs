@@ -7,7 +7,6 @@ using Net.Packages;
 using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
 
 /// <summary>
@@ -24,8 +23,10 @@ namespace Net.Core
         public List<Client> ConnectedClients;
         [SerializeField] private List<ClientAccountObject> accountObjects;
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
+            
             ConnectedClients = new List<Client>();
             
             NetEventStorage.GetInstance().disconnectClient.AddListener(DisconnectClient);

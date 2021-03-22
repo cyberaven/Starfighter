@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Linq;
 using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
 using Client;
 using Core;
 using Net.Core;
 using Net.PackageData;
-using Net.PackageData.EventsData;
 using Net.PackageHandlers.ClientHandlers;
-using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
-using Net.Utils;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Serialization;
 using Utils;
-using EventType = Net.Utils.EventType;
 
 namespace Net
 {
@@ -38,21 +29,17 @@ namespace Net
         private new void Awake()
         {
             base.Awake();
-            //It's Client, so exchange ports
-            _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
-                Constants.ServerReceivingPort,
-                Constants.ServerSendingPort);
+
         }
 
         private void Start()
         {
-            Task.Run(ConnectToServer);
+            NetEventStorage.GetInstance().connectToServer.AddListener(ConnectToServer);
         }
         
         //А еще не понятно по какому триггеру посылать
-        public async void SendMove()
+        public void SendMove()
         {
-            
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
         }
 
@@ -76,7 +63,7 @@ namespace Net
             }
 
             if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
-                Input.GetKeyUp(KeyCode.D) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) ||
+                Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E) ||
                 Input.GetKeyUp(KeyCode.Space))
             {
                 SendMove();
@@ -95,51 +82,26 @@ namespace Net
             _udpClient.BeginReceivingPackage();
         }
         
-        private async void ConnectToServer()
+        private void ConnectToServer(ConnectPackage result)
         {
-            var connectData = new ConnectData()
+            //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
+            Debug.unityLogger.Log("Server accept our connection");
+            try
             {
-                login = login, password = password, accountType = accType
-            };
+                _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
+                    (result as ConnectPackage).data.portToSend,
+                    (result as ConnectPackage).data.portToReceive);
 
-            await _udpClient.SendPackageAsync(new ConnectPackage(connectData));
-            Debug.unityLogger.Log($"connection package sent");
-            var result = await _udpClient.ReceiveOnePackageAsync();
-            _udpClient.Dispose();
-            Debug.unityLogger.Log($"connection response package received: {result.packageType}");
-            switch (result.packageType)
-            {
-                case PackageType.ConnectPackage:
-                {
-                    //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
-                    Debug.unityLogger.Log("Server accept our connection");
-                    try
-                    {
-                        _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
-                            (result as ConnectPackage).data.portToSend,
-                            (result as ConnectPackage).data.portToReceive);
-
-                        var multicastAddress = IPAddress.Parse((result as ConnectPackage).data.multicastGroupIp);
-                        _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
-                            Constants.ServerReceivingPort, Constants.ServerSendingPort);
-                        _multicastUdpClient.JoinMulticastGroup(multicastAddress);
+                var multicastAddress = IPAddress.Parse((result as ConnectPackage).data.multicastGroupIp);
+                _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
+                    Constants.ServerReceivingPort, Constants.ServerSendingPort);
+                _multicastUdpClient.JoinMulticastGroup(multicastAddress);
                         
-                        StartListenServer();
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.unityLogger.LogError("Connect to Server error:", ex.Message);
-                    }
-                    
-                    break;
-                }
-                case PackageType.DeclinePackage:
-                    Debug.unityLogger.Log("Server decline our connection");
-                    //TODO: Return to login screen
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException($"unexpected package type {result.packageType.ToString()}");
-                    break;
+                StartListenServer();
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogError("Connect to Server error:", ex.Message);
             }
         }
 

@@ -6,6 +6,8 @@
         Admin,
         Pilot,
         Navigator,
+        Spectator,
+        Moderator //игротех
     }
 
     public enum UnitState

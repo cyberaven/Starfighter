@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Runtime.CompilerServices;
-using Client;
-using UnityEngine;
-using UnityEngine.Events;
 
 namespace Net.Core
 {
@@ -16,6 +11,7 @@ namespace Net.Core
         public PlayerMovementEvent serverMovedPlayer = new PlayerMovementEvent();
         public DisconnectPackageEvent disconnectClient = new DisconnectPackageEvent();
         public ConnectPackageEvent connectClient = new ConnectPackageEvent();
+        public ConnectPackageEvent connectToServer = new ConnectPackageEvent();
         public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
 
         public static NetEventStorage GetInstance()

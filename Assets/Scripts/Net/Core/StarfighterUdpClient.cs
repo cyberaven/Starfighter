@@ -69,7 +69,7 @@ namespace Net.Core
             }
         }
 
-        public async Task<AbstractPackage> ReceiveOnePackageAsync()
+        public async Task<AbstractPackage> ReceiveOnePackageAsync(int timeout = 10000)
         {
             var selector = new SurrogateSelector();
             selector.AddSurrogate(
@@ -83,6 +83,7 @@ namespace Net.Core
             var serializer = new BinaryFormatter {SurrogateSelector = selector};
             Debug.unityLogger.Log($" waiting package from {((IPEndPoint)_receivingClient.Client.LocalEndPoint).Port}");
             IPEndPoint remoteEndPoint = null;
+            _receivingClient.Client.ReceiveTimeout = timeout;
             var result = _receivingClient.Receive(ref remoteEndPoint);
             var stream = new MemoryStream(result);
 

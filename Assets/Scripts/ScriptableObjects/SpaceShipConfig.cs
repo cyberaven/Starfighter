@@ -8,5 +8,6 @@ namespace ScriptableObjects
     public class SpaceShipConfig: SpaceUnitConfig
     {
         public float maxFuel;
+        public string shipId;
     }
 }

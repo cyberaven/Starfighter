@@ -1,7 +1,6 @@
 ﻿using System;
 using Client.Movement;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Client
 {

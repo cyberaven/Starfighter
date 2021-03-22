@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Net.Sockets;
-using System.Threading.Tasks;
 using Net.Core;
 using Net.PackageData.EventsData;
 using Net.Utils;
 using UnityEngine;
-using EventType = UnityEngine.EventType;
 
 namespace Client.Movement
 {   

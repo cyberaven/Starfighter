@@ -1,6 +1,4 @@
 ﻿using System.Net;
-using Client;
-using Net.Interfaces;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;

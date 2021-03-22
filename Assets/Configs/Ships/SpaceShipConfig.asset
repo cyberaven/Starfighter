@@ -21,3 +21,4 @@ MonoBehaviour:
     type: 3}
   prefabName: Player
   maxFuel: 0
+  shipId: ship001
