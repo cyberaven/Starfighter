@@ -39,7 +39,7 @@ namespace Core
                 case PackageType.ConnectPackage:
                 {
                     Debug.unityLogger.Log("Server accept our connection");
-                    //TODO: Сервер принял подключение: загрузить сцену в зависимости от типа аккаунта.
+                    //TODO: Сервер принял подключение: загрузить сцену в зависимости от типа аккаунта или\и вызвать соотв событие.
                     //TODO: Сначала загрузить сцену, и убедиться что она готова, потом вызвать событие, чтобы было кому на него реагировать.
                     NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
                     break;
