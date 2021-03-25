@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 2088699829}
   - component: {fileID: 2088699827}
   - component: {fileID: 2088699831}
+  - component: {fileID: 2088699832}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -383,3 +384,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipConfigs:
   - {fileID: 11400000, guid: 1617cde83ec5f4e41a6b391f58c2e2b3, type: 2}
+--- !u!114 &2088699832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088699826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1783173fab47cd868d700e6b22f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes:
+  - {fileID: 11400000, guid: 4ef9f23cbad4e704da41a760f3975c33, type: 2}
+  - {fileID: 11400000, guid: 84ec56889bdab5948938231b4f137cb5, type: 2}
+  - {fileID: 11400000, guid: 05fb9e707d9caa14db8adc00133a6d94, type: 2}
+  - {fileID: 11400000, guid: b37de5f8b3f5bdc4fafe3d983dba861b, type: 2}

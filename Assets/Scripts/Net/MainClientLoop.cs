@@ -2,6 +2,7 @@
 using System.Net;
 using Client;
 using Core;
+using Core.InputManager;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
@@ -13,6 +14,7 @@ using Utils;
 namespace Net
 {
     [RequireComponent(typeof(ClientHandlerManager))]
+    [RequireComponent(typeof(InputManager))]
     public class MainClientLoop : Singleton<MainClientLoop>
     {
         public ClientAccountObject accountObject;
@@ -34,10 +36,11 @@ namespace Net
         private void Start()
         {
             NetEventStorage.GetInstance().connectToServer.AddListener(ConnectToServer);
+            CoreEventStorage.GetInstance().AxisValueChanged.AddListener(SendMove);
         }
         
         //А еще не понятно по какому триггеру посылать
-        public void SendMove()
+        public void SendMove(string axis, float value)
         {
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
         }
@@ -56,19 +59,19 @@ namespace Net
         }
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
-                Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) ||
-                Input.GetKeyDown(KeyCode.Space))
-            { 
-                SendMove();
-            }
-
-            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
-                Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E) ||
-                Input.GetKeyUp(KeyCode.Space))
-            {
-                SendMove();
-            }
+            // if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
+            //     Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) ||
+            //     Input.GetKeyDown(KeyCode.Space))
+            // { 
+            //     SendMove("", 0);
+            // }
+            //
+            // if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
+            //     Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E) ||
+            //     Input.GetKeyUp(KeyCode.Space))
+            // {
+            //     SendMove("", 0);
+            // }
             // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         

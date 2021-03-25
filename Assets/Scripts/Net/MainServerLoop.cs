@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Core;
+using Core.InputManager;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
@@ -18,6 +19,7 @@ namespace Net
     [RequireComponent(typeof(ClientManager))]
     [RequireComponent(typeof(HandlerManager))]
     [RequireComponent(typeof(ServerInitializeHelper))]
+    [RequireComponent(typeof(InputManager))]
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
