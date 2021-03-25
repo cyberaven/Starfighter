@@ -26,10 +26,10 @@ namespace Net.Core
             NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
 
             _accountType = account.type;
-            //TODO: remove this after making whole server init. Add acc.Type accounting 
+            
             _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
             
-            _myGameObjectId = Guid.Parse(_playerScript.gameObject.name.Split('_')[1]);
+            // _myGameObjectId = Guid.Parse(_playerScript.gameObject.name.Split('_')[1]);
             
             _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
             
@@ -79,9 +79,6 @@ namespace Net.Core
         public void Dispose()
         {
             _udpSocket.Dispose();
-            //не надо удалять корабль. Вообще, они будут инстанцироваться в начале. А потом просто находиться.
-            // Object.Destroy(_playerScript.gameObject);
-            //_udpSocket.SendPackageAsync(new DisconnectPackage(null));
         }
     }
 }

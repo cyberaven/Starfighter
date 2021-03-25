@@ -98,7 +98,7 @@
           <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">
             <e p="AbstractSingleton.cs" t="Include" />
-            <e p="ConnectionHelper.cs" t="Include" />
+            <e p="ClientConnectionHelper.cs" t="Include" />
             <e p="Constants.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
             <e p="EventSystem" t="Include">
@@ -107,6 +107,7 @@
               <e p="GameEventListener.cs" t="Include" />
             </e>
             <e p="GameManager.cs" t="Include" />
+            <e p="TestConnector.cs" t="Include" />
           </e>
           <e p="DataOutput.cs" t="Include" />
           <e p="DestroyBoundary.cs" t="Include" />
@@ -169,6 +170,7 @@
               <e p="SenderHelper.cs" t="Include" />
               <e p="SerializationSurrogates.cs" t="Include" />
               <e p="ServerHelper.cs" t="Include" />
+              <e p="ServerInitializeHelper.cs" t="Include" />
             </e>
           </e>
           <e p="PauseMenu.cs" t="Include" />

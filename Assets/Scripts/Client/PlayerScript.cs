@@ -1,5 +1,6 @@
 ﻿using System;
 using Client.Movement;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Client
@@ -18,6 +19,9 @@ namespace Client
         public MovementAdapter movementAdapter;
         
         public IMovementAdapter ShipsBrain;
+
+        [NonSerialized]
+        public SpaceShipConfig shipConfig;
         
         private GameObject _front, _back, _left, _right;
         private Rigidbody _ship, _engine;

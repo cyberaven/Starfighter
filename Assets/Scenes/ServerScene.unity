@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 2088699830}
   - component: {fileID: 2088699829}
   - component: {fileID: 2088699827}
+  - component: {fileID: 2088699831}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -368,3 +369,17 @@ MonoBehaviour:
   accountObjects:
   - {fileID: 11400000, guid: 1e00b4b1bfc4af54499628773c95d73a, type: 2}
   - {fileID: 11400000, guid: fa591dcf102eb8b43934989f4aca7b26, type: 2}
+--- !u!114 &2088699831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088699826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea07508347de411b898af1ed0080aa54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipConfigs:
+  - {fileID: 11400000, guid: 1617cde83ec5f4e41a6b391f58c2e2b3, type: 2}

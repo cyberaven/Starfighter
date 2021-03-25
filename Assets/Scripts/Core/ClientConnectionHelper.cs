@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public static class ConnectionHelper
+    public static class ClientConnectionHelper
     {
         private static StarfighterUdpClient _udpClient;
         

@@ -8,6 +8,7 @@ using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
+using Net.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -16,6 +17,7 @@ namespace Net
 {
     [RequireComponent(typeof(ClientManager))]
     [RequireComponent(typeof(HandlerManager))]
+    [RequireComponent(typeof(ServerInitializeHelper))]
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
@@ -24,22 +26,24 @@ namespace Net
         private new void Awake()
         {
             base.Awake();
-            ConfigInit();
+            
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
         }
 
         private void ConfigInit()
         {
-            
+            StartCoroutine(ServerInitializeHelper.instance.InitServer());
         }
 
         private void ConfigSave()
         {
-            
+            ServerInitializeHelper.instance.SaveServer();
         }
         
         private void Start()
         {
+            ConfigInit();
+            
             _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
                 Constants.ServerSendingPort, Constants.ServerReceivingPort);
             Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");

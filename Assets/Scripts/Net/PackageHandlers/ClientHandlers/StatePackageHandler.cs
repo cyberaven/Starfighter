@@ -27,8 +27,7 @@ namespace Net.PackageHandlers.ClientHandlers
 
                         if (gameObject != null)
                         {
-                            //не надо делать исключений для корабля. Сервер однозначно определяет положение ВСЕХ объектов
-                            //if(gameObject.CompareTag(Constants.PlayerTag)) continue;
+                            //Сервер однозначно определяет положение ВСЕХ объектов
                             gameObject.transform.position = worldObject.position;
                             gameObject.transform.rotation = worldObject.rotation;
                         }
@@ -37,7 +36,7 @@ namespace Net.PackageHandlers.ClientHandlers
                             var go = InstantiateHelper.InstantiateObject(worldObject);
                             var ps = go.GetComponent<PlayerScript>();
                             if (ps is null) continue;
-                            if (MainClientLoop.instance.TryAttachPlayer(ps))
+                            if (MainClientLoop.instance.TryAttachPlayerControl(ps))
                             {
                                 ps.movementAdapter = MovementAdapter.PlayerControl;
                             }

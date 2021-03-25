@@ -6,6 +6,7 @@ using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
+using ScriptableObjects;
 using UnityEngine;
 using Utils;
 
@@ -14,9 +15,7 @@ namespace Net
     [RequireComponent(typeof(ClientHandlerManager))]
     public class MainClientLoop : Singleton<MainClientLoop>
     {
-        public UserType accType;
-        public string login;
-        public string password;
+        public ClientAccountObject accountObject;
         public string serverAddress;
 
         //Прием accept\decline пакетов, отправка данных и команд. Личный канал с сервером.
@@ -43,11 +42,13 @@ namespace Net
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
         }
 
-        public bool TryAttachPlayer(PlayerScript playerScript)
+        public bool TryAttachPlayerControl(PlayerScript playerScript)
         {
-            if (_playerScript is null)
+            if (_playerScript is null && playerScript.gameObject.name.Split('_')[1] == accountObject.ship.shipId
+            && accountObject.type != UserType.Navigator && accountObject.type != UserType.Spectator)
             {
                 _playerScript = playerScript;
+                
                 //TODO: NetEventStorage.playerInit.Invoke();
                 return true;
             }
@@ -114,9 +115,9 @@ namespace Net
         {
             await _udpClient.SendPackageAsync(new DisconnectPackage(new DisconnectData()
             {
-                accountType = accType,
-                login = login,
-                password = password,
+                accountType = accountObject.type,
+                login = accountObject.login,
+                password = accountObject.password,
             }));
             
             ClientHandlerManager.instance.Dispose();

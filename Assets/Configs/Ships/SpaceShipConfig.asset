@@ -17,8 +17,7 @@ MonoBehaviour:
   maxHp: 100
   currentHp: 100
   isDockable: 1
-  transform: {fileID: 777861213274165381, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
+  transform: {fileID: 0}
   prefabName: Player
   maxFuel: 0
   shipId: ship001
