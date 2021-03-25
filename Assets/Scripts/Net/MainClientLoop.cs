@@ -39,7 +39,7 @@ namespace Net
             CoreEventStorage.GetInstance().AxisValueChanged.AddListener(SendMove);
         }
         
-        //А еще не понятно по какому триггеру посылать
+        
         public void SendMove(string axis, float value)
         {
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
