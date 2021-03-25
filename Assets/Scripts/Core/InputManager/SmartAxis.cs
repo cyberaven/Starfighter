@@ -20,7 +20,7 @@ namespace Core.InputManager
         public void Update()
         {
             var value = Input.GetAxis(axisName);
-            if (Math.Abs(value - _previousValue) >= delta)
+            if (Math.Abs(value - _previousValue) >= delta || (_previousValue != 0 && value == 0))
             {
                 _previousValue = value;
                 CoreEventStorage.GetInstance().AxisValueChanged.Invoke(axisName, value);
