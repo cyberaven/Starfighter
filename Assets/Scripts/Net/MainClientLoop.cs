@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using Client;
+using Client.Core;
 using Core;
 using Core.InputManager;
 using Net.Core;
@@ -47,31 +48,35 @@ namespace Net
 
         public bool TryAttachPlayerControl(PlayerScript playerScript)
         {
-            if (_playerScript is null && playerScript.gameObject.name.Split('_')[1] == accountObject.ship.shipId
-            && accountObject.type != UserType.Navigator && accountObject.type != UserType.Spectator)
+            if (_playerScript is null && playerScript.gameObject.name.Split('_')[1] == accountObject.ship.shipId)
             {
                 _playerScript = playerScript;
-                
-                //TODO: NetEventStorage.playerInit.Invoke();
+                switch (accountObject.type)
+                {
+                    case UserType.Admin:
+                        ClientEventStorage.GetInstance().InitAdmin.Invoke(_playerScript);
+                        break;
+                    case UserType.Pilot:
+                        ClientEventStorage.GetInstance().InitPilot.Invoke(_playerScript);
+                        break;
+                    case UserType.Navigator:
+                        ClientEventStorage.GetInstance().InitNavigator.Invoke(_playerScript);
+                        break;
+                    case UserType.Spectator:
+                        ClientEventStorage.GetInstance().InitSpectator.Invoke(_playerScript);
+                        break;
+                    case UserType.Moderator:
+                        ClientEventStorage.GetInstance().InitModerator.Invoke(_playerScript);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
                 return true;
             }
             return false;
         }
         private void Update()
         {
-            // if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
-            //     Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) ||
-            //     Input.GetKeyDown(KeyCode.Space))
-            // { 
-            //     SendMove("", 0);
-            // }
-            //
-            // if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
-            //     Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E) ||
-            //     Input.GetKeyUp(KeyCode.Space))
-            // {
-            //     SendMove("", 0);
-            // }
             // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);
         }
         
@@ -89,14 +94,17 @@ namespace Net
         private void ConnectToServer(ConnectPackage result)
         {
             //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
-            Debug.unityLogger.Log("Server accept our connection");
             try
             {
+                // _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
+                //     result.data.portToSend,
+                //     result.data.portToReceive);
+                
                 _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
-                    (result as ConnectPackage).data.portToSend,
-                    (result as ConnectPackage).data.portToReceive);
+                    Constants.ServerReceivingPort,
+                    Constants.ServerSendingPort);
 
-                var multicastAddress = IPAddress.Parse((result as ConnectPackage).data.multicastGroupIp);
+                var multicastAddress = IPAddress.Parse(result.data.multicastGroupIp);
                 _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
                     Constants.ServerReceivingPort, Constants.ServerSendingPort);
                 _multicastUdpClient.JoinMulticastGroup(multicastAddress);
@@ -124,6 +132,7 @@ namespace Net
             }));
             
             ClientHandlerManager.instance.Dispose();
+            InputManager.instance.Dispose();
             _udpClient.Dispose();
         }
     }

@@ -6,8 +6,11 @@ namespace Client.Core
     {
         private static ClientEventStorage _instance;
         
-        public ClientEvent InitPilot = new ClientEvent();
-        public ClientEvent InitNavigator = new ClientEvent();
+        public PlayerScriptEvent InitPilot = new PlayerScriptEvent();
+        public PlayerScriptEvent InitNavigator = new PlayerScriptEvent();
+        public PlayerScriptEvent InitSpectator = new PlayerScriptEvent();
+        public PlayerScriptEvent InitAdmin = new PlayerScriptEvent();
+        public PlayerScriptEvent InitModerator = new PlayerScriptEvent();
         
         
         public static ClientEventStorage GetInstance()

@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 using Net.Core;
 using Net.PackageData.EventsData;
 using Net.Utils;
@@ -8,6 +9,8 @@ namespace Client.Movement
 {   
     public class PlayerControl: IMovementAdapter
     {
+        private MovementEventData _lastMovement;
+        
         public PlayerControl()
         {
             NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
@@ -90,6 +93,7 @@ namespace Client.Movement
                     thrustValue = GetThrustSpeed()
                 };
                 var result = await udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent);
+                Debug.unityLogger.Log($"Moves Sended {result}");
             }
             catch (Exception ex)
             {

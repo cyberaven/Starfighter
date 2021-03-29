@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 namespace Core.InputManager
 {
-    public class InputManager: Singleton<InputManager>
+    public class InputManager: Singleton<InputManager>, IDisposable
     {
         public SmartAxis[] axes;
 
@@ -19,6 +19,11 @@ namespace Core.InputManager
             {
                 axis.Update();
             }
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }

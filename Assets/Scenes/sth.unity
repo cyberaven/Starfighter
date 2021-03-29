@@ -265,12 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuUI: {fileID: 733502346}
---- !u!20 &43650246 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 43650246, guid: bd288119467fdbb4abb6c054c1cbc44f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1129726433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &109305380
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,53 +428,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c5c42cd0d101d24abdce67bbace7a97, type: 3}
---- !u!1 &322177485
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 322177486}
-  - component: {fileID: 322177487}
-  m_Layer: 0
-  m_Name: ClientBehavior
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &322177486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322177485}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2040653, y: -2.7571554, z: -3.1767461}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &322177487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322177485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7b2cb3b620a484c916d5f9ea6473fd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accType: 0
-  login: login
-  password: pass
-  serverAddress: 192.168.31.192
 --- !u!1 &345252592
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +588,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 43650246}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1702,7 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipSpeed: 0
   shipRotation: 0
-  MovementAdapter: 0
+  movementAdapter: 0
   thrustForceVector: {x: 0, y: 0, z: 0}
   maneurForceVector: {x: 0, y: 0, z: 0}
 --- !u!1 &1693050068

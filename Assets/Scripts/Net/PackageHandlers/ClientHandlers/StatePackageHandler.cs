@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Client;
+using Client.Core;
 using Core;
 using Net.Interfaces;
 using Net.Packages;
@@ -36,14 +37,12 @@ namespace Net.PackageHandlers.ClientHandlers
                             var go = InstantiateHelper.InstantiateObject(worldObject);
                             var ps = go.GetComponent<PlayerScript>();
                             if (ps is null) continue;
-                            if (MainClientLoop.instance.TryAttachPlayerControl(ps))
-                            {
-                                ps.movementAdapter = MovementAdapter.PlayerControl;
-                            }
-                            else
+                            if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
                             {
                                 ps.movementAdapter = MovementAdapter.BlankControl;
                             }
+
+
                         }
                     }
                 });

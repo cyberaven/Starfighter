@@ -7,7 +7,7 @@ public class Follow : MonoBehaviour
     private Vector3 offset;
     void Start()
     {
-        offset = transform.position - Player.transform.position;
+        offset = Vector3.zero + Vector3.up*10;
     }
 
     // Update is called once per frame

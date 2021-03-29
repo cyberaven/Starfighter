@@ -23,17 +23,24 @@ namespace Net.Core
 
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
-            NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
+            try
+            {
+                NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
 
-            _accountType = account.type;
-            
-            _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
-            
-            // _myGameObjectId = Guid.Parse(_playerScript.gameObject.name.Split('_')[1]);
-            
-            _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
-            
-            StartListenClient();
+                _accountType = account.type;
+
+                _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
+
+                // _myGameObjectId = Guid.Parse(_playerScript.gameObject.name.Split('_')[1]);
+
+                _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
+
+                StartListenClient();
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
         }
 
         public IPAddress GetIpAddress()

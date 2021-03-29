@@ -5,6 +5,7 @@
         MoveEvent,
         DockEvent,
         FireEvent,
+        HitEvent,
         OtherEvent
     }
 }

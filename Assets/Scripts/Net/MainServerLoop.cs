@@ -45,11 +45,18 @@ namespace Net
         private void Start()
         {
             ConfigInit();
-            
-            _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
-                Constants.ServerSendingPort, Constants.ServerReceivingPort);
-            Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");
-            _multicastUdpClient.BeginReceivingPackage();
+
+            try
+            {
+                _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
+                    Constants.ServerSendingPort, Constants.ServerReceivingPort);
+                Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");
+                _multicastUdpClient.BeginReceivingPackage();
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
         }
 
         private void Update()
@@ -96,7 +103,8 @@ namespace Net
         
         private async void SendWorldState(StatePackage pack)
         {
-            await _multicastUdpClient.SendPackageAsync(pack);
+            var result = await _multicastUdpClient.SendPackageAsync(pack);
+            Debug.unityLogger.Log($"Sending world state: {result}");
         }
         
         private void OnDestroy()

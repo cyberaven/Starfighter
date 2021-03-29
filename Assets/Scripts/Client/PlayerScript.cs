@@ -108,7 +108,6 @@ namespace Client
             #endregion
             
             var engines = ShipsBrain.getMovement();
-            Debug.unityLogger.Log($"engines state: {engines.ToString()}");
             if (engines.Thrust)
             {
                 _te.Play(true);
