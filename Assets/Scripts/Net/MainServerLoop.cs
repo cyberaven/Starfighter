@@ -10,6 +10,7 @@ using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -23,7 +24,8 @@ namespace Net
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
-        
+
+        private Coroutine currentCoroutine, previousCoroutine;
         
         private new void Awake()
         {
@@ -79,11 +81,13 @@ namespace Net
         private void GetWorldStatePackage()
         {
             var collection = CollectWorldObjects();
-            var worldStateCoroutine = StartCoroutine(collection);
+            currentCoroutine = StartCoroutine(collection);
         }
         
         private IEnumerator CollectWorldObjects()
         {
+            yield return previousCoroutine;
+            previousCoroutine = currentCoroutine;
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
@@ -99,6 +103,7 @@ namespace Net
             });
             
             NetEventStorage.GetInstance().updateWorldState.Invoke(statePackage);
+            yield return new WaitForSeconds(0.1f);
         }
         
         private async void SendWorldState(StatePackage pack)

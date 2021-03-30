@@ -8,9 +8,12 @@ using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
+using Net.Utils;
+using Newtonsoft.Json;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;
+using EventType = Net.Utils.EventType;
 
 namespace Net
 {
@@ -96,13 +99,9 @@ namespace Net
             //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
             try
             {
-                // _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
-                //     result.data.portToSend,
-                //     result.data.portToReceive);
-                
                 _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
-                    Constants.ServerReceivingPort,
-                    Constants.ServerSendingPort);
+                    result.data.portToSend,
+                    result.data.portToReceive);
 
                 var multicastAddress = IPAddress.Parse(result.data.multicastGroupIp);
                 _multicastUdpClient = new StarfighterUdpClient(multicastAddress,
@@ -117,6 +116,27 @@ namespace Net
             }
         }
 
+        public async void Disconnect()
+        {
+            Debug.unityLogger.Log("Disconnection");
+            await _udpClient.SendPackageAsync(new DisconnectPackage(new DisconnectData()
+            {
+                accountType = accountObject.type,
+                login = accountObject.login,
+                password = accountObject.password,
+            }));
+            
+            _udpClient.Dispose();
+            _multicastUdpClient.Dispose();
+        }
+        
+        public async void SendTestEvent()
+        {
+            
+            Debug.unityLogger.Log("Test event sending");
+            await _udpClient.SendEventPackage("YAY", EventType.OtherEvent);
+        }
+        
         private void OnDestroy()
         {
             ClientHandlerManager.instance.Dispose();
