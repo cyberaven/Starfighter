@@ -5,6 +5,7 @@ using Net.PackageData;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
@@ -40,6 +41,31 @@ namespace Core
                 {
                     Debug.unityLogger.Log("Server accept our connection");
                     //TODO: Сервер принял подключение: загрузить сцену в зависимости от типа аккаунта или\и вызвать соотв событие.
+                    switch (accType)
+                    {
+                        case UserType.Pilot:
+                        {
+                            SceneManager.LoadScene("sth");
+
+                            if (SceneManager.GetActiveScene().name == "sth")
+                            {
+                                NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
+                            }
+
+                            break;
+                        }
+                        case UserType.Navigator:
+                        {
+                            SceneManager.LoadScene("navi_UI");
+                            
+                            if (SceneManager.GetActiveScene().name == "navi_UI")
+                            {
+                                NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
+                            }
+
+                            break;
+                        }
+                    }
                     //TODO: Сначала загрузить сцену, и убедиться что она готова, потом вызвать событие, чтобы было кому на него реагировать.
                     NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
                     break;

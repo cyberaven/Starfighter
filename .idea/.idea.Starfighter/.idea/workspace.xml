@@ -34,12 +34,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/fon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/fon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/emblema.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/emblema.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/emblema2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/emblema2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ClientScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ClientScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Sprites/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,42 +95,13 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/d7/58cde5bf/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/A278EBD4-4AB0-472B-B8E6-38263E06CD61/72/5c0cfde2/0200030B.il" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c1/bb0df6b1/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/59/2a6ea684/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/a3/5900e0bc/SocketFlags.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/f2/2c4077d1/Input.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/29/cfcee517/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D9FC116-8096-494E-B57C-E240D3E836DC/86/301a1063/IMoveHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/52/b7d0c412/Resources.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55FB83BC-594C-4912-8AAA-795223FB816E/2c/d0ab6afd/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/76/3df5a9e6/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/ff/69c95fb7/Dns.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/f2/ef7219e8/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/05/8161c370/IPAddress.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/e5/b7177e9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/394C8FAE-4BA1-4DD2-A259-BD441D5BEF25/96/83ae7801/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/ba/2af3d41e/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/5b/e0ca064a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c9/f430f47d/UnityEvent`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/99/783b50d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/35BAB3C7-B0DC-4999-845B-CFCCC7758D96/b1/07e3e17a/EventType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD1B6EA4-F54D-4146-A29C-2A12CD6EC436/b7/331b8eeb/Task.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/3c/1ec674c2/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/ba/722b2942/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/bb/0d453a60/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/c9/9101106d/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/AbstractSingleton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Utils/InstantiateHelper.cs" />
@@ -149,7 +142,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
@@ -157,6 +149,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -240,6 +234,10 @@
       <workItem from="1616760304700" duration="2192000" />
       <workItem from="1616852743676" duration="1293000" />
       <workItem from="1616940433874" duration="5184000" />
+      <workItem from="1617134680887" duration="2034000" />
+      <workItem from="1617137386269" duration="604000" />
+      <workItem from="1617140750333" duration="722000" />
+      <workItem from="1617210012220" duration="2639000" />
     </task>
     <servers />
   </component>

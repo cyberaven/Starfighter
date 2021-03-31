@@ -1,20 +1,27 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Core;
+using UnityEngine;
 using UnityEngine.UI;
-
 
 public class MainMenu : MonoBehaviour
 {
-    public Toggle PilotToggle; 
-    public Toggle NaviToggle;
-    
+    public Toggle pilotToggle;
+    public Toggle naviToggle;
+    public UserType accType;
+    public InputField loginField;
+    public InputField passwordField;
+    public InputField serverField;
     public void PlayGame()
     {
-        if (PilotToggle.isOn)
+        if (pilotToggle.isOn)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            accType = UserType.Pilot;
         }
-        
+        if (naviToggle.isOn)
+        {
+            accType = UserType.Navigator;
+        }
+        //TODO: допилить меню "выберите роль"
+        ClientConnectionHelper.TryToConnect(serverAddress:serverField.text, login:loginField.text, password:passwordField.text, accType:accType);
     }
 
     public void QuitGame()
