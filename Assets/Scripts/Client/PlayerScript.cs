@@ -46,16 +46,20 @@ namespace Client
             shipSpeed = 0;
             shipRotation = 0;
             
-            _trm = GameObject.Find("TopRightEmition").GetComponent<ParticleSystem>();
-            _trm.gameObject.transform.parent = transform;
-            _tlm = GameObject.Find("TopLeftEmition").GetComponent<ParticleSystem>();
-            _tlm.gameObject.transform.parent = transform;
-            _brm = GameObject.Find("BotRightEmition").GetComponent<ParticleSystem>();
-            _brm.gameObject.transform.parent = transform;
-            _blm = GameObject.Find("BotLeftEmition").GetComponent<ParticleSystem>();
-            _blm.gameObject.transform.parent = transform;
-            _te = GameObject.Find("ThurstsEmition").GetComponent<ParticleSystem>();
-            _te.gameObject.transform.parent = transform;
+            _trm = gameObject.transform.Find("TopRightEmition").GetComponent<ParticleSystem>();
+            _tlm = gameObject.transform.Find("TopLeftEmition").GetComponent<ParticleSystem>();
+            _brm = gameObject.transform.Find("BotRightEmition").GetComponent<ParticleSystem>();
+            _blm = gameObject.transform.Find("BotLeftEmition").GetComponent<ParticleSystem>();
+            _te = gameObject.transform.Find("ThurstsEmition").GetComponent<ParticleSystem>();
+            // _trm.gameObject.transform.parent = transform;
+            // _tlm = GameObject.Find("TopLeftEmition").GetComponent<ParticleSystem>();
+            // _tlm.gameObject.transform.parent = transform;
+            // _brm = GameObject.Find("BotRightEmition").GetComponent<ParticleSystem>();
+            // _brm.gameObject.transform.parent = transform;
+            // _blm = GameObject.Find("BotLeftEmition").GetComponent<ParticleSystem>();
+            // _blm.gameObject.transform.parent = transform;
+            // _te = GameObject.Find("ThurstsEmition").GetComponent<ParticleSystem>();
+            // _te.gameObject.transform.parent = transform;
 
             switch (movementAdapter)
             {

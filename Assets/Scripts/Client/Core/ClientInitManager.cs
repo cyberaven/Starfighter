@@ -23,6 +23,7 @@ namespace Client.Core
         {
             //TODO: normal pilot init
             ps.movementAdapter = MovementAdapter.PlayerControl;
+            ps.gameObject.GetComponent<Collider>().enabled = false;
             var followComp = Camera.main.gameObject.GetComponent<Follow>();
             Camera.main.orthographicSize = 25;
             followComp.Player = ps.gameObject;
@@ -33,6 +34,9 @@ namespace Client.Core
         {
             //TODO: normal nav init
             ps.movementAdapter = MovementAdapter.BlankControl;
+            ps.gameObject.GetComponent<Collider>().enabled = false;
+            ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
+            ps.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             var followComp = Camera.main.gameObject.GetComponent<Follow>();
             Camera.main.orthographicSize = 50;
             followComp.Player = ps.gameObject;

@@ -103,13 +103,17 @@ namespace Net
             });
             
             NetEventStorage.GetInstance().updateWorldState.Invoke(statePackage);
-            yield return new WaitForSeconds(0.1f);
         }
         
         private async void SendWorldState(StatePackage pack)
         {
-            var result = await _multicastUdpClient.SendPackageAsync(pack);
-            Debug.unityLogger.Log($"Sending world state: {result}");
+            foreach (var client in ClientManager.instance.ConnectedClients)
+            {
+                Debug.unityLogger.Log($"Send world state to: {client.GetIpAddress()}");
+                await client.SendWorldState(pack.data);
+            }
+
+            // var result = await _multicastUdpClient.SendPackageAsync(pack);
         }
         
         private void OnDestroy()

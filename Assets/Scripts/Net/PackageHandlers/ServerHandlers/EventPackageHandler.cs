@@ -13,28 +13,35 @@ namespace Net.PackageHandlers.ServerHandlers
     {
         public async Task Handle(AbstractPackage pack)
         {
-            var eventPack = pack as EventPackage;
-            Debug.unityLogger.Log($"Got the event: {eventPack.data.eventType.ToString()}");
-            switch (eventPack.data.eventType)
+            try
             {
-                case EventType.MoveEvent:
-                    var movement = (MovementEventData)eventPack.data.data;
-                    NetEventStorage.GetInstance().serverMovedPlayer.Invoke(pack.ipAddress, movement);
-                    break;
-                case EventType.DockEvent:
-                    var dockData = eventPack.data.data.ToString();
-                    break;
-                case EventType.FireEvent:
-                    var fireData = eventPack.data.data.ToString();
-                    break;
-                case EventType.OtherEvent:
-                    var data = eventPack.data.data.ToString();
-                    break;
-                case EventType.HitEvent:
-                    var hitData = eventPack.data.data.ToString();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                var eventPack = pack as EventPackage;
+                Debug.unityLogger.Log($"Got the event: {eventPack.data.eventType.ToString()}");
+                switch (eventPack.data.eventType)
+                {
+                    case EventType.MoveEvent:
+                        var movement = (MovementEventData) eventPack.data.data;
+                        NetEventStorage.GetInstance().serverMovedPlayer.Invoke(pack.ipAddress, movement);
+                        break;
+                    case EventType.DockEvent:
+                        var dockData = eventPack.data.data.ToString();
+                        break;
+                    case EventType.FireEvent:
+                        var fireData = eventPack.data.data.ToString();
+                        break;
+                    case EventType.OtherEvent:
+                        var data = eventPack.data.data.ToString();
+                        break;
+                    case EventType.HitEvent:
+                        var hitData = eventPack.data.data.ToString();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
             }
         }
     }
