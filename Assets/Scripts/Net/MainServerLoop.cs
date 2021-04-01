@@ -10,7 +10,6 @@ using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;
@@ -24,6 +23,9 @@ namespace Net
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
+        
+        [SerializeField]
+        private string filepathToAsteroids;
 
         private Coroutine currentCoroutine, previousCoroutine;
         
@@ -37,6 +39,7 @@ namespace Net
         private void ConfigInit()
         {
             StartCoroutine(ServerInitializeHelper.instance.InitServer());
+            StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(filepathToAsteroids)));
         }
 
         private void ConfigSave()
@@ -103,13 +106,17 @@ namespace Net
             });
             
             NetEventStorage.GetInstance().updateWorldState.Invoke(statePackage);
-            yield return new WaitForSeconds(0.1f);
         }
         
         private async void SendWorldState(StatePackage pack)
         {
-            var result = await _multicastUdpClient.SendPackageAsync(pack);
-            Debug.unityLogger.Log($"Sending world state: {result}");
+            foreach (var client in ClientManager.instance.ConnectedClients)
+            {
+                Debug.unityLogger.Log($"Send world state to: {client.GetIpAddress()}");
+                await client.SendWorldState(pack.data);
+            }
+
+            // var result = await _multicastUdpClient.SendPackageAsync(pack);
         }
         
         private void OnDestroy()

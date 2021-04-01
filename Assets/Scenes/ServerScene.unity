@@ -209,8 +209,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493682125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: -1550, y: -5, z: -1568}
+  m_LocalScale: {x: 364.64, y: 364.64, z: 364.64}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1376e31f71e8960479e26ba2fd1a8ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filepathToAsteroids: C:\Unity\asteroids.json
 --- !u!4 &2088699828
 Transform:
   m_ObjectHideFlags: 0
@@ -530,6 +531,8 @@ MonoBehaviour:
   accountObjects:
   - {fileID: 11400000, guid: 1e00b4b1bfc4af54499628773c95d73a, type: 2}
   - {fileID: 11400000, guid: fa591dcf102eb8b43934989f4aca7b26, type: 2}
+  - {fileID: 11400000, guid: f3103a3992c74bc40a468a3b53c19f45, type: 2}
+  - {fileID: 11400000, guid: 74296eb421f3c49459859c1fe52a1d00, type: 2}
 --- !u!114 &2088699831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,6 +547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipConfigs:
   - {fileID: 11400000, guid: 1617cde83ec5f4e41a6b391f58c2e2b3, type: 2}
+  - {fileID: 11400000, guid: b1118064244030d44b0a6a53eadc7396, type: 2}
 --- !u!114 &2088699832
 MonoBehaviour:
   m_ObjectHideFlags: 0

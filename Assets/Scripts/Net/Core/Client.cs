@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Threading.Tasks;
 using Client;
 using Core;
 using Net.PackageData;
@@ -60,27 +61,34 @@ namespace Net.Core
 
         private void UpdateMovement(IPAddress address, MovementEventData data)
         {
+            Debug.unityLogger.Log($"Update movement check {GetIpAddress()}: and {address}");
+            
             if (!Equals(GetIpAddress(), address)) return;
             _playerScript.ShipsBrain.UpdateMovementActionData(data);
         }
         
-        public async void SendDecline(Guid id)
+        public async Task SendDecline(Guid id)
         {
             Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
             
             var result = await _udpSocket.SendPackageAsync(new DeclinePackage(new DeclineData(){eventId = id}));
         }
 
-        public async void SendAccept(Guid id)
+        public async Task SendAccept(Guid id)
         {
             Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendPackageAsync(new AcceptPackage(new AcceptData(){eventId = id}));
         }
 
-        public async void SendEvent(EventData data)
+        public async Task SendEvent(EventData data)
         {
             Debug.unityLogger.Log($"Gonna send event to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendPackageAsync(new EventPackage(data));
+        }
+
+        public async Task SendWorldState(StateData data)
+        {
+            var result = await _udpSocket.SendPackageAsync(new StatePackage(data));
         }
         
         public void Dispose()

@@ -18,7 +18,7 @@ namespace Net.Core
 {
     public class ClientManager : Singleton<ClientManager>, IDisposable
     {
-        private int _lastGivenPort = 8000;
+        private int _lastGivenPort = 12000;
 
         public List<Client> ConnectedClients;
         [SerializeField] private List<ClientAccountObject> accountObjects;

@@ -9,7 +9,6 @@ using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
 using Net.Utils;
-using Newtonsoft.Json;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;

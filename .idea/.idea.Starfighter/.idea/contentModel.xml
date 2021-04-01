@@ -112,6 +112,7 @@
               <e p="GameEventListener.cs" t="Include" />
             </e>
             <e p="GameManager.cs" t="Include" />
+            <e p="Importer.cs" t="Include" />
             <e p="InputManager" t="Include">
               <e p="InputManager.cs" t="Include" />
               <e p="SmartAxis.cs" t="Include" />
