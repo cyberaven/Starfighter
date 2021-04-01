@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using Client;
 using Client.Core;
@@ -17,6 +18,7 @@ using EventType = Net.Utils.EventType;
 namespace Net
 {
     [RequireComponent(typeof(ClientHandlerManager))]
+    [RequireComponent(typeof(ClientInitManager))]
     [RequireComponent(typeof(InputManager))]
     public class MainClientLoop : Singleton<MainClientLoop>
     {
@@ -33,15 +35,14 @@ namespace Net
         private new void Awake()
         {
             base.Awake();
-
-        }
-
-        private void Start()
-        {
             NetEventStorage.GetInstance().connectToServer.AddListener(ConnectToServer);
             CoreEventStorage.GetInstance().AxisValueChanged.AddListener(SendMove);
         }
-        
+
+        public void Init(string serverAddress)
+        {
+            this.serverAddress = serverAddress;
+        }
         
         public void SendMove(string axis, float value)
         {
@@ -62,6 +63,7 @@ namespace Net
                         ClientEventStorage.GetInstance().InitPilot.Invoke(_playerScript);
                         break;
                     case UserType.Navigator:
+                        Debug.unityLogger.Log("Gonna invoke init Navigator");
                         ClientEventStorage.GetInstance().InitNavigator.Invoke(_playerScript);
                         break;
                     case UserType.Spectator:
@@ -98,6 +100,9 @@ namespace Net
             //надо иметь два udp клиента. Для прослушки multicast и для прослушки личного порта от сервера.
             try
             {
+                accountObject = Resources.LoadAll<ClientAccountObject>(Constants.PathToAccounts)
+                    .First(x=>x.login == result.data.login && x.password == result.data.password);
+                
                 _udpClient = new StarfighterUdpClient(IPAddress.Parse(serverAddress),
                     result.data.portToSend,
                     result.data.portToReceive);

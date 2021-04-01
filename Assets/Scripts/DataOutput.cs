@@ -6,21 +6,32 @@ using Client;
 public class DataOutput : MonoBehaviour
 {
     // Start is called before the first frame update
-    Text pointsText;
-    private float rotSpeed;
-    private float roundSpeed;
-    void Start()
+    private Text _pointsText;
+    private float _rotSpeed;
+    private float _roundSpeed;
+    private PlayerScript _ship;
+
+    private void Awake()
     {
-        pointsText = GetComponent<Text>();
-        rotSpeed = 0;
-        roundSpeed = 0;
+    }
+
+    private void Start()
+    {
+        _pointsText = GetComponent<Text>();
+        _rotSpeed = 0;
+        _roundSpeed = 0;
+    }
+
+    public void Init(PlayerScript ship)
+    {
+        _ship = ship;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        roundSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<PlayerScript>().shipSpeed, 2); // скорость полета
-        rotSpeed = (float)Math.Round(GameObject.Find("Player").GetComponent<PlayerScript>().shipRotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
-        pointsText.text = "Скорость: " + roundSpeed.ToString() + "\n" + "Вращение: " + rotSpeed.ToString();// вывод в UI
+        _roundSpeed = (float)Math.Round(_ship.shipSpeed, 2); // скорость полета
+        _rotSpeed = (float)Math.Round(_ship.shipRotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
+        _pointsText.text = "Скорость: " + _roundSpeed.ToString() + "\n" + "Вращение: " + _rotSpeed.ToString();// вывод в UI
     }
 }
