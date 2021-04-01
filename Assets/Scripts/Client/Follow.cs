@@ -1,18 +1,22 @@
 ﻿using UnityEngine;
 
-public class Follow : MonoBehaviour
+namespace Client
 {
-    // Start is called before the first frame update
-    public GameObject Player;
-    private Vector3 offset;
-    void Start()
+    public class Follow : MonoBehaviour
     {
-        offset = Vector3.zero + Vector3.up*10;
-    }
+        // Start is called before the first frame update
+        public GameObject Player;
+        private Vector3 _offset;
+    
+        void Start()
+        {
+            _offset = Vector3.zero + Vector3.up*10;
+        }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        transform.position = Player.transform.position + offset;
+        // Update is called once per frame
+        void LateUpdate()
+        {
+            transform.position = Player.transform.position + _offset;
+        }
     }
 }

@@ -5,16 +5,18 @@ using Net.PackageData;
 using Net.Packages;
 using Net.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
+    
     public static class ClientConnectionHelper
     {
+        private static AsyncOperation asyncPilot, asyncNavigator;
         private static StarfighterUdpClient _udpClient;
-        
         public static void Init()
         {
-
+        
         }
 
         public static async void TryToConnect(string serverAddress, string login, string password, UserType accType)
@@ -40,8 +42,22 @@ namespace Core
                 {
                     Debug.unityLogger.Log("Server accept our connection");
                     //TODO: Сервер принял подключение: загрузить сцену в зависимости от типа аккаунта или\и вызвать соотв событие.
-                    //TODO: Сначала загрузить сцену, и убедиться что она готова, потом вызвать событие, чтобы было кому на него реагировать.
-                    NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
+                    switch (accType)
+                    {
+                        case UserType.Pilot:
+                        {
+                            SceneManager.LoadScene("pilot_UI");
+                            break;
+                        }
+                        case UserType.Navigator:
+                        {
+                            SceneManager.LoadSceneAsync("navi_UI");
+                            break;
+                        }
+                        default:
+                            throw new ArgumentOutOfRangeException(
+                                $"unexpected package type {result.packageType.ToString()}");
+                    }
                     break;
                 }
                 case PackageType.DeclinePackage:

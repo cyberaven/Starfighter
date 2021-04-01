@@ -38,6 +38,7 @@ namespace Client.Core
             Camera.main.orthographicSize = 50;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
+            Camera.main.gameObject.AddComponent<Zoom>();
         }
     }
 }
