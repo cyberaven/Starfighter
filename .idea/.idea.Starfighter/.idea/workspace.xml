@@ -34,9 +34,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SlimUI.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations.meta" beforeDir="false" />
@@ -47,7 +52,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UIBorders.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UIBorders.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +89,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/AbstractSingleton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/Dispatcher.cs" />
@@ -124,7 +127,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
@@ -135,7 +137,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -225,6 +229,7 @@
       <workItem from="1617140750333" duration="722000" />
       <workItem from="1617210012220" duration="4941000" />
       <workItem from="1617217598546" duration="2571000" />
+      <workItem from="1617295728155" duration="4574000" />
     </task>
     <servers />
   </component>

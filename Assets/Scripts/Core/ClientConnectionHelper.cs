@@ -9,13 +9,14 @@ using UnityEngine.SceneManagement;
 
 namespace Core
 {
+    
     public static class ClientConnectionHelper
     {
+        private static AsyncOperation asyncPilot, asyncNavigator;
         private static StarfighterUdpClient _udpClient;
-        
         public static void Init()
         {
-
+        
         }
 
         public static async void TryToConnect(string serverAddress, string login, string password, UserType accType)
@@ -45,29 +46,32 @@ namespace Core
                     {
                         case UserType.Pilot:
                         {
-                            SceneManager.LoadScene("sth");
+                            SceneManager.LoadSceneAsync("sth").allowSceneActivation = false;
 
-                            if (SceneManager.GetActiveScene().name == "sth")
+                            if (SceneManager.LoadSceneAsync("sth").isDone)
                             {
                                 NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
+                                SceneManager.LoadSceneAsync("sth").allowSceneActivation = true;
                             }
 
                             break;
                         }
                         case UserType.Navigator:
                         {
-                            SceneManager.LoadScene("navi_UI");
+                            SceneManager.LoadSceneAsync("navi_UI").allowSceneActivation = false;
                             
-                            if (SceneManager.GetActiveScene().name == "navi_UI")
+                            if (SceneManager.LoadSceneAsync("navi_UI").isDone)
                             {
                                 NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
+                                SceneManager.LoadSceneAsync("navi_UI").allowSceneActivation = true;
                             }
 
                             break;
                         }
+                        default:
+                            throw new ArgumentOutOfRangeException(
+                                $"unexpected package type {result.packageType.ToString()}");
                     }
-                    //TODO: Сначала загрузить сцену, и убедиться что она готова, потом вызвать событие, чтобы было кому на него реагировать.
-                    NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
                     break;
                 }
                 case PackageType.DeclinePackage:

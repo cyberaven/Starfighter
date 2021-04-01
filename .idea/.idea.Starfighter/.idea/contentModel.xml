@@ -96,6 +96,7 @@
               <e p="RemoteNetworkControl.cs" t="Include" />
             </e>
             <e p="playerScript.cs" t="Include" />
+            <e p="Zoom.cs" t="Include" />
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">

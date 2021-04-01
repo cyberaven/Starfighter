@@ -37,6 +37,7 @@ namespace Client.Core
             Camera.main.orthographicSize = 50;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
+            GameObject.Find("Zoom").GetComponent<Zoom>().navigatorCamera = Camera.main;
         }
     }
 }
