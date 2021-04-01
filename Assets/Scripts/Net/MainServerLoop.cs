@@ -24,6 +24,9 @@ namespace Net
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
+        
+        [SerializeField]
+        private string filepathToAsteroids;
 
         private Coroutine currentCoroutine, previousCoroutine;
         
@@ -37,6 +40,7 @@ namespace Net
         private void ConfigInit()
         {
             StartCoroutine(ServerInitializeHelper.instance.InitServer());
+            StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(filepathToAsteroids)));
         }
 
         private void ConfigSave()

@@ -11,5 +11,6 @@
 
         //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";
+        public const string AsteroidTag = "Asteroid";
     }
 }
