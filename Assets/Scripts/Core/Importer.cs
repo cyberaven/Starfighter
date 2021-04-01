@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using Core.Models;
 using Net.PackageData;
-using Newtonsoft.Json;
 using UnityEngine;
 using Utils;
 
@@ -16,20 +15,20 @@ namespace Core
         public static Asteroids ImportAsteroids(string filepath)
         {
             var file = File.ReadAllText(filepath);
-            return JsonConvert.DeserializeObject<Asteroids>(file);
+            return JsonUtility.FromJson<Asteroids>(file);
         }
 
         public static void ExportAsteroids(string filepath = "./asteroids.json")
         {
             var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag)
                 .Select(obj => new WorldObject(obj.name, obj.transform)).ToList();
-            var textToWrite = JsonConvert.SerializeObject(asteroids);
+            var textToWrite = JsonUtility.ToJson(asteroids);
             File.WriteAllText(filepath, textToWrite);
         }
 
         public static void ExportAsteroids(Asteroids asteroids, string filepath = "./asteroids.json")
         {
-            var textToWrite = JsonConvert.SerializeObject(asteroids);
+            var textToWrite = JsonUtility.ToJson(asteroids);
             File.WriteAllText(filepath, textToWrite);
         }
 
