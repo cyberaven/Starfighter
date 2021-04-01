@@ -34,23 +34,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Materials/Астероиды.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Materials/Астероиды.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Астероиды.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Астероиды.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Враждебный корабль.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Враждебный корабль.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Космостанция.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Космостанция.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Маяк.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Маяк.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Нейтральный корабль.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Нейтральный корабль.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Союзный корабль.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Союзный корабль.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Prefabs/Asteroid_02_M.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Prefabs/Asteroid_02_M.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/Svoy_korabl.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/f8ws7LVQZRU.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/f8ws7LVQZRU.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +150,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="AllToDoScope" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderPresentationOptionsPageId" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
@@ -236,6 +223,8 @@
       <workItem from="1617303732984" duration="7000" />
       <workItem from="1617303763465" duration="10000" />
       <workItem from="1617305828541" duration="621000" />
+      <workItem from="1617307787540" duration="458000" />
+      <workItem from="1617311121729" duration="10000" />
     </task>
     <servers />
   </component>
