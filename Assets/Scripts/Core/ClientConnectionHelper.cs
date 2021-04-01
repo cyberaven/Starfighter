@@ -46,26 +46,12 @@ namespace Core
                     {
                         case UserType.Pilot:
                         {
-                            SceneManager.LoadSceneAsync("sth").allowSceneActivation = false;
-
-                            if (SceneManager.LoadSceneAsync("sth").isDone)
-                            {
-                                NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
-                                SceneManager.LoadSceneAsync("sth").allowSceneActivation = true;
-                            }
-
+                            SceneManager.LoadScene("pilot_UI");
                             break;
                         }
                         case UserType.Navigator:
                         {
-                            SceneManager.LoadSceneAsync("navi_UI").allowSceneActivation = false;
-                            
-                            if (SceneManager.LoadSceneAsync("navi_UI").isDone)
-                            {
-                                NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
-                                SceneManager.LoadSceneAsync("navi_UI").allowSceneActivation = true;
-                            }
-
+                            SceneManager.LoadSceneAsync("navi_UI");
                             break;
                         }
                         default:

@@ -1,7 +1,4 @@
-﻿using System;
-using Core;
-using Net.Core;
-using Net.PackageHandlers.ClientHandlers;
+﻿using Core;
 using UnityEngine;
 
 namespace Client.Core
@@ -37,7 +34,7 @@ namespace Client.Core
             Camera.main.orthographicSize = 50;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
-            GameObject.Find("Zoom").GetComponent<Zoom>().navigatorCamera = Camera.main;
+            Camera.main.gameObject.AddComponent<Zoom>();
         }
     }
 }

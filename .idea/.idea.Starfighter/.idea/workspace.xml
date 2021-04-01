@@ -34,24 +34,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/sth.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/sth.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,10 +127,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -230,6 +221,8 @@
       <workItem from="1617210012220" duration="4941000" />
       <workItem from="1617217598546" duration="2571000" />
       <workItem from="1617295728155" duration="4574000" />
+      <workItem from="1617301195872" duration="716000" />
+      <workItem from="1617301996139" duration="181000" />
     </task>
     <servers />
   </component>
