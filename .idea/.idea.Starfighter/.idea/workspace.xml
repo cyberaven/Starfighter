@@ -552,7 +552,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="AllToDoScope" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderPresentationOptionsPageId" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
@@ -622,6 +622,11 @@
       <workItem from="1617295728155" duration="4574000" />
       <workItem from="1617301195872" duration="716000" />
       <workItem from="1617301996139" duration="181000" />
+      <workItem from="1617303732984" duration="7000" />
+      <workItem from="1617303763465" duration="10000" />
+      <workItem from="1617305828541" duration="621000" />
+      <workItem from="1617307787540" duration="458000" />
+      <workItem from="1617311121729" duration="10000" />
       <workItem from="1617309266303" duration="7572000" />
     </task>
     <servers />
