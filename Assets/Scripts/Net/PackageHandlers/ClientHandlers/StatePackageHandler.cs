@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Client;
-using Client.Core;
 using Core;
 using Net.Interfaces;
 using Net.Packages;

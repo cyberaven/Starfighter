@@ -10,7 +10,6 @@ using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils;

@@ -114,9 +114,6 @@
               <e p="InputManager.cs" t="Include" />
               <e p="SmartAxis.cs" t="Include" />
             </e>
-            <e p="Models" t="Include">
-              <e p="Asteroids.cs" t="Include" />
-            </e>
             <e p="TestConnector.cs" t="Include" />
           </e>
           <e p="DataOutput.cs" t="Include" />

@@ -6,7 +6,6 @@ using Core;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
-using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;

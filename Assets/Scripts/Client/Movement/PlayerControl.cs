@@ -1,5 +1,4 @@
 ﻿using System;
-using Core;
 using Net.Core;
 using Net.PackageData.EventsData;
 using Net.Utils;
