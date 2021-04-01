@@ -1,21 +1,29 @@
 ﻿using UnityEngine;
 
-public class CourseView : MonoBehaviour
+namespace Client
 {
-    public GameObject ship;
-    Rigidbody shipRB;
-    public Vector3 velocity;
-    // Start is called before the first frame update
-    void Start()
+    public class CourseView : MonoBehaviour
     {
-        shipRB = ship.GetComponent<Rigidbody>();   
-    }
+        public GameObject ship;
+        private Rigidbody _shipRb;
+        public Vector3 velocity;
+        // Start is called before the first frame update
+        void Awake()
+        {
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        velocity = (shipRB.velocity+transform.position);
-        transform.position = ship.transform.position;
-        transform.LookAt(velocity, Vector3.up);
+        public void Init(PlayerScript playerScript)
+        {
+            ship = playerScript.gameObject;
+            _shipRb = playerScript.GetComponent<Rigidbody>();
+        }
+    
+        // Update is called once per frame
+        void Update()
+        {
+            velocity = (_shipRb.velocity + transform.position);
+            transform.position = ship.transform.position;
+            transform.LookAt(velocity, Vector3.up);
+        }
     }
 }

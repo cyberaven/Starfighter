@@ -8,6 +8,8 @@
         public const int ServerSendingPort = 40000;
 
         public const string PathToPrefabs = "Prefabs/";
+        public const string PathToAxes = "ScriptableObjects/Axes/";
+        public const string PathToAccounts = "ScriptableObjects/Accounts/";
 
         //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";

@@ -8,37 +8,43 @@ namespace Client.Core
         protected new void Awake()
         {
             base.Awake();
-        }
-
-        private void Start()
-        {
+            
             ClientEventStorage.GetInstance().InitNavigator.AddListener(InitNavigator);
             ClientEventStorage.GetInstance().InitPilot.AddListener(InitPilot);
         }
 
-        public void InitPilot(PlayerScript ps)
+
+        private static void InitPilot(PlayerScript ps)
         {
+            Debug.unityLogger.Log("INIT PILOT");
             //TODO: normal pilot init
             ps.movementAdapter = MovementAdapter.PlayerControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
-            var followComp = Camera.main.gameObject.GetComponent<Follow>();
-            Camera.main.orthographicSize = 25;
+            var cam = FindObjectOfType<Camera>();
+            var followComp = cam.gameObject.GetComponent<Follow>() ?? cam.gameObject.AddComponent<Follow>();
+            cam.orthographicSize = 25;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
+            FindObjectOfType<DataOutput>().Init(ps);
+            FindObjectOfType<CourseView>().Init(ps);
+            FindObjectOfType<CoordinatesUI>().Init(ps);
         }
 
-        public void InitNavigator(PlayerScript ps)
+        private static void InitNavigator(PlayerScript ps)
         {
             //TODO: normal nav init
             ps.movementAdapter = MovementAdapter.BlankControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
             ps.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            var followComp = Camera.main.gameObject.GetComponent<Follow>();
-            Camera.main.orthographicSize = 50;
+            var cam = FindObjectOfType<Camera>();
+            var followComp = cam.gameObject.GetComponent<Follow>()??cam.gameObject.AddComponent<Follow>();
+            cam.orthographicSize = 50;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
-            Camera.main.gameObject.AddComponent<Zoom>();
+            var zoomComp = cam.gameObject.GetComponent<Zoom>()??cam.gameObject.AddComponent<Zoom>();
+            zoomComp.navigatorCamera = cam;
+            zoomComp.enabled = true;
         }
     }
 }
