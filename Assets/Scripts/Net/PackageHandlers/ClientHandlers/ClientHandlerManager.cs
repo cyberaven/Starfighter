@@ -9,6 +9,7 @@ namespace Net.PackageHandlers.ClientHandlers
     public class ClientHandlerManager: AbstractHandlerManager
     {
         private Guid _lastStateAction;
+        
         public ClientHandlerManager()
         {
             NetEventStorage.GetInstance().newPackageRecieved.AddListener(HandlePackage);

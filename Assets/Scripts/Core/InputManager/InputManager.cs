@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Core.InputManager
 {
@@ -6,13 +7,14 @@ namespace Core.InputManager
     {
         public SmartAxis[] axes;
 
-        private void Start()
+        private void Awake()
         {
-            
+            axes = Resources.LoadAll<SmartAxis>(Constants.PathToAxes);
         }
 
         private void Update()
         {
+            if (axes is null) return;
             foreach (var axis in axes)
             {
                 axis.Update();

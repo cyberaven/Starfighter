@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
             accType = UserType.Navigator;
         }
         //TODO: допилить меню "выберите роль"
-        ClientConnectionHelper.TryToConnect(serverAddress:serverField.text, login:loginField.text, password:passwordField.text, accType:accType);
+        ClientConnectionHelper.instance.TryToConnect(serverAddress:serverField.text, login:loginField.text, password:passwordField.text, accType:accType);
     }
 
     public void QuitGame()

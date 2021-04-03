@@ -34,286 +34,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Starfield.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shaders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shaders/NaviStarfieldShader.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Fon_tumannosti.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Fon_tumannosti.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Fon_zvezdy (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Fon_zvezdy (1).png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Materials/sky-texture_8.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/Materials/sky-texture_8.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/fon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/fon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/sky-texture_50.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/sky-texture_50.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/sky-texture_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Background/sky-texture_8.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/BigStars.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/BigStars.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/MediumStars.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/MediumStars.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/SmallStars.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Navigator/SmallStars.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Fon_zvezdy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Fon_zvezdy.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/2.0/machine.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/2.0/settings.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/2.0/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.0/machine.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.0/settings.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.0/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.5/machine.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.5/settings.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/4.5/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/browscap.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/MonoBleedingEdge/etc/mono/mconfig/config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Mono.Security.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Newtonsoft.Json.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.ComponentModel.Composition.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Configuration.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Core.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Data.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Diagnostics.StackTrace.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Drawing.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.EnterpriseServices.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Globalization.Extensions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.IO.Compression.FileSystem.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.IO.Compression.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Net.Http.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Numerics.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Runtime.CompilerServices.Unsafe.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Runtime.Serialization.Xml.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Runtime.Serialization.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Runtime.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.ServiceModel.Internals.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Transactions.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Xml.Linq.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Xml.XPath.XDocument.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.Xml.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/System.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Analytics.DataPrivacy.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Analytics.StandardEvents.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Analytics.Tracker.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Burst.Unsafe.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Burst.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Collections.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Jobs.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Mathematics.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/Unity.Timeline.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.AIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ARModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.AccessibilityModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.AndroidJNIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.AnimationModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.AssetBundleModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.AudioModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ClothModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ClusterInputModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ClusterRendererModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.CoreModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.CrashReportingModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.DSPGraphModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.DirectorModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.GameCenterModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.GridModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.HotReloadModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.IMGUIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ImageConversionModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.InputLegacyModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.InputModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.JSONSerializeModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.LocalizationModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ParticleSystemModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.PerformanceReportingModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.Physics2DModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.PhysicsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ProfilerModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.ScreenCaptureModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.SharedInternalsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.SpatialTracking.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.SpriteMaskModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.SpriteShapeModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.StreamingModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.SubstanceModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.SubsystemsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.TLSModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.TerrainModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.TextCoreModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.TextRenderingModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.TilemapModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UIElementsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UNETModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UmbraModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityConnectModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityWebRequestModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.VFXModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.VRModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.VehiclesModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.VideoModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.WindModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.XR.LegacyInputHelpers.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.XRModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/UnityEngine.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/com.unity.multiplayer-hlapi.Runtime.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/mscorlib.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Managed/netstandard.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Plugins/lib_burst_generated.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Plugins/lib_burst_generated.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Resources/unity default resources" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/Resources/unity_builtin_extra" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/app.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/boot.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/globalgamemanagers" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/globalgamemanagers.assets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/level0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/resources.assets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/resources.assets.resS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/sharedassets0.assets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/StarFighter_Data/sharedassets0.assets.resS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/UnityCrashHandler32.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ServerBuild/UnityPlayer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/ShipNavigatorAccount.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/ShipNavigatorAccount.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/ShipPilotAccount.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/ShipPilotAccount.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/SparrowNavigatorAccount.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/SparrowNavigatorAccount.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/SparrowPilotAccount.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/SparrowPilotAccount.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Horizontal Axis.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Horizontal Axis.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Jump Axis.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Jump Axis.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Rotation Axis.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Rotation Axis.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Vertical Axis.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Axes/Vertical Axis.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships/SpaceShipConfig.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships/SpaceShipConfig.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships/StarSparrowConfig.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships/StarSparrowConfig.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Materials/Asteroid_01_S.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Materials/Asteroid_01_S.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External assets/Backgrounds/Materials/4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External assets/Backgrounds/Materials/4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External assets/StarSparrow/Materials/Unified/StarSparrow Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External assets/StarSparrow/Materials/Unified/StarSparrow Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/ShipNavigatorAccount.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/ShipNavigatorAccount.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/ShipPilotAccount.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/ShipPilotAccount.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/SparrowNavigatorAccount.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/SparrowNavigatorAccount.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/SparrowPilotAccount.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Accounts/SparrowPilotAccount.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Horizontal Axis.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Horizontal Axis.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Jump Axis.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Jump Axis.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Rotation Axis.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Rotation Axis.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Vertical Axis.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Axes/Vertical Axis.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Ships.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Ships/SpaceShipConfig.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Ships/SpaceShipConfig.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Ships/StarSparrowConfig.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Ships/StarSparrowConfig.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Jazz_Blazer_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Jazz_Blazer_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Jazz_BossaNovaTropics_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Jazz_BossaNovaTropics_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Jazz_SpeedJazz_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Jazz_SpeedJazz_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Military_DogFight_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Military_DogFight_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Military_LoneTrumpeteer_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Military_LoneTrumpeteer_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Military_Preperation_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Military_Preperation_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Spooky_60sSciFi_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/Extras/Spooky_60sSciFi_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_DarkCave_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_DarkCave_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_01.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_01.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_02.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_02.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_03.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Dark_Loop_03.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop_02.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Darkness_Loop_02.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Loading_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Loading_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_NewsReel_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_NewsReel_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop_02.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_PressOn_Loop_02.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Resolution_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Resolution_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_TheHeist_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_TheHeist_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Violins_Loop.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/FutureWorld_Violins_Loop.ogg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/BackgroundMusic/ReadMe.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade10Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade10Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade1Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade1Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade2Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade2Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade3Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade3Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade4Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade4Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade5Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade5Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade6Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade6Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade7Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade7Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade8Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade8Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade9Short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Explosions/Grenade9Short.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser10.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser10.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser11.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser11.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser12.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser12.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser13.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser13.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser14.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser14.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser15.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser15.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser16.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser16.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser17.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser17.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser18.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser18.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser19.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser19.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser2.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser20.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser20.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser3.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser4.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser4.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser5.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser5.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser6.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser6.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser7.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser7.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser8.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser8.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser9.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Laser/Laser9.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/fon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI/fon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/TestConnector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/TestConnector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" beforeDir="false" />
@@ -627,6 +412,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -660,10 +446,36 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Shaders/MenuShader.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Starfield.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/d7/58cde5bf/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/A278EBD4-4AB0-472B-B8E6-38263E06CD61/72/5c0cfde2/0200030B.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c1/bb0df6b1/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/59/2a6ea684/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/a3/5900e0bc/SocketFlags.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2DB13BA0-D523-4322-8AA9-892C408FB49A/f2/2c4077d1/Input.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8788DF23-D12C-4548-A89D-2A54A21132B9/29/cfcee517/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2D9FC116-8096-494E-B57C-E240D3E836DC/86/301a1063/IMoveHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/52/b7d0c412/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55FB83BC-594C-4912-8AAA-795223FB816E/2c/d0ab6afd/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/76/3df5a9e6/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/ff/69c95fb7/Dns.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D6D3AC03-BF86-4882-89C2-EBF3A45CE0A1/f2/ef7219e8/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/05/8161c370/IPAddress.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/e5/b7177e9b/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/394C8FAE-4BA1-4DD2-A259-BD441D5BEF25/96/83ae7801/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/ba/2af3d41e/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/5b/e0ca064a/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/c9/f430f47d/UnityEvent`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/99/783b50d7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/35BAB3C7-B0DC-4999-845B-CFCCC7758D96/b1/07e3e17a/EventType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/BD1B6EA4-F54D-4146-A29C-2A12CD6EC436/b7/331b8eeb/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/3c/1ec674c2/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A278EBD4-4AB0-472B-B8E6-38263E06CD61/0f/75dc1c82/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/ba/722b2942/UnityEvent`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48050808-8AEE-40CA-B708-18FF164A29D5/bb/0d453a60/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/c9/9101106d/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/42/21e6c652/Socket.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -671,40 +483,28 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SendMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/BlankControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/DisconnectData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/ConnectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Dispatcher.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/SceneSwitcher.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/Events.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceShipConfig.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Enums.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/ConnectionManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/ConnectionHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/InitializeHelper.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/TestConnector.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/CoreEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/CoreEvents.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/SmartAxis.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientEvents.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Models/Asteroids.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" />
@@ -713,11 +513,23 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Utils/InstantiateHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Shaders/NewSurfaceShader.shader" />
-      <option value="$PROJECT_DIR$/Assets/Starfield.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Starfield.cs" />
-      <option value="$PROJECT_DIR$/Assets/Shaders/NaviStarfieldShader.shader" />
-      <option value="$PROJECT_DIR$/Assets/Shaders/MenuShader.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ClientAccountObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceShipConfig.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/ConnectData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/TestConnector.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/ClientHandlerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/SmartAxis.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -815,10 +627,7 @@
       <workItem from="1617305828541" duration="621000" />
       <workItem from="1617307787540" duration="458000" />
       <workItem from="1617311121729" duration="10000" />
-      <workItem from="1617311315583" duration="85000" />
-      <workItem from="1617386950022" duration="432000" />
-      <workItem from="1617388869259" duration="2572000" />
-      <workItem from="1617451802827" duration="674000" />
+      <workItem from="1617309266303" duration="7572000" />
     </task>
     <servers />
   </component>
@@ -829,34 +638,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/develop" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/develop" />
-                </option>
-              </RecentGroup>
-            </list>
+            <State />
           </value>
         </entry>
       </map>
