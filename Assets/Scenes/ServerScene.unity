@@ -425,8 +425,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 56.2
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 138.30861
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -449,13 +449,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086786620}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 178, z: -104}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -20, y: 178, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2088699826
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1376e31f71e8960479e26ba2fd1a8ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filepathToAsteroids: C:\Unity\asteroids.json
 --- !u!4 &2088699828
 Transform:
   m_ObjectHideFlags: 0
@@ -545,9 +544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea07508347de411b898af1ed0080aa54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipConfigs:
-  - {fileID: 11400000, guid: 1617cde83ec5f4e41a6b391f58c2e2b3, type: 2}
-  - {fileID: 11400000, guid: b1118064244030d44b0a6a53eadc7396, type: 2}
 --- !u!114 &2088699832
 MonoBehaviour:
   m_ObjectHideFlags: 0

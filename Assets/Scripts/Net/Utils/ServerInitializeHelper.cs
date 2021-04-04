@@ -2,6 +2,7 @@
 using System.Collections;
 using Core;
 using ScriptableObjects;
+using UnityEditor;
 using UnityEngine;
 using Utils;
 
@@ -9,7 +10,7 @@ namespace Net.Utils
 {
     public class ServerInitializeHelper: Singleton<ServerInitializeHelper>
     {
-        public SpaceShipConfig[] shipConfigs;
+        private SpaceShipConfig[] _shipConfigs;
         
         private new void Awake()
         {
@@ -18,24 +19,25 @@ namespace Net.Utils
 
         public IEnumerator InitServer()
         {
-                foreach (var spaceShipConfig in shipConfigs)
+            _shipConfigs = Resources.LoadAll<SpaceShipConfig>(Constants.PathToShips);
+            foreach (var spaceShipConfig in _shipConfigs)
+            {
+                try
                 {
-                    try
-                    {
-                        var playerScript = InstantiateHelper.InstantiateServerShip(spaceShipConfig);
-                    }
-                    catch(Exception ex)
-                    {
-                        Debug.unityLogger.LogException(ex);
-                    }
-                    //TODO: Init fields from config;
-                    yield return null;
+                    var playerScript = InstantiateHelper.InstantiateServerShip(spaceShipConfig);
                 }
+                catch(Exception ex)
+                {
+                    Debug.unityLogger.LogException(ex);
+                }
+                //TODO: Init fields from config;
+                yield return null;
+            }
         }
 
         public void SaveServer()
         {
-            foreach (var spaceShipConfig in shipConfigs)
+            foreach (var spaceShipConfig in _shipConfigs)
             {
                 var ship = GameObject.Find($"{spaceShipConfig.prefabName}_{spaceShipConfig.shipId}");
                 if(ship is null) continue;

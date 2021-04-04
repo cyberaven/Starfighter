@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using Net.PackageData;
@@ -17,14 +18,13 @@ namespace Core
 
         public static void ExportAsteroids(string filepath = "./asteroids.json")
         {
-            var asteroids = GameObject.FindGameObjectsWithTag("Asteroid")
+            var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag)
                 .Select(obj => new WorldObject(obj.name.Replace("(Clone)",""), obj.transform)).ToArray();
             var worldState = new StateData()
             {
                 worldState = asteroids
             };
             var textToWrite = JsonUtility.ToJson(worldState, true);
-            Debug.unityLogger.Log(textToWrite);
             File.WriteAllText(filepath, textToWrite);
         }
 
@@ -38,12 +38,11 @@ namespace Core
         {
             foreach (var asteroid in asteroids.worldState)
             {
-                Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + asteroid.name}");
                 var goToInstantiate = Resources.Load(Constants.PathToPrefabs + asteroid.name);
                 var instance =
                     GameObject.Instantiate(goToInstantiate, asteroid.position, asteroid.rotation) as
                         GameObject;
-                instance.name = asteroid.name;
+                instance.name = asteroid.name + Constants.Separator + Guid.NewGuid();
                 instance.tag = Constants.AsteroidTag;
                 instance.SetActive(true);
                 yield return instance;

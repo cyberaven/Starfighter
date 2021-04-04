@@ -22,5 +22,6 @@ namespace Net.Core
     public class ClientEvent: UnityEvent<Client> { }
     public class PlayerMovementEvent: UnityEvent<IPAddress, MovementEventData> { }
     public class StarfighterUdpClientEvent : UnityEvent<StarfighterUdpClient> { }
+    public class IntEvent : UnityEvent<int> { }
 
 }

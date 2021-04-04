@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Client;
@@ -6,9 +10,11 @@ using Core;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
+using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;
+using EventType = Net.Utils.EventType;
 
 namespace Net.Core
 {
@@ -36,6 +42,8 @@ namespace Net.Core
 
                 _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
 
+                WorldInit();
+                
                 StartListenClient();
             }
             catch (Exception ex)
@@ -61,8 +69,6 @@ namespace Net.Core
 
         private void UpdateMovement(IPAddress address, MovementEventData data)
         {
-            Debug.unityLogger.Log($"Update movement check {GetIpAddress()}: and {address}");
-            
             if (!Equals(GetIpAddress(), address)) return;
             _playerScript.ShipsBrain.UpdateMovementActionData(data);
         }
@@ -80,16 +86,33 @@ namespace Net.Core
             var result = await _udpSocket.SendPackageAsync(new AcceptPackage(new AcceptData(){eventId = id}));
         }
 
-        public async Task SendEvent(EventData data)
-        {
-            Debug.unityLogger.Log($"Gonna send event to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
-            var result = await _udpSocket.SendPackageAsync(new EventPackage(data));
-        }
-
         public async Task SendWorldState(StateData data)
         {
             var result = await _udpSocket.SendPackageAsync(new StatePackage(data));
         }
+
+        private async Task WorldInit()
+        {
+            var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag);
+            await _udpSocket.SendEventPackage(asteroids.Length, EventType.InitEvent);
+            MainServerLoop.instance.LaunchCoroutine(WorldInitCoroutine(asteroids.ToList()));
+        }
+
+        private IEnumerator WorldInitCoroutine(List<GameObject> asteroids, int rangeSize = 10)
+        {
+            while (asteroids.Count > 0)
+            {
+                var range = asteroids.GetRange(0, Mathf.Min(rangeSize, asteroids.Count));
+                asteroids.RemoveRange(0, Mathf.Min(rangeSize, asteroids.Count));
+                SendWorldState(new StateData()
+                {
+                    worldState = range.Select(x => new WorldObject(x.name, x.transform)).ToArray()
+                });
+                
+                yield return null;
+            }
+        }
+        
         
         public void Dispose()
         {

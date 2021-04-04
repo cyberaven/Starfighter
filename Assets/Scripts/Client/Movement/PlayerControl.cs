@@ -92,7 +92,6 @@ namespace Client.Movement
                     thrustValue = GetThrustSpeed()
                 };
                 var result = await udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent);
-                Debug.unityLogger.Log($"Moves Sended {result}");
             }
             catch (Exception ex)
             {

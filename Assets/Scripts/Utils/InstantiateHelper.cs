@@ -11,7 +11,7 @@ namespace Utils
     {
         public static PlayerScript InstantiateServerShip(SpaceShipConfig ship)
         {
-            var shipGO = GameObject.Find($"{ship.prefabName}_{ship.shipId}");
+            var shipGO = GameObject.Find($"{ship.prefabName}{Constants.Separator}{ship.shipId}");
             
             if(shipGO != null)
             {
@@ -23,7 +23,7 @@ namespace Utils
             var shipsInstance = Object.Instantiate(shipPrefab, position: ship.position,
                                 rotation: ship.rotation) as GameObject;
              
-            shipsInstance.name = ship.prefabName + "_" + ship.shipId;
+            shipsInstance.name = ship.prefabName + Constants.Separator + ship.shipId;
             shipsInstance.tag = Constants.DynamicTag;
             
             var playerScript = shipsInstance.GetComponent<PlayerScript>() ?? shipsInstance.AddComponent<PlayerScript>();
@@ -36,7 +36,7 @@ namespace Utils
 
         public static GameObject InstantiateObject(WorldObject worldObject)
         {
-            var prefabName = worldObject.name.Split('_')[0];
+            var prefabName = worldObject.name.Split(Constants.Separator)[0];
             Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + prefabName}");
             var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
             var instance =

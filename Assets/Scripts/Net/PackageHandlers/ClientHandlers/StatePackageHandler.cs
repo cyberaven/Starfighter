@@ -4,6 +4,7 @@ using Client;
 using Core;
 using Net.Interfaces;
 using Net.Packages;
+using UnitBehavior;
 using UnityEngine;
 using Utils;
 using Task = System.Threading.Tasks.Task;
@@ -19,12 +20,21 @@ namespace Net.PackageHandlers.ClientHandlers
             {
                 Dispatcher.Instance.Invoke(() =>
                 {
-                    Debug.unityLogger.Log(statePack.data.worldState.ToList().Select(x => x.name).ToString());
+                    if (statePack.data.worldState.Any(x => x.name.Contains("Asteroid")))
+                    {
+                        foreach (var asteroid in statePack.data.worldState)
+                        {
+                            var go = InstantiateHelper.InstantiateObject(asteroid);
+                            go.tag = Constants.AsteroidTag;
+                        }
+                        return;
+                    }
+                    
                     foreach (var worldObject in statePack.data.worldState)
                     {
                         var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
                             .FirstOrDefault(go => go.name == worldObject.name);
-
+                        
                         if (gameObject != null)
                         {
                             //Сервер однозначно определяет положение ВСЕХ объектов
@@ -40,8 +50,6 @@ namespace Net.PackageHandlers.ClientHandlers
                             {
                                 ps.movementAdapter = MovementAdapter.BlankControl;
                             }
-
-
                         }
                     }
                 });

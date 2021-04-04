@@ -10,7 +10,6 @@ namespace Net.Utils
     {
         public static async void SendConnectionResponse(AbstractPackage pack)
         {
-            Debug.unityLogger.Log($"Sending Connection Response to {pack.ipAddress}:{Constants.ServerSendingPort}");
             try
             {
                 var socket = new StarfighterUdpClient(pack.ipAddress, Constants.ServerSendingPort, 0);
@@ -18,7 +17,7 @@ namespace Net.Utils
             }
             catch (Exception ex)
             {
-                Debug.unityLogger.LogError("SendConnectionResponse error:", ex.Message);
+                Debug.unityLogger.LogException(ex);
             }
 
             Debug.unityLogger.Log($"Connection response sent to {pack.ipAddress}:{Constants.ServerSendingPort}");

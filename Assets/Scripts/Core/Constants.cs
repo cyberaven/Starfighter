@@ -10,9 +10,13 @@
         public const string PathToPrefabs = "Prefabs/";
         public const string PathToAxes = "ScriptableObjects/Axes/";
         public const string PathToAccounts = "ScriptableObjects/Accounts/";
+        public const string PathToShips = "ScriptableObjects/Ships/";
+        public const string PathToJson = "./asteroids.json";
 
         //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";
         public const string AsteroidTag = "Asteroid";
+
+        public const char Separator = '|';
     }
 }

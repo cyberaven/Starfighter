@@ -23,9 +23,6 @@ namespace Net
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         private StarfighterUdpClient _multicastUdpClient;
-        
-        [SerializeField]
-        private string filepathToAsteroids;
 
         private Coroutine currentCoroutine, previousCoroutine;
         
@@ -39,7 +36,7 @@ namespace Net
         private void ConfigInit()
         {
             StartCoroutine(ServerInitializeHelper.instance.InitServer());
-            StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(filepathToAsteroids)));
+            var initCoroutine = StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToJson)));
         }
 
         private void ConfigSave()
@@ -68,12 +65,18 @@ namespace Net
         {
             try
             {
-                GetWorldStatePackage();
+                var collection = CollectWorldObjects();
+                currentCoroutine = StartCoroutine(collection);
             }
             catch (Exception ex)
             {
                 Debug.unityLogger.LogException(ex);
             }
+        }
+
+        public void LaunchCoroutine(IEnumerator coroutine)
+        {
+            StartCoroutine(coroutine);
         }
         
         private void FixedUpdate()
@@ -81,12 +84,6 @@ namespace Net
             Dispatcher.Instance.InvokePending();
         }
 
-        private void GetWorldStatePackage()
-        {
-            var collection = CollectWorldObjects();
-            currentCoroutine = StartCoroutine(collection);
-        }
-        
         private IEnumerator CollectWorldObjects()
         {
             yield return previousCoroutine;
@@ -112,7 +109,6 @@ namespace Net
         {
             foreach (var client in ClientManager.instance.ConnectedClients)
             {
-                Debug.unityLogger.Log($"Send world state to: {client.GetIpAddress()}");
                 await client.SendWorldState(pack.data);
             }
 

@@ -49,9 +49,7 @@ namespace Net.Core
                     serializer.Serialize(stream, pack);
                     var data = stream.GetBuffer();
                     stream.Close();
-                    // Debug.unityLogger.Log("Before sending package");
                     var sentBytesCount = await udpClient.SendAsync(data, data.Length, _sendingAddress.ToString(), _sendingPort);
-                    // Debug.unityLogger.Log($"{_sendingAddress.MapToIPv4()}:{_sendingPort} package sent. Sent {sentBytesCount} of {data.Length}");
                     //maybe some check for all bytes sent
                     return true;
                 }
@@ -59,7 +57,6 @@ namespace Net.Core
             catch (SocketException ex)
             {
                 Debug.unityLogger.LogWarning("Sending", ex);
-                // Debug.unityLogger.LogException(ex);
                 return false;
             }
             catch (Exception ex)

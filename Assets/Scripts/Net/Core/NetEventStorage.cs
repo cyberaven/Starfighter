@@ -13,6 +13,7 @@ namespace Net.Core
         public ConnectPackageEvent connectClient = new ConnectPackageEvent();
         public ConnectPackageEvent connectToServer = new ConnectPackageEvent();
         public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
+        public IntEvent worldInit = new IntEvent();
 
         public static NetEventStorage GetInstance()
         {

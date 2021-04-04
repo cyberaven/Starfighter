@@ -16,10 +16,11 @@ namespace Client.Core
 
         private static void InitPilot(PlayerScript ps)
         {
-            Debug.unityLogger.Log("INIT PILOT");
             //TODO: normal pilot init
             ps.movementAdapter = MovementAdapter.PlayerControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
+            ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
+            ps.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             var cam = FindObjectOfType<Camera>();
             var followComp = cam.gameObject.GetComponent<Follow>() ?? cam.gameObject.AddComponent<Follow>();
             cam.orthographicSize = 25;
@@ -36,7 +37,7 @@ namespace Client.Core
             ps.movementAdapter = MovementAdapter.BlankControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
-            ps.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            ps.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             var cam = FindObjectOfType<Camera>();
             var followComp = cam.gameObject.GetComponent<Follow>()??cam.gameObject.AddComponent<Follow>();
             cam.orthographicSize = 50;

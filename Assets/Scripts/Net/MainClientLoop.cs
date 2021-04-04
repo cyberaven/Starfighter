@@ -43,7 +43,7 @@ namespace Net
         {
             this.serverAddress = serverAddress;
         }
-        
+
         public void SendMove(string axis, float value)
         {
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
@@ -51,7 +51,7 @@ namespace Net
 
         public bool TryAttachPlayerControl(PlayerScript playerScript)
         {
-            if (_playerScript is null && playerScript.gameObject.name.Split('_')[1] == accountObject.ship.shipId)
+            if (_playerScript is null && playerScript.gameObject.name.Split(Constants.Separator)[1] == accountObject.ship.shipId)
             {
                 _playerScript = playerScript;
                 switch (accountObject.type)
@@ -63,7 +63,6 @@ namespace Net
                         ClientEventStorage.GetInstance().InitPilot.Invoke(_playerScript);
                         break;
                     case UserType.Navigator:
-                        Debug.unityLogger.Log("Gonna invoke init Navigator");
                         ClientEventStorage.GetInstance().InitNavigator.Invoke(_playerScript);
                         break;
                     case UserType.Spectator:
@@ -116,7 +115,7 @@ namespace Net
             }
             catch (Exception ex)
             {
-                Debug.unityLogger.LogError("Connect to Server error:", ex.Message);
+                Debug.unityLogger.LogException(ex);
             }
         }
 
