@@ -34,19 +34,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/StarSparrow5.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/StarSparrow5.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Plane.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Plane.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Sphere.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Sphere.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/SparrowPilotAccount.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Accounts/SparrowPilotAccount.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships/StarSparrowConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Ships/StarSparrowConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExplosionEffects.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExplosionEffects.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Sprites/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/StarSparrow5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/StarSparrow5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,10 +157,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerHelper.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEvents.cs" />
@@ -164,6 +170,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Utils/InstantiateHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -262,7 +270,7 @@
       <workItem from="1617307787540" duration="458000" />
       <workItem from="1617311121729" duration="10000" />
       <workItem from="1617309266303" duration="7572000" />
-      <workItem from="1617555398207" duration="1621000" />
+      <workItem from="1617555398207" duration="4315000" />
     </task>
     <servers />
   </component>

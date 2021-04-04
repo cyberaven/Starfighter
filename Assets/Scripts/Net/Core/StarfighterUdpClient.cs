@@ -158,6 +158,8 @@ namespace Net.Core
 
         public void Dispose()
         {
+            var temp = new IPEndPoint(1, 1);
+            _receivingClient.EndReceive(null, ref temp);
             _receivingClient.Close();
             _receivingClient?.Dispose();
         }

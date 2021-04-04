@@ -31,6 +31,8 @@ namespace Net.Core
             
             NetEventStorage.GetInstance().disconnectClient.AddListener(DisconnectClient);
             NetEventStorage.GetInstance().connectClient.AddListener(ConnectClient);
+            NetEventStorage.GetInstance().connectClient.AddListener(ScrollAdd);
+            NetEventStorage.GetInstance().disconnectClient.AddListener(ScrollRemove);
         }
 
         public void AddClient(ConnectPackage info)
@@ -101,6 +103,15 @@ namespace Net.Core
                 //There is no such client to Disconnect;
                 Debug.unityLogger.Log("Server : There is no such client to Disconnect!");
             }
+        }
+
+        private void ScrollAdd(ConnectPackage pack)
+        {
+        }
+        
+        private void ScrollRemove(DisconnectPackage pack)
+        {
+            
         }
         
         public int GetNewPort()

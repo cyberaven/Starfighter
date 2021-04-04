@@ -679,6 +679,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4303955208693663084, guid: 5b2bae8b52394a844baf0a1ef8911604,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4303955208693663085, guid: 5b2bae8b52394a844baf0a1ef8911604,
         type: 3}
       propertyPath: m_Name
@@ -717,6 +722,11 @@ PrefabInstance:
     - target: {fileID: 1024332981057563293, guid: 79d4de2234cf6794a8a913a1065492de,
         type: 3}
       propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024332981057563294, guid: 79d4de2234cf6794a8a913a1065492de,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1024332981057563295, guid: 79d4de2234cf6794a8a913a1065492de,
@@ -794,6 +804,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4674827468582762}
     m_Modifications:
+    - target: {fileID: 596597813895232178, guid: a551090ac59a9d943a07430f46e928ce,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3369903479175931463, guid: a551090ac59a9d943a07430f46e928ce,
         type: 3}
       propertyPath: playOnAwake
@@ -887,6 +902,11 @@ PrefabInstance:
     - target: {fileID: 3781549778503130025, guid: 110b9ec4cbad35b45b9ac34537314e2e,
         type: 3}
       propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782874505185036415, guid: 110b9ec4cbad35b45b9ac34537314e2e,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3939494875871340741, guid: 110b9ec4cbad35b45b9ac34537314e2e,
@@ -1032,6 +1052,11 @@ PrefabInstance:
     - target: {fileID: 2357500669696135610, guid: cbcbba29825e4ad449c00b7104031a37,
         type: 3}
       propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357500669696135611, guid: cbcbba29825e4ad449c00b7104031a37,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
