@@ -38,10 +38,8 @@
       <Path>.git</Path>
       <Path>.idea</Path>
       <Path>.vscode</Path>
-      <Path>Build</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
-      <Path>ServerBuild</Path>
       <Path>Temp</Path>
       <Path>UIElementsSchema</Path>
       <Path>UserSettings</Path>
