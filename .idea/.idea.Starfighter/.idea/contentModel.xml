@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CameraMotion.cs" t="Include" />
         <e p="External assets" t="Include">
           <e p="Backgrounds" t="Include">
             <e p="Background Tip.txt" t="Include" />
@@ -82,6 +81,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Activation.cs" t="Include" />
+          <e p="CameraMotion.cs" t="Include" />
           <e p="Client" t="Include">
             <e p="Core" t="Include">
               <e p="ClientEvents.cs" t="Include" />
@@ -89,14 +89,19 @@
               <e p="ClientInitManager.cs" t="Include" />
             </e>
             <e p="CourseView.cs" t="Include" />
-            <e p="Follow.cs" t="Include" />
+            <e p="FollowMode.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
+            <e p="MenuButton.cs" t="Include" />
             <e p="Movement" t="Include">
               <e p="BlankControl.cs" t="Include" />
               <e p="IMovementAdapter.cs" t="Include" />
               <e p="playerControl.cs" t="Include" />
               <e p="RemoteNetworkControl.cs" t="Include" />
             </e>
+            <e p="PauseMenu.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
+            <e p="Starfield.cs" t="Include" />
+            <e p="Switch.cs" t="Include" />
             <e p="Zoom.cs" t="Include" />
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
@@ -121,9 +126,8 @@
           </e>
           <e p="DataOutput.cs" t="Include" />
           <e p="DestroyBoundary.cs" t="Include" />
+          <e p="Follow.cs" t="Include" />
           <e p="laserScript.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
-          <e p="MenuButton.cs" t="Include" />
           <e p="Net" t="Include">
             <e p="Core" t="Include">
               <e p="Client.cs" t="Include" />
@@ -183,7 +187,6 @@
               <e p="ServerInitializeHelper.cs" t="Include" />
             </e>
           </e>
-          <e p="PauseMenu.cs" t="Include" />
           <e p="ScriptableObjects" t="Include">
             <e p="ClientAccountObject.cs" t="Include" />
             <e p="DangerZoneConfig.cs" t="Include" />
@@ -197,7 +200,6 @@
               <e p="ReadMe.txt" t="Include" />
             </e>
           </e>
-          <e p="Starfield.cs" t="Include" />
           <e p="UnitBehavior" t="Include">
             <e p="Asteroid.cs" t="Include" />
             <e p="DangerZone.cs" t="Include" />

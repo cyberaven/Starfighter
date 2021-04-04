@@ -16,7 +16,7 @@ public class CameraMotion : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        _translationPoint = new Vector3(Input.GetAxis("Horizontal") * Camera.main.orthographicSize / 20,Input.GetAxis("Vertical") * Camera.main.orthographicSize / 20,0);
+        _translationPoint = new Vector3(Input.GetAxis("Horizontal") * _camera.orthographicSize / 30,Input.GetAxis("Vertical") * _camera.orthographicSize / 30,0);
         _camera.transform.Translate(_translationPoint*-1);
         
     }

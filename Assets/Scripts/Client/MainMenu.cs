@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public Toggle pilotToggle;
-    public Toggle naviToggle;
+    public UnityEngine.UI.Toggle pilotToggle;
+    public UnityEngine.UI.Toggle naviToggle;
     public UserType accType;
     public InputField loginField;
     public InputField passwordField;
