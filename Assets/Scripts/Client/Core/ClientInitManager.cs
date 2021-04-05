@@ -1,5 +1,6 @@
 ﻿using Core;
 using UnityEngine;
+using Client;
 
 namespace Client.Core
 {
@@ -22,7 +23,7 @@ namespace Client.Core
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
             ps.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             var cam = FindObjectOfType<Camera>();
-            var followComp = cam.gameObject.GetComponent<Follow>() ?? cam.gameObject.AddComponent<Follow>();
+            var followComp = cam.gameObject.GetComponent<CameraMotion>() ?? cam.gameObject.AddComponent<CameraMotion>();
             cam.orthographicSize = 25;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
@@ -39,7 +40,7 @@ namespace Client.Core
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
             ps.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             var cam = FindObjectOfType<Camera>();
-            var followComp = cam.gameObject.GetComponent<Follow>()??cam.gameObject.AddComponent<Follow>();
+            var followComp = cam.gameObject.GetComponent<CameraMotion>()??cam.gameObject.AddComponent<CameraMotion>();
             cam.orthographicSize = 50;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
