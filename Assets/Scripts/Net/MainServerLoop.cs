@@ -31,12 +31,12 @@ namespace Net
             base.Awake();
             
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
+            NetEventStorage.GetInstance().worldInit.AddListener(BeginReceiving);
         }
 
         private void ConfigInit()
         {
             StartCoroutine(ServerInitializeHelper.instance.InitServer());
-            var initCoroutine = StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToAsteroids)));
         }
 
         private void ConfigSave()
@@ -47,7 +47,10 @@ namespace Net
         private void Start()
         {
             ConfigInit();
+        }
 
+        public void BeginReceiving(int _)
+        {
             try
             {
                 _multicastUdpClient = new StarfighterUdpClient(IPAddress.Parse(Constants.MulticastAddress),
@@ -60,7 +63,7 @@ namespace Net
                 Debug.unityLogger.LogException(ex);
             }
         }
-
+        
         private void Update()
         {
             try

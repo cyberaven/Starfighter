@@ -5,10 +5,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Core;
+using Net.Core;
 using ScriptableObjects;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils;
 
 namespace Net.Utils
@@ -105,6 +104,10 @@ namespace Net.Utils
                 //TODO: Init fields from config;
                 yield return null;
             }
+
+            yield return StartCoroutine(
+                Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToAsteroids)));
+            NetEventStorage.GetInstance().worldInit.Invoke(0);
         }
 
         public void SaveServer()
