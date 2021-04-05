@@ -14,5 +14,8 @@
         //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";
         public const string AsteroidTag = "Asteroid";
+        
+        //Настройки камеры
+        public const int ZoomStep = 1000;
     }
 }

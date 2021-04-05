@@ -81,8 +81,8 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Activation.cs" t="Include" />
-          <e p="CameraMotion.cs" t="Include" />
           <e p="Client" t="Include">
+            <e p="CameraMotion.cs" t="Include" />
             <e p="Core" t="Include">
               <e p="ClientEvents.cs" t="Include" />
               <e p="ClientEventStorage.cs" t="Include" />
@@ -101,7 +101,7 @@
             <e p="PauseMenu.cs" t="Include" />
             <e p="playerScript.cs" t="Include" />
             <e p="Starfield.cs" t="Include" />
-            <e p="Switch.cs" t="Include" />
+            <e p="SwitchFollowMode.cs" t="Include" />
             <e p="Zoom.cs" t="Include" />
           </e>
           <e p="CoordinatesUI.cs" t="Include" />
@@ -126,7 +126,6 @@
           </e>
           <e p="DataOutput.cs" t="Include" />
           <e p="DestroyBoundary.cs" t="Include" />
-          <e p="Follow.cs" t="Include" />
           <e p="laserScript.cs" t="Include" />
           <e p="Net" t="Include">
             <e p="Core" t="Include">

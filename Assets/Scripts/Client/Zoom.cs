@@ -10,7 +10,7 @@ namespace Client
         {
             navigatorCamera.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * 1000;
             if(navigatorCamera.orthographicSize < 20) navigatorCamera.orthographicSize = 20;
-            if(navigatorCamera.orthographicSize > 4000) navigatorCamera.orthographicSize = 4000;
+            if(navigatorCamera.orthographicSize > 3000) navigatorCamera.orthographicSize = 3000;
         }
     }
 }
