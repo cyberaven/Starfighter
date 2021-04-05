@@ -10,7 +10,7 @@ namespace Client
     
         void Start()
         {
-            _offset = Vector3.zero + Vector3.up*10;
+            _offset = Vector3.zero + Vector3.up*20;
         }
 
         // Update is called once per frame

@@ -48,7 +48,7 @@ namespace Net.PackageHandlers.ClientHandlers
                             if (ps is null) continue;
                             if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
                             {
-                                ps.movementAdapter = MovementAdapter.BlankControl;
+                                ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
                             }
                         }
                     }

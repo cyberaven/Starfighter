@@ -132,30 +132,16 @@ namespace Net
             _udpClient.Dispose();
             _multicastUdpClient.Dispose();
         }
-        
-        public async void SendTestEvent()
-        {
-            
-            Debug.unityLogger.Log("Test event sending");
-            await _udpClient.SendEventPackage("YAY", EventType.OtherEvent);
-        }
-        
+
         private void OnDestroy()
         {
             ClientHandlerManager.instance.Dispose();
+            InputManager.instance.Dispose();
         }
 
-        private async void OnApplicationQuit()
+        private void OnApplicationQuit()
         {
-            await _udpClient.SendPackageAsync(new DisconnectPackage(new DisconnectData()
-            {
-                accountType = accountObject.type,
-                login = accountObject.login,
-                password = accountObject.password,
-            }));
-            
-            ClientHandlerManager.instance.Dispose();
-            InputManager.instance.Dispose();
+            Disconnect();
             _udpClient.Dispose();
         }
     }

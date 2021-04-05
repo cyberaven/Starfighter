@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Core;
 using Net.PackageData;
 using Net.Packages;
 using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Utils;
 
 /// <summary>
@@ -105,6 +107,15 @@ namespace Net.Core
             }
         }
 
+        public async void SendToAll(AbstractPackage package, IPAddress sender = null)
+        {
+            foreach (var client in ConnectedClients)
+            {
+                if (Equals(client.GetIpAddress(), sender)) continue;
+                await client.SendPackage(package);
+            }
+        }
+        
         private void ScrollAdd(ConnectPackage pack)
         {
         }

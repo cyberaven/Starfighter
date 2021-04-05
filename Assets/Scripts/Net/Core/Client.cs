@@ -25,7 +25,7 @@ namespace Net.Core
     {
         private StarfighterUdpClient _udpSocket;
         private PlayerScript _playerScript;
-        private Guid _myGameObjectId;
+        private string _myGameObjectName;
         private UserType _accountType;
 
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
@@ -38,7 +38,7 @@ namespace Net.Core
 
                 _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
 
-                // _myGameObjectId = Guid.Parse(_playerScript.gameObject.name.Split('_')[1]);
+                _myGameObjectName = _playerScript.gameObject.name;
 
                 _udpSocket = new StarfighterUdpClient(address, sendingPort, listeningPort);
 
@@ -71,24 +71,62 @@ namespace Net.Core
         {
             if (!Equals(GetIpAddress(), address)) return;
             _playerScript.ShipsBrain.UpdateMovementActionData(data);
+            ClientManager.instance.SendToAll(new EventPackage(new EventData()
+            {
+                data = (_myGameObjectName, data)
+            }), GetIpAddress());
         }
         
-        public async Task SendDecline(Guid id)
+        public async Task SendDecline(DeclineData data)
         {
             Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
             
-            var result = await _udpSocket.SendPackageAsync(new DeclinePackage(new DeclineData(){eventId = id}));
+            var result = await _udpSocket.SendPackageAsync(new DeclinePackage(data));
         }
 
-        public async Task SendAccept(Guid id)
+        public async Task SendAccept(AcceptData data)
         {
             Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
-            var result = await _udpSocket.SendPackageAsync(new AcceptPackage(new AcceptData(){eventId = id}));
+            var result = await _udpSocket.SendPackageAsync(new AcceptPackage(data));
         }
 
         public async Task SendWorldState(StateData data)
         {
             var result = await _udpSocket.SendPackageAsync(new StatePackage(data));
+        }
+
+        public async Task SendEvent(EventData data)
+        {
+            var result = await _udpSocket.SendEventPackage(data.data, data.eventType);
+        }
+
+        public async Task SendDisconnect(DisconnectData data)
+        {
+            var result = await _udpSocket.SendPackageAsync(new DisconnectPackage(data));
+        }
+        
+        public async Task SendPackage(AbstractPackage pack)
+        {
+            switch (pack.packageType)
+            {
+                case PackageType.DisconnectPackage:
+                    await SendDisconnect((pack as DisconnectPackage).data);
+                    break;
+                case PackageType.AcceptPackage:
+                    await SendAccept((pack as AcceptPackage).data);
+                    break;
+                case PackageType.DeclinePackage:
+                    await SendDecline((pack as DeclinePackage).data);
+                    break;
+                case PackageType.EventPackage:
+                    await SendEvent((pack as EventPackage).data);
+                    break;
+                case PackageType.StatePackage:
+                    await SendWorldState((pack as StatePackage).data);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private async Task WorldInit()
@@ -116,6 +154,7 @@ namespace Net.Core
         
         public void Dispose()
         {
+            NetEventStorage.GetInstance().serverMovedPlayer.RemoveListener(UpdateMovement);
             _udpSocket.Dispose();
         }
     }

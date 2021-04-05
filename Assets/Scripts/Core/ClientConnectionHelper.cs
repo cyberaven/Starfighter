@@ -40,6 +40,10 @@ namespace Core
             Debug.unityLogger.Log($"connection package sent");
             var result = await _udpClient.ReceiveOnePackageAsync();
             _udpClient.Dispose();
+            if (result is null)
+            {
+                result = new DeclinePackage(null);
+            }
             Debug.unityLogger.Log($"connection response package received: {result.packageType}");
             switch (result.packageType)
             {

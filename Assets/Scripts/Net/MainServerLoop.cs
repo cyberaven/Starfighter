@@ -57,6 +57,7 @@ namespace Net
                     Constants.ServerSendingPort, Constants.ServerReceivingPort);
                 Debug.Log($"start waiting connection packs from anyone: {Constants.ServerReceivingPort}");
                 _multicastUdpClient.BeginReceivingPackage();
+                
             }
             catch (Exception ex)
             {

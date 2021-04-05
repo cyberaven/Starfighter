@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
 using System.Threading.Tasks;
 using Net.Packages;
 using Net.Utils;
@@ -68,27 +69,41 @@ namespace Net.Core
 
         public async Task<AbstractPackage> ReceiveOnePackageAsync(int timeout = 10000)
         {
-            var selector = new SurrogateSelector();
-            selector.AddSurrogate(
-                typeof(Vector3),
-                new StreamingContext(StreamingContextStates.All), 
-                new Vector3SerializationSurrogate());
-            selector.AddSurrogate(
-                typeof(Quaternion),
-                new StreamingContext(StreamingContextStates.All), 
-                new QuaternionSerializationSurrogate());
-            var serializer = new BinaryFormatter {SurrogateSelector = selector};
-            Debug.unityLogger.Log($" waiting package from {((IPEndPoint)_receivingClient.Client.LocalEndPoint).Port}");
-            IPEndPoint remoteEndPoint = null;
-            _receivingClient.Client.ReceiveTimeout = timeout;
-            var result = _receivingClient.Receive(ref remoteEndPoint);
-            var stream = new MemoryStream(result);
+            try
+            {
+                var selector = new SurrogateSelector();
+                selector.AddSurrogate(
+                    typeof(Vector3),
+                    new StreamingContext(StreamingContextStates.All),
+                    new Vector3SerializationSurrogate());
+                selector.AddSurrogate(
+                    typeof(Quaternion),
+                    new StreamingContext(StreamingContextStates.All),
+                    new QuaternionSerializationSurrogate());
+                var serializer = new BinaryFormatter {SurrogateSelector = selector};
+                Debug.unityLogger.Log(
+                    $" waiting package from {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
+                IPEndPoint remoteEndPoint = null;
+                _receivingClient.Client.ReceiveTimeout = timeout;
+                var result = _receivingClient.Receive(ref remoteEndPoint);
+                var stream = new MemoryStream(result);
 
-            var pack = (AbstractPackage) serializer.Deserialize(stream);
-            pack.ipAddress = remoteEndPoint.Address;
+                var pack = (AbstractPackage) serializer.Deserialize(stream);
+                pack.ipAddress = remoteEndPoint.Address;
 
-            stream.Close();
-            return pack;
+                stream.Close();
+                return pack;
+            }
+            catch (SocketException ex)
+            {
+                if (ex.SocketErrorCode == SocketError.TimedOut)
+                {
+                    Debug.unityLogger.Log("Remote node doesn't respond");
+                }
+                Debug.unityLogger.LogException(ex);
+            }
+
+            return null;
         }
         
         public void BeginReceivingPackage()
@@ -100,7 +115,10 @@ namespace Net.Core
             catch (SocketException ex)
             {
                 Debug.unityLogger.LogWarning("Receiving:", ex);
-                // Debug.unityLogger.LogException(ex);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                Debug.unityLogger.Log("Connection is closed");
             }
             catch (Exception ex)
             {
@@ -159,7 +177,6 @@ namespace Net.Core
         public void Dispose()
         {
             var temp = new IPEndPoint(1, 1);
-            _receivingClient.EndReceive(null, ref temp);
             _receivingClient.Close();
             _receivingClient?.Dispose();
         }

@@ -34,7 +34,7 @@ namespace Client.Core
         private static void InitNavigator(PlayerScript ps)
         {
             //TODO: normal nav init
-            ps.movementAdapter = MovementAdapter.BlankControl;
+            ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
             ps.gameObject.GetComponent<Rigidbody>().isKinematic = true;
