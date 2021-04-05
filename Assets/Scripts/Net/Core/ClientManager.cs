@@ -75,13 +75,13 @@ namespace Net.Core
                 
                 Dispatcher.Instance.Invoke(() => AddClient(pack));
                 
-                ServerHelper.SendConnectionResponse(pack);
+                SenderHelper.SendConnectionResponse(pack);
                 return;
             }
                 
             Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
                 
-            ServerHelper.SendConnectionResponse(new DeclinePackage(new DeclineData())
+            SenderHelper.SendConnectionResponse(new DeclinePackage(new DeclineData())
             {
                 ipAddress = pack.ipAddress,
             });

@@ -34,27 +34,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Models.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Models/SpaceShipDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Models/SpaceShipDto.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExplosionEffects.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExplosionEffects.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Sprites/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/StarSparrow5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/StarSparrow5.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External assets/AsteroidPack/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Activation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Activation.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/CoordinatesUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoordinatesUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/CoordinatesUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/DangerZoneEditEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/DangerZoneEditEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/GameEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/GameEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/GameEventListener.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/EventSystem/GameEventListener.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/DataOutput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataOutput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/DataOutput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestroyBoundary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/DestroyBoundary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestroyBoundary.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/DestroyBoundary.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/MainMenu.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/MenuButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/MenuButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Buttons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations/Panels.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Graphics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/PauseMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/UI/PauseMenu.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/laserScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/laserScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SlimUI/Tech Menu/TextMesh Pro/Resources.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,9 +141,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Dispatcher.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/SceneSwitcher.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/Events.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Enums.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/ConnectionManager.cs" />
@@ -141,8 +158,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/StateData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/StatePackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ClientAccountObject.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceShipConfig.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageData/ConnectData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/TestConnector.cs" />
@@ -153,12 +168,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/SmartAxis.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/InputManager/InputManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEvents.cs" />
@@ -168,10 +180,18 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Importer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Utils/InstantiateHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/SpaceShipConfig.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Models/SpaceShipDto.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/UI/laserScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/SenderHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceUnitConfig.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/SpaceShipConfig.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">

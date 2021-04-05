@@ -36,7 +36,7 @@ namespace Net
         private void ConfigInit()
         {
             StartCoroutine(ServerInitializeHelper.instance.InitServer());
-            var initCoroutine = StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToJson)));
+            var initCoroutine = StartCoroutine(Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToAsteroids)));
         }
 
         private void ConfigSave()

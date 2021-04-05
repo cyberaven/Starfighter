@@ -10,8 +10,9 @@
         public const string PathToPrefabs = "Prefabs/";
         public const string PathToAxes = "ScriptableObjects/Axes/";
         public const string PathToAccounts = "ScriptableObjects/Accounts/";
-        public const string PathToShips = "ScriptableObjects/Ships/";
-        public const string PathToJson = "./asteroids.json";
+        public const string PathToShipsObjects = "ScriptableObjects/Ships/";
+        public const string PathToAsteroids = "./asteroids.json";
+        public const string PathToShips = "./ships.dat";
 
         //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";
