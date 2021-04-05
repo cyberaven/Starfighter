@@ -5,32 +5,40 @@ namespace Client
 {
     public class CameraMotion : MonoBehaviour
     {
-        private Camera _camera;
         public GameObject Player;
+        private Camera _camera;
         private Vector3 _offset;
         private Vector3 _translationPoint;
+        private bool _isFollowMode = true;
+        
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-            _camera = Camera.main;
+            _camera = gameObject.GetComponent<Camera>();
             _offset = Vector3.zero + Vector3.up*10;
         }
-        
-        void FreeMode()
+
+        private void FreeMode()
         {
             _translationPoint = new Vector3(Input.GetAxis("Horizontal") * _camera.orthographicSize / 30,Input.GetAxis("Vertical") * _camera.orthographicSize / 30,0);
             _camera.transform.Translate(_translationPoint*-1);
         }
-        
-        void FollowShip()
+
+        private void FollowShip()
         {
             transform.position = Player.transform.position + _offset;
         }
         
         private void LateUpdate()
         {
-            if (FollowMode.active) FollowShip();
+            if (_isFollowMode) FollowShip();
             else FreeMode();
         }
+
+        public void SwitchFollowMode()
+        {
+            _isFollowMode = !_isFollowMode;
+        }
+        
     }
 }

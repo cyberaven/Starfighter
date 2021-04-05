@@ -5,28 +5,27 @@ namespace Client
 {
     public class SwitchFollowMode : MonoBehaviour
 {
-    [SerializeField] private Text _buttonText;
-
+    [SerializeField]
+    private Text _buttonText;
+    private CameraMotion _cameraMotion;
+    private void Start()
+    {
+        _cameraMotion = FindObjectOfType<CameraMotion>();
+    }
+    
     public void SwitchCameraMode()
     {
-        FollowMode.active = !FollowMode.active;
+        _cameraMotion.SwitchFollowMode();
     }
 
     private void LateUpdate()
     {
-        switch (FollowMode.active)
+        if (FollowMode.active)
         {
-            case true:
-            {
-                _buttonText.text = ">cam<";
-                break;
-            }
-            case false:
-            {
-                _buttonText.text = "<cam>";
-                break;
-            }
+            _buttonText.text = ">cam<";
+            return;
         }
+        _buttonText.text = "<cam>";
     }
 }
 }
