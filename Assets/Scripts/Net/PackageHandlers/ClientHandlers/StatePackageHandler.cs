@@ -22,9 +22,11 @@ namespace Net.PackageHandlers.ClientHandlers
                 {
                     if (statePack.data.worldState.Any(x => x.name.Contains("Asteroid")))
                     {
+                        Debug.unityLogger.Log("Asteroid spawning");
                         foreach (var asteroid in statePack.data.worldState)
                         {
                             var go = InstantiateHelper.InstantiateObject(asteroid);
+                            Debug.unityLogger.Log($"asteroid are added");
                             go.tag = Constants.AsteroidTag;
                         }
                         return;

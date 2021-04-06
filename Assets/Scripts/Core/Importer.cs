@@ -47,6 +47,7 @@ namespace Core
                 instance.SetActive(true);
                 yield return instance;
             }
+            Debug.unityLogger.Log($"{asteroids.worldState.Length} asteroids are added");
         }
     }
 }

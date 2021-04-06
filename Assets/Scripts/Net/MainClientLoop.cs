@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Net;
 using Client;
@@ -49,6 +50,11 @@ namespace Net
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
         }
 
+        public void LaunchCoroutine(IEnumerator coroutine)
+        {
+            StartCoroutine(coroutine);
+        }
+        
         public bool TryAttachPlayerControl(PlayerScript playerScript)
         {
             if (_playerScript is null && playerScript.gameObject.name.Split(Constants.Separator)[1] == accountObject.ship.shipId)

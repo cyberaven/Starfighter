@@ -133,7 +133,7 @@ namespace Net.Core
         {
             var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag);
             await _udpSocket.SendEventPackage(asteroids.Length, EventType.InitEvent);
-            MainServerLoop.instance.LaunchCoroutine(WorldInitCoroutine(asteroids.ToList()));
+            MainServerLoop.instance.LaunchCoroutine(WorldInitCoroutine(asteroids.ToList(), 100));
         }
 
         private IEnumerator WorldInitCoroutine(List<GameObject> asteroids, int rangeSize = 10)
@@ -142,6 +142,7 @@ namespace Net.Core
             {
                 var range = asteroids.GetRange(0, Mathf.Min(rangeSize, asteroids.Count));
                 asteroids.RemoveRange(0, Mathf.Min(rangeSize, asteroids.Count));
+                Debug.unityLogger.Log($"sended {range.Count} asteroids, {asteroids.Count} remains");
                 SendWorldState(new StateData()
                 {
                     worldState = range.Select(x => new WorldObject(x.name, x.transform)).ToArray()
