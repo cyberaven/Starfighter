@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+namespace Client
+{
+    
+
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuUI;
@@ -13,4 +17,5 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+}
 }

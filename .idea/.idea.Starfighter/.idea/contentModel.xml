@@ -80,7 +80,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Activation.cs" t="Include" />
           <e p="Client" t="Include">
             <e p="CameraMotion.cs" t="Include" />
             <e p="Core" t="Include">
@@ -89,6 +88,8 @@
               <e p="ClientInitManager.cs" t="Include" />
             </e>
             <e p="CourseView.cs" t="Include" />
+            <e p="DestroyBoundary.cs" t="Include" />
+            <e p="Follow.cs" t="Include" />
             <e p="FollowMode.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
             <e p="MenuButton.cs" t="Include" />
@@ -102,9 +103,15 @@
             <e p="playerScript.cs" t="Include" />
             <e p="Starfield.cs" t="Include" />
             <e p="SwitchFollowMode.cs" t="Include" />
+            <e p="UI" t="Include">
+              <e p="CoordinatesUI.cs" t="Include" />
+              <e p="DataOutput.cs" t="Include" />
+              <e p="MainMenu.cs" t="Include" />
+              <e p="MenuButton.cs" t="Include" />
+              <e p="PauseMenu.cs" t="Include" />
+            </e>
             <e p="Zoom.cs" t="Include" />
           </e>
-          <e p="CoordinatesUI.cs" t="Include" />
           <e p="Core" t="Include">
             <e p="AbstractSingleton.cs" t="Include" />
             <e p="ClientConnectionHelper.cs" t="Include" />
@@ -112,21 +119,15 @@
             <e p="CoreEvents.cs" t="Include" />
             <e p="CoreEventStorage.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
-            <e p="EventSystem" t="Include">
-              <e p="DangerZoneEditEvent.cs" t="Include" />
-              <e p="GameEvent.cs" t="Include" />
-              <e p="GameEventListener.cs" t="Include" />
-            </e>
-            <e p="GameManager.cs" t="Include" />
             <e p="Importer.cs" t="Include" />
             <e p="InputManager" t="Include">
               <e p="InputManager.cs" t="Include" />
               <e p="SmartAxis.cs" t="Include" />
             </e>
+            <e p="Models" t="Include">
+              <e p="SpaceShipDto.cs" t="Include" />
+            </e>
           </e>
-          <e p="DataOutput.cs" t="Include" />
-          <e p="DestroyBoundary.cs" t="Include" />
-          <e p="laserScript.cs" t="Include" />
           <e p="Net" t="Include">
             <e p="Core" t="Include">
               <e p="Client.cs" t="Include" />
@@ -182,7 +183,6 @@
               <e p="PackageTypes.cs" t="Include" />
               <e p="SenderHelper.cs" t="Include" />
               <e p="SerializationSurrogates.cs" t="Include" />
-              <e p="ServerHelper.cs" t="Include" />
               <e p="ServerInitializeHelper.cs" t="Include" />
             </e>
           </e>

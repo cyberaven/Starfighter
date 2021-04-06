@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4828925694661468
 Transform:
   m_ObjectHideFlags: 0
@@ -904,6 +904,11 @@ PrefabInstance:
       propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3781549778503130025, guid: 110b9ec4cbad35b45b9ac34537314e2e,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3782874505185036415, guid: 110b9ec4cbad35b45b9ac34537314e2e,
         type: 3}
       propertyPath: m_Enabled
@@ -1052,6 +1057,11 @@ PrefabInstance:
     - target: {fileID: 2357500669696135610, guid: cbcbba29825e4ad449c00b7104031a37,
         type: 3}
       propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357500669696135610, guid: cbcbba29825e4ad449c00b7104031a37,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357500669696135611, guid: cbcbba29825e4ad449c00b7104031a37,
