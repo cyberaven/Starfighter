@@ -132,7 +132,7 @@ namespace Net.Core
         private async Task WorldInit()
         {
             var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag);
-            await _udpSocket.SendEventPackage(asteroids.Length, EventType.InitEvent);
+            Debug.unityLogger.Log(await _udpSocket.SendEventPackage(asteroids.Length, EventType.InitEvent));
             MainServerLoop.instance.LaunchCoroutine(WorldInitCoroutine(asteroids.ToList(), 100));
         }
 
@@ -148,8 +148,11 @@ namespace Net.Core
                     worldState = range.Select(x => new WorldObject(x.name, x.transform)).ToArray()
                 });
                 
-                yield return null;
+                yield return new WaitForSeconds(0.5f);
             }
+
+            yield return new WaitForSeconds(0.5f);
+            NetEventStorage.GetInstance().worldInitDone.Invoke(this);
         }
         
         

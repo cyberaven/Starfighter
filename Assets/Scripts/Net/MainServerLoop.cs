@@ -12,6 +12,7 @@ using Net.Packages;
 using Net.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Utils;
 
 namespace Net
@@ -22,8 +23,8 @@ namespace Net
     [RequireComponent(typeof(InputManager))]
     public class MainServerLoop : Singleton<MainServerLoop>
     {
+        public Image indicator;
         private StarfighterUdpClient _multicastUdpClient;
-
         private Coroutine currentCoroutine, previousCoroutine;
         
         private new void Awake()

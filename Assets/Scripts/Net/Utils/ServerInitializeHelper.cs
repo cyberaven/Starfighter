@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Client;
 using Core;
 using Net.Core;
 using ScriptableObjects;
@@ -63,6 +64,8 @@ namespace Net.Utils
         {
             try
             {
+                Camera.main.gameObject.GetComponent<CameraMotion>().SwitchFollowMode();
+                
                 _shipConfigs = JsonUtility.FromJson<SpaceShipsWrapper>(File.ReadAllText(Constants.PathToShips))
                     .spaceShipConfigs.Select(x =>
                     {
@@ -107,6 +110,7 @@ namespace Net.Utils
 
             yield return StartCoroutine(
                 Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToAsteroids)));
+            MainServerLoop.instance.indicator.color = Color.green;
             NetEventStorage.GetInstance().worldInit.Invoke(0);
         }
 

@@ -35,14 +35,14 @@ namespace Net.Core
             NetEventStorage.GetInstance().connectClient.AddListener(ConnectClient);
             NetEventStorage.GetInstance().connectClient.AddListener(ScrollAdd);
             NetEventStorage.GetInstance().disconnectClient.AddListener(ScrollRemove);
+            NetEventStorage.GetInstance().worldInitDone.AddListener((Client client) => { ConnectedClients.Add(client);});
         }
 
         public void AddClient(ConnectPackage info)
         {
             var account = accountObjects.Find(acc => acc.login == info.data.login && acc.password == info.data.password);
-            
-            ConnectedClients.Add(new Client(
-                info.ipAddress, info.data.portToReceive, info.data.portToSend, account));
+            var client = new Client(
+                info.ipAddress, info.data.portToReceive, info.data.portToSend, account);
         }
 
         public bool CheckAuthorization(ConnectPackage pack)

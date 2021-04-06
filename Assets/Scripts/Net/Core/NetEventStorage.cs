@@ -14,6 +14,7 @@ namespace Net.Core
         public ConnectPackageEvent connectToServer = new ConnectPackageEvent();
         public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
         public IntEvent worldInit = new IntEvent();
+        public ClientEvent worldInitDone = new ClientEvent();
 
         public static NetEventStorage GetInstance()
         {
@@ -28,6 +29,8 @@ namespace Net.Core
             disconnectClient.RemoveAllListeners();
             connectClient.RemoveAllListeners();
             sendMoves.RemoveAllListeners();
+            worldInit.RemoveAllListeners();
+            worldInitDone.RemoveAllListeners();
         }
     }
 }
