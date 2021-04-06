@@ -15,14 +15,14 @@ namespace Client
         public void Init(PlayerScript playerScript)
         {
             ship = playerScript.gameObject;
-            _shipRb = playerScript.GetComponent<Rigidbody>();
+            _shipRb = ship.GetComponent<Rigidbody>();
         }
     
         // Update is called once per frame
         void Update()
         {
-            velocity = (_shipRb.velocity + transform.position);
             transform.position = ship.transform.position;
+            velocity = (_shipRb.velocity + transform.position);
             transform.LookAt(velocity, Vector3.up);
         }
     }

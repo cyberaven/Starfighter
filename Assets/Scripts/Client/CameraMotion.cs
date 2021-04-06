@@ -12,7 +12,6 @@ namespace Client
         // Start is called before the first frame update
         void Start()
         {
-            _camera = Camera.main;
             _offset = Vector3.zero + Vector3.up*10;
         }
         

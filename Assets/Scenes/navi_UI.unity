@@ -593,8 +593,8 @@ GameObject:
   - component: {fileID: 495581933}
   - component: {fileID: 495581932}
   - component: {fileID: 495581934}
-  - component: {fileID: 495581935}
   - component: {fileID: 495581931}
+  - component: {fileID: 495581935}
   m_Layer: 0
   m_Name: NavigatorCamera
   m_TagString: MainCamera
@@ -694,7 +694,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 495581930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a49f1f88c490649a27af98e68267b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fa48ceb0153c5d4aa7c09b0c5ad3ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
