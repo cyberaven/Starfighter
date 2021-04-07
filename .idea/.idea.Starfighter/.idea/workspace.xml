@@ -34,16 +34,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/MainServerLoop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ships.dat" beforeDir="false" afterPath="$PROJECT_DIR$/ships.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/CameraMotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/CameraMotion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/FollowMode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/FollowMode.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,9 +118,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Follow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Switch.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/CameraMotion.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Importer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ClientHandlers/StatePackageHandler.cs" />
@@ -132,6 +126,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/ClientManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/NetEventStorage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/CameraMotion.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">

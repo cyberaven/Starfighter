@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.5755831, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -756,7 +756,6 @@ GameObject:
   - component: {fileID: 984578451}
   - component: {fileID: 984578450}
   - component: {fileID: 984578453}
-  - component: {fileID: 984578454}
   m_Layer: 0
   m_Name: PilotCamera
   m_TagString: Untagged
@@ -842,19 +841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 984578449}
---- !u!114 &984578454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984578449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2e25b65dba461cad51da038ab09bc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navigatorCamera: {fileID: 0}
 --- !u!1 &1057243048
 GameObject:
   m_ObjectHideFlags: 0
