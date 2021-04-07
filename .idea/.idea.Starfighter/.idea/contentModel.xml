@@ -88,7 +88,6 @@
             <e p="CourseView.cs" t="Include" />
             <e p="DestroyBoundary.cs" t="Include" />
             <e p="Follow.cs" t="Include" />
-            <e p="FollowMode.cs" t="Include" />
             <e p="Movement" t="Include">
               <e p="BlankControl.cs" t="Include" />
               <e p="IMovementAdapter.cs" t="Include" />
@@ -218,6 +217,8 @@
     </e>
     <e p="C:\Users\kozhevnikov.a\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\kozhevnikov.a\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Starfighter.-1072428152.00" t="ExcludeRecursive" />
+    <e p="C:\Users\kozhevnikov.a\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\kozhevnikov.a\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
     <e p="C:\Users\kozhevnikov.a\AppData\Roaming\JetBrains\Rider2020.3\scratches" t="IncludeRecursive" />
   </component>
 </project>

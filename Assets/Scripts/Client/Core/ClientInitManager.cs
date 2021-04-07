@@ -25,7 +25,6 @@ namespace Client.Core
             var cam = FindObjectOfType<Camera>();
             var followComp = cam.gameObject.GetComponent<CameraMotion>() ?? cam.gameObject.AddComponent<CameraMotion>();
             cam.orthographicSize = 25;
-            FollowMode.active = true;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
             FindObjectOfType<DataOutput>().Init(ps);

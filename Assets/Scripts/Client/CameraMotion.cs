@@ -40,5 +40,10 @@ namespace Client
             _isFollowMode = !_isFollowMode;
         }
         
+        public bool GetFollowMode()
+        {
+            return _isFollowMode;
+        }
+        
     }
 }

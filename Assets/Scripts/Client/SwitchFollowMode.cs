@@ -20,7 +20,7 @@ namespace Client
 
     private void LateUpdate()
     {
-        if (FollowMode.active)
+        if (_cameraMotion.GetFollowMode())
         {
             _buttonText.text = ">cam<";
             return;
