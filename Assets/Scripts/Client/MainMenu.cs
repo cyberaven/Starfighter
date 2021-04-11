@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System;
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,17 +15,25 @@ namespace Client
         public InputField loginField;
         public InputField passwordField;
         public InputField serverField;
+        public string SceneName;
+
+        private void Start()
+        {
+            Application.targetFrameRate = 160;
+        }
 
         public void PlayGame()
         {
             if (pilotToggle.isOn)
             {
                 accType = UserType.Pilot;
+                SceneName = "pilot_UI";
             }
 
             if (naviToggle.isOn)
             {
                 accType = UserType.Navigator;
+                SceneName = "navi_UI";
             }
 
             //TODO: допилить меню "выберите роль"

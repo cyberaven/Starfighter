@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Dynamic
   - Asteroid
+  - NaviUI
+  - CoursePoint
   layers:
   - Default
   - TransparentFX

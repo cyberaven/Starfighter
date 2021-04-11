@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using Client;
 using Net;
 using Net.Core;
 using Net.PackageData;
@@ -56,17 +57,15 @@ namespace Core
                     {
                         case UserType.Pilot:
                         {
-                            SceneManager.LoadScene("pilot_UI");
+                            SceneManager.LoadScene("Scenes/pilot_UI");
                             break;
                         }
+
                         case UserType.Navigator:
                         {
-                            SceneManager.LoadScene("navi_UI");
+                            SceneManager.LoadScene("Scenes/navi_UI");
                             break;
                         }
-                        default:
-                            throw new ArgumentOutOfRangeException(
-                                $"unexpected package type {result.packageType.ToString()}");
                     }
                     MainClientLoop.instance.Init(serverAddress);
                     NetEventStorage.GetInstance().connectToServer.Invoke(result as ConnectPackage);
