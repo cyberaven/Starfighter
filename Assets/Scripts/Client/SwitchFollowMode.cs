@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Client
 {
     public class SwitchFollowMode : MonoBehaviour
 {
-    [SerializeField] private Text _buttonText;
+    [SerializeField] private TextMeshProUGUI _buttonText;
 
     public void SwitchCameraMode()
     {
