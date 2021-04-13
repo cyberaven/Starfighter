@@ -129,7 +129,7 @@ namespace Net.Core
             }
         }
 
-        private async Task WorldInit()
+        private async void WorldInit()
         {
             var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag);
             Debug.unityLogger.Log(await _udpSocket.SendEventPackage(asteroids.Length, EventType.InitEvent));
