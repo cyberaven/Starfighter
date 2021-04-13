@@ -804,7 +804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e0fac79aa056145a2d3626d00e36dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonText: {fileID: 0}
+  _buttonText: {fileID: 185716944}
+  _cameraMotion: {fileID: 495581935}
 --- !u!1 &495581930
 GameObject:
   m_ObjectHideFlags: 0

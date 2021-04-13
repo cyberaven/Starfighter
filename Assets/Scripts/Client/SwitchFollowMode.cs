@@ -7,7 +7,12 @@ namespace Client
     public class SwitchFollowMode : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _buttonText;
-        private CameraMotion _cameraMotion;
+        [SerializeField] private CameraMotion _cameraMotion;
+
+        private void Start()
+        {
+            _buttonText = transform.GetComponentInChildren<TextMeshProUGUI>();
+        }
         
         public void SwitchButtonText()
         {
