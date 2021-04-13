@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefc84f8442e50a40befac16d45416d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &7816933170780221695
 GameObject:
   m_ObjectHideFlags: 0

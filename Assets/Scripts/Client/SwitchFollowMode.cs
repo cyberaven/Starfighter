@@ -1,31 +1,33 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Client
 {
     public class SwitchFollowMode : MonoBehaviour
 {
-    [SerializeField]
-    private Text _buttonText;
-    private CameraMotion _cameraMotion;
-    private void Start()
-    {
-        _cameraMotion = FindObjectOfType<CameraMotion>();
-    }
-    
+    [SerializeField] private TextMeshProUGUI _buttonText;
+
     public void SwitchCameraMode()
     {
-        _cameraMotion.SwitchFollowMode();
+        FollowMode.active = !FollowMode.active;
     }
 
     private void LateUpdate()
     {
-        if (_cameraMotion.GetFollowMode())
+        switch (FollowMode.active)
         {
-            _buttonText.text = ">cam<";
-            return;
+            case true:
+            {
+                _buttonText.text = ">cam<";
+                break;
+            }
+            case false:
+            {
+                _buttonText.text = "<cam>";
+                break;
+            }
         }
-        _buttonText.text = "<cam>";
     }
 }
 }
