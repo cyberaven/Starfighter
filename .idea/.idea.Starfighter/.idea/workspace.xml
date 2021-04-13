@@ -33,12 +33,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
