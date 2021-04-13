@@ -5,29 +5,30 @@ using UnityEngine.UI;
 namespace Client
 {
     public class SwitchFollowMode : MonoBehaviour
-{
-    [SerializeField] private TextMeshProUGUI _buttonText;
-
-    public void SwitchCameraMode()
     {
-        FollowMode.active = !FollowMode.active;
-    }
+        [SerializeField] private TextMeshProUGUI _buttonText;
+        private CameraMotion _cameraMotion;
 
-    private void LateUpdate()
-    {
-        switch (FollowMode.active)
+        private void Start()
         {
-            case true:
+            _buttonText = transform.GetComponentInChildren<TextMeshProUGUI>();
+        }
+        
+        public void SwitchButtonText()
+        {
+            switch (_cameraMotion.GetFollowMode())
             {
-                _buttonText.text = ">cam<";
-                break;
-            }
-            case false:
-            {
-                _buttonText.text = "<cam>";
-                break;
+                case true:
+                {
+                    _buttonText.text = ">cam<";
+                    break;
+                }
+                case false:
+                {
+                    _buttonText.text = "<cam>";
+                    break;
+                }
             }
         }
     }
-}
 }
