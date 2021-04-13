@@ -34,17 +34,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Space age (cyr) SDF.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Space age (cyr) SDF.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Space age (cyr).ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Space age (cyr).ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Soundpacks.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Soundpacks/Thurst.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Soundpacks/Thurst.mp3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Client/SplashScreen.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Menu/MenuButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/MenuButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Menu/PauseMenuUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/PauseMenuUI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UIBorders.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UIBorders.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scaler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scaler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointControler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/SplashScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/SceneLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,15 +80,14 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Client/NaviPointController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scaler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Client/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Client/SplashScreen.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientEventStorage.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Net/PackageHandlers/ServerHandlers/EventPackageHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/EventTypes.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
@@ -116,7 +118,6 @@
       <option value="$PROJECT_DIR$/Assets/Switch.cs" />
       <option value="$PROJECT_DIR$/Assets/Toggle.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CameraMotion.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Zoom.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Follow.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Follow.cs" />
@@ -127,14 +128,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/FollowMode.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/SceneLoader.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/MainMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/RotationScript.cs" />
       <option value="$PROJECT_DIR$/Assets/NaviPointControler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointControler.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scaler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/MainMenu.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/ClientConnectionHelper.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointControler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/NaviPointController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/SplashScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Core/Constants.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scaler.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">
@@ -248,6 +252,9 @@
       <workItem from="1618078243998" duration="9000" />
       <workItem from="1618093498756" duration="7839000" />
       <workItem from="1618104331762" duration="902000" />
+      <workItem from="1618333739508" duration="1955000" />
+      <workItem from="1618335728792" duration="315000" />
+      <workItem from="1618336081437" duration="406000" />
     </task>
     <servers />
   </component>

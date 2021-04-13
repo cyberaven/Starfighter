@@ -11,7 +11,7 @@ using UnityEngine.Events;
 namespace Client
 {
     
-public class SceneLoader : MonoBehaviour
+public class SplashScreen : MonoBehaviour
 {
     public IntEvent worldInit = new IntEvent();
     [SerializeField]private int _maxNumAsteroids;

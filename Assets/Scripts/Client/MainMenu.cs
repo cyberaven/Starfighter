@@ -15,7 +15,6 @@ namespace Client
         public InputField loginField;
         public InputField passwordField;
         public InputField serverField;
-        public string SceneName;
 
         private void Start()
         {
@@ -27,13 +26,11 @@ namespace Client
             if (pilotToggle.isOn)
             {
                 accType = UserType.Pilot;
-                SceneName = "pilot_UI";
             }
 
             if (naviToggle.isOn)
             {
                 accType = UserType.Navigator;
-                SceneName = "navi_UI";
             }
 
             //TODO: допилить меню "выберите роль"

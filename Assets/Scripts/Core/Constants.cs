@@ -20,5 +20,7 @@
         public const char Separator = '|';
         //Настройки камеры
         public const int ZoomStep = 1000;
+        //Настройки навигатора
+        public const string NavigationMark = "CoursePoint";
     }
 }

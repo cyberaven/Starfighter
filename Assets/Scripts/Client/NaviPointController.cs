@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NaviPointControler : MonoBehaviour
+public class NaviPointController : MonoBehaviour
 {
     public GameObject mainPoint;
     private GameObject _point;
@@ -21,7 +22,7 @@ public class NaviPointControler : MonoBehaviour
     void SetPoint(Vector3 _clickCoords)
     {
         _position = new Vector3(_clickCoords.x, 0, _clickCoords.z);
-        _point = GameObject.FindGameObjectWithTag("CoursePoint") ?? Instantiate(mainPoint, _position, mainPoint.transform.rotation);
+        _point = GameObject.FindGameObjectWithTag(Constants.NavigationMark) ?? Instantiate(mainPoint, _position, mainPoint.transform.rotation);
         
         _point.transform.position = _position;
     }

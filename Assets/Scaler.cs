@@ -11,10 +11,9 @@ public class Scaler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
+    //TODO: допилить скалирование по триггеру
     {
-        
-            transform.localScale = new Vector3(Camera.main.orthographicSize / 20, Camera.main.orthographicSize / 20);
-
+        transform.localScale = new Vector3(Camera.main.orthographicSize / 20, Camera.main.orthographicSize / 20);
     }
 }
