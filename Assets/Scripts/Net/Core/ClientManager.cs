@@ -33,32 +33,26 @@ namespace Net.Core
             
             NetEventStorage.GetInstance().disconnectClient.AddListener(DisconnectClient);
             NetEventStorage.GetInstance().connectClient.AddListener(ConnectClient);
-            NetEventStorage.GetInstance().connectClient.AddListener(ScrollAdd);
-            NetEventStorage.GetInstance().disconnectClient.AddListener(ScrollRemove);
-            NetEventStorage.GetInstance().worldInitDone.AddListener((Client client) => { ConnectedClients.Add(client);});
+            NetEventStorage.GetInstance().worldInitDone.AddListener((client) => { ConnectedClients.Add(client);});
+            NetEventStorage.GetInstance().wayPointSetted.AddListener(SendWayPointInfo);
         }
 
-        public void AddClient(ConnectPackage info)
+        private void AddClient(ConnectPackage info)
         {
             var account = accountObjects.Find(acc => acc.login == info.data.login && acc.password == info.data.password);
             var client = new Client(
                 info.ipAddress, info.data.portToReceive, info.data.portToSend, account);
         }
-
-        public bool CheckAuthorization(ConnectPackage pack)
+        
+        private int GetNewPort()
+        {
+            return ++_lastGivenPort;
+        }
+        
+        private bool CheckAuthorization(ConnectPackage pack)
         {
             return !ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)) &&
                    accountObjects.Any(acc => acc.login == pack.data.login && acc.password == pack.data.password);
-        }
-
-        public void RegisterAccount(ClientAccountObject acc)
-        {
-            accountObjects.Add(acc);
-        }
-
-        public void UnregisterAccount(ClientAccountObject acc)
-        {
-            accountObjects.Remove(acc);
         }
 
         private void ConnectClient(ConnectPackage pack)
@@ -106,7 +100,17 @@ namespace Net.Core
                 Debug.unityLogger.Log("Server : There is no such client to Disconnect!");
             }
         }
+        
+        public void RegisterAccount(ClientAccountObject acc)
+        {
+            accountObjects.Add(acc);
+        }
 
+        public void UnregisterAccount(ClientAccountObject acc)
+        {
+            accountObjects.Remove(acc);
+        }
+        
         public async void SendToAll(AbstractPackage package, IPAddress sender = null)
         {
             foreach (var client in ConnectedClients)
@@ -115,19 +119,15 @@ namespace Net.Core
                 await client.SendPackage(package);
             }
         }
-        
-        private void ScrollAdd(ConnectPackage pack)
+
+        private async void SendWayPointInfo(IPAddress address, WorldObject waypoint)
         {
-        }
-        
-        private void ScrollRemove(DisconnectPackage pack)
-        {
-            
-        }
-        
-        public int GetNewPort()
-        {
-            return ++_lastGivenPort;
+            var shipName = ConnectedClients.First(x => Equals(x.GetIpAddress(), address)).GetShipGOName();
+            var clientToSend = ConnectedClients.First(x => Equals(x.GetShipGOName(), shipName) && !Equals(x.GetIpAddress(), address));
+            await clientToSend.SendPackage(new StatePackage(new StateData()
+            {
+                worldState = new []{waypoint}
+            }));
         }
 
         public void Dispose()

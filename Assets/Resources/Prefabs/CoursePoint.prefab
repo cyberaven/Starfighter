@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8050623021497372306}
   m_Layer: 9
   m_Name: CoursePoint
-  m_TagString: CoursePoint
+  m_TagString: WayPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

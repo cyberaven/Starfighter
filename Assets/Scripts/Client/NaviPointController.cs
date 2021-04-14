@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Client.Core;
 using Core;
 using JetBrains.Annotations;
+using Net.PackageData;
 using UnityEngine;
 using UnityEngine.Events;
+using EventType = Net.Utils.EventType;
 
 public class NaviPointController : MonoBehaviour
 {
@@ -22,9 +25,21 @@ public class NaviPointController : MonoBehaviour
     void SetPoint(Vector3 _clickCoords)
     {
         _position = new Vector3(_clickCoords.x, 0, _clickCoords.z);
-        _point = GameObject.FindGameObjectWithTag(Constants.NavigationMark) ?? Instantiate(mainPoint, _position, mainPoint.transform.rotation);
-        
+        _point = GameObject.FindGameObjectWithTag(Constants.WayPointTag);
+        if (_point is null)
+        {
+            _point = Instantiate(mainPoint, _position, mainPoint.transform.rotation);
+            _point.name = _point.name + Constants.Separator + Guid.NewGuid();
+            _point.tag = Constants.WayPointTag;
+        }
+
         _point.transform.position = _position;
+
+        ClientEventStorage.GetInstance().SetPointEvent.Invoke(new EventData()
+        {
+            data = new WorldObject(mainPoint.name, _point.transform),
+            eventType = EventType.WayPointEvent
+        });
     }
     
 }

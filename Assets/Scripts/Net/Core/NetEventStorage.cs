@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 
 namespace Net.Core
 {
@@ -15,6 +16,7 @@ namespace Net.Core
         public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
         public IntEvent worldInit = new IntEvent();
         public ClientEvent worldInitDone = new ClientEvent();
+        public WayPointEvent wayPointSetted = new WayPointEvent();
 
         public static NetEventStorage GetInstance()
         {
@@ -31,6 +33,7 @@ namespace Net.Core
             sendMoves.RemoveAllListeners();
             worldInit.RemoveAllListeners();
             worldInitDone.RemoveAllListeners();
+            wayPointSetted.RemoveAllListeners();
         }
     }
 }

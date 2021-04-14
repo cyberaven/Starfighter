@@ -62,6 +62,11 @@ namespace Net.Core
             return _udpSocket.GetListeningPort();
         }
 
+        public string GetShipGOName()
+        {
+            return _myGameObjectName;
+        }
+
         private void StartListenClient()
         {
             _udpSocket.BeginReceivingPackage();
@@ -77,31 +82,31 @@ namespace Net.Core
                 eventType = EventType.MoveEvent
             }), GetIpAddress());
         }
-        
-        public async Task SendDecline(DeclineData data)
+
+        private async Task SendDecline(DeclineData data)
         {
             Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
             
             var result = await _udpSocket.SendPackageAsync(new DeclinePackage(data));
         }
 
-        public async Task SendAccept(AcceptData data)
+        private async Task SendAccept(AcceptData data)
         {
             Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendPackageAsync(new AcceptPackage(data));
         }
 
-        public async Task SendWorldState(StateData data)
+        private async Task SendWorldState(StateData data)
         {
             var result = await _udpSocket.SendPackageAsync(new StatePackage(data));
         }
 
-        public async Task SendEvent(EventData data)
+        private async Task SendEvent(EventData data)
         {
             var result = await _udpSocket.SendEventPackage(data.data, data.eventType);
         }
 
-        public async Task SendDisconnect(DisconnectData data)
+        private async Task SendDisconnect(DisconnectData data)
         {
             var result = await _udpSocket.SendPackageAsync(new DisconnectPackage(data));
         }
@@ -155,7 +160,6 @@ namespace Net.Core
             yield return new WaitForSeconds(0.5f);
             NetEventStorage.GetInstance().worldInitDone.Invoke(this);
         }
-        
         
         public void Dispose()
         {

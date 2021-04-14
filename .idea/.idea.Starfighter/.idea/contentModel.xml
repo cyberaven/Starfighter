@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\lndae\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\lndae\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Starfighter.1097149409.00" t="ExcludeRecursive" />
-    <e p="C:\Users\lndae\Documents\Starfighter" t="IncludeRecursive">
+    <e p="C:\Unity\Starfighter" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -83,7 +81,6 @@
           <e p="Client" t="Include">
             <e p="CameraMotion.cs" t="Include" />
             <e p="Core" t="Include">
-              <e p="ClientEvents.cs" t="Include" />
               <e p="ClientEventStorage.cs" t="Include" />
               <e p="ClientInitManager.cs" t="Include" />
             </e>
@@ -115,9 +112,9 @@
             <e p="AbstractSingleton.cs" t="Include" />
             <e p="ClientConnectionHelper.cs" t="Include" />
             <e p="Constants.cs" t="Include" />
-            <e p="CoreEvents.cs" t="Include" />
             <e p="CoreEventStorage.cs" t="Include" />
             <e p="Enums.cs" t="Include" />
+            <e p="Events.cs" t="Include" />
             <e p="Importer.cs" t="Include" />
             <e p="InputManager" t="Include">
               <e p="InputManager.cs" t="Include" />
@@ -131,7 +128,6 @@
             <e p="Core" t="Include">
               <e p="Client.cs" t="Include" />
               <e p="ClientManager.cs" t="Include" />
-              <e p="NetEvents.cs" t="Include" />
               <e p="NetEventStorage.cs" t="Include" />
               <e p="StarfighterUdpClient.cs" t="Include" />
             </e>
@@ -249,5 +245,10 @@
       <e p="Starfighter.sln" t="IncludeFlat" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\kozhevnikov.a\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\kozhevnikov.a\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Starfighter.-1072428152.00" t="ExcludeRecursive" />
+    <e p="C:\Users\kozhevnikov.a\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\kozhevnikov.a\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\kozhevnikov.a\AppData\Roaming\JetBrains\Rider2020.3\scratches" t="IncludeRecursive" />
   </component>
 </project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using Core;
 
 namespace Client.Core
 {
@@ -11,7 +12,7 @@ namespace Client.Core
         public PlayerScriptEvent InitSpectator = new PlayerScriptEvent();
         public PlayerScriptEvent InitAdmin = new PlayerScriptEvent();
         public PlayerScriptEvent InitModerator = new PlayerScriptEvent();
-        
+        public EventDataEvent SetPointEvent = new EventDataEvent();
         
         public static ClientEventStorage GetInstance()
         {

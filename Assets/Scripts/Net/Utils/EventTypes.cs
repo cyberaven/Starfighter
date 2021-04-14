@@ -7,6 +7,7 @@
         FireEvent,
         HitEvent,
         InitEvent,
+        WayPointEvent,
         OtherEvent
     }
 }

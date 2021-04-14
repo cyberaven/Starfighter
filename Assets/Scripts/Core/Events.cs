@@ -1,11 +1,15 @@
 ﻿using System.Net;
+using Client;
+using Net.Core;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
 using UnityEngine.Events;
 
-namespace Net.Core
+namespace Core
 {
+    #region NetEvents
+    
     public class PackageEvent : UnityEvent<AbstractPackage> { }
     public class ConnectPackageEvent : UnityEvent<ConnectPackage> { }
     public class DisconnectPackageEvent : UnityEvent<DisconnectPackage> { }
@@ -19,9 +23,15 @@ namespace Net.Core
     public class ConnectDataEvent : UnityEvent<ConnectData> { }
     
     public class IpAddressEvent : UnityEvent<IPAddress> { }
-    public class ClientEvent: UnityEvent<Client> { }
+    public class ClientEvent: UnityEvent<Net.Core.Client> { }
     public class PlayerMovementEvent: UnityEvent<IPAddress, MovementEventData> { }
+    public class WayPointEvent : UnityEvent<IPAddress, WorldObject> { }
     public class StarfighterUdpClientEvent : UnityEvent<StarfighterUdpClient> { }
+    
+    #endregion
+    
     public class IntEvent : UnityEvent<int> { }
-
+    public class CoreEvent: UnityEvent { }
+    public class AxisValueEvent: UnityEvent<string, float> { }
+    public class PlayerScriptEvent: UnityEvent<PlayerScript> { }
 }

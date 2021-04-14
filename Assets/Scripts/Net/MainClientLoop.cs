@@ -38,6 +38,7 @@ namespace Net
             base.Awake();
             NetEventStorage.GetInstance().connectToServer.AddListener(ConnectToServer);
             CoreEventStorage.GetInstance().AxisValueChanged.AddListener(SendMove);
+            ClientEventStorage.GetInstance().SetPointEvent.AddListener(SetPoint);
         }
 
         public void Init(string serverAddress)
@@ -45,11 +46,16 @@ namespace Net
             this.serverAddress = serverAddress;
         }
 
-        public void SendMove(string axis, float value)
+        private void SendMove(string axis, float value)
         {
             NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
         }
 
+        private async void SetPoint(EventData data)
+        {
+            await _udpClient.SendEventPackage(data.data, data.eventType);
+        }
+        
         public void LaunchCoroutine(IEnumerator coroutine)
         {
             StartCoroutine(coroutine);
@@ -84,6 +90,7 @@ namespace Net
             }
             return false;
         }
+        
         private void Update()
         {
             // NetEventStorage.GetInstance().updateWorldState.Invoke(GetWorldStatePackage().Result);

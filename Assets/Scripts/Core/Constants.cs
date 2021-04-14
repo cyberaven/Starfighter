@@ -17,10 +17,11 @@
         //объекты, передаваемые в пакетах State от сервера, объекты контролируемые сервером
         public const string DynamicTag = "Dynamic";
         public const string AsteroidTag = "Asteroid";
+        public const string WayPointTag = "WayPoint";
         public const char Separator = '|';
         //Настройки камеры
         public const int ZoomStep = 1000;
         //Настройки навигатора
-        public const string NavigationMark = "CoursePoint";
+       
     }
 }

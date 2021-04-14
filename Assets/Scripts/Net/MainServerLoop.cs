@@ -114,7 +114,7 @@ namespace Net
         {
             foreach (var client in ClientManager.instance.ConnectedClients)
             {
-                await client.SendWorldState(pack.data);
+                await client.SendPackage(pack);
             }
 
             // var result = await _multicastUdpClient.SendPackageAsync(pack);

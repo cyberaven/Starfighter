@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Net.Core;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
 using UnityEngine;
@@ -34,6 +35,13 @@ namespace Net.PackageHandlers.ServerHandlers
                         break;
                     case EventType.HitEvent:
                         var hitData = eventPack.data.data.ToString();
+                        break;
+                    case EventType.InitEvent:
+                        var initData = eventPack.data.data.ToString();
+                        break;
+                    case EventType.WayPointEvent:
+                        var wayPoint = (WorldObject) eventPack.data.data;
+                        NetEventStorage.GetInstance().wayPointSetted.Invoke(pack.ipAddress, wayPoint);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
