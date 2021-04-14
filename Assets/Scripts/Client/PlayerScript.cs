@@ -23,7 +23,7 @@ namespace Client
         [NonSerialized]
         public SpaceShipConfig shipConfig;
         
-        private GameObject _front, _back, _left, _right;
+        private Transform _front, _back, _left, _right;
         private Rigidbody _ship, _engine;
         private ParticleSystem _tlm, _trm, _blm, _brm, _te;
         private ConstantForce _thrustForce;
@@ -37,10 +37,10 @@ namespace Client
         private void Start()
         {
             // всякое говно при создании объекта
-            _front = GameObject.Find("Front");
-            _back = GameObject.Find("Back");
-            _left = GameObject.Find("Left");
-            _right = GameObject.Find("Right");
+            _front = gameObject.transform.Find("Front");
+            _back = gameObject.transform.Find("Back");
+            _left = gameObject.transform.Find("Left");
+            _right = gameObject.transform.Find("Right");
             _ship = GetComponent<Rigidbody>();
             _thrustForce = GetComponent<ConstantForce>();
             shipSpeed = 0;
@@ -82,8 +82,8 @@ namespace Client
             thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
             maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
             _thrustForce.force = 
-                (thrustForceVector / thrustForceVector.magnitude) * (ShipsBrain.GetThrustSpeed() + ShipsBrain.GetStraightManeurSpeed()) +
-                (maneurForceVector / maneurForceVector.magnitude) * ShipsBrain.GetSideManeurSpeed();
+                (thrustForceVector.normalized) * (ShipsBrain.GetThrustSpeed() + ShipsBrain.GetStraightManeurSpeed()) +
+                (maneurForceVector.normalized) * ShipsBrain.GetSideManeurSpeed();
             _thrustForce.torque = new Vector3(0, ShipsBrain.GetShipAngle(), 0);
         }
  
