@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.5755831, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -319,6 +319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787656974172292469, guid: 2c5c42cd0d101d24abdce67bbace7a97,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3846936535332270647, guid: 2c5c42cd0d101d24abdce67bbace7a97,
         type: 3}
@@ -1291,7 +1296,6 @@ GameObject:
   - component: {fileID: 984578451}
   - component: {fileID: 984578450}
   - component: {fileID: 984578453}
-  - component: {fileID: 984578454}
   m_Layer: 0
   m_Name: PilotCamera
   m_TagString: Untagged
@@ -1377,19 +1381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 984578449}
---- !u!114 &984578454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984578449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2e25b65dba461cad51da038ab09bc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navigatorCamera: {fileID: 0}
 --- !u!1 &991515478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,8 +1884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6111901ed951a3442811a3ab2565a8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxNumAsteroids: 0
-  _screen: {fileID: 1689562883}
 --- !u!4 &1689562885
 Transform:
   m_ObjectHideFlags: 0
@@ -2320,6 +2309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4958683676828634062, guid: a81be7ad4eaee87499805961edd870d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4958683676828634063, guid: a81be7ad4eaee87499805961edd870d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2424,6 +2418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790960788415826836, guid: a81be7ad4eaee87499805961edd870d2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81be7ad4eaee87499805961edd870d2, type: 3}

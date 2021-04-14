@@ -60,9 +60,6 @@ namespace Client
                 case MovementAdapter.RemoteNetworkControl: //use on server 
                     ShipsBrain = new RemoteNetworkControl();
                     break;
-                case MovementAdapter.BlankControl: //use on client for other ships (?)
-                    ShipsBrain = new BlankControl();
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

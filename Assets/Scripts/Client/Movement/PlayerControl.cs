@@ -77,7 +77,7 @@ namespace Client.Movement
 
         public void UpdateMovementActionData(MovementEventData data)
         {
-            return;
+            _lastMovement = data;
         }
 
         public async void SendMovement(StarfighterUdpClient udpClient)
@@ -91,6 +91,7 @@ namespace Client.Movement
                     straightManeurValue = GetStraightManeurSpeed(),
                     thrustValue = GetThrustSpeed()
                 };
+                UpdateMovementActionData(movementData);
                 var result = await udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent);
             }
             catch (Exception ex)
