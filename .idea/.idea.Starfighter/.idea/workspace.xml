@@ -34,16 +34,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Info.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Info.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Materials/MotherShip.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Materials/MotherShip.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Mesh.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Mesh/MotherShip.fbm.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Mesh/MotherShip.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Mesh/MotherShip.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Prefab/MotherShip001.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Prefab/MotherShip001.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Textures/MotherShip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External assets/YuliFM-MotherShipA32/Textures/MotherShip.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Navigator.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Navigator/CoursePoint.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Navigator/CoursePoint.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scaler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scaler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pointers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pointers.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/BlankControl.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/BlankControl.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Navigator.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Navigator/CoursePoint.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Navigator/CoursePoint.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Info.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Info.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Materials/MotherShip.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Materials/MotherShip.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Mesh.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Mesh/MotherShip.fbm.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Mesh/MotherShip.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Mesh/MotherShip.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Prefab/MotherShip001.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Prefab/MotherShip001.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Textures/MotherShip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/YuliFM-MotherShipA32/Textures/MotherShip.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scaler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scaler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +111,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Net/MainClientLoop.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scaler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Client/NaviPointController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.6/Runtime/Utilities/AnimationPreviewUtilities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Client/SplashScreen.cs" root0="FORCE_HIGHLIGHTING" />

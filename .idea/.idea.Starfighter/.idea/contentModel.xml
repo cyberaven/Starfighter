@@ -77,7 +77,6 @@
             <e p="FireSphere.shader" t="Include" />
           </e>
         </e>
-        <e p="Scaler.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Client" t="Include">
             <e p="CameraMotion.cs" t="Include" />
@@ -184,6 +183,7 @@
               <e p="ServerInitializeHelper.cs" t="Include" />
             </e>
           </e>
+          <e p="Scaler.cs" t="Include" />
           <e p="ScriptableObjects" t="Include">
             <e p="ClientAccountObject.cs" t="Include" />
             <e p="DangerZoneConfig.cs" t="Include" />
