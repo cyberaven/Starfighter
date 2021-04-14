@@ -10,9 +10,6 @@ namespace Client
 
         public int rotationSpeedModifier;
         // Start is called before the first frame update
-        void Awake()
-        {
-        }
 
         public void Init(PlayerScript playerScript)
         {

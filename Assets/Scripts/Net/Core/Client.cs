@@ -73,7 +73,8 @@ namespace Net.Core
             _playerScript.ShipsBrain.UpdateMovementActionData(data);
             ClientManager.instance.SendToAll(new EventPackage(new EventData()
             {
-                data = (_myGameObjectName, data)
+                data = (_myGameObjectName, data),
+                eventType = EventType.MoveEvent
             }), GetIpAddress());
         }
         

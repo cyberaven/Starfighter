@@ -30,6 +30,8 @@ namespace Client.Core
             FindObjectOfType<DataOutput>().Init(ps);
             FindObjectOfType<CourseView>().Init(ps);
             FindObjectOfType<CoordinatesUI>().Init(ps);
+            FindObjectOfType<RotationScript>().Init(ps);
+            FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
         }
 
         private static void InitNavigator(PlayerScript ps)
@@ -47,6 +49,11 @@ namespace Client.Core
             var zoomComp = cam.gameObject.GetComponent<Zoom>()??cam.gameObject.AddComponent<Zoom>();
             zoomComp.navigatorCamera = cam;
             zoomComp.enabled = true;
+            
+            FindObjectOfType<CourseView>().Init(ps);
+            FindObjectOfType<CoordinatesUI>().Init(ps);
+            FindObjectOfType<RotationScript>().Init(ps);
+            FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
         }
     }
 }
