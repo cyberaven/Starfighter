@@ -34,13 +34,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4b5ebc8-44ab-438a-819e-470089b49251" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Starfighter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Menu/MenuButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Menu/MenuButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/navi_UI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pointers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pointers.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/pilot_UI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/RotationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/RotationScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/BlankControl.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/BlankControl.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,8 +84,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/StarfighterUdpClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Core/Models/Asteroids.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Utils/ServerInitializeHelper.cs" />
@@ -116,7 +117,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/PauseMenu.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/MenuButton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/FollowMode.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/SceneLoader.cs" />
       <option value="$PROJECT_DIR$/Assets/RotationScript.cs" />
       <option value="$PROJECT_DIR$/Assets/NaviPointControler.cs" />
@@ -131,7 +131,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/SwitchFollowMode.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Net/Core/Client.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/RotationScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/PlayerScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/Movement/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Client/Core/ClientInitManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Client/CourseView.cs" />
     </changedPaths>
   </component>
   <component name="NamedScopeManager">

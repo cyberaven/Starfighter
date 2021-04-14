@@ -91,7 +91,6 @@
             <e p="Follow.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
             <e p="Movement" t="Include">
-              <e p="BlankControl.cs" t="Include" />
               <e p="IMovementAdapter.cs" t="Include" />
               <e p="playerControl.cs" t="Include" />
               <e p="RemoteNetworkControl.cs" t="Include" />
