@@ -1,6 +1,8 @@
-﻿using Core;
+﻿using System.Linq;
+using Core;
 using UnityEngine;
 using Client;
+using Client.UI;
 
 namespace Client.Core
 {
@@ -17,7 +19,6 @@ namespace Client.Core
 
         private static void InitPilot(PlayerScript ps)
         {
-            //TODO: normal pilot init
             ps.movementAdapter = MovementAdapter.PlayerControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
@@ -28,15 +29,15 @@ namespace Client.Core
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
             FindObjectOfType<DataOutput>().Init(ps);
-            FindObjectOfType<CourseView>().Init(ps);
             FindObjectOfType<CoordinatesUI>().Init(ps);
             FindObjectOfType<RotationScript>().Init(ps);
-            FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
+            FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
+            GameObject.Find("VelocityPointer").GetComponent<CourseView>().Init(ps);
+            Resources.FindObjectsOfTypeAll<CourseView>().First(x=>x.name == "WayPointer").Init(ps);
         }
 
         private static void InitNavigator(PlayerScript ps)
         {
-            //TODO: normal nav init
             ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
             ps.gameObject.GetComponent<Collider>().enabled = false;
             ps.gameObject.GetComponent<Rigidbody>().detectCollisions = false;

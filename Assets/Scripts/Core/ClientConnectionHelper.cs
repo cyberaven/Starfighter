@@ -52,7 +52,7 @@ namespace Core
                 {
                     Debug.unityLogger.Log("Server accept our connection");
                     Camera.main.gameObject.GetComponent<Camera>().enabled = false;
-                    //TODO: Сервер принял подключение: загрузить сцену в зависимости от типа аккаунта или\и вызвать соотв событие.
+                    //Сервер принял подключение: загрузить сцену в зависимости от типа аккаунта или\и вызвать соотв событие.
                     switch (accType)
                     {
                         case UserType.Pilot:
@@ -74,7 +74,7 @@ namespace Core
                 }
                 case PackageType.DeclinePackage:
                     Debug.unityLogger.Log("Server decline our connection");
-                    //TODO: Сервер отклонил подключение: вывести соотв сообщение и прочее
+                    // Сервер отклонил подключение: вывести соотв сообщение и прочее
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"unexpected package type {result.packageType.ToString()}");

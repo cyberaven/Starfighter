@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 
-public class MenuButton : MonoBehaviour
+namespace Client.UI
 {
-    public GameObject PauseMenuUI;
+    public class MenuButton : MonoBehaviour
+    {
+        public GameObject PauseMenuUI;
     
-    private void Start() 
-    {
-        PauseMenuUI.SetActive(false);    
-    }
+        private void Start() 
+        {
+            PauseMenuUI.SetActive(false);    
+        }
 
-    public void Pause() 
-    {
-        PauseMenuUI.SetActive(true);
-    }
+        public void Pause() 
+        {
+            PauseMenuUI.SetActive(true);
+        }
 
+    }
 }

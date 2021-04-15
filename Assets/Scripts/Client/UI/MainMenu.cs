@@ -2,30 +2,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+namespace Client.UI
 {
-    public UnityEngine.UI.Toggle pilotToggle;
-    public UnityEngine.UI.Toggle naviToggle;
-    public UserType accType;
-    public InputField loginField;
-    public InputField passwordField;
-    public InputField serverField;
-    public void PlayGame()
+    public class MainMenu : MonoBehaviour
     {
-        if (pilotToggle.isOn)
+        public UnityEngine.UI.Toggle pilotToggle;
+        public UnityEngine.UI.Toggle naviToggle;
+        public UserType accType;
+        public InputField loginField;
+        public InputField passwordField;
+        public InputField serverField;
+        public void PlayGame()
         {
-            accType = UserType.Pilot;
+            if (pilotToggle.isOn)
+            {
+                accType = UserType.Pilot;
+            }
+            if (naviToggle.isOn)
+            {
+                accType = UserType.Navigator;
+            }
+            ClientConnectionHelper.instance.TryToConnect(serverAddress:serverField.text, login:loginField.text, password:passwordField.text, accType:accType);
         }
-        if (naviToggle.isOn)
-        {
-            accType = UserType.Navigator;
-        }
-        //TODO: допилить меню "выберите роль"
-        ClientConnectionHelper.instance.TryToConnect(serverAddress:serverField.text, login:loginField.text, password:passwordField.text, accType:accType);
-    }
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

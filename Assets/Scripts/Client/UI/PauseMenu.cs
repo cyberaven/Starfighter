@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+namespace Client.UI
 {
-    public GameObject PauseMenuUI;
-
-    public void Resume() 
+    public class PauseMenu : MonoBehaviour
     {
-        PauseMenuUI.SetActive(false);
-    }
+        public GameObject PauseMenuUI;
 
-    public void Quit() 
-    {
-        Application.Quit();
+        public void Resume() 
+        {
+            PauseMenuUI.SetActive(false);
+        }
+
+        public void Quit() 
+        {
+            Application.Quit();
+        }
     }
 }

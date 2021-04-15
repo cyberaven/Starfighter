@@ -20,6 +20,33 @@ namespace Net.PackageHandlers.ClientHandlers
             {
                 Dispatcher.Instance.Invoke(() =>
                 {
+                    if (statePack.data.worldState.Any(x => x.name.Contains("CoursePoint")))
+                    {
+                        Debug.unityLogger.Log("WayPoint spawning");
+                        foreach (var waypoint in statePack.data.worldState)
+                        {
+                            var gameObject = GameObject.FindGameObjectsWithTag(Constants.WayPointTag)
+                                .FirstOrDefault(go => go.name == waypoint.name);
+                        
+                            if (gameObject != null)
+                            {
+                                //Сервер однозначно определяет положение ВСЕХ объектов
+                                gameObject.transform.position = waypoint.position;
+                                gameObject.transform.rotation = waypoint.rotation;
+                            }
+                            else
+                            {
+                                var go = InstantiateHelper.InstantiateObject(waypoint);
+                                go.tag = Constants.WayPointTag;
+                                var pointer = Resources.FindObjectsOfTypeAll<CourseView>()
+                                    .First(x => x.gameObject.name == "WayPointer");
+                                pointer.SetTarget(go);
+                                pointer.gameObject.SetActive(true);
+                            }
+                        }
+                        return;
+                    }
+                    
                     if (statePack.data.worldState.Any(x => x.name.Contains("Asteroid")))
                     {
                         Debug.unityLogger.Log("Asteroid spawning");

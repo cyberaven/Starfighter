@@ -54,7 +54,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
-  sphere: {fileID: 0}
 --- !u!1 &7816933170780221695
 GameObject:
   m_ObjectHideFlags: 0
