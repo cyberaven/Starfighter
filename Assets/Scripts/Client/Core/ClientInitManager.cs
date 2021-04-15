@@ -31,8 +31,8 @@ namespace Client.Core
             FindObjectOfType<CoordinatesUI>().Init(ps);
             FindObjectOfType<RotationScript>().Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
-            GameObject.Find("VelocityPointer").GetComponent<CourseView>().Init(ps);
-            Resources.FindObjectsOfTypeAll<CourseView>().First(x=>x.name == "WayPointer").Init(ps);
+            FindObjectOfType<CourseView>().Init(ps);
+            Resources.FindObjectsOfTypeAll<GPSView>().First().Init(ps);
         }
 
         private static void InitNavigator(PlayerScript ps)

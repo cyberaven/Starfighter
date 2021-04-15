@@ -8,9 +8,9 @@ namespace Client
 
         private void LateUpdate()
         {
-            navigatorCamera.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * 1000;
+            navigatorCamera.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * 500;
             if(navigatorCamera.orthographicSize < 20) navigatorCamera.orthographicSize = 20;
-            if(navigatorCamera.orthographicSize > 3000) navigatorCamera.orthographicSize = 3000;
+            if(navigatorCamera.orthographicSize > 800) navigatorCamera.orthographicSize = 800;
         }
     }
 }
