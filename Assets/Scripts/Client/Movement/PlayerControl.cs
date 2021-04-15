@@ -57,7 +57,7 @@ namespace Client.Movement
 
         public float GetThrustSpeed()
         { 
-            return Input.GetAxis("Jump") * 2.5f;
+            return Input.GetAxis("Jump") * 5f;
         }
 
         public float GetSideManeurSpeed()
@@ -72,7 +72,7 @@ namespace Client.Movement
 
         public float GetShipAngle()
         { 
-            return Input.GetAxis("Rotation");
+            return Input.GetAxis("Rotation") * 3f;
         }
 
         public void UpdateMovementActionData(MovementEventData data)

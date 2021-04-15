@@ -3,6 +3,8 @@ using Client.Core;
 using Core;
 using Net.PackageData;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Utils;
 using EventType = Net.Utils.EventType;
 
@@ -17,7 +19,7 @@ namespace Client
 
         private void OnGUI()
         {
-            if (Event.current.button == 0 && Event.current.isMouse)
+            if (Event.current.button == (int)MouseButton.RightMouse && Event.current.isMouse)
                 SetPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
