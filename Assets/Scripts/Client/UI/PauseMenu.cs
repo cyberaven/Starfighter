@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Client.UI
 {
     public class PauseMenu : MonoBehaviour
     {
-        public GameObject pauseMenuUI;
+        public GameObject PauseMenuUI;
 
         public void Resume() 
-        { 
-            pauseMenuUI.SetActive(false);
+        {
+            PauseMenuUI.SetActive(false);
         }
 
         public void Quit() 
