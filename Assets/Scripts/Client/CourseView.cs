@@ -5,16 +5,13 @@ namespace Client
     public class CourseView : MonoBehaviour
     {
         public GameObject ship;
-        private PlayerScript _playerScript;
         private GameObject _target;
         private Vector3 _lastPosition;
-        private Quaternion _lastRotation;
 
         public void Init(PlayerScript playerScript, GameObject target = null)
         {
             Debug.unityLogger.Log($"CourseView: {gameObject.name} , {playerScript.gameObject.name}");
             ship = playerScript.gameObject;
-            _playerScript = playerScript;
             if (target is null)
                 _target = ship;
         }
@@ -28,16 +25,10 @@ namespace Client
         void Update()
         {
             var shipPosition = ship.transform.position;
-            var delta = (_target.transform.position - _lastPosition);
-            transform.LookAt(shipPosition + delta.normalized);
+            var delta = (_target.transform.position - _lastPosition).normalized;
+            transform.LookAt(shipPosition + delta);
             transform.SetPositionAndRotation(shipPosition, transform.rotation);
-            
-            _playerScript.shipSpeed = delta.magnitude / Time.deltaTime;
-            _playerScript.shipRotation =
-                (transform.rotation.eulerAngles - _lastRotation.eulerAngles).magnitude / Time.deltaTime;
-            
             _lastPosition = _target.transform.position;
-            _lastRotation = transform.rotation;
         }
     }
 }
