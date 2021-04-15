@@ -3,9 +3,7 @@ using Client.Core;
 using Core;
 using Net.PackageData;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
-using Utils;
 using EventType = Net.Utils.EventType;
 
 namespace Client

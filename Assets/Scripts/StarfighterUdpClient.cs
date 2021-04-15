@@ -4,7 +4,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading;
 using System.Threading.Tasks;
 using Net.Packages;
 using Net.Utils;

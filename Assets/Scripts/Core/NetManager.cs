@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Core;
+﻿using Core;
 
 
 public class NetManager : Singleton<NetManager>

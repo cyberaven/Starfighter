@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Client;
-using Core;
 using Net.Core;
 using Net.Interfaces;
 using Net.PackageData.EventsData;

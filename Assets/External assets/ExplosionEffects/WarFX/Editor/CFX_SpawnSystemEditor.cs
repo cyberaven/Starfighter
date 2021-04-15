@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 // Cartoon FX  - (c) 2012-2016 Jean Moreno
 

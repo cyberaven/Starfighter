@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Client;
 using Core;
+using Enums;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;

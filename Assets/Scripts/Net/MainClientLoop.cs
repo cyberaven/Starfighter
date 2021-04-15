@@ -6,6 +6,7 @@ using Client;
 using Client.Core;
 using Core;
 using Core.InputManager;
+using Enums;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
@@ -14,7 +15,6 @@ using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;
-using EventType = Net.Utils.EventType;
 
 namespace Net
 {

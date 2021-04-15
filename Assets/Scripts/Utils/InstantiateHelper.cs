@@ -1,7 +1,7 @@
 ﻿using Client;
+using Config;
 using Core;
 using Net.PackageData;
-using ScriptableObjects;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

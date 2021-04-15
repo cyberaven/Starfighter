@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Client;
+using Config;
 using Core;
 using Net.Core;
-using ScriptableObjects;
 using UnityEngine;
 using Utils;
 

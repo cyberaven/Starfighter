@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Config;
+﻿using Config;
 using UnityEngine;
 
 public class DangerZone : MonoBehaviour

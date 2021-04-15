@@ -1,5 +1,4 @@
-﻿using Client.Movement;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client
 {

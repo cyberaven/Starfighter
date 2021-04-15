@@ -1,6 +1,6 @@
 ﻿using System;
 using Client.Movement;
-using ScriptableObjects;
+using Config;
 using UnityEngine;
 
 namespace Client

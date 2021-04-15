@@ -4,7 +4,6 @@ using Client;
 using Core;
 using Net.Interfaces;
 using Net.Packages;
-using UnitBehavior;
 using UnityEngine;
 using Utils;
 using Task = System.Threading.Tasks.Task;

@@ -8,7 +8,6 @@ using Net.Packages;
 using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Utils;
 
 /// <summary>

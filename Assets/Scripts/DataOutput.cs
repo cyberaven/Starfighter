@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
 
@@ -10,6 +8,7 @@ public class DataOutput : MonoBehaviour
     Text pointsText;
     public float rotSpeed;
     private float roundSpeed;
+    
     void Start()
     {
         pointsText = GetComponent<Text>();
