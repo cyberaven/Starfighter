@@ -89,6 +89,7 @@
             <e p="DestroyBoundary.cs" t="Include" />
             <e p="Follow.cs" t="Include" />
             <e p="GPSView.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
             <e p="Movement" t="Include">
               <e p="IMovementAdapter.cs" t="Include" />
               <e p="playerControl.cs" t="Include" />

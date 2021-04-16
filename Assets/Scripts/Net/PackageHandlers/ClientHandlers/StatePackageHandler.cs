@@ -37,7 +37,7 @@ namespace Net.PackageHandlers.ClientHandlers
                             {
                                 var go = InstantiateHelper.InstantiateObject(waypoint);
                                 go.tag = Constants.WayPointTag;
-                                var pointer = Resources.FindObjectsOfTypeAll<GPSView>().FirstOrDefault();
+                                var pointer = Resources.FindObjectsOfTypeAll<GPSView>().First();
                                 pointer.SetTarget(go);
                                 pointer.gameObject.SetActive(true);
                             }

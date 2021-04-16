@@ -31,7 +31,7 @@ namespace Client.Core
             FindObjectOfType<CoordinatesUI>().Init(ps);
             FindObjectOfType<RotationScript>().Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
-            Resources.FindObjectsOfTypeAll<CourseView>().First().Init(ps);
+            FindObjectOfType<CourseView>().Init(ps);
             Resources.FindObjectsOfTypeAll<GPSView>().First().Init(ps);
         }
 
@@ -51,7 +51,6 @@ namespace Client.Core
             zoomComp.enabled = true;
             
             FindObjectOfType<CourseView>().Init(ps);
-            FindObjectOfType<CoordinatesUI>().Init(ps);
             FindObjectOfType<RotationScript>().Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
         }
