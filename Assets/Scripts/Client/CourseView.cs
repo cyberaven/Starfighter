@@ -26,8 +26,9 @@ namespace Client
         {
             var shipPosition = ship.transform.position;
             var delta = (_target.transform.position - _lastPosition).normalized;
-            transform.LookAt(shipPosition + delta);
-            transform.SetPositionAndRotation(shipPosition, transform.rotation);
+            transform.LookAt(shipPosition + delta + Vector3.up * 30);
+            var cursorPosition = shipPosition + Vector3.up * 30;
+            transform.position = cursorPosition;
             _lastPosition = _target.transform.position;
         }
     }

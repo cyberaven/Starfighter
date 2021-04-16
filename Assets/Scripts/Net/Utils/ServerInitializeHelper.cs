@@ -110,7 +110,7 @@ namespace Net.Utils
 
             yield return StartCoroutine(
                 Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToAsteroids)));
-            MainServerLoop.instance.indicator.color = Color.green;
+            MainServerLoop.instance.indicator.tintColor = Color.green;
             NetEventStorage.GetInstance().worldInit.Invoke(0);
         }
 

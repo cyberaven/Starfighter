@@ -51,7 +51,6 @@ namespace Client.Core
             zoomComp.enabled = true;
             
             FindObjectOfType<CourseView>().Init(ps);
-            FindObjectOfType<CoordinatesUI>().Init(ps);
             FindObjectOfType<RotationScript>().Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
         }

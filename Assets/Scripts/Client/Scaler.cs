@@ -15,7 +15,8 @@ namespace Client
         private void LateUpdate()
         {
             //TODO: допилить скалирование по триггеру
-            transform.localScale = new Vector3(Camera.current.orthographicSize / 20, Camera.current.orthographicSize / 20);
+            var scale = _cam.orthographicSize / 20;
+            transform.localScale = Vector3.one * scale;
         }
     }
 }
