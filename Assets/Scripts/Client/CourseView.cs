@@ -10,7 +10,6 @@ namespace Client
 
         public void Init(PlayerScript playerScript, GameObject target = null)
         {
-            Debug.unityLogger.Log($"CourseView: {gameObject.name} , {playerScript.gameObject.name}");
             ship = playerScript.gameObject;
             if (target is null)
                 _target = ship;
@@ -26,8 +25,8 @@ namespace Client
         {
             var shipPosition = ship.transform.position;
             var delta = (_target.transform.position - _lastPosition).normalized;
-            transform.LookAt(shipPosition + delta + Vector3.up * 30);
-            var cursorPosition = shipPosition + Vector3.up * 30;
+            transform.LookAt(shipPosition + delta + Vector3.up * 70);
+            var cursorPosition = shipPosition + Vector3.up * 70;
             transform.position = cursorPosition;
             _lastPosition = _target.transform.position;
         }

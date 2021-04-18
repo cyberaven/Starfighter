@@ -14,7 +14,7 @@ namespace Client
         private void Start()
         {
             _camera = gameObject.GetComponent<Camera>();
-            _offset = Vector3.zero + Vector3.up*50;
+            _offset = Vector3.up * 90;
         }
 
         private void FreeMode()

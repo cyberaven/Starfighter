@@ -27,11 +27,11 @@ namespace Client.Core
             cam.orthographicSize = 25;
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
-            FindObjectOfType<DataOutput>().Init(ps);
-            FindObjectOfType<CoordinatesUI>().Init(ps);
-            FindObjectOfType<RotationScript>().Init(ps);
+            FindObjectOfType<DataOutput>()?.Init(ps);
+            FindObjectOfType<CoordinatesUI>()?.Init(ps);
+            FindObjectOfType<RotationScript>()?.Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
-            FindObjectOfType<CourseView>().Init(ps);
+            FindObjectOfType<CourseView>()?.Init(ps);
             Resources.FindObjectsOfTypeAll<GPSView>().First().Init(ps);
         }
 
@@ -50,8 +50,8 @@ namespace Client.Core
             zoomComp.navigatorCamera = cam;
             zoomComp.enabled = true;
             
-            FindObjectOfType<CourseView>().Init(ps);
-            FindObjectOfType<RotationScript>().Init(ps);
+            FindObjectOfType<CourseView>()?.Init(ps);
+            FindObjectOfType<RotationScript>()?.Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
         }
     }
