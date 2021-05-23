@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using Client;
 using Core;
 using Core.InputManager;
 using Net.Core;
@@ -12,8 +13,8 @@ using Net.Packages;
 using Net.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-// using UnityEngine.UI;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+// using UnityEngine.UIElements;
 using Utils;
 
 namespace Net
@@ -31,7 +32,6 @@ namespace Net
         private new void Awake()
         {
             base.Awake();
-            
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
             NetEventStorage.GetInstance().worldInit.AddListener(BeginReceiving);
         }
@@ -99,6 +99,19 @@ namespace Net
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
             foreach (var go in allGameObjects)
             {
+                if (go.CompareTag(Constants.WayPointTag))
+                {
+                    worldObjects.Add(new WayPoint(go.name, go.transform));
+                    yield return null;
+                }
+
+                if (go.GetComponent<PlayerScript>() != null)
+                {
+                    var rb = go.GetComponent<Rigidbody>();
+                    worldObjects.Add(new SpaceShip(go.name, go.transform, rb.velocity, rb.angularVelocity));
+                    yield return null;
+                }
+
                 worldObjects.Add(new WorldObject(go.name, go.transform));
                 yield return null;
             }

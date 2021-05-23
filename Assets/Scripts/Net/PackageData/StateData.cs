@@ -7,7 +7,7 @@ namespace Net.PackageData
     public class StateData
     {
         [SerializeField]
-        public WorldObject[] worldState; //стоит ли так делать? Или какую-то структуру полегче? Это очень много инфы.
+        public WorldObject[] worldState;
     }
 
     [Serializable]
@@ -28,5 +28,35 @@ namespace Net.PackageData
         public Quaternion rotation;
     }
 
+    [Serializable]
+    public class Asteroid : WorldObject
+    {
+        public Asteroid(string _name, Transform _transform) : base(_name, _transform)
+        {}
+    }
+    
+    [Serializable]
+    public class WayPoint : WorldObject
+    {
+        public WayPoint(string _name, Transform _transform) : base(_name, _transform)
+        {}
+    }
 
+    [Serializable]
+    public class SpaceShip : WorldObject
+    {
+        [SerializeField]
+        public Vector3 velocity;
+        [SerializeField]
+        public Vector3 angularVelocity;
+
+        public SpaceShip(string _name, Transform _transform, Vector3 _velocity, Vector3 _angularVelocity) : base(_name,
+            _transform)
+        {
+            velocity = _velocity;
+            angularVelocity = _angularVelocity;
+        }
+    }
+
+    
 }

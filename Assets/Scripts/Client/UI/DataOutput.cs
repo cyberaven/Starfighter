@@ -31,8 +31,8 @@ namespace Client.UI
         // Update is called once per frame
         private void Update()
         {
-            _roundSpeed = (float)Math.Round(_ship.shipSpeed, 2); // скорость полета
-            _rotSpeed = (float)Math.Round(_ship.shipRotation * Mathf.Rad2Deg, 2); //скорость врещения в градусах
+            _roundSpeed = (float)Math.Round(_ship.shipSpeed.magnitude, 2); // скорость полета
+            _rotSpeed = (float)Math.Round(_ship.shipRotation.magnitude * Mathf.Rad2Deg, 2); //скорость врещения в градусах
             _pointsText.text = "Скорость: " + _roundSpeed.ToString() + "\n" + "Вращение: " + _rotSpeed.ToString();// вывод в UI
         }
     }

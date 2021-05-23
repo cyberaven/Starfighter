@@ -19,7 +19,7 @@ namespace Core
         public static void ExportAsteroids(string filepath = "./asteroids.json")
         {
             var asteroids = GameObject.FindGameObjectsWithTag(Constants.AsteroidTag)
-                .Select(obj => new WorldObject(obj.name.Replace("(Clone)",""), obj.transform)).ToArray();
+                .Select(obj => new Asteroid(obj.name.Replace("(Clone)",""), obj.transform)).ToArray();
             var worldState = new StateData()
             {
                 worldState = asteroids

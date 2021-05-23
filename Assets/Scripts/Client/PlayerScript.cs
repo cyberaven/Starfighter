@@ -8,14 +8,13 @@ namespace Client
     //enum for filling field in unityEditor
     public enum MovementAdapter
     {
-        BlankControl,
         PlayerControl,
         RemoteNetworkControl
     }
     
     public class PlayerScript : MonoBehaviour
     {
-        public float shipSpeed, shipRotation;
+        public Vector3 shipSpeed, shipRotation;
         public MovementAdapter movementAdapter;
         
         public IMovementAdapter ShipsBrain;
@@ -43,8 +42,8 @@ namespace Client
             _right = gameObject.transform.Find("Right");
             _ship = GetComponent<Rigidbody>();
             _thrustForce = GetComponent<ConstantForce>();
-            shipSpeed = 0;
-            shipRotation = 0;
+            shipSpeed = Vector3.zero;
+            shipRotation = Vector3.zero;
             
             _trm = gameObject.transform.Find("TopRightEmition").GetComponent<ParticleSystem>();
             _tlm = gameObject.transform.Find("TopLeftEmition").GetComponent<ParticleSystem>();
@@ -68,10 +67,6 @@ namespace Client
         // Update is called once per frame
         private void FixedUpdate()
         {
-            //for UI displaying
-            shipSpeed = _ship.velocity.magnitude;
-            shipRotation = _ship.angularVelocity.magnitude;
-
             UpdateMovement();
             AnimateMovement();
         }

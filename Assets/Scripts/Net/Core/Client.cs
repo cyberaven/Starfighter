@@ -151,7 +151,7 @@ namespace Net.Core
                 Debug.unityLogger.Log($"sended {range.Count} asteroids, {asteroids.Count} remains");
                 SendWorldState(new StateData()
                 {
-                    worldState = range.Select(x => new WorldObject(x.name, x.transform)).ToArray()
+                    worldState = range.Select(x => new Asteroid(x.name, x.transform)).ToArray()
                 });
                 
                 yield return new WaitForSeconds(0.5f);

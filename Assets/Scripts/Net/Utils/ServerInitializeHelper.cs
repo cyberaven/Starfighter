@@ -9,6 +9,7 @@ using Config;
 using Core;
 using Net.Core;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utils;
 
 namespace Net.Utils
@@ -110,7 +111,7 @@ namespace Net.Utils
 
             yield return StartCoroutine(
                 Importer.AddAsteroidsOnScene(Importer.ImportAsteroids(Constants.PathToAsteroids)));
-            MainServerLoop.instance.indicator.tintColor = Color.green;
+            MainServerLoop.instance.indicator.color = Color.green;
             NetEventStorage.GetInstance().worldInit.Invoke(0);
         }
 

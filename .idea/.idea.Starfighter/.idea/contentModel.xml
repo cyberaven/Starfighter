@@ -78,7 +78,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Activation.cs" t="Include" />
           <e p="Client" t="Include">
             <e p="CameraMotion.cs" t="Include" />
             <e p="Core" t="Include">
@@ -89,7 +88,6 @@
             <e p="DestroyBoundary.cs" t="Include" />
             <e p="Follow.cs" t="Include" />
             <e p="GPSView.cs" t="Include" />
-            <e p="MainMenu.cs" t="Include" />
             <e p="Movement" t="Include">
               <e p="IMovementAdapter.cs" t="Include" />
               <e p="playerControl.cs" t="Include" />
@@ -111,8 +109,6 @@
             </e>
             <e p="Zoom.cs" t="Include" />
           </e>
-          <e p="Client.cs" t="Include" />
-          <e p="ClientManager.cs" t="Include" />
           <e p="Core" t="Include">
             <e p="AbstractSingleton.cs" t="Include" />
             <e p="ClientConnectionHelper.cs" t="Include" />
@@ -137,11 +133,13 @@
             </e>
             <e p="NetManager.cs" t="Include" />
           </e>
-          <e p="DataOutput.cs" t="Include" />
-          <e p="DestroyBoundary.cs" t="Include" />
-          <e p="Follow.cs" t="Include" />
-          <e p="laserScript.cs" t="Include" />
           <e p="Net" t="Include">
+            <e p="Core" t="Include">
+              <e p="Client.cs" t="Include" />
+              <e p="ClientManager.cs" t="Include" />
+              <e p="NetEventStorage.cs" t="Include" />
+              <e p="StarfighterUdpClient.cs" t="Include" />
+            </e>
             <e p="Interfaces" t="Include">
               <e p="IPackageHandler.cs" t="Include" />
             </e>
@@ -192,9 +190,6 @@
               <e p="ServerInitializeHelper.cs" t="Include" />
             </e>
           </e>
-          <e p="NetEventStorage.cs" t="Include" />
-          <e p="playerScript.cs" t="Include" />
-          <e p="Rotator.cs" t="Include" />
           <e p="ScriptableObjects" t="Include">
             <e p="ClientAccountObject.cs" t="Include" />
             <e p="DangerZoneConfig.cs" t="Include" />
@@ -208,7 +203,6 @@
               <e p="ReadMe.txt" t="Include" />
             </e>
           </e>
-          <e p="StarfighterUdpClient.cs" t="Include" />
           <e p="UnitBehavior" t="Include">
             <e p="Asteroid.cs" t="Include" />
             <e p="DangerZone.cs" t="Include" />

@@ -3,6 +3,7 @@ using System.Linq;
 using Client;
 using Core;
 using Net.Interfaces;
+using Net.PackageData;
 using Net.Packages;
 using UnityEngine;
 using Utils;
@@ -19,63 +20,87 @@ namespace Net.PackageHandlers.ClientHandlers
             {
                 Dispatcher.Instance.Invoke(() =>
                 {
-                    if (statePack.data.worldState.Any(x => x.name.Contains("CoursePoint")))
+                    foreach (var worldObject in statePack.data.worldState)
                     {
-                        Debug.unityLogger.Log("WayPoint spawning");
-                        foreach (var waypoint in statePack.data.worldState)
+                        if (worldObject is Asteroid)
+                        {
+                            var go = InstantiateHelper.InstantiateObject(worldObject);
+                            Debug.unityLogger.Log($"asteroid are added");
+                            go.tag = Constants.AsteroidTag;
+                            continue;
+                        }
+
+                        if (worldObject is WayPoint)
                         {
                             var gameObject = GameObject.FindGameObjectsWithTag(Constants.WayPointTag)
-                                .FirstOrDefault(go => go.name == waypoint.name);
+                                .FirstOrDefault(go => go.name == worldObject.name);
                         
                             if (gameObject != null)
                             {
                                 //Сервер однозначно определяет положение ВСЕХ объектов
-                                gameObject.transform.position = waypoint.position;
-                                gameObject.transform.rotation = waypoint.rotation;
+                                gameObject.transform.position = worldObject.position;
+                                gameObject.transform.rotation = worldObject.rotation;
                             }
                             else
                             {
-                                var go = InstantiateHelper.InstantiateObject(waypoint);
+                                var go = InstantiateHelper.InstantiateObject(worldObject);
                                 go.tag = Constants.WayPointTag;
                                 var pointer = Resources.FindObjectsOfTypeAll<GPSView>().First();
                                 pointer.SetTarget(go);
                                 pointer.gameObject.SetActive(true);
                             }
+
+                            continue;
                         }
-                        return;
-                    }
-                    
-                    if (statePack.data.worldState.Any(x => x.name.Contains("Asteroid")))
-                    {
-                        Debug.unityLogger.Log("Asteroid spawning");
-                        foreach (var asteroid in statePack.data.worldState)
+
+                        if (worldObject is SpaceShip)
                         {
-                            var go = InstantiateHelper.InstantiateObject(asteroid);
-                            Debug.unityLogger.Log($"asteroid are added");
-                            go.tag = Constants.AsteroidTag;
-                        }
-                        return;
-                    }
-                    
-                    foreach (var worldObject in statePack.data.worldState)
-                    {
-                        var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
-                            .FirstOrDefault(go => go.name == worldObject.name);
-                        
-                        if (gameObject != null)
-                        {
-                            //Сервер однозначно определяет положение ВСЕХ объектов
-                            gameObject.transform.position = worldObject.position;
-                            gameObject.transform.rotation = worldObject.rotation;
-                        }
-                        else
-                        {
-                            var go = InstantiateHelper.InstantiateObject(worldObject);
-                            var ps = go.GetComponent<PlayerScript>();
-                            if (ps is null) continue;
-                            if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
+                            var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                                .FirstOrDefault(go => go.name == worldObject.name);
+
+                            if (gameObject != null)
                             {
-                                ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
+                                //Сервер однозначно определяет положение ВСЕХ объектов
+                                gameObject.transform.position = worldObject.position;
+                                gameObject.transform.rotation = worldObject.rotation;
+                                gameObject.GetComponent<PlayerScript>().shipRotation =
+                                    (worldObject as SpaceShip).angularVelocity;
+                                gameObject.GetComponent<PlayerScript>().shipSpeed =
+                                    (worldObject as SpaceShip).velocity;
+                            }
+                            else
+                            {
+                                var go = InstantiateHelper.InstantiateObject(worldObject);
+                                var ps = go.GetComponent<PlayerScript>();
+                                if (ps is null) continue;
+                                if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
+                                {
+                                    ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
+                                }
+                            }
+                            continue;
+                        }
+
+                        //default: WorldObject
+                        {
+                            var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
+                                .FirstOrDefault(go => go.name == worldObject.name);
+
+                            if (gameObject != null)
+                            {
+                                //Сервер однозначно определяет положение ВСЕХ объектов
+                                gameObject.transform.position = worldObject.position;
+                                gameObject.transform.rotation = worldObject.rotation;
+                            }
+                            else
+                            {
+                                var go = InstantiateHelper.InstantiateObject(worldObject);
+                                var ps = go.GetComponent<PlayerScript>();
+                                if (ps is null) continue;
+                                if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
+                                {
+                                    ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
+                                }
                             }
                         }
                     }
