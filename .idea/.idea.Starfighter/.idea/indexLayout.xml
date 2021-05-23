@@ -24,7 +24,6 @@
       <Path>Library/PackageCache/nuget.mono-cecil@0.1.6-preview</Path>
       <Path>Packages</Path>
       <Path>ProjectSettings</Path>
-      <Path>../../Users/kozhevnikov.a/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@3.3.5</Path>
     </explicitIncludes>
     <explicitExcludes>
       <Path>.git</Path>
