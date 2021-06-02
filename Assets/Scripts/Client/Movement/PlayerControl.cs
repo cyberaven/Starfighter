@@ -72,7 +72,7 @@ namespace Client.Movement
 
         public float GetShipAngle()
         { 
-            return Input.GetAxis("Rotation") * 3f;
+            return Input.GetAxis("Rotation") * 4.5f;
         }
 
         public void UpdateMovementActionData(MovementEventData data)
