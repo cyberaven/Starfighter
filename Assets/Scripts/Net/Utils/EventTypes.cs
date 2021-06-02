@@ -4,6 +4,7 @@
     {
         MoveEvent,
         DockEvent,
+        TowEvent,
         FireEvent,
         HitEvent,
         InitEvent,

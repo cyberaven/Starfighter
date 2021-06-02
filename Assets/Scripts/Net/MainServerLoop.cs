@@ -120,7 +120,8 @@ namespace Net
             {
                 worldState = worldObjects.ToArray()
             });
-            
+
+            yield return new WaitForSecondsRealtime(Constants.WorldUpdateTimeout);
             NetEventStorage.GetInstance().updateWorldState.Invoke(statePackage);
         }
         

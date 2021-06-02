@@ -7,7 +7,8 @@ namespace Config
     [Serializable]
     public class SpaceShipConfig: SpaceUnitConfig
     {
-        public float maxFuel;
+        public float maxStress;
+        public float currentStress;
         public string shipId;
     }
 }

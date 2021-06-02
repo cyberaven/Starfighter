@@ -2,6 +2,8 @@
 {
     public class Constants
     {
+        public const float WorldUpdateTimeout = 0.001f;
+        
         public const string MulticastAddress = "239.255.255.250";
         
         public const int ServerReceivingPort = 40001;

@@ -144,11 +144,12 @@ namespace Net.Core
 
         private IEnumerator WorldInitCoroutine(List<GameObject> asteroids, int rangeSize = 10)
         {
+            yield return new WaitForSeconds(0.5f);
             while (asteroids.Count > 0)
             {
                 var range = asteroids.GetRange(0, Mathf.Min(rangeSize, asteroids.Count));
                 asteroids.RemoveRange(0, Mathf.Min(rangeSize, asteroids.Count));
-                Debug.unityLogger.Log($"sended {range.Count} asteroids, {asteroids.Count} remains");
+                Debug.unityLogger.Log($"sended {range.Count} asteroids, {asteroids.Count} remains. Coords {range[0].transform.position}");
                 SendWorldState(new StateData()
                 {
                     worldState = range.Select(x => new Asteroid(x.name, x.transform)).ToArray()

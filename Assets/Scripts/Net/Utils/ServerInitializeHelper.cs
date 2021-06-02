@@ -20,12 +20,13 @@ namespace Net.Utils
         [Serializable]
         public class SpaceShipDto
         {
-            public float maxFuel;
+            public float maxStress;
+            public float currentStress;
             public string shipId;
             public float maxAngleSpeed;
             public float maxSpeed;
-            public int maxHp;
-            public int currentHp;
+            public float maxHp;
+            public float currentHp;
             public bool isDockable;
             public Vector3 position = Vector3.one;
             public Quaternion rotation = Quaternion.identity;
@@ -33,7 +34,8 @@ namespace Net.Utils
 
             public SpaceShipDto(SpaceShipConfig config)
             {
-                maxFuel = config.maxFuel;
+                maxStress = config.maxStress;
+                currentStress = config.currentStress;
                 shipId = config.shipId;
                 maxAngleSpeed = config.maxAngleSpeed;
                 maxSpeed = config.maxSpeed;
@@ -71,7 +73,8 @@ namespace Net.Utils
                     .spaceShipConfigs.Select(x =>
                     {
                         var temp = ScriptableObject.CreateInstance<SpaceShipConfig>();
-                        temp.maxFuel = x.maxFuel;
+                        temp.maxStress = x.maxStress;
+                        temp.currentStress = x.currentStress;
                         temp.shipId = x.shipId;
                         temp.maxAngleSpeed = x.maxAngleSpeed;
                         temp.maxSpeed = x.maxSpeed;
@@ -86,12 +89,12 @@ namespace Net.Utils
             }
             catch (FileNotFoundException ex)
             {
-                Debug.unityLogger.Log("ERROR");
+                Debug.unityLogger.Log($"ERROR: {ex.Message}");
                 _shipConfigs = Resources.LoadAll<SpaceShipConfig>(Constants.PathToShipsObjects);
             }
             catch (SerializationException ex)
             {
-                Debug.unityLogger.Log("ERROR");
+                Debug.unityLogger.Log($"ERROR {ex.Message}");
                 _shipConfigs = Resources.LoadAll<SpaceShipConfig>(Constants.PathToShipsObjects);
             }
             
