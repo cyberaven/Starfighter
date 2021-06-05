@@ -28,6 +28,9 @@ namespace Client.Core
             followComp.Player = ps.gameObject;
             followComp.enabled = true;
             FindObjectOfType<DataOutput>()?.Init(ps);
+            FindObjectOfType<RotationWheelScript>()?.Init(ps);
+            FindObjectOfType<RotationPanelScript>()?.Init(ps);
+            FindObjectOfType<SpeedPanelScript>()?.Init(ps);
             FindObjectOfType<CoordinatesUI>()?.Init(ps);
             FindObjectOfType<RotationScript>()?.Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
