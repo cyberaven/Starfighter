@@ -24,6 +24,7 @@ namespace Net.Core
         public List<Client> ConnectedClients;
         [SerializeField] private List<ClientAccountObject> accountObjects;
 
+        
         private new void Awake()
         {
             base.Awake();

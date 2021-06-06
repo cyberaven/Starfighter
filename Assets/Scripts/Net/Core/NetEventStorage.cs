@@ -18,6 +18,7 @@ namespace Net.Core
         public ClientEvent worldInitDone = new ClientEvent();
         public WayPointEvent wayPointSetted = new WayPointEvent();
 
+        
         public static NetEventStorage GetInstance()
         {
             return _instance ?? (_instance = new NetEventStorage());

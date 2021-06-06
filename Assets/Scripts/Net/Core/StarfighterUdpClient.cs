@@ -17,6 +17,7 @@ namespace Net.Core
         private readonly int _sendingPort;
         private readonly UdpClient _receivingClient;
 
+        
         public StarfighterUdpClient(IPAddress sendingAddress, int sendingPort, int receivingPort)
         {
             _sendingPort = sendingPort;

@@ -29,6 +29,7 @@ namespace Net
         private StarfighterUdpClient _multicastUdpClient;
         private Coroutine currentCoroutine, previousCoroutine;
         
+        
         private new void Awake()
         {
             base.Awake();

@@ -12,6 +12,7 @@ namespace Client
         RemoteNetworkControl
     }
     
+    
     public class PlayerScript : MonoBehaviour
     {
         public Vector3 shipSpeed, shipRotation;

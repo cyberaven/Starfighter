@@ -33,9 +33,9 @@ namespace Client.Core
             FindObjectOfType<SpeedPanelScript>()?.Init(ps);
             FindObjectOfType<CoordinatesUI>()?.Init(ps);
             FindObjectOfType<RotationScript>()?.Init(ps);
-            FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
             FindObjectOfType<CourseView>()?.Init(ps);
             Resources.FindObjectsOfTypeAll<GPSView>().First().Init(ps);
+            FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;
         }
 
         private static void InitNavigator(PlayerScript ps)
