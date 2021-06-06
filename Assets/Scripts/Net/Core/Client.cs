@@ -28,6 +28,7 @@ namespace Net.Core
         private string _myGameObjectName;
         private UserType _accountType;
 
+        
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
             try

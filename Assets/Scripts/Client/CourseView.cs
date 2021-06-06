@@ -8,6 +8,7 @@ namespace Client
         private GameObject _target;
         private Vector3 _lastPosition;
 
+        
         public void Init(PlayerScript playerScript, GameObject target = null)
         {
             ship = playerScript.gameObject;

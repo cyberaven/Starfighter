@@ -33,6 +33,7 @@ namespace Net
 
         private PlayerScript _playerScript = null;
         
+        
         private new void Awake()
         {
             base.Awake();

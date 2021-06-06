@@ -106,6 +106,9 @@
               <e p="MainMenu.cs" t="Include" />
               <e p="MenuButton.cs" t="Include" />
               <e p="PauseMenu.cs" t="Include" />
+              <e p="RotationPanelScript.cs" t="Include" />
+              <e p="RotationWheelScript.cs" t="Include" />
+              <e p="SpeedPanelScript.cs" t="Include" />
             </e>
             <e p="Zoom.cs" t="Include" />
           </e>
