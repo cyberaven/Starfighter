@@ -10,7 +10,5 @@ namespace Config
         public Vector3 Center;
         public float Radius;
         public Color Color;
-
-        //public UnityEvent<string> ValueChange => new StringEvent();
     }
 }

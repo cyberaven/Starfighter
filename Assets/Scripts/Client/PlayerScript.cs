@@ -1,7 +1,9 @@
 ﻿using System;
 using Client.Movement;
 using Config;
+using Net.Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Client
 {
@@ -27,16 +29,9 @@ namespace Client
         private Rigidbody _ship, _engine;
         private ParticleSystem _tlm, _trm, _blm, _brm, _te;
         private ConstantForce _thrustForce;
-        
-        [SerializeField]
-        private Vector3 thrustForceVector;
-        [SerializeField]
-        private Vector3 maneurForceVector;
-        
 
         private void Start()
         {
-            // всякое говно при создании объекта
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");
             _left = gameObject.transform.Find("Left");
@@ -64,8 +59,7 @@ namespace Client
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        // Update is called once per frame
+        
         private void FixedUpdate()
         {
             UpdateMovement();
@@ -74,9 +68,9 @@ namespace Client
         
         private void UpdateMovement()
         {
-            // рассчет вектора тяги
-            thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
-            maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
+            // расчет вектора тяги
+            var thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
+            var maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
             _thrustForce.force = 
                 (thrustForceVector.normalized) * (ShipsBrain.GetThrustSpeed() + ShipsBrain.GetStraightManeurSpeed()) +
                 (maneurForceVector.normalized) * ShipsBrain.GetSideManeurSpeed();

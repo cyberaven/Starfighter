@@ -77,6 +77,8 @@ namespace Client.Movement
             return _lastMovement.rotationValue;
         }
 
+        public bool GetAnyAction() => false;
+        
         public void UpdateMovementActionData(MovementEventData data)
         {
             _lastMovement = data;

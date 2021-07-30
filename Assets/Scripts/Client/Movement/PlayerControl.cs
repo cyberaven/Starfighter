@@ -1,18 +1,24 @@
 ﻿using System;
+using Config;
+using Core.InputManager;
 using Net.Core;
 using Net.PackageData.EventsData;
 using Net.Utils;
 using UnityEngine;
+using EventType = Net.Utils.EventType;
 
 namespace Client.Movement
 {   
     public class PlayerControl: IMovementAdapter
     {
         private MovementEventData _lastMovement;
+        private KeyConfig _keyConfig;
         
         public PlayerControl()
         {
             NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
+            NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
+            _keyConfig = InputManager.instance.keyConfig;
         }
         
         public EngineState getMovement()
@@ -55,26 +61,18 @@ namespace Client.Movement
             return state;
         }
 
-        public float GetThrustSpeed()
-        { 
-            return Input.GetAxis("Jump") * 5f;
-        }
+        public float GetThrustSpeed() => Input.GetAxis("Jump") * 5f;
 
-        public float GetSideManeurSpeed()
-        { 
-            return Input.GetAxis("Horizontal");
-        }
+        public float GetSideManeurSpeed() => Input.GetAxis("Horizontal");
 
-        public float GetStraightManeurSpeed()
-        { 
-            return Input.GetAxis("Vertical");
-        }
+        public float GetStraightManeurSpeed() => Input.GetAxis("Vertical");
 
-        public float GetShipAngle()
-        { 
-            return Input.GetAxis("Rotation") * 4.5f;
-        }
+        public float GetShipAngle() => Input.GetAxis("Rotation") * 4.5f;
 
+        public bool GetDockAction() => Input.GetKeyDown(_keyConfig.dock);
+
+        public bool GetFireAction() => Input.GetKeyDown(_keyConfig.fire);
+        
         public void UpdateMovementActionData(MovementEventData data)
         {
             _lastMovement = data;
@@ -93,6 +91,26 @@ namespace Client.Movement
                 };
                 UpdateMovementActionData(movementData);
                 var result = await udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent);
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
+        }
+
+        public async void SendAction(StarfighterUdpClient udpClient)
+        {
+            try
+            {
+                if (GetDockAction())
+                {
+                    var result = await udpClient.SendEventPackage(null, EventType.DockEvent);
+                }
+
+                if (GetFireAction())
+                {
+                    var result = await udpClient.SendEventPackage(null, EventType.FireEvent);
+                }
             }
             catch (Exception ex)
             {

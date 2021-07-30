@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482475, g: 0.49827462, b: 0.5755831, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482472, g: 0.49827385, b: 0.57558215, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -878,6 +878,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84ec56889bdab5948938231b4f137cb5, type: 2}
   - {fileID: 11400000, guid: 05fb9e707d9caa14db8adc00133a6d94, type: 2}
   - {fileID: 11400000, guid: b37de5f8b3f5bdc4fafe3d983dba861b, type: 2}
+  keyConfig: {fileID: 11400000, guid: fca14635af08fe442a8970f56fa16013, type: 2}
 --- !u!114 &410690067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,7 +1191,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 181, y: -118.39}
-  m_SizeDelta: {x: -76.7019, y: 50.00009}
+  m_SizeDelta: {x: 75, y: 50.00009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666618912
 MonoBehaviour:
@@ -2424,7 +2425,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -181.7, y: -118.39}
-  m_SizeDelta: {x: -76.7019, y: 50.00009}
+  m_SizeDelta: {x: 75, y: 50.00009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350091955
 MonoBehaviour:
@@ -3088,6 +3089,11 @@ PrefabInstance:
       propertyPath: PauseMenuUI
       value: 
       objectReference: {fileID: 733502346}
+    - target: {fileID: 4343821991816413819, guid: 972bf1e5a1e06ba4384913243daf711f,
+        type: 3}
+      propertyPath: m_padding
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4935541284331218832, guid: 972bf1e5a1e06ba4384913243daf711f,
         type: 3}
       propertyPath: m_textInfo.characterCount
