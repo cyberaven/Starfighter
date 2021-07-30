@@ -74,9 +74,34 @@
             </e>
           </e>
         </e>
+        <e p="Luminaris Starship" t="Include">
+          <e p="Documentation" t="Include">
+            <e p="Readme Luminaris.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Particle System Color Changer" t="Include">
+          <e p="Example" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="PS_ExampleRandomColorChange.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="PS_ColorChanger.cs" t="Include" />
+            <e p="PS_ColorChangerEditor.cs" t="Include" />
+          </e>
+        </e>
         <e p="Procedural fire" t="Include">
           <e p="Shaders" t="Include">
             <e p="FireSphere.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Prefabs" t="Include">
+            <e p="RacingMission" t="Include">
+              <e p="space_frigate" t="Include">
+                <e p="Прочитать.txt" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -105,6 +130,8 @@
             <e p="UI" t="Include">
               <e p="CoordinatesUI.cs" t="Include" />
               <e p="DataOutput.cs" t="Include" />
+              <e p="DockingState.cs" t="Include" />
+              <e p="DockingTrigger.cs" t="Include" />
               <e p="MainMenu.cs" t="Include" />
               <e p="MenuButton.cs" t="Include" />
               <e p="PauseMenu.cs" t="Include" />
