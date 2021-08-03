@@ -1,23 +1,16 @@
-﻿using Client;
-using Unity.Mathematics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class RotationPanelScript : MonoBehaviour
+namespace Client.UI
 {
-    private PlayerScript _ship;
-    [SerializeField] private Image _image;
-    // Start is called before the first frame update
+    public class RotationPanelScript : BasePlayerUIElement
+    {
+        [SerializeField] private Image _image;
 
-    
-    public void Init(PlayerScript ship)
-    {
-        _ship = ship;
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        _image.fillAmount = _ship.shipRotation.magnitude*Mathf.Rad2Deg / 90;
+
+        void Update()
+        {
+            _image.fillAmount = PlayerScript.shipRotation.magnitude*Mathf.Rad2Deg / 90;
+        }
     }
 }

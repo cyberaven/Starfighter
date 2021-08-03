@@ -6,7 +6,6 @@ using Client;
 using Client.Core;
 using Core;
 using Core.InputManager;
-using Enums;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;

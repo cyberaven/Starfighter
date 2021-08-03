@@ -1,22 +1,16 @@
-﻿using Client;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SpeedPanelScript : MonoBehaviour
+namespace Client.UI
 {
-    private PlayerScript _ship;
-    [SerializeField] private Image _image;
-    // Start is called before the first frame update
-
-    
-    public void Init(PlayerScript ship)
+    public class SpeedPanelScript : BasePlayerUIElement
     {
-        _ship = ship;
-    }
+        [SerializeField] private Image _image;
     
-    // Update is called once per frame
-    void Update()
-    {
-        _image.fillAmount = _ship.shipSpeed.magnitude / 100;
+    
+        void Update()
+        {
+            _image.fillAmount = PlayerScript.shipSpeed.magnitude / 100;
+        }
     }
 }

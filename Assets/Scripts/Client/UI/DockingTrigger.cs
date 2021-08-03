@@ -1,23 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Net.Core;
 using UnityEngine;
 
-public class DockingTrigger : MonoBehaviour
+namespace Client.UI
 {
-    [SerializeField]
-    private Boolean _isDocked = false;
-    
-    
-    void OnTriggerEnter(Collider myTrigger) 
+    public class DockingTrigger : BasePlayerUIElement
     {
-        _isDocked = true;
-        Debug.unityLogger.Log(_isDocked);
-    }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            var otherUnit = other.gameObject.GetComponentInParent<PlayerScript>();
+            if (otherUnit.shipConfig.isDockable && PlayerScript.shipConfig.isDockable)
+            {
+                PlayerScript.lastThingToDock = otherUnit;
+                otherUnit.readyToDock = true;
+                PlayerScript.readyToDock = true;
+            }
+        }
 
-    private void OnTriggerExit(Collider other)
-    {
-        _isDocked = false;
-        Debug.unityLogger.Log(_isDocked);
+        private void OnTriggerExit(Collider other)
+        {
+            other.gameObject.GetComponent<PlayerScript>().readyToDock = false;
+            PlayerScript.readyToDock = false;
+        }
+        
+        
     }
 }

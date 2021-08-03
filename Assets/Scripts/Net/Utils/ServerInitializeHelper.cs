@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Client;
-using Config;
 using Core;
 using Net.Core;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utils;
@@ -31,6 +31,7 @@ namespace Net.Utils
             public Vector3 position = Vector3.one;
             public Quaternion rotation = Quaternion.identity;
             public string prefabName;
+            public UnitState shipState;
 
             public SpaceShipDto(SpaceShipConfig config)
             {
@@ -84,6 +85,7 @@ namespace Net.Utils
                         temp.position = x.position;
                         temp.rotation = x.rotation;
                         temp.prefabName = x.prefabName;
+                        temp.shipState = x.shipState;
                         return temp;
                     }).ToArray();
             }
@@ -128,6 +130,7 @@ namespace Net.Utils
                 spaceShipConfig.rotation = ship.transform.rotation;
                 spaceShipConfig.position = ship.transform.position;
                 //TODO: Save other fields;
+                spaceShipConfig.shipState = ship.GetComponent<PlayerScript>().GetState();
             }
             
             File.WriteAllText(Constants.PathToShips, JsonUtility.ToJson(new SpaceShipsWrapper()

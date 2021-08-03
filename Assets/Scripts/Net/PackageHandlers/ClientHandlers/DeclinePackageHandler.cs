@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Net.Core;
 using Net.Interfaces;
 using Net.Packages;
 
@@ -8,7 +9,7 @@ namespace Net.PackageHandlers.ClientHandlers
     {
         public async Task Handle(AbstractPackage pack)
         {
-            throw new System.NotImplementedException();
+            NetEventStorage.GetInstance().declinePackageRecieved.Invoke(pack);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Config;
 using Net.Core;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -27,11 +27,9 @@ namespace Core.InputManager
 
             typeof(KeyConfig).GetFields().ToList().ForEach(x =>
             {
-                if (Input.GetKeyDown(x.GetValue(keyConfig).ToString()))
-                {
-                    Enum.TryParse(x.GetValue(keyConfig).ToString(), out KeyCode value);
-                    CoreEventStorage.GetInstance().actionKeyPressed.Invoke(value);
-                }
+                if (!Input.GetKeyDown(x.GetValue(keyConfig).ToString())) return;
+                Enum.TryParse(x.GetValue(keyConfig).ToString(), out KeyCode value);
+                CoreEventStorage.GetInstance().actionKeyPressed.Invoke(value);
             });
         }
 

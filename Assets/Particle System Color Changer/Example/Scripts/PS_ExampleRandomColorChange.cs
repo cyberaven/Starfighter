@@ -1,8 +1,9 @@
-namespace TheDeveloper.ColorChanger
-{
-    using System.Collections;
-    using UnityEngine;
+using System.Collections;
+using Particle_System_Color_Changer.Scripts;
+using UnityEngine;
 
+namespace Particle_System_Color_Changer.Example.Scripts
+{
     public class PS_ExampleRandomColorChange : MonoBehaviour
     {
         public PS_ColorChanger colorChanger;

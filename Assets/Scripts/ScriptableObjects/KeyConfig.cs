@@ -1,7 +1,7 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
-namespace Config
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "KeyConfig", menuName = "Configs/KeyConfig", order = 0)]
     [Serializable]

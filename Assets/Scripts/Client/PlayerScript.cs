@@ -1,7 +1,9 @@
 ﻿using System;
+using Client.Core;
 using Client.Movement;
-using Config;
+using Core;
 using Net.Core;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,11 +21,13 @@ namespace Client
     {
         public Vector3 shipSpeed, shipRotation;
         public MovementAdapter movementAdapter;
-        
+        public UnitStateMachine unitStateMachine;
         public IMovementAdapter ShipsBrain;
-
         [NonSerialized]
         public SpaceShipConfig shipConfig;
+        public PlayerScript lastThingToDock;
+        
+        public bool readyToDock = false;
         
         private Transform _front, _back, _left, _right;
         private Rigidbody _ship, _engine;
@@ -32,6 +36,8 @@ namespace Client
 
         private void Start()
         {
+            unitStateMachine = new UnitStateMachine(gameObject);
+            
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");
             _left = gameObject.transform.Find("Left");
@@ -50,7 +56,7 @@ namespace Client
             switch (movementAdapter)
             {
                 case MovementAdapter.PlayerControl: //use on clients for ship under user control
-                    ShipsBrain = new PlayerControl();
+                    ShipsBrain = new PlayerControl(GetState());
                     break;
                 case MovementAdapter.RemoteNetworkControl: //use on server 
                     ShipsBrain = new RemoteNetworkControl();
@@ -58,6 +64,11 @@ namespace Client
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public UnitState GetState()
+        {
+            return unitStateMachine.currentState.State;
         }
         
         private void FixedUpdate()

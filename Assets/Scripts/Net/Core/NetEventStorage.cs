@@ -18,8 +18,11 @@ namespace Net.Core
         public IntEvent worldInit = new IntEvent();
         public ClientEvent worldInitDone = new ClientEvent();
         public WayPointEvent wayPointSetted = new WayPointEvent();
-
+        public PackageEvent dockEvent = new PackageEvent();
+        public PackageEvent acceptPackageRecieved = new PackageEvent();
+        public PackageEvent declinePackageRecieved = new PackageEvent();
         
+
         public static NetEventStorage GetInstance()
         {
             return _instance ?? (_instance = new NetEventStorage());
@@ -37,6 +40,8 @@ namespace Net.Core
             worldInit.RemoveAllListeners();
             worldInitDone.RemoveAllListeners();
             wayPointSetted.RemoveAllListeners();
+            acceptPackageRecieved.RemoveAllListeners();
+            declinePackageRecieved.RemoveAllListeners();
         }
     }
 }

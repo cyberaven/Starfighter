@@ -1,4 +1,4 @@
-﻿namespace Enums
+﻿namespace Core
 {
 
     public enum UserType
@@ -13,7 +13,7 @@
     public enum UnitState
     {
         InFlight,
-        IsMoored,
+        IsDocked,
         IsDead,
     }
 

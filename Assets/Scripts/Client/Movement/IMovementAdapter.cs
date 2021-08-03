@@ -1,4 +1,5 @@
-﻿using Net.PackageData.EventsData;
+﻿using Core;
+using Net.PackageData.EventsData;
 
 namespace Client.Movement
 {
@@ -10,6 +11,7 @@ namespace Client.Movement
         float GetStraightManeurSpeed();
         float GetShipAngle();
         void UpdateMovementActionData(MovementEventData data);
+        void OnStateChange(UnitState newState);
     }
 
     public struct EngineState

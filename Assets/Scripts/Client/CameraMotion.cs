@@ -19,8 +19,8 @@ namespace Client
 
         private void FreeMode()
         {
-            _translationPoint = new Vector3(Input.GetAxis("Horizontal") * _camera.orthographicSize / 30,Input.GetAxis("Vertical") * _camera.orthographicSize / 30,0);
-            _camera.transform.Translate(_translationPoint*-1);
+            _translationPoint = new Vector3(Input.GetAxis("Horizontal") * _camera.orthographicSize / 30, Input.GetAxis("Vertical") * _camera.orthographicSize / 30, 0);
+            _camera.transform.Translate(_translationPoint * -1);
         }
 
         private void FollowShip()

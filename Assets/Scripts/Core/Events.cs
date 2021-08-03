@@ -36,4 +36,5 @@ namespace Core
     public class AxisValueEvent: UnityEvent<string, float> { }
     public class KeyCodeEvent: UnityEvent<KeyCode> { }
     public class PlayerScriptEvent: UnityEvent<PlayerScript> { }
+    public class UnitStateEvent: UnityEvent<UnitState> { }
 }

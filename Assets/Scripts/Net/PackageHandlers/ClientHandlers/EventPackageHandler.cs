@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Client;
+using Core;
 using Net.Core;
 using Net.Interfaces;
 using Net.PackageData.EventsData;
@@ -22,17 +23,39 @@ namespace Net.PackageHandlers.ClientHandlers
                 switch (eventPack.data.eventType)
                 {
                     case EventType.InitEvent:
+                    {
                         Debug.unityLogger.Log($"There are {eventPack.data.data} asteroids to spawn");
                         NetEventStorage.GetInstance().worldInit.Invoke((int) eventPack.data.data);
                         break;
+                    }
                     case EventType.MoveEvent:
-                        var (name, data) = ((string, MovementEventData))eventPack.data.data;
+                    {
+                        var (name, data) = ((string, MovementEventData)) eventPack.data.data;
                         Dispatcher.Instance.Invoke(() =>
                         {
                             GameObject.Find(name).GetComponent<PlayerScript>().ShipsBrain
                                 .UpdateMovementActionData(data);
                         });
                         break;
+                    }
+                    case EventType.DockEvent:
+                    {
+                        var name = eventPack.data.data.ToString();
+                        Dispatcher.Instance.Invoke(() =>
+                        {
+                        var go = GameObject.Find(name).GetComponent<PlayerScript>(); 
+
+                            if (go.GetState() == UnitState.InFlight)
+                            {
+                                go.unitStateMachine.ChangeState(UnitState.IsDocked);
+                            }
+                            else if (go.GetState() == UnitState.IsDocked)
+                            {
+                                go.unitStateMachine.ChangeState(UnitState.InFlight);
+                            }
+                        });
+                        break;
+                    }
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

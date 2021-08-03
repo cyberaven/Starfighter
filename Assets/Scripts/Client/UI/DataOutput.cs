@@ -4,13 +4,12 @@ using UnityEngine.UI;
 
 namespace Client.UI
 {
-    public class DataOutput : MonoBehaviour
+    public class DataOutput : BasePlayerUIElement
     {
         // Start is called before the first frame update
         private Text _pointsText;
         private float _rotSpeed;
         private float _roundSpeed;
-        private PlayerScript _ship;
 
         private void Awake()
         {
@@ -23,16 +22,11 @@ namespace Client.UI
             _roundSpeed = 0;
         }
 
-        public void Init(PlayerScript ship)
-        {
-            _ship = ship;
-        }
-
         // Update is called once per frame
         private void Update()
         {
-            _roundSpeed = (float)Math.Round(_ship.shipSpeed.magnitude, 2); // скорость полета
-            _rotSpeed = (float)Math.Round(_ship.shipRotation.magnitude * Mathf.Rad2Deg, 2); //скорость врещения в градусах
+            _roundSpeed = (float)Math.Round(PlayerScript.shipSpeed.magnitude, 2); // скорость полета
+            _rotSpeed = (float)Math.Round(PlayerScript.shipRotation.magnitude * Mathf.Rad2Deg, 2); //скорость врещения в градусах
             _pointsText.text = "Скорость: " + _roundSpeed.ToString() + "\n" + "Вращение: " + _rotSpeed.ToString();// вывод в UI
         }
     }

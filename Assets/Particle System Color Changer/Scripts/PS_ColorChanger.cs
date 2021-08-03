@@ -1,7 +1,7 @@
-namespace TheDeveloper.ColorChanger
-{
-    using UnityEngine;
+using UnityEngine;
 
+namespace Particle_System_Color_Changer.Scripts
+{
     /**
      * Changes only Start Color in all child Particle Systems.
      * It doesn't change "Color over Lifetime" or "Color by Speed"

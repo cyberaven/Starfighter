@@ -1,7 +1,8 @@
-using UnityEngine;
 using System;
+using Core;
+using UnityEngine;
 
-namespace Config
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "SpaceShipConfig", menuName = "Configs/SpaceShipConfig", order = 0)]
     [Serializable]
@@ -10,5 +11,6 @@ namespace Config
         public float maxStress;
         public float currentStress;
         public string shipId;
+        public UnitState shipState;
     }
 }

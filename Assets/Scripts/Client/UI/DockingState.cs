@@ -1,30 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Core;
+using Core.InputManager;
 using UnityEngine;
 
-public class DockingState : MonoBehaviour
+namespace Client.UI
 {
-    private Boolean _state;
+    public class DockingState : BasePlayerUIElement
+    {
+        private bool _dockStateUI = false;
+        
 
-    [SerializeField] private Camera _cam;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _state = false;
-    }
-    
-    public void SwitchState()
-    {
-        if (_state == false)
+        public void SwitchState(KeyCode key)
         {
-            _state = true;
-            _cam.cullingMask |= (1 << 10);
-        }
-        else if (_state == true)
-        {
-            _state = false;
-            _cam.cullingMask &= ~(1 << 10);
+            if (key != InputManager.instance.keyConfig.dock) return;
+            
+            _dockStateUI = !_dockStateUI;
+            
+            if (_dockStateUI)
+            {
+                PlayerScript.gameObject.GetComponent<Camera>().cullingMask |= (1 << 10);
+            }
+            else
+            {
+                PlayerScript.gameObject.GetComponent<Camera>().cullingMask &= ~(1 << 10);
+            }
         }
     }
 }

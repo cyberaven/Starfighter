@@ -1,8 +1,8 @@
-namespace TheDeveloper.ColorChanger
-{
-    using UnityEngine;
-    using UnityEditor;
+using UnityEditor;
+using UnityEngine;
 
+namespace Particle_System_Color_Changer.Scripts
+{
     /**
      * Editor class for PS_ColorChanger
      * 

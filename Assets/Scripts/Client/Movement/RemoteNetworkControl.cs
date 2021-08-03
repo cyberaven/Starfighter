@@ -1,4 +1,7 @@
-﻿using Net.PackageData.EventsData;
+﻿using System;
+using Core;
+using Net.Core;
+using Net.PackageData.EventsData;
 
 namespace Client.Movement
 {   
@@ -83,5 +86,8 @@ namespace Client.Movement
         {
             _lastMovement = data;
         }
+        
+        public void OnStateChange(UnitState newState)
+        { }
     }
 }

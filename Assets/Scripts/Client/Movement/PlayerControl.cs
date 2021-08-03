@@ -1,9 +1,11 @@
 ﻿using System;
-using Config;
+using Client.Core;
+using Core;
 using Core.InputManager;
 using Net.Core;
 using Net.PackageData.EventsData;
 using Net.Utils;
+using ScriptableObjects;
 using UnityEngine;
 using EventType = Net.Utils.EventType;
 
@@ -14,10 +16,22 @@ namespace Client.Movement
         private MovementEventData _lastMovement;
         private KeyConfig _keyConfig;
         
-        public PlayerControl()
+        public PlayerControl(UnitState state)
         {
-            NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
-            NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
+            switch (state)
+            {
+                case UnitState.InFlight:
+                    NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
+                    NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
+                    break;
+                case UnitState.IsDocked:
+                    NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
+                    break;
+                case UnitState.IsDead:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(state), state, null);
+            }
             _keyConfig = InputManager.instance.keyConfig;
         }
         
@@ -90,7 +104,7 @@ namespace Client.Movement
                     thrustValue = GetThrustSpeed()
                 };
                 UpdateMovementActionData(movementData);
-                var result = await udpClient.SendEventPackage(movementData, Net.Utils.EventType.MoveEvent);
+                var result = await udpClient.SendEventPackage(movementData, EventType.MoveEvent);
             }
             catch (Exception ex)
             {
@@ -102,6 +116,7 @@ namespace Client.Movement
         {
             try
             {
+                //BUG:possible troubles if it's executes in different frame than trigger Event 
                 if (GetDockAction())
                 {
                     var result = await udpClient.SendEventPackage(null, EventType.DockEvent);
@@ -115,6 +130,25 @@ namespace Client.Movement
             catch (Exception ex)
             {
                 Debug.unityLogger.LogException(ex);
+            }
+        }
+
+        public void OnStateChange(UnitState newState)
+        {
+            switch (newState)
+            {
+                case UnitState.InFlight:
+                    NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
+                    NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
+                    break;
+                case UnitState.IsDead:
+                    NetEventStorage.GetInstance().sendMoves.RemoveListener(SendMovement);
+                    NetEventStorage.GetInstance().sendAction.RemoveListener(SendAction);
+                    break;
+                case UnitState.IsDocked:
+                    NetEventStorage.GetInstance().sendMoves.RemoveListener(SendMovement);
+                    break;
+                default: throw new ArgumentOutOfRangeException();
             }
         }
     }

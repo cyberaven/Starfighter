@@ -1,5 +1,4 @@
-﻿using Config;
-using Enums;
+﻿using Core;
 using UnityEngine;
 
 namespace ScriptableObjects
