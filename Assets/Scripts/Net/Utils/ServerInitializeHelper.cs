@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Client;
+using Client.UI;
 using Core;
+using Core.Models;
 using Net.Core;
 using ScriptableObjects;
 using UnityEngine;
@@ -16,39 +18,6 @@ namespace Net.Utils
 {
     public class ServerInitializeHelper: Singleton<ServerInitializeHelper>
     {
-        //TODO: Избавиться от этого - дублирование SpaceShipConfig
-        [Serializable]
-        public class SpaceShipDto
-        {
-            public float maxStress;
-            public float currentStress;
-            public string shipId;
-            public float maxAngleSpeed;
-            public float maxSpeed;
-            public float maxHp;
-            public float currentHp;
-            public bool isDockable;
-            public Vector3 position = Vector3.one;
-            public Quaternion rotation = Quaternion.identity;
-            public string prefabName;
-            public UnitState shipState;
-
-            public SpaceShipDto(SpaceShipConfig config)
-            {
-                maxStress = config.maxStress;
-                currentStress = config.currentStress;
-                shipId = config.shipId;
-                maxAngleSpeed = config.maxAngleSpeed;
-                maxSpeed = config.maxSpeed;
-                maxHp = config.maxHp;
-                currentHp = config.currentHp;
-                isDockable = config.isDockable;
-                position = config.position;
-                rotation = config.rotation;
-                prefabName = config.prefabName;
-            }
-        }
-        
         [Serializable]
         public class SpaceShipsWrapper
         {
@@ -105,6 +74,7 @@ namespace Net.Utils
                 try
                 {
                     var playerScript = InstantiateHelper.InstantiateServerShip(spaceShipConfig);
+                    playerScript.gameObject.GetComponentInChildren<DockingTrigger>().Init(playerScript);
                 }
                 catch(Exception ex)
                 {

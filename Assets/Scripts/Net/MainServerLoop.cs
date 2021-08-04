@@ -6,11 +6,13 @@ using System.Net;
 using Client;
 using Core;
 using Core.InputManager;
+using Core.Models;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -109,7 +111,8 @@ namespace Net
                 if (go.GetComponent<PlayerScript>() != null)
                 {
                     var rb = go.GetComponent<Rigidbody>();
-                    worldObjects.Add(new SpaceShip(go.name, go.transform, rb.velocity, rb.angularVelocity));
+                    var ps = go.GetComponent<PlayerScript>();
+                    worldObjects.Add(new SpaceShip(go.name, go.transform, rb.velocity, rb.angularVelocity, new SpaceShipDto(ps.shipConfig)));
                     yield return null;
                 }
 

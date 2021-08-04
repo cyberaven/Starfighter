@@ -15,6 +15,7 @@ namespace Core.InputManager
         private void Awake()
         {
             axes = Resources.LoadAll<SmartAxis>(Constants.PathToAxes);
+            keyConfig = Resources.Load<KeyConfig>(Constants.PathToKeys + "UserKeys");
         }
 
         private void Update()
@@ -27,8 +28,8 @@ namespace Core.InputManager
 
             typeof(KeyConfig).GetFields().ToList().ForEach(x =>
             {
-                if (!Input.GetKeyDown(x.GetValue(keyConfig).ToString())) return;
                 Enum.TryParse(x.GetValue(keyConfig).ToString(), out KeyCode value);
+                if (!Input.GetKeyDown(value)) return;
                 CoreEventStorage.GetInstance().actionKeyPressed.Invoke(value);
             });
         }

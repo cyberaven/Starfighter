@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e7eb75af1e16ec4580064198f963b42, type: 3}
   m_Name: UserKeys
   m_EditorClassIdentifier: 
-  fire: 306
+  fire: 102
   dock: 107

@@ -19,7 +19,7 @@ namespace Client.UI
 
         private void OnTriggerExit(Collider other)
         {
-            other.gameObject.GetComponent<PlayerScript>().readyToDock = false;
+            other.gameObject.GetComponentInParent<PlayerScript>().readyToDock = false;
             PlayerScript.readyToDock = false;
         }
         

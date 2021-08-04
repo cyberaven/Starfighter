@@ -86,38 +86,53 @@ namespace Net.Core
 
         private async void TryToDock(AbstractPackage package)
         {
-            if (!Equals(GetIpAddress(), package.ipAddress)) return;
-
-            switch (_playerScript.GetState())
+            try
             {
-                case UnitState.InFlight:
-                    if (!_playerScript.readyToDock)
+                if (!Equals(GetIpAddress(), package.ipAddress)) return;
+                Debug.unityLogger.Log($"TryToDock called: {_playerScript.GetState()}");
+                Dispatcher.Instance.Invoke(async () =>
+                {
+                    switch (_playerScript.GetState())
                     {
-                        await SendDecline(new DeclineData(){eventId = (package as EventPackage).data.eventId});
-                        return;
-                    }
-                    var clientToDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x=>x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
-                    if (clientToDock != null)
-                        await clientToDock.SendEvent(new EventData() {data = clientToDock._myGameObjectName, eventType = EventType.DockEvent});
+                        case UnitState.InFlight:
+                            if (!_playerScript.readyToDock)
+                            {
+                                await SendDecline(new DeclineData() {eventId = (package as EventPackage).data.eventId});
+                                return;
+                            }
 
-                    _playerScript.unitStateMachine.ChangeState(UnitState.IsDocked);
-                    await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
-                    
-                    break;
-                case UnitState.IsDocked:
-                    //It's always possible to undock
-                    var clientToUnDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x=>x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
-                    if (clientToUnDock != null)
-                        await clientToUnDock.SendEvent(new EventData() {data = null, eventType = EventType.DockEvent});
-                    _playerScript.unitStateMachine.ChangeState(UnitState.InFlight);
-                    await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
-                    break;
-                case UnitState.IsDead:
-                    //It's always impossible to dock while being dead
-                    await SendDecline(new DeclineData(){eventId = (package as EventPackage).data.eventId});
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                            var clientToDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
+                                x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
+                            if (clientToDock != null)
+                                await clientToDock.SendEvent(new EventData()
+                                    {data = clientToDock._myGameObjectName, eventType = EventType.DockEvent});
+
+                            _playerScript.unitStateMachine.ChangeState(UnitState.IsDocked);
+                            await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
+
+                            break;
+                        case UnitState.IsDocked:
+                            //It's always possible to undock
+                            var clientToUnDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
+                                x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
+                            if (clientToUnDock != null)
+                                await clientToUnDock.SendEvent(new EventData()
+                                    {data = null, eventType = EventType.DockEvent});
+                            _playerScript.unitStateMachine.ChangeState(UnitState.InFlight);
+                            await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
+                            break;
+                        case UnitState.IsDead:
+                            //It's always impossible to dock while being dead
+                            await SendDecline(new DeclineData() {eventId = (package as EventPackage).data.eventId});
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
             }
         }
         
@@ -141,6 +156,7 @@ namespace Net.Core
 
         private async Task SendEvent(EventData data)
         {
+            Debug.unityLogger.Log($"Gonna send event to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendEventPackage(data.data, data.eventType);
         }
 

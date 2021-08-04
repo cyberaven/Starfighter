@@ -36,7 +36,8 @@ namespace Client
 
         private void Start()
         {
-            unitStateMachine = new UnitStateMachine(gameObject);
+            Debug.unityLogger.Log(shipConfig);
+            unitStateMachine = new UnitStateMachine(gameObject, UnitState.InFlight);
             
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");

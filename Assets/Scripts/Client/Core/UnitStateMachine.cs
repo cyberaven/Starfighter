@@ -71,17 +71,33 @@ namespace Client.Core
         private readonly IsDockedState _isDockedState;
         private readonly InFlightState _inFlightState;
 
-        public UnitStateMachine(GameObject unitToControl, IUnitState currentState = null)
+        public UnitStateMachine(GameObject unitToControl, UnitState currentState = UnitState.InFlight)
         {
             _isDeadState = new IsDeadState();
             _isDockedState = new IsDockedState();
             _inFlightState = new InFlightState();
             unit = unitToControl;
-            this.currentState = currentState ?? _inFlightState;
+
+            switch (currentState)
+            {
+                case UnitState.InFlight:
+                    this.currentState = _inFlightState; 
+                    break;
+                case UnitState.IsDocked:
+                    this.currentState = _isDockedState;
+                    break;
+                case UnitState.IsDead:
+                    this.currentState = _isDeadState;
+                    break;
+                default:
+                    this.currentState = _inFlightState;
+                    break;
+            }
         }
 
         public void ChangeState(UnitState newState)
         {
+            Debug.unityLogger.Log($"State changing to {newState}");
             currentState.OnExit(unit);
             unit.GetComponent<PlayerScript>().ShipsBrain.OnStateChange(newState);
             switch (newState)
