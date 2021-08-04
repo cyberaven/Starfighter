@@ -12,14 +12,12 @@ namespace Client.UI
             if (otherUnit.shipConfig.isDockable && PlayerScript.shipConfig.isDockable)
             {
                 PlayerScript.lastThingToDock = otherUnit;
-                otherUnit.readyToDock = true;
                 PlayerScript.readyToDock = true;
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            other.gameObject.GetComponentInParent<PlayerScript>().readyToDock = false;
             PlayerScript.readyToDock = false;
         }
         
