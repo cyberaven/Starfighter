@@ -6,7 +6,8 @@ namespace Core
     {
         private static CoreEventStorage _instance;
 
-        public AxisValueEvent AxisValueChanged = new AxisValueEvent();
+        public AxisValueEvent axisValueChanged = new AxisValueEvent();
+        public KeyCodeEvent actionKeyPressed = new KeyCodeEvent(); 
         
         public static CoreEventStorage GetInstance()
         {

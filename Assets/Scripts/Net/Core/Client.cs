@@ -5,8 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Client;
+using Client.Core;
 using Core;
-using Enums;
 using Net.PackageData;
 using Net.PackageData.EventsData;
 using Net.Packages;
@@ -28,12 +28,12 @@ namespace Net.Core
         private string _myGameObjectName;
         private UserType _accountType;
 
-        
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
         {
             try
             {
                 NetEventStorage.GetInstance().serverMovedPlayer.AddListener(UpdateMovement);
+                NetEventStorage.GetInstance().dockEvent.AddListener(TryToDock);
 
                 _accountType = account.type;
 
@@ -75,7 +75,7 @@ namespace Net.Core
 
         private void UpdateMovement(IPAddress address, MovementEventData data)
         {
-            if (!Equals(GetIpAddress(), address)) return;
+            if (!Equals(GetIpAddress(), address) || _playerScript.GetState() != UnitState.InFlight) return;
             _playerScript.ShipsBrain.UpdateMovementActionData(data);
             ClientManager.instance.SendToAll(new EventPackage(new EventData()
             {
@@ -84,6 +84,58 @@ namespace Net.Core
             }), GetIpAddress());
         }
 
+        private async void TryToDock(AbstractPackage package)
+        {
+            try
+            {
+                if (!Equals(GetIpAddress(), package.ipAddress)) return;
+                Debug.unityLogger.Log($"TryToDock called: {_playerScript.GetState()}");
+                Dispatcher.Instance.Invoke(async () =>
+                {
+                    switch (_playerScript.GetState())
+                    {
+                        case UnitState.InFlight:
+                            if (!_playerScript.readyToDock)
+                            {
+                                await SendDecline(new DeclineData() {eventId = (package as EventPackage).data.eventId});
+                                return;
+                            }
+
+                            var clientToDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
+                                x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
+                            if (clientToDock != null)
+                                await clientToDock.SendEvent(new EventData()
+                                    {data = clientToDock._myGameObjectName, eventType = EventType.DockEvent});
+
+                            _playerScript.unitStateMachine.ChangeState(UnitState.IsDocked);
+                            await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
+
+                            break;
+                        case UnitState.IsDocked:
+                            //It's always possible to undock
+                            var clientToUnDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
+                                x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
+                            if (clientToUnDock != null)
+                                await clientToUnDock.SendEvent(new EventData()
+                                    {data = null, eventType = EventType.DockEvent});
+                            _playerScript.unitStateMachine.ChangeState(UnitState.InFlight);
+                            await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
+                            break;
+                        case UnitState.IsDead:
+                            //It's always impossible to dock while being dead
+                            await SendDecline(new DeclineData() {eventId = (package as EventPackage).data.eventId});
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
+        }
+        
         private async Task SendDecline(DeclineData data)
         {
             Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
@@ -104,6 +156,7 @@ namespace Net.Core
 
         private async Task SendEvent(EventData data)
         {
+            Debug.unityLogger.Log($"Gonna send event to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendEventPackage(data.data, data.eventType);
         }
 

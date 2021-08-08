@@ -1,7 +1,7 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
-namespace Config
+namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "DangerZoneConfig", menuName = "Configs/DangerZoneConfig", order = 0)]
     [Serializable]
@@ -10,7 +10,5 @@ namespace Config
         public Vector3 Center;
         public float Radius;
         public Color Color;
-
-        //public UnityEvent<string> ValueChange => new StringEvent();
     }
 }

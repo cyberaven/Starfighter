@@ -72,6 +72,11 @@
             </e>
           </e>
         </e>
+        <e p="Luminaris Starship" t="Include">
+          <e p="Documentation" t="Include">
+            <e p="Readme Luminaris.txt" t="Include" />
+          </e>
+        </e>
         <e p="Procedural fire" t="Include">
           <e p="Shaders" t="Include">
             <e p="FireSphere.shader" t="Include" />
@@ -83,6 +88,7 @@
             <e p="Core" t="Include">
               <e p="ClientEventStorage.cs" t="Include" />
               <e p="ClientInitManager.cs" t="Include" />
+              <e p="UnitStateMachine.cs" t="Include" />
             </e>
             <e p="CourseView.cs" t="Include" />
             <e p="DestroyBoundary.cs" t="Include" />
@@ -101,8 +107,11 @@
             <e p="Starfield.cs" t="Include" />
             <e p="SwitchFollowMode.cs" t="Include" />
             <e p="UI" t="Include">
+              <e p="BasePlayerUIElement.cs" t="Include" />
               <e p="CoordinatesUI.cs" t="Include" />
               <e p="DataOutput.cs" t="Include" />
+              <e p="DockingState.cs" t="Include" />
+              <e p="DockingTrigger.cs" t="Include" />
               <e p="MainMenu.cs" t="Include" />
               <e p="MenuButton.cs" t="Include" />
               <e p="PauseMenu.cs" t="Include" />
@@ -114,6 +123,9 @@
           </e>
           <e p="Core" t="Include">
             <e p="AbstractSingleton.cs" t="Include" />
+            <e p="ClassExtensions" t="Include">
+              <e p="SpaceShipDtoExtensions.cs" t="Include" />
+            </e>
             <e p="ClientConnectionHelper.cs" t="Include" />
             <e p="Constants.cs" t="Include" />
             <e p="CoreEventStorage.cs" t="Include" />
@@ -125,7 +137,6 @@
               <e p="GameEvent.cs" t="Include" />
               <e p="GameEventListener.cs" t="Include" />
             </e>
-            <e p="GameManager.cs" t="Include" />
             <e p="Importer.cs" t="Include" />
             <e p="InputManager" t="Include">
               <e p="InputManager.cs" t="Include" />
@@ -134,7 +145,6 @@
             <e p="Models" t="Include">
               <e p="SpaceShipDto.cs" t="Include" />
             </e>
-            <e p="NetManager.cs" t="Include" />
           </e>
           <e p="Net" t="Include">
             <e p="Core" t="Include">
@@ -221,6 +231,14 @@
         <e p="Shaders" t="Include">
           <e p="MenuShader.shader" t="Include" />
           <e p="NaviStarfieldShader.shader" t="Include" />
+        </e>
+        <e p="Space Shooter" t="Include">
+          <e p="Info.txt" t="Include" />
+        </e>
+        <e p="Sprites" t="Include">
+          <e p="Background" t="Include">
+            <e p="ParallaxScript.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

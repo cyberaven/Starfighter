@@ -1,5 +1,5 @@
+using ScriptableObjects;
 using UnityEngine;
-using Config;
 
 namespace UnitBehavior
 {

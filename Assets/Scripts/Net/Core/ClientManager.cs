@@ -10,13 +10,13 @@ using ScriptableObjects;
 using UnityEngine;
 using Utils;
 
-/// <summary>
-/// ClientManager занимается управлением Client'ов.
-/// Создает, удаляет, хранит список. 
-/// Также отвечает за инициацию бродкаст отправки.
-/// </summary>
 namespace Net.Core
 {
+    /// <summary>
+    /// ClientManager занимается управлением Client'ов. 
+    /// Создает, удаляет, хранит список. 
+    /// Также отвечает за инициацию бродкаст отправки.
+    /// </summary>
     public class ClientManager : Singleton<ClientManager>, IDisposable
     {
         private int _lastGivenPort = 12000;

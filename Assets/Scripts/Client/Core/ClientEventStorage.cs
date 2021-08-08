@@ -13,7 +13,7 @@ namespace Client.Core
         public PlayerScriptEvent InitAdmin = new PlayerScriptEvent();
         public PlayerScriptEvent InitModerator = new PlayerScriptEvent();
         public EventDataEvent SetPointEvent = new EventDataEvent();
-        
+
         public static ClientEventStorage GetInstance()
         {
             return _instance ?? (_instance = new ClientEventStorage());

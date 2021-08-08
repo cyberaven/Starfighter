@@ -1,5 +1,5 @@
 ﻿using System;
-using Enums;
+using Core;
 
 namespace Net.PackageData
 {

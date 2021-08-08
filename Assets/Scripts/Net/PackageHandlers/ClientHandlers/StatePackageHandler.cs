@@ -2,6 +2,7 @@
 using System.Linq;
 using Client;
 using Core;
+using Core.ClassExtensions;
 using Net.Interfaces;
 using Net.PackageData;
 using Net.Packages;
@@ -67,6 +68,8 @@ namespace Net.PackageHandlers.ClientHandlers
                                     (worldObject as SpaceShip).angularVelocity;
                                 gameObject.GetComponent<PlayerScript>().shipSpeed =
                                     (worldObject as SpaceShip).velocity;
+                                gameObject.GetComponent<PlayerScript>().shipConfig =
+                                    (worldObject as SpaceShip).dto.ToConfig();
                             }
                             else
                             {

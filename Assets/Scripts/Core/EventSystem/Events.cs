@@ -1,6 +1,6 @@
 ﻿using UnityEngine.Events;
 
-namespace Core
+namespace Core.EventSystem
 {
     public class StringEvent : UnityEvent<string>
     {

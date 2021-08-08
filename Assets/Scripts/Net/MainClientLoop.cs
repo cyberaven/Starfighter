@@ -6,7 +6,6 @@ using Client;
 using Client.Core;
 using Core;
 using Core.InputManager;
-using Enums;
 using Net.Core;
 using Net.PackageData;
 using Net.PackageHandlers.ClientHandlers;
@@ -38,7 +37,8 @@ namespace Net
         {
             base.Awake();
             NetEventStorage.GetInstance().connectToServer.AddListener(ConnectToServer);
-            CoreEventStorage.GetInstance().AxisValueChanged.AddListener(SendMove);
+            CoreEventStorage.GetInstance().axisValueChanged.AddListener(SendMove);
+            CoreEventStorage.GetInstance().actionKeyPressed.AddListener(SendAction);
             ClientEventStorage.GetInstance().SetPointEvent.AddListener(SetPoint);
         }
 
@@ -47,20 +47,13 @@ namespace Net
             this.serverAddress = serverAddress;
         }
 
-        private void SendMove(string axis, float value)
-        {
-            NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
-        }
-
-        private async void SetPoint(EventData data)
-        {
-            await _udpClient.SendEventPackage(data.data, data.eventType);
-        }
+        private void SendAction(KeyCode code) => NetEventStorage.GetInstance().sendAction.Invoke(_udpClient);
         
-        public void LaunchCoroutine(IEnumerator coroutine)
-        {
-            StartCoroutine(coroutine);
-        }
+        private void SendMove(string axis, float value) => NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
+
+        private async void SetPoint(EventData data) => await _udpClient.SendEventPackage(data.data, data.eventType);
+        
+        public void LaunchCoroutine(IEnumerator coroutine) => StartCoroutine(coroutine);
         
         public bool TryAttachPlayerControl(PlayerScript playerScript)
         {

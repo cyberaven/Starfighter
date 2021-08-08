@@ -1,7 +1,11 @@
 ﻿using System;
+using Client.Core;
 using Client.Movement;
-using Config;
+using Core;
+using Net.Core;
+using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Client
 {
@@ -17,26 +21,24 @@ namespace Client
     {
         public Vector3 shipSpeed, shipRotation;
         public MovementAdapter movementAdapter;
-        
+        public UnitStateMachine unitStateMachine;
         public IMovementAdapter ShipsBrain;
-
         [NonSerialized]
         public SpaceShipConfig shipConfig;
+        public PlayerScript lastThingToDock;
+        
+        public bool readyToDock = false;
         
         private Transform _front, _back, _left, _right;
         private Rigidbody _ship, _engine;
         private ParticleSystem _tlm, _trm, _blm, _brm, _te;
         private ConstantForce _thrustForce;
-        
-        [SerializeField]
-        private Vector3 thrustForceVector;
-        [SerializeField]
-        private Vector3 maneurForceVector;
-        
 
         private void Start()
         {
-            // всякое говно при создании объекта
+            Debug.unityLogger.Log(shipConfig);
+            unitStateMachine = new UnitStateMachine(gameObject, UnitState.InFlight);
+            
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");
             _left = gameObject.transform.Find("Left");
@@ -55,7 +57,7 @@ namespace Client
             switch (movementAdapter)
             {
                 case MovementAdapter.PlayerControl: //use on clients for ship under user control
-                    ShipsBrain = new PlayerControl();
+                    ShipsBrain = new PlayerControl(GetState());
                     break;
                 case MovementAdapter.RemoteNetworkControl: //use on server 
                     ShipsBrain = new RemoteNetworkControl();
@@ -65,7 +67,11 @@ namespace Client
             }
         }
 
-        // Update is called once per frame
+        public UnitState GetState()
+        {
+            return unitStateMachine.currentState.State;
+        }
+        
         private void FixedUpdate()
         {
             UpdateMovement();
@@ -74,9 +80,9 @@ namespace Client
         
         private void UpdateMovement()
         {
-            // рассчет вектора тяги
-            thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
-            maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
+            // расчет вектора тяги
+            var thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
+            var maneurForceVector = _right.transform.position - _left.transform.position; //вектор боковой тяги
             _thrustForce.force = 
                 (thrustForceVector.normalized) * (ShipsBrain.GetThrustSpeed() + ShipsBrain.GetStraightManeurSpeed()) +
                 (maneurForceVector.normalized) * ShipsBrain.GetSideManeurSpeed();

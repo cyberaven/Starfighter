@@ -1,5 +1,8 @@
 ﻿using System;
+using Core.Models;
+using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Net.PackageData
 {
@@ -49,12 +52,15 @@ namespace Net.PackageData
         public Vector3 velocity;
         [SerializeField]
         public Vector3 angularVelocity;
+        [SerializeField]
+        public SpaceShipDto dto;
 
-        public SpaceShip(string _name, Transform _transform, Vector3 _velocity, Vector3 _angularVelocity) : base(_name,
+        public SpaceShip(string _name, Transform _transform, Vector3 _velocity, Vector3 _angularVelocity, SpaceShipDto _config) : base(_name,
             _transform)
         {
             velocity = _velocity;
             angularVelocity = _angularVelocity;
+            dto = _config;
         }
     }
 

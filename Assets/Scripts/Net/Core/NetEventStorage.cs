@@ -14,11 +14,15 @@ namespace Net.Core
         public ConnectPackageEvent connectClient = new ConnectPackageEvent();
         public ConnectPackageEvent connectToServer = new ConnectPackageEvent();
         public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
+        public StarfighterUdpClientEvent sendAction = new StarfighterUdpClientEvent();
         public IntEvent worldInit = new IntEvent();
         public ClientEvent worldInitDone = new ClientEvent();
         public WayPointEvent wayPointSetted = new WayPointEvent();
-
+        public PackageEvent dockEvent = new PackageEvent();
+        public PackageEvent acceptPackageRecieved = new PackageEvent();
+        public PackageEvent declinePackageRecieved = new PackageEvent();
         
+
         public static NetEventStorage GetInstance()
         {
             return _instance ?? (_instance = new NetEventStorage());
@@ -32,9 +36,12 @@ namespace Net.Core
             disconnectClient.RemoveAllListeners();
             connectClient.RemoveAllListeners();
             sendMoves.RemoveAllListeners();
+            sendAction.RemoveAllListeners();
             worldInit.RemoveAllListeners();
             worldInitDone.RemoveAllListeners();
             wayPointSetted.RemoveAllListeners();
+            acceptPackageRecieved.RemoveAllListeners();
+            declinePackageRecieved.RemoveAllListeners();
         }
     }
 }

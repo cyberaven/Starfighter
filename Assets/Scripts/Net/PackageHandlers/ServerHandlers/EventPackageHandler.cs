@@ -25,7 +25,7 @@ namespace Net.PackageHandlers.ServerHandlers
                         NetEventStorage.GetInstance().serverMovedPlayer.Invoke(pack.ipAddress, movement);
                         break;
                     case EventType.DockEvent:
-                        var dockData = eventPack.data.data.ToString();
+                        NetEventStorage.GetInstance().dockEvent.Invoke(pack);
                         break;
                     case EventType.FireEvent:
                         var fireData = eventPack.data.data.ToString();
