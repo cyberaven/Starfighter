@@ -1,0 +1,30 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 19.03.2012 12:30:16
+
+newmtl 3888_Space_Beacon
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.8275 0.8275 0.8275
+	Kd 0.8275 0.8275 0.8275
+	Ks 0.2700 0.2700 0.2700
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13888_Space_Beacon_large_Solar_Array_diff.jpg
+	map_Kd 13888_Space_Beacon_large_Solar_Array_diff.jpg
+
+newmtl Material__0
+	Ns 5.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.0000 0.0000 0.0000
+	map_Ka 13888_Space_Beacon_large_Hull_diff1.jpg
+	map_Kd 13888_Space_Beacon_large_Hull_diff1.jpg

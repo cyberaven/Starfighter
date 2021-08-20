@@ -8,8 +8,8 @@ namespace Client.UI
         
         private void OnTriggerEnter(Collider other)
         {
-            var otherUnit = other.gameObject.GetComponentInParent<PlayerScript>();
-            if (otherUnit.shipConfig.isDockable && PlayerScript.shipConfig.isDockable)
+            var otherUnit = other.gameObject.transform.parent.gameObject;
+            if (PlayerScript.shipConfig.isDockable)
             {
                 PlayerScript.lastThingToDock = otherUnit;
                 PlayerScript.readyToDock = true;

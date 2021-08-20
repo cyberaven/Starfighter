@@ -187,7 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4d9ac1be15e584499f32939d837d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isDocked: 0
 --- !u!1 &5415516506030220193
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4d9ac1be15e584499f32939d837d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isDocked: 0
 --- !u!1 &6142318592573156891
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,8 +548,8 @@ GameObject:
   - component: {fileID: 6270558086099531372}
   - component: {fileID: 6247934805558484700}
   m_Layer: 0
-  m_Name: Yacht
-  m_TagString: Untagged
+  m_Name: ScienceVessel
+  m_TagString: Dynamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,9 +561,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6220760324071643012}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -173.4, y: -0.0000000055879, z: -0.00000011921}
-  m_LocalScale: {x: 40, y: 40, z: 40}
+  m_LocalRotation: {x: 0.19413733, y: -0.6800857, z: 0.6784884, w: 0.19861422}
+  m_LocalPosition: {x: -1326.8, y: -1, z: -1749.4}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 6215477894312181434}
   - {fileID: 6223689952303800060}
@@ -577,7 +575,7 @@ Transform:
   - {fileID: 2307835068090728112}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.614006, y: -93.512, z: 54.239002}
 --- !u!33 &6207837451618664808
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -633,7 +631,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6220760324071643012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 4b3071d113f87f24fb37f0b071ab1c7a, type: 3}
   m_Controller: {fileID: 9100000, guid: abe41865abe4f1f4aaa3a47171c703e3, type: 2}
   m_CullingMode: 0

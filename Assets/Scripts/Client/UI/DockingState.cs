@@ -7,21 +7,23 @@ namespace Client.UI
     public class DockingState : BasePlayerUIElement
     {
         private bool _dockStateUI = false;
+        [SerializeField] private GameObject _dockingIndicator;
+        [SerializeField] private Camera _camera;
         
 
-        public void SwitchState(KeyCode key)
+        public void SwitchState()
         {
-            if (key != InputManager.instance.keyConfig.dock) return;
-            
             _dockStateUI = !_dockStateUI;
             
             if (_dockStateUI)
             {
-                PlayerScript.gameObject.GetComponent<Camera>().cullingMask |= (1 << 10);
+                _camera.cullingMask |= (1 << 10);
+                _dockingIndicator.SetActive(true);
             }
             else
             {
-                PlayerScript.gameObject.GetComponent<Camera>().cullingMask &= ~(1 << 10);
+                _camera.cullingMask &= ~(1 << 10);
+                _dockingIndicator.SetActive(false);
             }
         }
     }

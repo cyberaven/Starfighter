@@ -191,8 +191,8 @@ GameObject:
   - component: {fileID: 3829200563201958463}
   - component: {fileID: 7967838218454292843}
   m_Layer: 0
-  m_Name: Space_Shooter
-  m_TagString: Untagged
+  m_Name: Jacht
+  m_TagString: Dynamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,14 +204,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3249588557617223395}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 589, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: -0, y: 0.28935695, z: -0, w: 0.95722127}
+  m_LocalPosition: {x: -2303.6, y: 0, z: -2400.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5678043791724555839}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 33.639, z: 0}
 --- !u!33 &7356776177025621702
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -463,4 +463,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4d9ac1be15e584499f32939d837d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isDocked: 0
