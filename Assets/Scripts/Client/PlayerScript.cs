@@ -37,6 +37,7 @@ namespace Client
         private void Start()
         {
             Debug.unityLogger.Log(shipConfig);
+            //TODO: Init state from shipConfig not const
             unitStateMachine = new UnitStateMachine(gameObject, UnitState.InFlight);
             
             _front = gameObject.transform.Find("Front");
