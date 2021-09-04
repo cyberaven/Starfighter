@@ -44,5 +44,8 @@ namespace Net.PackageHandlers.ServerHandlers
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public override void AddToPendingList(AbstractPackage pack)
+        {  }
     }
 }

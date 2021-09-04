@@ -6,22 +6,35 @@ namespace Client.UI
 {
     public class DockingState : BasePlayerUIElement
     {
-        private bool _dockStateUI = false;
+        private bool _dockStateUI = true;
+        private Camera _camera;
         
-
-        public void SwitchState(KeyCode key)
+        public override void Init(PlayerScript playerScript)
         {
-            if (key != InputManager.instance.keyConfig.dock) return;
+            base.Init(playerScript);
+            _camera = FindObjectOfType<Camera>();
+            
+            _camera.cullingMask |= (1 << 10);
+        }
+
+        public bool GetState()
+        {
+            return _dockStateUI;
+        }
+        
+        public void SwitchState()
+        {
+            // if (key != InputManager.instance.keyConfig.dock) return;
             
             _dockStateUI = !_dockStateUI;
             
             if (_dockStateUI)
             {
-                PlayerScript.gameObject.GetComponent<Camera>().cullingMask |= (1 << 10);
+                _camera.cullingMask |= (1 << 10);
             }
             else
             {
-                PlayerScript.gameObject.GetComponent<Camera>().cullingMask &= ~(1 << 10);
+                _camera.cullingMask &= ~(1 << 10);
             }
         }
     }

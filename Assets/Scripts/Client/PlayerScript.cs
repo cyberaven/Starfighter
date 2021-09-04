@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Core;
 using Client.Movement;
+using Client.UI;
 using Core;
 using Net.Core;
 using ScriptableObjects;
@@ -19,6 +20,7 @@ namespace Client
     
     public class PlayerScript : MonoBehaviour
     {
+        public DockingTrigger dockingTrigger;
         public Vector3 shipSpeed, shipRotation;
         public MovementAdapter movementAdapter;
         public UnitStateMachine unitStateMachine;
@@ -36,10 +38,12 @@ namespace Client
 
         private void Start()
         {
-            Debug.unityLogger.Log(shipConfig);
+            // gameObject.GetComponentInChildren<DockingTrigger>().Init(this);
+            dockingTrigger.Init(this);
+            Debug.unityLogger.Log($"PS {shipConfig.shipState}");
             //TODO: Init state from shipConfig not const
-            unitStateMachine = new UnitStateMachine(gameObject, UnitState.InFlight);
-            
+            unitStateMachine = new UnitStateMachine(gameObject, shipConfig.shipState);
+
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");
             _left = gameObject.transform.Find("Left");
@@ -67,7 +71,7 @@ namespace Client
                     throw new ArgumentOutOfRangeException();
             }
         }
-
+        
         public UnitState GetState()
         {
             return unitStateMachine.currentState.State;
@@ -75,11 +79,16 @@ namespace Client
         
         private void FixedUpdate()
         {
-            UpdateMovement();
-            AnimateMovement();
+            // if (GetState() == UnitState.InFlight)
+            // {
+            //     UpdateMovement();
+            //     AnimateMovement();
+            // }
+            
+            unitStateMachine.Update();
         }
         
-        private void UpdateMovement()
+        public void UpdateMovement()
         {
             // расчет вектора тяги
             var thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
@@ -90,7 +99,7 @@ namespace Client
             _thrustForce.torque = new Vector3(0, ShipsBrain.GetShipAngle(), 0);
         }
  
-        private void AnimateMovement()
+        public void AnimateMovement()
         {
             #region Reset movement animation
             

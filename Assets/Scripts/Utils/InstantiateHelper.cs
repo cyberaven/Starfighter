@@ -1,4 +1,5 @@
 ﻿using Client;
+using Client.Core;
 using Core;
 using Net.PackageData;
 using ScriptableObjects;
@@ -29,8 +30,8 @@ namespace Utils
             var playerScript = shipsInstance.GetComponent<PlayerScript>() ?? shipsInstance.AddComponent<PlayerScript>();
             playerScript.movementAdapter = MovementAdapter.RemoteNetworkControl;
             playerScript.shipConfig = ship;
+            playerScript.shipConfig.shipState = ship.shipState;
             shipsInstance.SetActive(true);
-            
             return playerScript;
         }
 

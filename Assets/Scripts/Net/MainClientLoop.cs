@@ -8,12 +8,14 @@ using Core;
 using Core.InputManager;
 using Net.Core;
 using Net.PackageData;
+using Net.PackageData.EventsData;
 using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
 using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using Utils;
+using EventType = Net.Utils.EventType;
 
 namespace Net
 {
@@ -47,10 +49,51 @@ namespace Net
             this.serverAddress = serverAddress;
         }
 
-        private void SendAction(KeyCode code) => NetEventStorage.GetInstance().sendAction.Invoke(_udpClient);
+        private void SendAction(KeyCode code) => SendAction(_udpClient);
         
-        private void SendMove(string axis, float value) => NetEventStorage.GetInstance().sendMoves.Invoke(_udpClient);
+        private void SendMove(string axis, float value) =>SendMovement(_udpClient);
 
+        private async void SendMovement(StarfighterUdpClient udpClient)
+        {
+            try
+            {
+                Debug.unityLogger.Log("Gonna send moves");
+                var movementData = new MovementEventData()
+                {
+                    rotationValue = _playerScript.ShipsBrain.GetShipAngle(),
+                    sideManeurValue = _playerScript.ShipsBrain.GetSideManeurSpeed(),
+                    straightManeurValue = _playerScript.ShipsBrain.GetStraightManeurSpeed(),
+                    thrustValue = _playerScript.ShipsBrain.GetThrustSpeed()
+                };
+                _playerScript.ShipsBrain.UpdateMovementActionData(movementData);
+                var result = await udpClient.SendEventPackage(movementData, EventType.MoveEvent);
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
+        }
+
+        private async void SendAction(StarfighterUdpClient udpClient)
+        {
+            try
+            {
+                if (_playerScript.ShipsBrain.GetDockAction())
+                {
+                    var result = await udpClient.SendEventPackage(_playerScript.gameObject.name, EventType.DockEvent);
+                }
+
+                if (_playerScript.ShipsBrain.GetFireAction())
+                {
+                    var result = await udpClient.SendEventPackage(_playerScript.gameObject.name, EventType.FireEvent);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.unityLogger.LogException(ex);
+            }
+        }
+        
         private async void SetPoint(EventData data) => await _udpClient.SendEventPackage(data.data, data.eventType);
         
         public void LaunchCoroutine(IEnumerator coroutine) => StartCoroutine(coroutine);

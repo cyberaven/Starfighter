@@ -54,13 +54,14 @@ namespace Net.PackageHandlers.ClientHandlers
             }
         }
 
-        public void AddToPendingList(AbstractPackage package)
+        public override void AddToPendingList(AbstractPackage package)
         {
             _responsePendingList.Add(package);
         }
         
         public void AcceptEvent(AbstractPackage acceptPackage)
         {
+            Debug.unityLogger.Log($"Accept handling {acceptPackage.id}");
             var id = (acceptPackage as AcceptPackage).data.eventId;
             var package = _responsePendingList.FirstOrDefault(x => (x as EventPackage).data.eventId == id) as EventPackage;
             switch (package.data.eventType)
@@ -69,6 +70,7 @@ namespace Net.PackageHandlers.ClientHandlers
                     break;
                 case EventType.DockEvent:
                 {
+                    Debug.unityLogger.Log("Dock event accepted");
                     var name = package.data.data.ToString();
                     Dispatcher.Instance.Invoke(() =>
                     {

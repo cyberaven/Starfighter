@@ -84,7 +84,7 @@ namespace Net.Core
             }), GetIpAddress());
         }
 
-        private async void TryToDock(AbstractPackage package)
+        private void TryToDock(AbstractPackage package)
         {
             try
             {
@@ -104,9 +104,12 @@ namespace Net.Core
                             var clientToDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
                                 x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
                             if (clientToDock != null)
+                            {
                                 await clientToDock.SendEvent(new EventData()
                                     {data = clientToDock._myGameObjectName, eventType = EventType.DockEvent});
+                            }
 
+                            _playerScript.lastThingToDock.unitStateMachine.ChangeState(UnitState.IsDocked);
                             _playerScript.unitStateMachine.ChangeState(UnitState.IsDocked);
                             await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
 
@@ -116,8 +119,12 @@ namespace Net.Core
                             var clientToUnDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
                                 x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
                             if (clientToUnDock != null)
+                            {
                                 await clientToUnDock.SendEvent(new EventData()
                                     {data = null, eventType = EventType.DockEvent});
+                            }
+
+                            _playerScript.lastThingToDock.unitStateMachine.ChangeState(UnitState.InFlight);
                             _playerScript.unitStateMachine.ChangeState(UnitState.InFlight);
                             await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
                             break;

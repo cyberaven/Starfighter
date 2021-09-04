@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Client;
+using Client.Core;
 using Client.UI;
 using Core;
 using Core.Models;
@@ -74,7 +75,8 @@ namespace Net.Utils
                 try
                 {
                     var playerScript = InstantiateHelper.InstantiateServerShip(spaceShipConfig);
-                    playerScript.gameObject.GetComponentInChildren<DockingTrigger>().Init(playerScript);
+                    // playerScript.gameObject.GetComponentInChildren<DockingTrigger>()
+                    //     .Init(playerScript);
                 }
                 catch(Exception ex)
                 {
@@ -99,7 +101,7 @@ namespace Net.Utils
                 if (ship is null) continue;
                 spaceShipConfig.rotation = ship.transform.rotation;
                 spaceShipConfig.position = ship.transform.position;
-                //TODO: Save other fields;
+                //Save other fields;
                 spaceShipConfig.shipState = ship.GetComponent<PlayerScript>().GetState();
             }
             

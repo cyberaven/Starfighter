@@ -2735,6 +2735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd49e2c8c42e5045b7c072da832225e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dockingTrigger: {fileID: 3398469211439575571}
   shipSpeed: {x: 0, y: 0, z: 0}
   shipRotation: {x: 0, y: 0, z: 0}
   movementAdapter: 0
@@ -4284,11 +4285,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 777861213274165381}
     m_Modifications:
-    - target: {fileID: 2898124571814932391, guid: 67bef267569f9bb46b29cc196e2f062b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6150737628568730522, guid: 67bef267569f9bb46b29cc196e2f062b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4344,21 +4340,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6150737628568730522, guid: 67bef267569f9bb46b29cc196e2f062b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.11382
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150737628568730522, guid: 67bef267569f9bb46b29cc196e2f062b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11382
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150737628568730522, guid: 67bef267569f9bb46b29cc196e2f062b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.11382
-      objectReference: {fileID: 0}
     - target: {fileID: 6500614031289975381, guid: 67bef267569f9bb46b29cc196e2f062b,
         type: 3}
       propertyPath: m_Name
@@ -4366,6 +4347,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67bef267569f9bb46b29cc196e2f062b, type: 3}
+--- !u!114 &3398469211439575571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4874855036323579927, guid: 67bef267569f9bb46b29cc196e2f062b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7822540820457880068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4d9ac1be15e584499f32939d837d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4167219606543778206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6150737628568730522, guid: 67bef267569f9bb46b29cc196e2f062b,

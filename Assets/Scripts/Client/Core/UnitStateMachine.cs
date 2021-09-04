@@ -10,15 +10,24 @@ namespace Client.Core
         UnitState State { get; }
         void OnEnter(GameObject unit);
         void OnExit(GameObject unit);
+        void Update(GameObject unit);
     }
 
     public class InFlightState : IUnitState
     {
         public UnitState State => UnitState.InFlight;
+        private PlayerScript _playerScript;
         
         public void OnEnter(GameObject unit)
         {
+            
+        }
 
+        public void Update(GameObject unit)
+        {
+            _playerScript = unit.GetComponent<PlayerScript>();
+            _playerScript.UpdateMovement();
+            _playerScript.AnimateMovement();
         }
 
         public void OnExit(GameObject unit)
@@ -35,15 +44,20 @@ namespace Client.Core
         {
             //TODO: запретить перемещения, подписаться на триггер столкновения для принудительного разрыва
             unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            unit.GetComponent<PlayerScript>().lastThingToDock.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            // unit.GetComponent<PlayerScript>().lastThingToDock.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             //TODO: поменять UI
         }
 
+        public void Update(GameObject unit)
+        {
+            
+        }
+        
         public void OnExit(GameObject unit)
         {
             //TODO: разрешить перемещения, отписаться от триггера столкновений для принудительного разрыва
             unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            unit.GetComponent<PlayerScript>().lastThingToDock.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            // unit.GetComponent<PlayerScript>().lastThingToDock.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             //TODO: поменять UI
         }
     }
@@ -57,6 +71,12 @@ namespace Client.Core
             //TODO: ХП в ноль, отключить весь функционал, кроме аварийного?
         }
 
+        
+        public void Update(GameObject unit)
+        {
+            
+        }
+        
         public void OnExit(GameObject unit)
         {
             //TODO: полагаю, выставить новые параметры
@@ -93,13 +113,13 @@ namespace Client.Core
                     this.currentState = _inFlightState;
                     break;
             }
+            this.currentState.OnEnter(unit);
         }
 
         public void ChangeState(UnitState newState)
         {
             Debug.unityLogger.Log($"State changing to {newState}");
             currentState.OnExit(unit);
-            unit.GetComponent<PlayerScript>().ShipsBrain.OnStateChange(newState);
             switch (newState)
             {
                 case UnitState.InFlight:
@@ -116,6 +136,11 @@ namespace Client.Core
             }
             
             currentState.OnEnter(unit);
+        }
+
+        public void Update()
+        {
+            currentState.Update(unit);
         }
         
     }

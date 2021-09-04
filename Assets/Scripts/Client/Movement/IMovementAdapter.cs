@@ -11,7 +11,8 @@ namespace Client.Movement
         float GetStraightManeurSpeed();
         float GetShipAngle();
         void UpdateMovementActionData(MovementEventData data);
-        void OnStateChange(UnitState newState);
+        bool GetFireAction();
+        bool GetDockAction();
     }
 
     public struct EngineState

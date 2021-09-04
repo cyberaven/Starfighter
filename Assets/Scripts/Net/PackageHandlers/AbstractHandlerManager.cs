@@ -14,6 +14,7 @@ namespace Net.PackageHandlers
         protected IPackageHandler ConnectHandler;
         protected IPackageHandler DisconnectHandler;
         public abstract void HandlePackage(AbstractPackage pack);
+        public abstract void AddToPendingList(AbstractPackage pack);
 
         public void Dispose()
         {

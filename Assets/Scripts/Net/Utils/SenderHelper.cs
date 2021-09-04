@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Core;
 using Net.Core;
 using Net.PackageData;
+using Net.PackageHandlers.ClientHandlers;
 using Net.Packages;
 using UnityEngine;
 
@@ -20,6 +21,23 @@ namespace Net.Utils
                 timeStamp = DateTime.Now
             };
             var pack = new EventPackage(eventData);
+
+            switch (type)
+            {
+                case EventType.DockEvent:
+                    ClientHandlerManager.instance.AddToPendingList(pack);
+                    break;
+                case EventType.MoveEvent:
+                case EventType.TowEvent:
+                case EventType.FireEvent:
+                case EventType.HitEvent:
+                case EventType.InitEvent:
+                case EventType.WayPointEvent:
+                case EventType.OtherEvent:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
             return await client.SendPackageAsync(pack);
         }
         

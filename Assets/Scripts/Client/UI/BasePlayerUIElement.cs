@@ -6,7 +6,7 @@ namespace Client.UI
     {
         protected PlayerScript PlayerScript;
 
-        public void Init(PlayerScript playerScript)
+        public virtual void Init(PlayerScript playerScript)
         {
             PlayerScript = playerScript;
         }
