@@ -20,7 +20,7 @@ namespace Client.Core
         
         public void OnEnter(GameObject unit)
         {
-            ClientEventStorage.GetInstance().DockingAvailable.Invoke();
+            
         }
 
         public void Update(GameObject unit)
@@ -57,6 +57,7 @@ namespace Client.Core
         {
             //TODO: разрешить перемещения, отписаться от триггера столкновений для принудительного разрыва
             unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            ClientEventStorage.GetInstance().DockingAvailable.Invoke();
             //TODO: поменять UI
         }
     }

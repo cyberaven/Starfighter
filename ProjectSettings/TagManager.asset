@@ -9,6 +9,7 @@ TagManager:
   - NaviUI
   - WayPoint
   - CoursePoint
+  - Dock
   layers:
   - Default
   - TransparentFX

@@ -72,9 +72,14 @@
             </e>
           </e>
         </e>
-        <e p="Luminaris Starship" t="Include">
-          <e p="Documentation" t="Include">
-            <e p="Readme Luminaris.txt" t="Include" />
+        <e p="Prefabs" t="Include">
+          <e p="Luminaris Starship" t="Include">
+            <e p="Documentation" t="Include">
+              <e p="Readme Luminaris.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Space Shooter" t="Include">
+            <e p="Info.txt" t="Include" />
           </e>
         </e>
         <e p="Procedural fire" t="Include">
@@ -127,7 +132,7 @@
           <e p="Core" t="Include">
             <e p="AbstractSingleton.cs" t="Include" />
             <e p="ClassExtensions" t="Include">
-              <e p="SpaceShipDtoExtensions.cs" t="Include" />
+              <e p="DtoExtensions.cs" t="Include" />
             </e>
             <e p="ClientConnectionHelper.cs" t="Include" />
             <e p="Constants.cs" t="Include" />
@@ -147,6 +152,7 @@
             </e>
             <e p="Models" t="Include">
               <e p="SpaceShipDto.cs" t="Include" />
+              <e p="SpaceUnitDto.cs" t="Include" />
             </e>
           </e>
           <e p="Net" t="Include">
@@ -234,9 +240,6 @@
         <e p="Shaders" t="Include">
           <e p="MenuShader.shader" t="Include" />
           <e p="NaviStarfieldShader.shader" t="Include" />
-        </e>
-        <e p="Space Shooter" t="Include">
-          <e p="Info.txt" t="Include" />
         </e>
         <e p="Sprites" t="Include">
           <e p="Background" t="Include">

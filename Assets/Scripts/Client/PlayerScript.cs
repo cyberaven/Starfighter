@@ -27,7 +27,7 @@ namespace Client
         public IMovementAdapter ShipsBrain;
         [NonSerialized]
         public SpaceShipConfig shipConfig;
-        public PlayerScript lastThingToDock;
+        public UnitScript lastThingToDock;
         
         public bool readyToDock = false;
         

@@ -1,4 +1,5 @@
 ﻿using Client.Core;
+using Core;
 using UnityEngine;
 
 namespace Client.UI
@@ -23,11 +24,11 @@ namespace Client.UI
         private void OnTriggerEnter(Collider other)
         {
             Debug.unityLogger.Log($"{PlayerScript.gameObject.name}: Dock trigger enter {other.gameObject.name}");
-            //TODO: выполняться только в случае, если коллизия со сферой
-            var otherUnit = other.gameObject.GetComponentInParent<PlayerScript>();
+            if (!other.gameObject.CompareTag(Constants.DockTag) || !gameObject.CompareTag(Constants.DockTag)) return;
+            var otherUnit = other.gameObject.GetComponentInParent<UnitScript>();
             if (otherUnit is null) return;
             var isReadyToDock = _state?.GetState() ?? true;
-            if (otherUnit.shipConfig.isDockable && PlayerScript.shipConfig.isDockable && isReadyToDock)
+            if (otherUnit.unitConfig.isDockable && PlayerScript.unitConfig.isDockable && isReadyToDock)
             {
                 PlayerScript.lastThingToDock = otherUnit;
                 PlayerScript.readyToDock = true;

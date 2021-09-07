@@ -14,5 +14,6 @@ namespace ScriptableObjects
         public Vector3 position = Vector3.one;
         public Quaternion rotation = Quaternion.identity;
         public string prefabName;
+        public Guid id;
     }
 }

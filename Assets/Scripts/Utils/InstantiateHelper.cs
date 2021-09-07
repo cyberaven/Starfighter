@@ -1,4 +1,5 @@
-﻿using Client;
+﻿using System;
+using Client;
 using Client.Core;
 using Core;
 using Net.PackageData;
@@ -44,6 +45,21 @@ namespace Utils
                 Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
                     GameObject;
             instance.name = worldObject.name;
+            instance.tag = Constants.DynamicTag;
+            instance.SetActive(true);
+            return instance;
+        }
+        
+        public static GameObject InstantiateObject(SpaceUnitConfig worldObject)
+        {
+            worldObject.id = worldObject.id == Guid.Empty ? Guid.NewGuid() : worldObject.id;
+            var prefabName = worldObject.prefabName;
+            Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + prefabName}");
+            var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
+            var instance =
+                Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
+                    GameObject;
+            instance.name = worldObject.prefabName + Constants.Separator + worldObject.id;
             instance.tag = Constants.DynamicTag;
             instance.SetActive(true);
             return instance;
