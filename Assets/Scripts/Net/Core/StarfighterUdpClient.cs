@@ -16,6 +16,7 @@ namespace Net.Core
         private readonly IPAddress _sendingAddress;
         private readonly int _sendingPort;
         private readonly UdpClient _receivingClient;
+        private bool isContinueReceiving = true;
 
         
         public StarfighterUdpClient(IPAddress sendingAddress, int sendingPort, int receivingPort)
@@ -110,7 +111,7 @@ namespace Net.Core
         {
             try
             {
-                var asyncResult = _receivingClient.BeginReceive(EndReceivePackage, new object());
+                var asyncResult = _receivingClient.BeginReceive(EndReceivePackage, isContinueReceiving);
             }
             catch (SocketException ex)
             {
@@ -155,8 +156,9 @@ namespace Net.Core
                 stream.Close();
 
                 NetEventStorage.GetInstance().newPackageRecieved.Invoke(pack);
-
-                BeginReceivingPackage();
+                Debug.unityLogger.Log($"isContinueReceiving: {isContinueReceiving}");
+                if((bool)asyncResult.AsyncState)
+                    BeginReceivingPackage();
             }
             catch(Exception ex)
             {
@@ -176,7 +178,7 @@ namespace Net.Core
 
         public void Dispose()
         {
-            var temp = new IPEndPoint(1, 1);
+            isContinueReceiving = false;
             _receivingClient.Close();
             _receivingClient?.Dispose();
         }

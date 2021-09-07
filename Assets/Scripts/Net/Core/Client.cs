@@ -226,7 +226,9 @@ namespace Net.Core
         public void Dispose()
         {
             NetEventStorage.GetInstance().serverMovedPlayer.RemoveListener(UpdateMovement);
+            NetEventStorage.GetInstance().dockEvent.RemoveListener(TryToDock);
             _udpSocket.Dispose();
+            Debug.unityLogger.Log($"Socket after dispose: {_udpSocket}");
         }
     }
 }

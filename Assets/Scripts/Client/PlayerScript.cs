@@ -59,6 +59,16 @@ namespace Client
             _blm = gameObject.transform.Find("BotLeftEmition").GetComponent<ParticleSystem>();
             _te = gameObject.transform.Find("ThurstsEmition").GetComponent<ParticleSystem>();
 
+            #region Reset movement animation
+            
+            _te.Stop();
+            _tlm.Stop();
+            _trm.Stop();
+            _brm.Stop();
+            _blm.Stop();
+            
+            #endregion
+            
             switch (movementAdapter)
             {
                 case MovementAdapter.PlayerControl: //use on clients for ship under user control

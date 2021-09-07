@@ -93,6 +93,7 @@ namespace Net.Core
                 Debug.unityLogger.Log($"Disconnection: {client?.GetIpAddress()}:{client?.GetListeningPort()}");
                 ConnectedClients.Remove(client);
                 client?.Dispose();
+                Debug.unityLogger.Log($"Client after dispose: {client}");
             }
             else
             {
