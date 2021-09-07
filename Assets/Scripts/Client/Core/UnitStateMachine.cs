@@ -20,7 +20,7 @@ namespace Client.Core
         
         public void OnEnter(GameObject unit)
         {
-            
+            ClientEventStorage.GetInstance().DockingAvailable.Invoke();
         }
 
         public void Update(GameObject unit)
@@ -44,7 +44,7 @@ namespace Client.Core
         {
             //TODO: запретить перемещения, подписаться на триггер столкновения для принудительного разрыва
             unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            // unit.GetComponent<PlayerScript>().lastThingToDock.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            ClientEventStorage.GetInstance().IsDocked.Invoke();
             //TODO: поменять UI
         }
 
@@ -57,7 +57,6 @@ namespace Client.Core
         {
             //TODO: разрешить перемещения, отписаться от триггера столкновений для принудительного разрыва
             unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            // unit.GetComponent<PlayerScript>().lastThingToDock.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             //TODO: поменять UI
         }
     }

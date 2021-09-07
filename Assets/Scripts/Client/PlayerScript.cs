@@ -18,7 +18,7 @@ namespace Client
     }
     
     
-    public class PlayerScript : MonoBehaviour
+    public class PlayerScript : UnitScript
     {
         public DockingTrigger dockingTrigger;
         public Vector3 shipSpeed, shipRotation;
@@ -38,10 +38,11 @@ namespace Client
 
         private void Start()
         {
-            // gameObject.GetComponentInChildren<DockingTrigger>().Init(this);
+            unitConfig = shipConfig;
+
             dockingTrigger.Init(this);
             Debug.unityLogger.Log($"PS {shipConfig.shipState}");
-            //TODO: Init state from shipConfig not const
+
             unitStateMachine = new UnitStateMachine(gameObject, shipConfig.shipState);
 
             _front = gameObject.transform.Find("Front");
@@ -89,12 +90,7 @@ namespace Client
         
         private void FixedUpdate()
         {
-            // if (GetState() == UnitState.InFlight)
-            // {
-            //     UpdateMovement();
-            //     AnimateMovement();
-            // }
-            
+
             unitStateMachine.Update();
         }
         

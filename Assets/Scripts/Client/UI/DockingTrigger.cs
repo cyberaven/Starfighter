@@ -1,5 +1,4 @@
-﻿using System;
-using Net.Core;
+﻿using Client.Core;
 using UnityEngine;
 
 namespace Client.UI
@@ -32,6 +31,7 @@ namespace Client.UI
             {
                 PlayerScript.lastThingToDock = otherUnit;
                 PlayerScript.readyToDock = true;
+                ClientEventStorage.GetInstance().DockingAvailable.Invoke();
             }
         }
 
@@ -39,6 +39,7 @@ namespace Client.UI
         {
             Debug.unityLogger.Log($"{PlayerScript.gameObject.name}: Dock trigger exit");
             PlayerScript.readyToDock = false;
+            ClientEventStorage.GetInstance().DockableUnitsInRange.Invoke();
         }
         
         

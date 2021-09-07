@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Client;
+using Client.Core;
 using Core;
 using Net.Core;
 using Net.Packages;
@@ -71,6 +72,7 @@ namespace Net.PackageHandlers.ClientHandlers
                 case EventType.DockEvent:
                 {
                     Debug.unityLogger.Log("Dock event accepted");
+                    
                     var name = package.data.data.ToString();
                     Dispatcher.Instance.Invoke(() =>
                     {
@@ -79,6 +81,7 @@ namespace Net.PackageHandlers.ClientHandlers
                         if (go.GetState() == UnitState.InFlight)
                         {
                             go.unitStateMachine.ChangeState(UnitState.IsDocked);
+                            
                         }
                         else if (go.GetState() == UnitState.IsDocked)
                         {

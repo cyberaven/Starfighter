@@ -92,6 +92,7 @@
             </e>
             <e p="CourseView.cs" t="Include" />
             <e p="DestroyBoundary.cs" t="Include" />
+            <e p="DockCheckZone.cs" t="Include" />
             <e p="Follow.cs" t="Include" />
             <e p="GPSView.cs" t="Include" />
             <e p="Movement" t="Include">
@@ -110,6 +111,7 @@
               <e p="BasePlayerUIElement.cs" t="Include" />
               <e p="CoordinatesUI.cs" t="Include" />
               <e p="DataOutput.cs" t="Include" />
+              <e p="DockingIndicator.cs" t="Include" />
               <e p="DockingState.cs" t="Include" />
               <e p="DockingTrigger.cs" t="Include" />
               <e p="MainMenu.cs" t="Include" />
@@ -119,6 +121,7 @@
               <e p="RotationWheelScript.cs" t="Include" />
               <e p="SpeedPanelScript.cs" t="Include" />
             </e>
+            <e p="UnitScript.cs" t="Include" />
             <e p="Zoom.cs" t="Include" />
           </e>
           <e p="Core" t="Include">
