@@ -56,7 +56,7 @@ namespace Client.Core
         public void OnExit(GameObject unit)
         {
             //TODO: разрешить перемещения, отписаться от триггера столкновений для принудительного разрыва
-            unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            unit.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
             ClientEventStorage.GetInstance().DockingAvailable.Invoke();
             //TODO: поменять UI
         }
