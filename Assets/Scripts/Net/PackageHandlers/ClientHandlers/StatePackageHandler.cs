@@ -77,8 +77,8 @@ namespace Net.PackageHandlers.ClientHandlers
                                 var go = InstantiateHelper.InstantiateObject(worldObject);
                                 var ps = go.GetComponent<PlayerScript>();
                                 if (ps is null) continue;
-                                ps.shipConfig = (worldObject as SpaceShip).dto.ToConfig();
-                                ps.shipConfig.shipState = (worldObject as SpaceShip).shipState;
+                                // ps.shipConfig = (worldObject as SpaceShip).dto.ToConfig();
+                                // ps.shipConfig.shipState = (worldObject as SpaceShip).shipState;
                                 Debug.unityLogger.Log($"STATE PACK: {ps.shipConfig.shipState}");
                                 if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
                                 {
@@ -102,12 +102,6 @@ namespace Net.PackageHandlers.ClientHandlers
                             else
                             {
                                 var go = InstantiateHelper.InstantiateObject(worldObject);
-                                // var ps = go.GetComponent<PlayerScript>();
-                                // if (ps is null) continue;
-                                // if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
-                                // {
-                                //     ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
-                                // }
                             }
                         }
                     }

@@ -43,7 +43,7 @@ namespace Client
             dockingTrigger.Init(this);
             Debug.unityLogger.Log($"PS {shipConfig.shipState}");
 
-            unitStateMachine = new UnitStateMachine(gameObject, shipConfig.shipState);
+            // unitStateMachine = new UnitStateMachine(gameObject, shipConfig.shipState);
 
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");

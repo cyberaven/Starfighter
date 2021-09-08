@@ -3549,7 +3549,7 @@ GameObject:
   - component: {fileID: 3191670366621285357}
   - component: {fileID: 4745965178266713271}
   - component: {fileID: 1600507194137836735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DockCheckZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

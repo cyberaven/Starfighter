@@ -15,11 +15,7 @@ namespace Client
         
         private void OnTriggerEnter(Collider other)
         {
-            // var us = other.gameObject.GetComponent<UnitScript>();
-            // if (us is null) return;
-            //
             if (
-                // us.unitConfig.isDockable && other.gameObject != _playerScript.gameObject
                 other.gameObject.CompareTag(Constants.DockTag) &&
                 other.gameObject.GetComponentInParent<UnitScript>() != _playerScript
                 )
@@ -36,11 +32,6 @@ namespace Client
             {
                 ClientEventStorage.GetInstance().NoOneToDock.Invoke();
             }
-        }
-
-        private void Update()
-        {
-            objectsInZone = _objectsInDockZone.Count;
         }
     }
 }

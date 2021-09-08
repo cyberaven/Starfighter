@@ -13,6 +13,7 @@ namespace Net.Utils
     {
         public static async Task<bool> SendEventPackage(this StarfighterUdpClient client, object data, EventType type)
         {
+            Debug.unityLogger.Log($"Gonna send event to Server {type}");
             var eventData = new EventData()
             {
                 data = data,

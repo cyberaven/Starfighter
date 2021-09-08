@@ -2,6 +2,7 @@
 using Client;
 using Client.Core;
 using Core;
+using Core.ClassExtensions;
 using Net.PackageData;
 using ScriptableObjects;
 using UnityEngine;
@@ -32,6 +33,7 @@ namespace Utils
             playerScript.movementAdapter = MovementAdapter.RemoteNetworkControl;
             playerScript.shipConfig = ship;
             playerScript.shipConfig.shipState = ship.shipState;
+            playerScript.unitStateMachine = new UnitStateMachine(playerScript.gameObject, ship.shipState);
             shipsInstance.SetActive(true);
             return playerScript;
         }
@@ -46,6 +48,14 @@ namespace Utils
                     GameObject;
             instance.name = worldObject.name;
             instance.tag = Constants.DynamicTag;
+            if (instance.GetComponent<PlayerScript>() != null && worldObject is SpaceShip ship)
+            {
+                Debug.unityLogger.Log("ShipInit spaceshipDTO");
+                var ps = instance.GetComponent<PlayerScript>();
+                ps.shipConfig = ship.dto.ToConfig();
+                ps.shipConfig.shipState = ship.shipState;
+                ps.unitStateMachine = new UnitStateMachine(ps.gameObject, ship.shipState);
+            }
             instance.SetActive(true);
             return instance;
         }
