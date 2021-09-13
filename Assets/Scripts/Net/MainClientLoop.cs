@@ -57,7 +57,7 @@ namespace Net
         {
             try
             {
-                Debug.unityLogger.Log("Gonna send moves");
+                // Debug.unityLogger.Log("Gonna send moves");
                 var movementData = new MovementEventData()
                 {
                     rotationValue = _playerScript.ShipsBrain.GetShipAngle(),

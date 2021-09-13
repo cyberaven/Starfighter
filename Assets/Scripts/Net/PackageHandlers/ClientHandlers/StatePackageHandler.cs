@@ -20,6 +20,15 @@ namespace Net.PackageHandlers.ClientHandlers
             var statePack = pack as StatePackage;
             try
             {
+                // var data = new NativeArray<WorldJobData>(statePack?.data.worldState.Select(x=>new WorldJobData(x)).ToArray(), Allocator.TempJob);
+                // var job = new StatePackageJob()
+                // {
+                //     StateData = data
+                // };
+                // var handle = job.Schedule(data.Length, 4);
+                // handle.Complete();
+                // data.Dispose();
+                
                 Dispatcher.Instance.Invoke(() =>
                 {
                     foreach (var worldObject in statePack.data.worldState)
@@ -31,7 +40,7 @@ namespace Net.PackageHandlers.ClientHandlers
                             go.tag = Constants.AsteroidTag;
                             continue;
                         }
-
+                
                         if (worldObject is WayPoint)
                         {
                             var gameObject = GameObject.FindGameObjectsWithTag(Constants.WayPointTag)
@@ -51,15 +60,15 @@ namespace Net.PackageHandlers.ClientHandlers
                                 pointer.SetTarget(go);
                                 pointer.gameObject.SetActive(true);
                             }
-
+                
                             continue;
                         }
-
+                
                         if (worldObject is SpaceShip)
                         {
                             var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
                                 .FirstOrDefault(go => go.name == worldObject.name);
-
+                
                             if (gameObject != null)
                             {
                                 //Сервер однозначно определяет положение ВСЕХ объектов
@@ -77,9 +86,6 @@ namespace Net.PackageHandlers.ClientHandlers
                                 var go = InstantiateHelper.InstantiateObject(worldObject);
                                 var ps = go.GetComponent<PlayerScript>();
                                 if (ps is null) continue;
-                                // ps.shipConfig = (worldObject as SpaceShip).dto.ToConfig();
-                                // ps.shipConfig.shipState = (worldObject as SpaceShip).shipState;
-                                Debug.unityLogger.Log($"STATE PACK: {ps.shipConfig.shipState}");
                                 if (!MainClientLoop.instance.TryAttachPlayerControl(ps))
                                 {
                                     ps.movementAdapter = MovementAdapter.RemoteNetworkControl;
@@ -87,12 +93,12 @@ namespace Net.PackageHandlers.ClientHandlers
                             }
                             continue;
                         }
-
+                
                         //default: WorldObject
                         {
                             var gameObject = GameObject.FindGameObjectsWithTag(Constants.DynamicTag)
                                 .FirstOrDefault(go => go.name == worldObject.name);
-
+                
                             if (gameObject != null)
                             {
                                 //Сервер однозначно определяет положение ВСЕХ объектов

@@ -7,6 +7,7 @@ using Core;
 using Net.Core;
 using Net.Packages;
 using Net.Utils;
+using Unity.Collections;
 using UnityEngine;
 using Utils;
 using EventType = Net.Utils.EventType;
@@ -31,7 +32,7 @@ namespace Net.PackageHandlers.ClientHandlers
 
         public override async void HandlePackage(AbstractPackage pack)
         {
-            Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
+            // Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
             switch (pack.packageType)
             {
                 case PackageType.AcceptPackage:

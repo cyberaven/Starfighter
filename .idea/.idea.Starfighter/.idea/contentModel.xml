@@ -150,6 +150,7 @@
               <e p="InputManager.cs" t="Include" />
               <e p="SmartAxis.cs" t="Include" />
             </e>
+            <e p="Jobs.cs" t="Include" />
             <e p="Models" t="Include">
               <e p="SpaceShipDto.cs" t="Include" />
               <e p="SpaceUnitDto.cs" t="Include" />

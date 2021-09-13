@@ -21,7 +21,7 @@ namespace Net.PackageHandlers.ServerHandlers
 
         public override async void HandlePackage(AbstractPackage pack)
         {
-            Debug.unityLogger.Log($"Server Gonna handle some packs! {pack.packageType}");
+            // Debug.unityLogger.Log($"Server Gonna handle some packs! {pack.packageType}");
             switch (pack.packageType)
             {
                 case PackageType.ConnectPackage:

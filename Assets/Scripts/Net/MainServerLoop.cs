@@ -111,10 +111,11 @@ namespace Net
                     yield return null;
                 }
 
-                if (go.GetComponent<PlayerScript>() != null)
+                var ps = go.GetComponent<PlayerScript>();
+                
+                if (ps)
                 {
                     var rb = go.GetComponent<Rigidbody>();
-                    var ps = go.GetComponent<PlayerScript>();
                     ps.shipConfig.shipState = ps.GetState();
                     worldObjects.Add(new SpaceShip(go.name,
                         go.transform,

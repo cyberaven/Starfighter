@@ -12,19 +12,23 @@ namespace Client
     {
         public GameObject mainPoint;
         private GameObject _point;
-        private Vector3 _clickCoords; 
         private Vector3 _position;
+        private Camera _camera;
 
+        private void Start()
+        {
+            _camera = FindObjectOfType<Camera>();
+        }
+        
         private void OnGUI()
         {
             if (Event.current.button == 1 && Event.current.isMouse)
-                SetPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                SetPoint(_camera.ScreenToWorldPoint(Input.mousePosition));
         }
 
-        void SetPoint(Vector3 _clickCoords)
+        void SetPoint(Vector3 clickCoords)
         {
-            _position = new Vector3(_clickCoords.x, 0, _clickCoords.z);
-            _point = GameObject.FindGameObjectWithTag(Constants.WayPointTag);
+            _position = new Vector3(clickCoords.x, 0, clickCoords.z);
             if (_point is null)
             {
                 _point = Instantiate(mainPoint, _position, mainPoint.transform.rotation);

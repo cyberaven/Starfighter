@@ -159,14 +159,14 @@ namespace Net.Core
         
         private async Task SendDecline(DeclineData data)
         {
-            Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
+            // Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
             
             var result = await _udpSocket.SendPackageAsync(new DeclinePackage(data));
         }
 
         private async Task SendAccept(AcceptData data)
         {
-            Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
+            // Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendPackageAsync(new AcceptPackage(data));
         }
 
@@ -242,7 +242,6 @@ namespace Net.Core
             NetEventStorage.GetInstance().serverMovedPlayer.RemoveListener(UpdateMovement);
             NetEventStorage.GetInstance().dockEvent.RemoveListener(TryToDock);
             _udpSocket.Dispose();
-            Debug.unityLogger.Log($"Socket after dispose: {_udpSocket}");
         }
     }
 }

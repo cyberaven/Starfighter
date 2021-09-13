@@ -57,8 +57,6 @@ namespace Net.Core
 
         private void ConnectClient(ConnectPackage pack)
         {
-            Debug.unityLogger.Log("Connection handle start");
-
             Debug.unityLogger.Log($"Acc {pack.data.accountType}:  {pack.data.login}:{pack.data.password}");
                 
             if (CheckAuthorization(pack))
@@ -93,7 +91,6 @@ namespace Net.Core
                 Debug.unityLogger.Log($"Disconnection: {client?.GetIpAddress()}:{client?.GetListeningPort()}");
                 ConnectedClients.Remove(client);
                 client?.Dispose();
-                Debug.unityLogger.Log($"Client after dispose: {client}");
             }
             else
             {

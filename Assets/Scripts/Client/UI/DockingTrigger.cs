@@ -23,7 +23,7 @@ namespace Client.UI
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.unityLogger.Log($"{PlayerScript.gameObject.name}: Dock trigger enter {other.gameObject.name}");
+            // Debug.unityLogger.Log($"{PlayerScript.gameObject.name}: Dock trigger enter {other.gameObject.name}");
             if (!other.gameObject.CompareTag(Constants.DockTag) || !gameObject.CompareTag(Constants.DockTag)) return;
             var otherUnit = other.gameObject.GetComponentInParent<UnitScript>();
             if (otherUnit is null) return;
@@ -38,7 +38,7 @@ namespace Client.UI
 
         private void OnTriggerExit(Collider other)
         {
-            Debug.unityLogger.Log($"{PlayerScript.gameObject.name}: Dock trigger exit");
+            // Debug.unityLogger.Log($"{PlayerScript.gameObject.name}: Dock trigger exit");
             PlayerScript.readyToDock = false;
             ClientEventStorage.GetInstance().DockableUnitsInRange.Invoke();
         }

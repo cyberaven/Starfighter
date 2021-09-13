@@ -82,8 +82,8 @@ namespace Net.Core
                     new StreamingContext(StreamingContextStates.All),
                     new QuaternionSerializationSurrogate());
                 var serializer = new BinaryFormatter {SurrogateSelector = selector};
-                Debug.unityLogger.Log(
-                    $" waiting package from {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
+                // Debug.unityLogger.Log(
+                //     $" waiting package from {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
                 IPEndPoint remoteEndPoint = null;
                 _receivingClient.Client.ReceiveTimeout = timeout;
                 var result = _receivingClient.Receive(ref remoteEndPoint);
@@ -141,12 +141,12 @@ namespace Net.Core
                     new StreamingContext(StreamingContextStates.All),
                     new QuaternionSerializationSurrogate());
                 var serializer = new BinaryFormatter {SurrogateSelector = selector};
-                Debug.unityLogger.Log(
-                    $"waiting package from port {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
+                // Debug.unityLogger.Log(
+                //     $"waiting package from port {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
                 IPEndPoint remoteEndPoint = null;
                 var result = _receivingClient.EndReceive(asyncResult, ref remoteEndPoint);
 
-                Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
+                // Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
 
                 var stream = new MemoryStream(result);
 
@@ -156,7 +156,6 @@ namespace Net.Core
                 stream.Close();
 
                 NetEventStorage.GetInstance().newPackageRecieved.Invoke(pack);
-                Debug.unityLogger.Log($"isContinueReceiving: {isContinueReceiving}");
                 if((bool)asyncResult.AsyncState)
                     BeginReceivingPackage();
             }
