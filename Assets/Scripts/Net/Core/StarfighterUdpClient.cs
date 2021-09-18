@@ -16,6 +16,7 @@ namespace Net.Core
         private readonly IPAddress _sendingAddress;
         private readonly int _sendingPort;
         private readonly UdpClient _receivingClient;
+        private bool isContinueReceiving = true;
 
         
         public StarfighterUdpClient(IPAddress sendingAddress, int sendingPort, int receivingPort)
@@ -81,8 +82,8 @@ namespace Net.Core
                     new StreamingContext(StreamingContextStates.All),
                     new QuaternionSerializationSurrogate());
                 var serializer = new BinaryFormatter {SurrogateSelector = selector};
-                Debug.unityLogger.Log(
-                    $" waiting package from {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
+                // Debug.unityLogger.Log(
+                //     $" waiting package from {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
                 IPEndPoint remoteEndPoint = null;
                 _receivingClient.Client.ReceiveTimeout = timeout;
                 var result = _receivingClient.Receive(ref remoteEndPoint);
@@ -110,7 +111,7 @@ namespace Net.Core
         {
             try
             {
-                var asyncResult = _receivingClient.BeginReceive(EndReceivePackage, new object());
+                var asyncResult = _receivingClient.BeginReceive(EndReceivePackage, isContinueReceiving);
             }
             catch (SocketException ex)
             {
@@ -140,12 +141,12 @@ namespace Net.Core
                     new StreamingContext(StreamingContextStates.All),
                     new QuaternionSerializationSurrogate());
                 var serializer = new BinaryFormatter {SurrogateSelector = selector};
-                Debug.unityLogger.Log(
-                    $"waiting package from port {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
+                // Debug.unityLogger.Log(
+                //     $"waiting package from port {((IPEndPoint) _receivingClient.Client.LocalEndPoint).Port}");
                 IPEndPoint remoteEndPoint = null;
                 var result = _receivingClient.EndReceive(asyncResult, ref remoteEndPoint);
 
-                Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
+                // Debug.unityLogger.Log($"received package from {remoteEndPoint.Address}");
 
                 var stream = new MemoryStream(result);
 
@@ -155,8 +156,8 @@ namespace Net.Core
                 stream.Close();
 
                 NetEventStorage.GetInstance().newPackageRecieved.Invoke(pack);
-
-                BeginReceivingPackage();
+                if((bool)asyncResult.AsyncState)
+                    BeginReceivingPackage();
             }
             catch(Exception ex)
             {
@@ -176,7 +177,7 @@ namespace Net.Core
 
         public void Dispose()
         {
-            var temp = new IPEndPoint(1, 1);
+            isContinueReceiving = false;
             _receivingClient.Close();
             _receivingClient?.Dispose();
         }

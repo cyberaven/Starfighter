@@ -13,8 +13,6 @@ namespace Net.Core
         public DisconnectPackageEvent disconnectClient = new DisconnectPackageEvent();
         public ConnectPackageEvent connectClient = new ConnectPackageEvent();
         public ConnectPackageEvent connectToServer = new ConnectPackageEvent();
-        public StarfighterUdpClientEvent sendMoves = new StarfighterUdpClientEvent();
-        public StarfighterUdpClientEvent sendAction = new StarfighterUdpClientEvent();
         public IntEvent worldInit = new IntEvent();
         public ClientEvent worldInitDone = new ClientEvent();
         public WayPointEvent wayPointSetted = new WayPointEvent();
@@ -35,8 +33,6 @@ namespace Net.Core
             serverMovedPlayer.RemoveAllListeners();
             disconnectClient.RemoveAllListeners();
             connectClient.RemoveAllListeners();
-            sendMoves.RemoveAllListeners();
-            sendAction.RemoveAllListeners();
             worldInit.RemoveAllListeners();
             worldInitDone.RemoveAllListeners();
             wayPointSetted.RemoveAllListeners();

@@ -81,13 +81,14 @@ namespace Client.Movement
         }
 
         public bool GetAnyAction() => false;
+
+        public bool GetFireAction() => false;
+
+        public bool GetDockAction() => false;        
         
         public void UpdateMovementActionData(MovementEventData data)
         {
             _lastMovement = data;
         }
-        
-        public void OnStateChange(UnitState newState)
-        { }
     }
 }

@@ -84,7 +84,7 @@ namespace Net.Core
             }), GetIpAddress());
         }
 
-        private async void TryToDock(AbstractPackage package)
+        private void TryToDock(AbstractPackage package)
         {
             try
             {
@@ -95,6 +95,7 @@ namespace Net.Core
                     switch (_playerScript.GetState())
                     {
                         case UnitState.InFlight:
+                        {
                             if (!_playerScript.readyToDock)
                             {
                                 await SendDecline(new DeclineData() {eventId = (package as EventPackage).data.eventId});
@@ -104,27 +105,47 @@ namespace Net.Core
                             var clientToDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
                                 x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
                             if (clientToDock != null)
+                            {
                                 await clientToDock.SendEvent(new EventData()
                                     {data = clientToDock._myGameObjectName, eventType = EventType.DockEvent});
+                            }
+
+                            if (_playerScript.lastThingToDock is PlayerScript script)
+                            {
+                                script.unitStateMachine.ChangeState(UnitState.IsDocked);
+                            }
 
                             _playerScript.unitStateMachine.ChangeState(UnitState.IsDocked);
                             await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
 
                             break;
+                        }
                         case UnitState.IsDocked:
+                        {
                             //It's always possible to undock
                             var clientToUnDock = ClientManager.instance.ConnectedClients.FirstOrDefault(x =>
                                 x._playerScript.gameObject == _playerScript.lastThingToDock.gameObject);
                             if (clientToUnDock != null)
+                            {
                                 await clientToUnDock.SendEvent(new EventData()
-                                    {data = null, eventType = EventType.DockEvent});
+                                    {data = clientToUnDock._myGameObjectName, eventType = EventType.DockEvent});
+                            }
+
+                            if (_playerScript.lastThingToDock is PlayerScript script)
+                            {
+                                script.unitStateMachine.ChangeState(UnitState.InFlight);
+                            }
+
                             _playerScript.unitStateMachine.ChangeState(UnitState.InFlight);
                             await SendAccept(new AcceptData() {eventId = (package as EventPackage).data.eventId});
                             break;
+                        }
                         case UnitState.IsDead:
+                        {
                             //It's always impossible to dock while being dead
                             await SendDecline(new DeclineData() {eventId = (package as EventPackage).data.eventId});
                             break;
+                        }
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -138,14 +159,14 @@ namespace Net.Core
         
         private async Task SendDecline(DeclineData data)
         {
-            Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
+            // Debug.unityLogger.Log($"Gonna send decline to: {_udpSocket.GetSendingAddress()}");
             
             var result = await _udpSocket.SendPackageAsync(new DeclinePackage(data));
         }
 
         private async Task SendAccept(AcceptData data)
         {
-            Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
+            // Debug.unityLogger.Log($"Gonna send accept to: {_udpSocket.GetSendingAddress()}:{Constants.ServerSendingPort}");
             var result = await _udpSocket.SendPackageAsync(new AcceptPackage(data));
         }
 
@@ -219,6 +240,7 @@ namespace Net.Core
         public void Dispose()
         {
             NetEventStorage.GetInstance().serverMovedPlayer.RemoveListener(UpdateMovement);
+            NetEventStorage.GetInstance().dockEvent.RemoveListener(TryToDock);
             _udpSocket.Dispose();
         }
     }

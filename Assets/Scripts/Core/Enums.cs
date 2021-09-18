@@ -10,6 +10,14 @@
         Moderator //игротех
     }
 
+    public enum UnitType
+    {
+        Ship,
+        Asteroid,
+        WayPoint,
+        WorldObject
+    }
+    
     public enum UnitState
     {
         InFlight,

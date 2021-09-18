@@ -13,6 +13,7 @@ using Net.PackageHandlers.ServerHandlers;
 using Net.Packages;
 using Net.Utils;
 using ScriptableObjects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ namespace Net
     public class MainServerLoop : Singleton<MainServerLoop>
     {
         public Image indicator;
+        public TextMeshProUGUI clientCounter;
         private StarfighterUdpClient _multicastUdpClient;
         private Coroutine currentCoroutine, previousCoroutine;
         
@@ -37,6 +39,8 @@ namespace Net
             base.Awake();
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
             NetEventStorage.GetInstance().worldInit.AddListener(BeginReceiving);
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 120;
         }
 
         private void ConfigInit()
@@ -76,6 +80,7 @@ namespace Net
             {
                 var collection = CollectWorldObjects();
                 currentCoroutine = StartCoroutine(collection);
+                clientCounter.text = ClientManager.instance.ConnectedClients.Count.ToString();
             }
             catch (Exception ex)
             {
@@ -108,11 +113,18 @@ namespace Net
                     yield return null;
                 }
 
-                if (go.GetComponent<PlayerScript>() != null)
+                var ps = go.GetComponent<PlayerScript>();
+                
+                if (ps)
                 {
                     var rb = go.GetComponent<Rigidbody>();
-                    var ps = go.GetComponent<PlayerScript>();
-                    worldObjects.Add(new SpaceShip(go.name, go.transform, rb.velocity, rb.angularVelocity, new SpaceShipDto(ps.shipConfig)));
+                    ps.shipConfig.shipState = ps.GetState();
+                    worldObjects.Add(new SpaceShip(go.name,
+                        go.transform,
+                        rb.velocity,
+                        rb.angularVelocity,
+                        new SpaceShipDto(ps.shipConfig),
+                        ps.GetState()));
                     yield return null;
                 }
 

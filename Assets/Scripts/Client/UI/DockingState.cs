@@ -6,24 +6,35 @@ namespace Client.UI
 {
     public class DockingState : BasePlayerUIElement
     {
-        private bool _dockStateUI = false;
-        [SerializeField] private GameObject _dockingIndicator;
-        [SerializeField] private Camera _camera;
+        private bool _dockStateUI = true;
+        private Camera _camera;
         
+        public override void Init(PlayerScript playerScript)
+        {
+            base.Init(playerScript);
+            _camera = FindObjectOfType<Camera>();
+            
+            _camera.cullingMask |= (1 << 10);
+        }
 
+        public bool GetState()
+        {
+            return _dockStateUI;
+        }
+        
         public void SwitchState()
         {
+            // if (key != InputManager.instance.keyConfig.dock) return;
+            
             _dockStateUI = !_dockStateUI;
             
             if (_dockStateUI)
             {
                 _camera.cullingMask |= (1 << 10);
-                _dockingIndicator.SetActive(true);
             }
             else
             {
                 _camera.cullingMask &= ~(1 << 10);
-                _dockingIndicator.SetActive(false);
             }
         }
     }

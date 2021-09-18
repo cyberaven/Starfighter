@@ -34,7 +34,7 @@ namespace Client.Core
             FindObjectOfType<CoordinatesUI>()?.Init(ps);
             FindObjectOfType<RotationScript>()?.Init(ps);
             FindObjectOfType<CourseView>()?.Init(ps);
-            FindObjectOfType<DockingTrigger>()?.Init(ps);
+            // FindObjectOfType<DockingTrigger>()?.Init(ps);
             FindObjectOfType<DockingState>()?.Init(ps);
             Resources.FindObjectsOfTypeAll<GPSView>().First().Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = Resources.FindObjectsOfTypeAll<PauseMenu>().First().gameObject;

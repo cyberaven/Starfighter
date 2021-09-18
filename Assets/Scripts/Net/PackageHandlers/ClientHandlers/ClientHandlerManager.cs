@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Client;
+using Client.Core;
 using Core;
 using Net.Core;
 using Net.Packages;
 using Net.Utils;
+using Unity.Collections;
 using UnityEngine;
 using Utils;
 using EventType = Net.Utils.EventType;
@@ -30,7 +32,7 @@ namespace Net.PackageHandlers.ClientHandlers
 
         public override async void HandlePackage(AbstractPackage pack)
         {
-            Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
+            // Debug.unityLogger.Log($"Client Gonna handle some packs! {pack.packageType}");
             switch (pack.packageType)
             {
                 case PackageType.AcceptPackage:
@@ -54,13 +56,14 @@ namespace Net.PackageHandlers.ClientHandlers
             }
         }
 
-        public void AddToPendingList(AbstractPackage package)
+        public override void AddToPendingList(AbstractPackage package)
         {
             _responsePendingList.Add(package);
         }
         
         public void AcceptEvent(AbstractPackage acceptPackage)
         {
+            Debug.unityLogger.Log($"Accept handling {acceptPackage.id}");
             var id = (acceptPackage as AcceptPackage).data.eventId;
             var package = _responsePendingList.FirstOrDefault(x => (x as EventPackage).data.eventId == id) as EventPackage;
             switch (package.data.eventType)
@@ -69,6 +72,8 @@ namespace Net.PackageHandlers.ClientHandlers
                     break;
                 case EventType.DockEvent:
                 {
+                    Debug.unityLogger.Log("Dock event accepted");
+                    
                     var name = package.data.data.ToString();
                     Dispatcher.Instance.Invoke(() =>
                     {
@@ -77,6 +82,7 @@ namespace Net.PackageHandlers.ClientHandlers
                         if (go.GetState() == UnitState.InFlight)
                         {
                             go.unitStateMachine.ChangeState(UnitState.IsDocked);
+                            
                         }
                         else if (go.GetState() == UnitState.IsDocked)
                         {

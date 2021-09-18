@@ -18,20 +18,6 @@ namespace Client.Movement
         
         public PlayerControl(UnitState state)
         {
-            switch (state)
-            {
-                case UnitState.InFlight:
-                    NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
-                    NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
-                    break;
-                case UnitState.IsDocked:
-                    NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
-                    break;
-                case UnitState.IsDead:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(state), state, null);
-            }
             _keyConfig = InputManager.instance.keyConfig;
         }
         
@@ -90,66 +76,6 @@ namespace Client.Movement
         public void UpdateMovementActionData(MovementEventData data)
         {
             _lastMovement = data;
-        }
-
-        public async void SendMovement(StarfighterUdpClient udpClient)
-        {
-            try
-            {
-                var movementData = new MovementEventData()
-                {
-                    rotationValue = GetShipAngle(),
-                    sideManeurValue = GetSideManeurSpeed(),
-                    straightManeurValue = GetStraightManeurSpeed(),
-                    thrustValue = GetThrustSpeed()
-                };
-                UpdateMovementActionData(movementData);
-                var result = await udpClient.SendEventPackage(movementData, EventType.MoveEvent);
-            }
-            catch (Exception ex)
-            {
-                Debug.unityLogger.LogException(ex);
-            }
-        }
-
-        public async void SendAction(StarfighterUdpClient udpClient)
-        {
-            try
-            {
-                //BUG:possible troubles if it's executes in different frame than trigger Event 
-                if (GetDockAction())
-                {
-                    var result = await udpClient.SendEventPackage(null, EventType.DockEvent);
-                }
-
-                if (GetFireAction())
-                {
-                    var result = await udpClient.SendEventPackage(null, EventType.FireEvent);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.unityLogger.LogException(ex);
-            }
-        }
-
-        public void OnStateChange(UnitState newState)
-        {
-            switch (newState)
-            {
-                case UnitState.InFlight:
-                    NetEventStorage.GetInstance().sendMoves.AddListener(SendMovement);
-                    NetEventStorage.GetInstance().sendAction.AddListener(SendAction);
-                    break;
-                case UnitState.IsDead:
-                    NetEventStorage.GetInstance().sendMoves.RemoveListener(SendMovement);
-                    NetEventStorage.GetInstance().sendAction.RemoveListener(SendAction);
-                    break;
-                case UnitState.IsDocked:
-                    NetEventStorage.GetInstance().sendMoves.RemoveListener(SendMovement);
-                    break;
-                default: throw new ArgumentOutOfRangeException();
-            }
         }
     }
 }

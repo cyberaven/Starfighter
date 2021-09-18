@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Core;
 using Client.Movement;
+using Client.UI;
 using Core;
 using Net.Core;
 using ScriptableObjects;
@@ -17,15 +18,16 @@ namespace Client
     }
     
     
-    public class PlayerScript : MonoBehaviour
+    public class PlayerScript : UnitScript
     {
+        public DockingTrigger dockingTrigger;
         public Vector3 shipSpeed, shipRotation;
         public MovementAdapter movementAdapter;
         public UnitStateMachine unitStateMachine;
         public IMovementAdapter ShipsBrain;
         [NonSerialized]
         public SpaceShipConfig shipConfig;
-        public GameObject lastThingToDock;
+        public UnitScript lastThingToDock;
         
         public bool readyToDock = false;
         
@@ -36,9 +38,13 @@ namespace Client
 
         private void Start()
         {
-            Debug.unityLogger.Log(shipConfig);
-            unitStateMachine = new UnitStateMachine(gameObject, UnitState.InFlight);
-            
+            unitConfig = shipConfig;
+
+            dockingTrigger.Init(this);
+            Debug.unityLogger.Log($"PS {shipConfig.shipState}");
+
+            // unitStateMachine = new UnitStateMachine(gameObject, shipConfig.shipState);
+
             _front = gameObject.transform.Find("Front");
             _back = gameObject.transform.Find("Back");
             _left = gameObject.transform.Find("Left");
@@ -54,6 +60,16 @@ namespace Client
             _blm = gameObject.transform.Find("BotLeftEmition").GetComponent<ParticleSystem>();
             _te = gameObject.transform.Find("ThurstsEmition").GetComponent<ParticleSystem>();
 
+            #region Reset movement animation
+            
+            _te.Stop();
+            _tlm.Stop();
+            _trm.Stop();
+            _brm.Stop();
+            _blm.Stop();
+            
+            #endregion
+            
             switch (movementAdapter)
             {
                 case MovementAdapter.PlayerControl: //use on clients for ship under user control
@@ -66,7 +82,7 @@ namespace Client
                     throw new ArgumentOutOfRangeException();
             }
         }
-
+        
         public UnitState GetState()
         {
             return unitStateMachine.currentState.State;
@@ -74,11 +90,10 @@ namespace Client
         
         private void FixedUpdate()
         {
-            UpdateMovement();
-            AnimateMovement();
+            unitStateMachine.Update();
         }
         
-        private void UpdateMovement()
+        public void UpdateMovement()
         {
             // расчет вектора тяги
             var thrustForceVector = _front.transform.position - _back.transform.position; //вектор фронтальной тяги
@@ -89,7 +104,7 @@ namespace Client
             _thrustForce.torque = new Vector3(0, ShipsBrain.GetShipAngle(), 0);
         }
  
-        private void AnimateMovement()
+        public void AnimateMovement()
         {
             #region Reset movement animation
             
