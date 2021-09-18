@@ -701,7 +701,7 @@ PrefabInstance:
     - target: {fileID: 6220760324071643012, guid: c675f8913e6adf443862498e71d47f56,
         type: 3}
       propertyPath: m_Name
-      value: Yacht
+      value: ScienseVessel
       objectReference: {fileID: 0}
     - target: {fileID: 6223886915030344364, guid: c675f8913e6adf443862498e71d47f56,
         type: 3}
@@ -963,7 +963,7 @@ PrefabInstance:
     - target: {fileID: 3249588557617223395, guid: fa53100c16c2bee4ca2b6bec03e65252,
         type: 3}
       propertyPath: m_Name
-      value: Space_Shooter
+      value: Yacht
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa53100c16c2bee4ca2b6bec03e65252, type: 3}

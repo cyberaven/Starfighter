@@ -93,6 +93,7 @@
             <e p="Core" t="Include">
               <e p="ClientEventStorage.cs" t="Include" />
               <e p="ClientInitManager.cs" t="Include" />
+              <e p="Postman.cs" t="Include" />
               <e p="UnitStateMachine.cs" t="Include" />
             </e>
             <e p="CourseView.cs" t="Include" />
@@ -119,6 +120,7 @@
               <e p="DockingIndicator.cs" t="Include" />
               <e p="DockingState.cs" t="Include" />
               <e p="DockingTrigger.cs" t="Include" />
+              <e p="LockindDocking.cs" t="Include" />
               <e p="MainMenu.cs" t="Include" />
               <e p="MenuButton.cs" t="Include" />
               <e p="PauseMenu.cs" t="Include" />
