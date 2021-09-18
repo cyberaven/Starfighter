@@ -59,27 +59,6 @@ namespace Utils
             return instance;
         }
         
-        // public static GameObject InstantiateObject(WorldJobData worldObject)
-        // {
-        //     var prefabName = worldObject.name.ToString().Split(Constants.Separator)[0];
-        //     // Debug.unityLogger.Log($"Try to load resource: {Constants.PathToPrefabs + prefabName}");
-        //     var goToInstantiate = Resources.Load(Constants.PathToPrefabs + prefabName);
-        //     var instance =
-        //         Object.Instantiate(goToInstantiate, worldObject.position, worldObject.rotation) as
-        //             GameObject;
-        //     instance.name = worldObject.name.ToString();
-        //     instance.tag = Constants.DynamicTag;
-        //     if (instance.GetComponent<PlayerScript>() != null && (UnitType)worldObject.unitType == UnitType.Ship)
-        //     {
-        //         var ps = instance.GetComponent<PlayerScript>();
-        //         // ps.shipConfig = worldObject.dto.ToConfig();
-        //         ps.shipConfig.shipState = (UnitState)worldObject.shipState;
-        //         ps.unitStateMachine = new UnitStateMachine(ps.gameObject, (UnitState)worldObject.shipState);
-        //     }
-        //     instance.SetActive(true);
-        //     return instance;
-        // }
-        
         public static GameObject InstantiateObject(SpaceUnitConfig worldObject)
         {
             worldObject.id = worldObject.id == Guid.Empty ? Guid.NewGuid() : worldObject.id;

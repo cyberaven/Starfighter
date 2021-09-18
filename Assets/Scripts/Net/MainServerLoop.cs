@@ -39,6 +39,8 @@ namespace Net
             base.Awake();
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
             NetEventStorage.GetInstance().worldInit.AddListener(BeginReceiving);
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 120;
         }
 
         private void ConfigInit()

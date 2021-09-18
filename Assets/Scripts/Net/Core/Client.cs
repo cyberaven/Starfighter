@@ -128,7 +128,7 @@ namespace Net.Core
                             if (clientToUnDock != null)
                             {
                                 await clientToUnDock.SendEvent(new EventData()
-                                    {data = null, eventType = EventType.DockEvent});
+                                    {data = clientToUnDock._myGameObjectName, eventType = EventType.DockEvent});
                             }
 
                             if (_playerScript.lastThingToDock is PlayerScript script)
