@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7356776177025621702}
   - component: {fileID: 3829200563201958463}
   - component: {fileID: 7967838218454292843}
+  - component: {fileID: 587859025726522501}
   m_Layer: 0
   m_Name: Jacht
   m_TagString: Dynamic
@@ -96,6 +97,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &587859025726522501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249588557617223395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21b31f5f07b4eb79cec4395abe5d401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitConfig: {fileID: 11400000, guid: f73ada0ea085a9c41b9d773f8fc873e8, type: 2}
 --- !u!1001 &1598419712474097378
 PrefabInstance:
   m_ObjectHideFlags: 0
