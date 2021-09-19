@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9af17215ec3042dfa8efcb8df3cd1aa8, type: 3}
   m_Name: Horizontal Axis
   m_EditorClassIdentifier: 
-  delta: 0.01
+  delta: 0.1
   axisName: Horizontal

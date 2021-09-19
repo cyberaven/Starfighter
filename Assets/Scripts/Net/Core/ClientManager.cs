@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using Core;
 using Net.PackageData;
 using Net.Packages;
@@ -111,11 +113,18 @@ namespace Net.Core
         
         public async void SendToAll(AbstractPackage package, IPAddress sender = null)
         {
-            foreach (var client in ConnectedClients)
-            {
-                if (Equals(client.GetIpAddress(), sender)) continue;
-                await client.SendPackage(package);
-            }
+            ThreadPool.QueueUserWorkItem(q =>
+                Parallel.ForEach(ConnectedClients,
+                    async client =>
+                    {
+                        if (Equals(client.GetIpAddress(), sender)) return;
+                        await client.SendPackage(package);
+                    }));
+            // foreach (var client in ConnectedClients)
+            // {
+            //     if (Equals(client.GetIpAddress(), sender)) continue;
+            //     await client.SendPackage(package);
+            // }
         }
 
         private async void SendWayPointInfo(IPAddress address, WorldObject waypoint)

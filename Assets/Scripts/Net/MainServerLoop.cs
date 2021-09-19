@@ -32,9 +32,10 @@ namespace Net
     {
         public Image indicator;
         public TextMeshProUGUI clientCounter;
+        
         private StarfighterUdpClient _multicastUdpClient;
         private Coroutine currentCoroutine, previousCoroutine;
-        
+        private bool isUpdating;
         
         private new void Awake()
         {
@@ -81,7 +82,7 @@ namespace Net
         {
             try
             {
-                
+                currentCoroutine = StartCoroutine(CollectWorldObjects());
                 clientCounter.text = ClientManager.instance.ConnectedClients.Count.ToString();
             }
             catch (Exception ex)
@@ -98,12 +99,16 @@ namespace Net
         private void FixedUpdate()
         {
             Dispatcher.Instance.InvokePending();
-            currentCoroutine = StartCoroutine(CollectWorldObjects());
+            
+            
             // CollectWorldObjects();
         }
 
         private IEnumerator CollectWorldObjects()
         {
+            if(isUpdating) yield break;
+            
+            isUpdating = true;
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
@@ -142,6 +147,8 @@ namespace Net
             ThreadPool.QueueUserWorkItem(q =>
                 Parallel.ForEach(ClientManager.instance.ConnectedClients,
                     async client => await client.SendPackage(statePackage)));
+
+            isUpdating = false;
         }
         
         private async void SendWorldState(StatePackage pack)
