@@ -54,6 +54,7 @@ namespace Net.Core
         private bool CheckAuthorization(ConnectPackage pack)
         {
             return !ConnectedClients.Any(client => Equals(client.GetIpAddress(), pack.ipAddress)) &&
+                   !ConnectedClients.Any(client => Equals(client.GetLogin(),pack.data.login)) &&
                    accountObjects.Any(acc => acc.login == pack.data.login && acc.password == pack.data.password);
         }
 

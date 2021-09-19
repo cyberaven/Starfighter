@@ -32,7 +32,10 @@ namespace Client.UI
             {
                 PlayerScript.lastThingToDock = otherUnit;
                 PlayerScript.readyToDock = true;
-                ClientEventStorage.GetInstance().DockingAvailable.Invoke();
+                if (PlayerScript.GetState() != UnitState.IsDocked)
+                {
+                    ClientEventStorage.GetInstance().DockingAvailable.Invoke();
+                }
             }
         }
 

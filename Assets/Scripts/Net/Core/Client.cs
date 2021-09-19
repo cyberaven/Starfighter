@@ -26,6 +26,7 @@ namespace Net.Core
         private StarfighterUdpClient _udpSocket;
         private PlayerScript _playerScript;
         private string _myGameObjectName;
+        private string _login;
         private UserType _accountType;
 
         public Client(IPAddress address, int sendingPort,  int listeningPort, ClientAccountObject account)
@@ -36,6 +37,7 @@ namespace Net.Core
                 NetEventStorage.GetInstance().dockEvent.AddListener(TryToDock);
 
                 _accountType = account.type;
+                _login = account.login;
 
                 _playerScript = InstantiateHelper.InstantiateServerShip(account.ship);
 
@@ -53,20 +55,13 @@ namespace Net.Core
             }
         }
 
-        public IPAddress GetIpAddress()
-        {
-            return _udpSocket.GetSendingAddress();
-        }
+        public IPAddress GetIpAddress() => _udpSocket.GetSendingAddress();
 
-        public int GetListeningPort()
-        {
-            return _udpSocket.GetListeningPort();
-        }
+        public int GetListeningPort() => _udpSocket.GetListeningPort();
 
-        public string GetShipGOName()
-        {
-            return _myGameObjectName;
-        }
+        public string GetShipGOName() => _myGameObjectName;
+
+        public string GetLogin() => _login; 
 
         private void StartListenClient()
         {
