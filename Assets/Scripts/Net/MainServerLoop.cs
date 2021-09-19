@@ -98,14 +98,12 @@ namespace Net
         private void FixedUpdate()
         {
             Dispatcher.Instance.InvokePending();
-            // currentCoroutine = StartCoroutine(CollectWorldObjects());
-            CollectWorldObjects();
+            currentCoroutine = StartCoroutine(CollectWorldObjects());
+            // CollectWorldObjects();
         }
 
-        private void CollectWorldObjects()
+        private IEnumerator CollectWorldObjects()
         {
-            // yield return previousCoroutine;
-            // previousCoroutine = currentCoroutine;
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
@@ -114,7 +112,7 @@ namespace Net
                 if (go.CompareTag(Constants.WayPointTag))
                 {
                     worldObjects.Add(new WayPoint(go.name, go.transform));
-                    // yield return null;
+                    yield return null;
                 }
 
                 var ps = go.GetComponent<PlayerScript>();
@@ -129,11 +127,11 @@ namespace Net
                         rb.angularVelocity,
                         new SpaceShipDto(ps.shipConfig),
                         ps.GetState()));
-                    // yield return null;
+                    yield return null;
                 }
 
                 worldObjects.Add(new WorldObject(go.name, go.transform));
-                // yield return null;
+                yield return null;
             }
 
             var statePackage = new StatePackage(new StateData()
