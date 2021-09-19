@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using Client;
 using Core;
 using Core.InputManager;
@@ -39,8 +41,8 @@ namespace Net
             base.Awake();
             NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
             NetEventStorage.GetInstance().worldInit.AddListener(BeginReceiving);
-            QualitySettings.vSyncCount = 0;
-            Application.targetFrameRate = 120;
+            // QualitySettings.vSyncCount = 0;
+            // Application.targetFrameRate = 120;
         }
 
         private void ConfigInit()
@@ -79,7 +81,7 @@ namespace Net
         {
             try
             {
-                currentCoroutine = StartCoroutine(CollectWorldObjects());
+                
                 clientCounter.text = ClientManager.instance.ConnectedClients.Count.ToString();
             }
             catch (Exception ex)
@@ -96,12 +98,14 @@ namespace Net
         private void FixedUpdate()
         {
             Dispatcher.Instance.InvokePending();
+            // currentCoroutine = StartCoroutine(CollectWorldObjects());
+            CollectWorldObjects();
         }
 
-        private IEnumerator CollectWorldObjects()
+        private void CollectWorldObjects()
         {
-            yield return previousCoroutine;
-            previousCoroutine = currentCoroutine;
+            // yield return previousCoroutine;
+            // previousCoroutine = currentCoroutine;
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
@@ -110,7 +114,7 @@ namespace Net
                 if (go.CompareTag(Constants.WayPointTag))
                 {
                     worldObjects.Add(new WayPoint(go.name, go.transform));
-                    yield return null;
+                    // yield return null;
                 }
 
                 var ps = go.GetComponent<PlayerScript>();
@@ -125,27 +129,26 @@ namespace Net
                         rb.angularVelocity,
                         new SpaceShipDto(ps.shipConfig),
                         ps.GetState()));
-                    yield return null;
+                    // yield return null;
                 }
 
                 worldObjects.Add(new WorldObject(go.name, go.transform));
-                yield return null;
+                // yield return null;
             }
 
             var statePackage = new StatePackage(new StateData()
             {
                 worldState = worldObjects.ToArray()
             });
-            
-            NetEventStorage.GetInstance().updateWorldState.Invoke(statePackage);
+
+            ThreadPool.QueueUserWorkItem(q =>
+                Parallel.ForEach(ClientManager.instance.ConnectedClients,
+                    async client => await client.SendPackage(statePackage)));
         }
         
         private async void SendWorldState(StatePackage pack)
         {
-            foreach (var client in ClientManager.instance.ConnectedClients)
-            {
-                await client.SendPackage(pack);
-            }
+
 
             // StartCoroutine(CollectWorldObjects());
             // var result = await _multicastUdpClient.SendPackageAsync(pack);
