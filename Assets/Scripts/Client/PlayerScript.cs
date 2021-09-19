@@ -4,6 +4,8 @@ using Client.Movement;
 using Client.UI;
 using Core;
 using Net.Core;
+using Net.PackageData;
+using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -30,6 +32,7 @@ namespace Client
         public UnitScript lastThingToDock;
         
         public bool readyToDock = false;
+        public bool localUsage = false;
         
         private Transform _front, _back, _left, _right;
         private Rigidbody _ship, _engine;
@@ -38,6 +41,13 @@ namespace Client
 
         private void Start()
         {
+            if (localUsage)
+            {
+                unitStateMachine = new UnitStateMachine(gameObject);
+                shipConfig = Resources.Load<SpaceShipConfig>(Constants.PathToShipsObjects + "SpaceShipConfig");
+                ClientEventStorage.GetInstance().InitPilot.Invoke(this);
+            }
+            
             unitConfig = shipConfig;
 
             dockingTrigger.Init(this);
