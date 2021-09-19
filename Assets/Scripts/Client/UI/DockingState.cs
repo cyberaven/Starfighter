@@ -21,6 +21,12 @@ namespace Client.UI
         {
             return _dockStateUI;
         }
+
+        public void Start()
+        {
+            _camera = FindObjectOfType<Camera>();
+            _camera.cullingMask |= (1 << 10);
+        }
         
         public void SwitchState()
         {

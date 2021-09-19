@@ -56,7 +56,7 @@ namespace Net
         private void Start()
         {
             ConfigInit();
-            StartCoroutine(CollectWorldObjects());
+            // StartCoroutine(CollectWorldObjects());
         }
 
         public void BeginReceiving(int _)
@@ -79,7 +79,7 @@ namespace Net
         {
             try
             {
-                // currentCoroutine = StartCoroutine(CollectWorldObjects());
+                currentCoroutine = StartCoroutine(CollectWorldObjects());
                 clientCounter.text = ClientManager.instance.ConnectedClients.Count.ToString();
             }
             catch (Exception ex)
@@ -100,8 +100,8 @@ namespace Net
 
         private IEnumerator CollectWorldObjects()
         {
-            // yield return previousCoroutine;
-            // previousCoroutine = currentCoroutine;
+            yield return previousCoroutine;
+            previousCoroutine = currentCoroutine;
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
@@ -147,7 +147,7 @@ namespace Net
                 await client.SendPackage(pack);
             }
 
-            StartCoroutine(CollectWorldObjects());
+            // StartCoroutine(CollectWorldObjects());
             // var result = await _multicastUdpClient.SendPackageAsync(pack);
         }
         

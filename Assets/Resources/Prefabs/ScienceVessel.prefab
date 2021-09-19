@@ -692,7 +692,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DockingMarker (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4874855036323579927, guid: 67bef267569f9bb46b29cc196e2f062b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67bef267569f9bb46b29cc196e2f062b, type: 3}
 --- !u!4 &1077368382676075185 stripped
 Transform:
@@ -782,7 +783,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DockingMarker (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4874855036323579927, guid: 67bef267569f9bb46b29cc196e2f062b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 67bef267569f9bb46b29cc196e2f062b, type: 3}
 --- !u!4 &4381586810735679968 stripped
 Transform:
