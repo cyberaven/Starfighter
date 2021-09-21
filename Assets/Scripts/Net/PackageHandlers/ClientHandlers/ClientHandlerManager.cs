@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Client;
-using Client.Core;
 using Core;
 using Net.Core;
 using Net.Packages;
 using Net.Utils;
-using Unity.Collections;
 using UnityEngine;
 using Utils;
 using EventType = Net.Utils.EventType;
@@ -91,7 +89,7 @@ namespace Net.PackageHandlers.ClientHandlers
                     });
                     break;
                 }
-                case EventType.TowEvent:
+                case EventType.GrappleEvent:
                     break;
                 case EventType.FireEvent:
                     break;

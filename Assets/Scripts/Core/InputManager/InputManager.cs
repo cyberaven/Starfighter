@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Net.Core;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Core.InputManager
 {

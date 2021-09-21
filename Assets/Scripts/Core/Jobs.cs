@@ -1,11 +1,6 @@
-using System;
-using Client;
-using Net.PackageData;
 using Unity.Collections;
-using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Jobs;
-using Utils;
 
 namespace Core
 {

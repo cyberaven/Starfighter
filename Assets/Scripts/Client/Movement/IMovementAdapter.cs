@@ -1,5 +1,4 @@
-﻿using Core;
-using Net.PackageData.EventsData;
+﻿using Net.PackageData.EventsData;
 
 namespace Client.Movement
 {
@@ -13,6 +12,7 @@ namespace Client.Movement
         void UpdateMovementActionData(MovementEventData data);
         bool GetFireAction();
         bool GetDockAction();
+        bool GetGrappleAction();
     }
 
     public struct EngineState

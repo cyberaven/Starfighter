@@ -15,6 +15,7 @@ namespace Core.Models
         public float maxHp;
         public float currentHp;
         public bool isDockable;
+        public bool isMovable;
         public Vector3 position;
         public Quaternion rotation;
         public string prefabName;
@@ -30,6 +31,7 @@ namespace Core.Models
             maxHp = config.maxHp;
             currentHp = config.currentHp;
             isDockable = config.isDockable;
+            isMovable = config.isMovable;
             position = config.position;
             rotation = config.rotation;
             prefabName = config.prefabName;

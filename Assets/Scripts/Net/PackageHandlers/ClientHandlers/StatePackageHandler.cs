@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Linq;
-using Client;
-using Client.UI;
-using Core;
-using Core.ClassExtensions;
 using Net.Interfaces;
-using Net.PackageData;
 using Net.Packages;
 using UnityEngine;
-using Utils;
 using Task = System.Threading.Tasks.Task;
 
 namespace Net.PackageHandlers.ClientHandlers

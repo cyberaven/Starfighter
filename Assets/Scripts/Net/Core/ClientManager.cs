@@ -76,7 +76,7 @@ namespace Net.Core
                 return;
             }
                 
-            Debug.Log("Connection declined (this endpoint already connected) or there is no such account");
+            Debug.Log("Connection declined (this endpoint already connected or there is no such account)");
                 
             SenderHelper.SendConnectionResponse(new DeclinePackage(new DeclineData())
             {

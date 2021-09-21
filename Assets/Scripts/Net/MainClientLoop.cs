@@ -94,6 +94,11 @@ namespace Net
                 {
                     var result = await udpClient.SendEventPackage(_playerScript.gameObject.name, EventType.FireEvent);
                 }
+
+                if (_playerScript.ShipsBrain.GetGrappleAction())
+                {
+                    var result = await udpClient.SendEventPackage(_playerScript.gameObject.name, EventType.GrappleEvent);
+                }
             }
             catch (Exception ex)
             {

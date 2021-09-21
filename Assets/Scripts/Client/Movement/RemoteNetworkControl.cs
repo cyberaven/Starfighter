@@ -1,7 +1,4 @@
-﻿using System;
-using Core;
-using Net.Core;
-using Net.PackageData.EventsData;
+﻿using Net.PackageData.EventsData;
 
 namespace Client.Movement
 {   
@@ -84,7 +81,9 @@ namespace Client.Movement
 
         public bool GetFireAction() => false;
 
-        public bool GetDockAction() => false;        
+        public bool GetDockAction() => false;
+        
+        public bool GetGrappleAction() => false;
         
         public void UpdateMovementActionData(MovementEventData data)
         {

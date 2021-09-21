@@ -11,6 +11,7 @@ namespace ScriptableObjects
         public float maxHp;
         public float currentHp;
         public bool isDockable;
+        public bool isMovable;
         public Vector3 position = Vector3.one;
         public Quaternion rotation = Quaternion.identity;
         public string prefabName;

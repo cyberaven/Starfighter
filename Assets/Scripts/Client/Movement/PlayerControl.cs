@@ -1,13 +1,8 @@
-﻿using System;
-using Client.Core;
-using Core;
+﻿using Core;
 using Core.InputManager;
-using Net.Core;
 using Net.PackageData.EventsData;
-using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
-using EventType = Net.Utils.EventType;
 
 namespace Client.Movement
 {   
@@ -72,6 +67,8 @@ namespace Client.Movement
         public bool GetDockAction() => Input.GetKeyDown(_keyConfig.dock);
 
         public bool GetFireAction() => Input.GetKeyDown(_keyConfig.fire);
+
+        public bool GetGrappleAction() => Input.GetKeyDown(_keyConfig.grapple);
         
         public void UpdateMovementActionData(MovementEventData data)
         {

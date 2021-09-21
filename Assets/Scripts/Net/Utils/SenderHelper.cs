@@ -29,7 +29,7 @@ namespace Net.Utils
                     ClientHandlerManager.instance.AddToPendingList(pack);
                     break;
                 case EventType.MoveEvent:
-                case EventType.TowEvent:
+                case EventType.GrappleEvent:
                 case EventType.FireEvent:
                 case EventType.HitEvent:
                 case EventType.InitEvent:

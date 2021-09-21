@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Client;
-using Client.Core;
 using Core;
 using Net.PackageData;
 using Net.PackageData.EventsData;

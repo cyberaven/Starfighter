@@ -3,12 +3,8 @@ using Client.Core;
 using Client.Movement;
 using Client.UI;
 using Core;
-using Net.Core;
-using Net.PackageData;
-using Net.Utils;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Client
 {

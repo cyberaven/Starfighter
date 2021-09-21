@@ -21,6 +21,7 @@ namespace Core.ClassExtensions
             shipConfig.maxSpeed = dto.maxSpeed;
             shipConfig.maxHp = dto.maxHp;
             shipConfig.isDockable = dto.isDockable;
+            shipConfig.isMovable = dto.isMovable;
             shipConfig.shipState = dto.shipState;
             return shipConfig;
         }
@@ -37,6 +38,7 @@ namespace Core.ClassExtensions
             unitConfig.maxSpeed = dto.maxSpeed;
             unitConfig.maxHp = dto.maxHp;
             unitConfig.isDockable = dto.isDockable;
+            unitConfig.isMovable = dto.isMovable;
             return unitConfig;
         }
     }

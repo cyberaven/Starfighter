@@ -1,9 +1,7 @@
 ﻿using System;
 using Core;
 using Core.Models;
-using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Net.PackageData
 {

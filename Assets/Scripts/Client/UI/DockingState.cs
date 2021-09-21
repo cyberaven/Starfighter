@@ -1,6 +1,4 @@
-﻿using Core;
-using Core.InputManager;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client.UI
 {

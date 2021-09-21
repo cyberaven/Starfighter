@@ -72,6 +72,7 @@
             </e>
           </e>
         </e>
+        <e p="Grappler.cs" t="Include" />
         <e p="Prefabs" t="Include">
           <e p="Luminaris Starship" t="Include">
             <e p="Documentation" t="Include">
