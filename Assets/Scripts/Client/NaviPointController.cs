@@ -39,7 +39,7 @@ namespace Client
 
             ClientEventStorage.GetInstance().SetPointEvent.Invoke(new EventData()
             {
-                data = new WorldObject(_point.name, _point.transform),
+                data = new WayPoint(_point.name, _point.transform),
                 eventType = EventType.WayPointEvent
             });
         }

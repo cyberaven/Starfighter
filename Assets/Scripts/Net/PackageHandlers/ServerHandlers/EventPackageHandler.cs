@@ -40,7 +40,7 @@ namespace Net.PackageHandlers.ServerHandlers
                         var initData = eventPack.data.data.ToString();
                         break;
                     case EventType.WayPointEvent:
-                        var wayPoint = (WorldObject) eventPack.data.data;
+                        var wayPoint = (WayPoint) eventPack.data.data;
                         NetEventStorage.GetInstance().wayPointSetted.Invoke(pack.ipAddress, wayPoint);
                         break;
                     default:

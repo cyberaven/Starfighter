@@ -128,10 +128,11 @@ namespace Net.Core
             // }
         }
 
-        private async void SendWayPointInfo(IPAddress address, WorldObject waypoint)
+        private async void SendWayPointInfo(IPAddress address, WayPoint waypoint)
         {
             var shipName = ConnectedClients.First(x => Equals(x.GetIpAddress(), address)).GetShipGOName();
             var clientToSend = ConnectedClients.First(x => Equals(x.GetShipGOName(), shipName) && !Equals(x.GetIpAddress(), address));
+            if (clientToSend is null) return;
             await clientToSend.SendPackage(new StatePackage(new StateData()
             {
                 worldState = new []{waypoint}
