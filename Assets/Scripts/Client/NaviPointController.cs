@@ -21,7 +21,7 @@ namespace Client
         
         private void OnGUI()
         {
-            if (Event.current.button == 1 && Event.current.isMouse)
+            if (Input.GetMouseButtonUp(1))
                 SetPoint(_camera.ScreenToWorldPoint(Input.mousePosition));
         }
 
