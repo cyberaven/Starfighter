@@ -33,13 +33,11 @@ namespace Net
         public TextMeshProUGUI clientCounter;
         
         private StarfighterUdpClient _multicastUdpClient;
-        private Coroutine currentCoroutine, previousCoroutine;
-        private bool isUpdating;
+        private bool _isUpdating;
         
         private new void Awake()
         {
             base.Awake();
-            NetEventStorage.GetInstance().updateWorldState.AddListener(SendWorldState);
             NetEventStorage.GetInstance().worldInit.AddListener(BeginReceiving);
             // QualitySettings.vSyncCount = 0;
             // Application.targetFrameRate = 120;
@@ -58,7 +56,6 @@ namespace Net
         private void Start()
         {
             ConfigInit();
-            // StartCoroutine(CollectWorldObjects());
         }
 
         public void BeginReceiving(int _)
@@ -81,7 +78,7 @@ namespace Net
         {
             try
             {
-                currentCoroutine = StartCoroutine(CollectWorldObjects());
+                StartCoroutine(CollectWorldObjects());
                 clientCounter.text = ClientManager.instance.ConnectedClients.Count.ToString();
             }
             catch (Exception ex)
@@ -98,16 +95,13 @@ namespace Net
         private void FixedUpdate()
         {
             Dispatcher.Instance.InvokePending();
-            
-            
-            // CollectWorldObjects();
         }
 
         private IEnumerator CollectWorldObjects()
         {
-            if(isUpdating) yield break;
+            if(_isUpdating) yield break;
             
-            isUpdating = true;
+            _isUpdating = true;
             var worldObjects = new List<WorldObject>();
             var allGameObjects = SceneManager.GetActiveScene().GetRootGameObjects()
                 .Where(obj => obj.CompareTag(Constants.DynamicTag));
@@ -142,20 +136,13 @@ namespace Net
             {
                 worldState = worldObjects.ToArray()
             });
-
-            ThreadPool.QueueUserWorkItem(q =>
-                Parallel.ForEach(ClientManager.instance.ConnectedClients,
-                    async client => await client.SendPackage(statePackage)));
-
-            isUpdating = false;
-        }
-        
-        private async void SendWorldState(StatePackage pack)
-        {
-
-
-            // StartCoroutine(CollectWorldObjects());
-            // var result = await _multicastUdpClient.SendPackageAsync(pack);
+            
+            foreach (var client in ClientManager.instance.ConnectedClients) 
+            {
+                Task.Run(() => client.SendPackage(statePackage)); 
+            }
+            
+            _isUpdating = false;
         }
         
         private void OnDestroy()

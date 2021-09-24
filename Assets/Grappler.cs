@@ -6,23 +6,25 @@ using UnityEngine;
 public class Grappler : MonoBehaviour
 {
     public GameObject owner;
-    public FixedJoint joint =null;
+    private FixedJoint joint;
+    private LineRenderer lineRenderer;
     
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
+    private void Update()
+    {
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, owner.transform.position);
+    }
+    
     private void LateUpdate()
     {
         if (!joint) return;
         Debug.unityLogger.Log($"{joint.currentForce.magnitude}:{joint.currentTorque.magnitude}");
-        // if (joint.breakForce < joint.currentForce.magnitude)
-        // {
-        //     Debug.unityLogger.Log($"JOINT BREAKS!!! {joint.breakForce}");
-        //     Destroy(joint);
-        // }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -36,12 +38,7 @@ public class Grappler : MonoBehaviour
         joint.breakForce = 100f;
         joint.autoConfigureConnectedAnchor = true;
         joint.axis = Vector3.up;
-        
-        // joint.useSpring = true;
-        // joint.spring = new JointSpring()
-        // {
-        //     spring = 100
-        // };
+
         owner.GetComponent<HingeJoint>().connectedMassScale = 1;
         Debug.unityLogger.Log(joint);
     }

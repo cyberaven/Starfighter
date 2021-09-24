@@ -53,13 +53,13 @@ namespace Core
                     {
                         case UserType.Pilot:
                         {
-                            SceneManager.LoadScene("Scenes/pilot_UI");
+                            SceneManager.LoadScene("Scenes/pilot_UI", LoadSceneMode.Single);
                             break;
                         }
 
                         case UserType.Navigator:
                         {
-                            SceneManager.LoadScene("Scenes/navi_UI");
+                            SceneManager.LoadScene("Scenes/navi_UI", LoadSceneMode.Single);
                             break;
                         }
                     }

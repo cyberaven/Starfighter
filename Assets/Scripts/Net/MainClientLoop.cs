@@ -197,8 +197,8 @@ namespace Net
                             (worldObject as SpaceShip).angularVelocity;
                         gameObject.GetComponent<PlayerScript>().shipSpeed =
                             (worldObject as SpaceShip).velocity;
-                        gameObject.GetComponent<PlayerScript>().shipConfig =
-                            (worldObject as SpaceShip).dto.ToConfig();
+                        // gameObject.GetComponent<PlayerScript>().shipConfig =
+                        //     (worldObject as SpaceShip).dto.ToConfig();
                     }
                     else
                     {
