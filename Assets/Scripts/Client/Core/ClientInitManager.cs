@@ -58,6 +58,7 @@ namespace Client.Core
             FindObjectOfType<CourseView>()?.Init(ps);
             FindObjectOfType<RotationScript>()?.Init(ps);
             FindObjectOfType<MenuButton>().PauseMenuUI = FindObjectOfType<PauseMenu>().gameObject;
+            FindObjectOfType<ScannerScript>()?.Init(ps);
         }
     }
 }
