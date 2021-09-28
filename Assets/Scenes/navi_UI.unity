@@ -542,8 +542,9 @@ GameObject:
   m_Component:
   - component: {fileID: 396738532}
   - component: {fileID: 396738533}
+  - component: {fileID: 396738534}
   m_Layer: 5
-  m_Name: stressSlider
+  m_Name: StressSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -622,6 +623,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &396738534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396738531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662ca533e7e432741a5643729dd608fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 100
 --- !u!1 &470640996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,12 +1344,12 @@ PrefabInstance:
     - target: {fileID: 45385467432606247, guid: 972bf1e5a1e06ba4384913243daf711f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -124.8
+      value: -124.79999
       objectReference: {fileID: 0}
     - target: {fileID: 45385467432606247, guid: 972bf1e5a1e06ba4384913243daf711f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.78
+      value: -16.78003
       objectReference: {fileID: 0}
     - target: {fileID: 45385467432606247, guid: 972bf1e5a1e06ba4384913243daf711f,
         type: 3}
